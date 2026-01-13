@@ -1,0 +1,90 @@
+# My Best Odds - Git Ignore
+# ==========================
+
+# Environment variables (IMPORTANT: Contains API keys!)
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Data files (subscriber configs may contain sensitive info)
+data/subscribers/**/
+*.csv
+*.xlsx
+*.json
+!requirements.json
+!package.json
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+~*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ngrok
+ngrok.exe
+ngrok.yml
+
+# API keys and credentials
+*_credentials.json
+*_secret.json
+secrets/
+
+# Test outputs
+test_output/
+debug/
+
+# Prediction outputs (can be large)
+DELIVERY/
+output/
+forecasts/
+*.forecast.csv
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
