@@ -651,9 +651,13 @@ def generate_predictions_from_inline_data(subscriber_id: str, dob: str, kit: str
             # Look for recent prediction files
             predictions = {}
             
-            # For BOOK3 kit, look for Cash3/Cash4 predictions
-            if kit == "BOOK3":
-                # Find latest forecast files
+            # BOOK3 kit: Cash3 + Cash4 + Jackpots (with MMFSN)
+            # BOOK kit: Cash3 + Cash4 + Jackpots (NO MMFSN)
+            # BOSK kit: Cash3 + Cash4 only (no jackpots)
+            
+            # Parse daily games (Cash3/Cash4) for ALL kits
+            if kit in ["BOOK3", "BOOK", "BOSK"]:
+                # Daily games: Cash3 and Cash4
                 for game in ["cash3", "cash4"]:
                     pattern = f"*{game}*.csv"
                     files = []
@@ -679,6 +683,50 @@ def generate_predictions_from_inline_data(subscriber_id: str, dob: str, kit: str
                                 })
                         
                         predictions[game.upper()] = game_predictions[:10]  # Top 10 predictions
+            
+            # Parse jackpot games for BOOK3 and BOOK
+            if kit in ["BOOK3", "BOOK"]:
+                # Jackpot games: MegaMillions, Powerball, Cash4Life
+                jackpot_games = {
+                    "megamillions": "MEGAMILLIONS",
+                    "powerball": "POWERBALL", 
+                    "cash4life": "CASH4LIFE"
+                }
+                
+                for game_key, game_name in jackpot_games.items():
+                    files = []
+                    for root, dirs, filenames in os.walk(delivery_dir):
+                        for filename in filenames:
+                            if filename.lower().endswith(('.csv', '.json')) and game_key in filename.lower():
+                                files.append(os.path.join(root, filename))
+                    
+                    if files:
+                        # Get most recent file
+                        latest_file = max(files, key=os.path.getmtime)
+                        
+                        # Parse predictions (CSV or JSON format)
+                        game_predictions = []
+                        if latest_file.endswith('.json'):
+                            with open(latest_file, 'r') as f:
+                                jackpot_data = json.load(f)
+                                # Extract predictions from JSON structure
+                                if isinstance(jackpot_data, dict) and 'predictions' in jackpot_data:
+                                    game_predictions = jackpot_data['predictions'][:5]  # Top 5 for jackpots
+                                elif isinstance(jackpot_data, list):
+                                    game_predictions = jackpot_data[:5]
+                        else:  # CSV format
+                            import csv
+                            with open(latest_file, 'r') as csvfile:
+                                reader = csv.DictReader(csvfile)
+                                for row in reader:
+                                    game_predictions.append({
+                                        "number": row.get('candidate', row.get('number', '')),
+                                        "confidence": float(row.get('confidence', 0)),
+                                        "band": row.get('band', 'YELLOW')
+                                    })
+                        
+                        if game_predictions:
+                            predictions[game_name] = game_predictions[:5]  # Top 5 jackpot predictions
             
             # Clean up temp file
             if os.path.exists(temp_file_path):
