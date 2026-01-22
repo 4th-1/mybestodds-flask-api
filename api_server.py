@@ -36,23 +36,27 @@ from base44_integration import Base44Client
 from twilio_integration import TwilioClient
 
 # Import prediction engines
-from triple_prediction_engine_v1 import TriplePredictionEngine
-from quad_prediction_engine_v1 import QuadPredictionEngine
-from enrich_with_overlays import calculate_moon_phase, calculate_planetary_hour
+# TEMPORARILY DISABLED - these files not in GitHub repo yet
+# from triple_prediction_engine_v1 import TriplePredictionEngine
+# from quad_prediction_engine_v1 import QuadPredictionEngine
+# from enrich_with_overlays import calculate_moon_phase, calculate_planetary_hour
 
 # Initialize Base44 client (will use env variables)
 base44 = Base44Client()
 twilio = TwilioClient()
 
 # Initialize prediction engines
-try:
-    triple_engine = TriplePredictionEngine()
-    quad_engine = QuadPredictionEngine()
-    logger.info("Triple and Quad engines initialized successfully")
-except Exception as e:
-    logger.error(f"Error initializing prediction engines: {e}")
-    triple_engine = None
-    quad_engine = None
+# TEMPORARILY DISABLED - files not in repo
+triple_engine = None
+quad_engine = None
+# try:
+#     triple_engine = TriplePredictionEngine()
+#     quad_engine = QuadPredictionEngine()
+#     logger.info("Triple and Quad engines initialized successfully")
+# except Exception as e:
+#     logger.error(f"Error initializing prediction engines: {e}")
+#     triple_engine = None
+#     quad_engine = None
 
 # Configuration
 SUBSCRIBERS_DIR = os.path.join(PROJECT_ROOT, "data", "subscribers")
@@ -85,40 +89,54 @@ def get_all_subscribers() -> List[Dict]:
 
 def get_overlay_conditions(date: datetime) -> Dict:
     """Calculate astronomical overlay conditions for a given date"""
-    if triple_engine is None:
-        return {}
-    
-    moon_phase, moon_illum = calculate_moon_phase(date)
-    
-    moon_modifiers = {
-        "NEW": 1.25, "WAXING_CRESCENT": 1.1, "FIRST_QUARTER": 1.15,
-        "WAXING_GIBBOUS": 1.1, "FULL": 1.30, "WANING_GIBBOUS": 1.05,
-        "LAST_QUARTER": 1.1, "WANING_CRESCENT": 1.0
-    }
-    
-    planetary_modifiers = {
-        "Sun": 1.20, "Moon": 1.15, "Mercury": 1.10, "Venus": 1.15,
-        "Mars": 1.10, "Jupiter": 1.40, "Saturn": 0.95
-    }
-    
-    midday_planet = calculate_planetary_hour(date, "MIDDAY")
-    evening_planet = calculate_planetary_hour(date, "EVENING")
-    
-    moon_mod = moon_modifiers[moon_phase]
-    midday_mod = planetary_modifiers[midday_planet]
-    evening_mod = planetary_modifiers[evening_planet]
-    
+    # TEMPORARILY DISABLED - dependencies not in repo
     return {
-        "moon_phase": moon_phase,
-        "moon_illumination": round(moon_illum, 3),
-        "moon_modifier": moon_mod,
-        "midday_planet": midday_planet,
-        "midday_modifier": midday_mod,
-        "evening_planet": evening_planet,
-        "evening_modifier": evening_mod,
-        "midday_combined_score": round(moon_mod * midday_mod, 3),
-        "evening_combined_score": round(moon_mod * evening_mod, 3)
+        "moon_phase": "BASELINE",
+        "moon_illumination": 0.5,
+        "moon_modifier": 1.0,
+        "midday_planet": "Sun",
+        "midday_modifier": 1.0,
+        "evening_planet": "Moon", 
+        "evening_modifier": 1.0,
+        "midday_combined_score": 1.0,
+        "evening_combined_score": 1.0
     }
+    
+    # Original code disabled until triple_prediction_engine_v1 added to repo
+    # if triple_engine is None:
+    #     return {}
+    # 
+    # moon_phase, moon_illum = calculate_moon_phase(date)
+    # 
+    # moon_modifiers = {
+    #     "NEW": 1.25, "WAXING_CRESCENT": 1.1, "FIRST_QUARTER": 1.15,
+    #     "WAXING_GIBBOUS": 1.1, "FULL": 1.30, "WANING_GIBBOUS": 1.05,
+    #     "LAST_QUARTER": 1.1, "WANING_CRESCENT": 1.0
+    # }
+    # 
+    # planetary_modifiers = {
+    #     "Sun": 1.20, "Moon": 1.15, "Mercury": 1.10, "Venus": 1.15,
+    #     "Mars": 1.10, "Jupiter": 1.40, "Saturn": 0.95
+    # }
+    # 
+    # midday_planet = calculate_planetary_hour(date, "MIDDAY")
+    # evening_planet = calculate_planetary_hour(date, "EVENING")
+    # 
+    # moon_mod = moon_modifiers[moon_phase]
+    # midday_mod = planetary_modifiers[midday_planet]
+    # evening_mod = planetary_modifiers[evening_planet]
+    # 
+    # return {
+    #     "moon_phase": moon_phase,
+    #     "moon_illumination": round(moon_illum, 3),
+    #     "moon_modifier": moon_mod,
+    #     "midday_planet": midday_planet,
+    #     "midday_modifier": midday_mod,
+    #     "evening_planet": evening_planet,
+    #     "evening_modifier": evening_mod,
+    #     "midday_combined_score": round(moon_mod * midday_mod, 3),
+    #     "evening_combined_score": round(moon_mod * evening_mod, 3)
+    # }
 
 
 @app.route('/api/triples/predict', methods=['GET'])
