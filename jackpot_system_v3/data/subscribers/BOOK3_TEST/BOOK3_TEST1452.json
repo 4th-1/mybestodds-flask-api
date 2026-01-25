@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST1452",
+  "kit_type": "BOOK3",
+  "dob": "1977-03-10",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jonathan",
+    "last_name": "Miller",
+    "birth_date": "1977-03-10",
+    "birth_city": "San Buenaventura",
+    "birth_state": "California",
+    "birth_time": "19:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "234",
+          "628",
+          "155",
+          "052",
+          "366"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3676",
+          "0150",
+          "9632"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          16,
+          24,
+          36,
+          60,
+          67
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          38,
+          52,
+          60,
+          63,
+          65
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          22,
+          30,
+          42,
+          59
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

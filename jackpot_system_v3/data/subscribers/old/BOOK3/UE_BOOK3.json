@@ -1,0 +1,36 @@
+{
+  "name": "Uma Ellison",
+  "initials": "UE",
+  "dob": "1980-06-17",
+  "tob": "16:42",
+  "pob": "Denver, CO",
+  "astrology": {
+    "western": {
+      "sun": "Leo",
+      "moon": "Cancer",
+      "rising": "Virgo"
+    },
+    "vedic": {
+      "sun": "Simha",
+      "moon": "Karka",
+      "ascendant": "Kanya"
+    }
+  },
+  "mmfsn_cash3": "7297",
+  "mmfsn_cash4": "8601",
+  "submitted_numbers_cash3": [
+    9,
+    3,
+    8
+  ],
+  "submitted_numbers_cash4": [
+    7,
+    1,
+    1,
+    9
+  ],
+  "kit": "BOOK3",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "timezone": "UTC-05"
+}

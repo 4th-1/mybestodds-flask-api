@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0036",
+  "kit_type": "BOOK3",
+  "dob": "1986-04-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joseph",
+    "last_name": "Perez",
+    "birth_date": "1986-04-06",
+    "birth_time": "00:51",
+    "birth_city": "Kansas City",
+    "birth_state": "Missouri"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "646,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          23,
+          25,
+          37,
+          65,
+          68
+        ],
+        "mega_ball": [
+          22,
+          9
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          8,
+          16,
+          22,
+          52,
+          56
+        ],
+        "power_ball": [
+          14,
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          16,
+          19,
+          23,
+          32,
+          35
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

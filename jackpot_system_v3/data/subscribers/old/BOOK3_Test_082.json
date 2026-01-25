@@ -1,0 +1,43 @@
+{
+  "name": "Jamie Rodriguez",
+  "first_name": "Jamie",
+  "last_name": "Rodriguez",
+  "initials": "JRO",
+  "gender": "F",
+  "dob": "1993-01-02",
+  "tob": "17:55",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "777",
+      "141",
+      "923",
+      "838",
+      "867"
+    ],
+    "Cash4": [
+      "6617",
+      "8214",
+      "8911"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "777",
+    "141",
+    "923",
+    "838",
+    "867"
+  ],
+  "cash4_personal_numbers": [
+    "6617",
+    "8214",
+    "8911"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

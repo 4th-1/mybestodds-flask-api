@@ -1,0 +1,36 @@
+{
+  "name": "Quinn Taylor",
+  "subscriber_initials": "QT",
+  "dob": "1998-12-06",
+  "pob": "Augusta, GA",
+  "tob": "23:00",
+  "email": "book3_test_067@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 12,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "747"
+    ],
+    "Cash4": [
+      "7560",
+      "2760",
+      "7207"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

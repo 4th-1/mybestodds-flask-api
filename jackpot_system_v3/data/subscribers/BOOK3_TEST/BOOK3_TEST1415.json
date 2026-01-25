@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1415",
+  "kit_type": "BOOK3",
+  "dob": "1965-09-13",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Andrew",
+    "last_name": "Gutierrez",
+    "birth_date": "1965-09-13",
+    "birth_city": "Bridgeport",
+    "birth_state": "Connecticut",
+    "birth_time": "20:35"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "823",
+          "743",
+          "098",
+          "367"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6798",
+          "9712",
+          "8331"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          19,
+          26,
+          42,
+          57
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          44,
+          51,
+          57,
+          62,
+          64
+        ],
+        "power_ball": [
+          13
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          18,
+          26,
+          33,
+          37,
+          50
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

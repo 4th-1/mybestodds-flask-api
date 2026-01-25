@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0425",
+  "kit_type": "BOOK3",
+  "dob": "1972-07-03",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Austin",
+    "last_name": "Graham",
+    "birth_date": "1972-07-03",
+    "birth_city": "Madison",
+    "birth_state": "Wisconsin",
+    "birth_time": "01:30"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "775",
+          "699",
+          "964"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3620",
+          "6768",
+          "2120"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          36,
+          39,
+          42,
+          48,
+          56
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          16,
+          35,
+          47,
+          69
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          17,
+          34,
+          47,
+          53
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Quinn Miller",
+  "subscriber_initials": "QM",
+  "dob": "1984-07-10",
+  "pob": "Atlanta, GA",
+  "tob": "22:15",
+  "email": "bosk_test_004@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 7,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [
+      "3460",
+      "3465",
+      "6669"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

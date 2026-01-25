@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0717",
+  "kit_type": "BOOK3",
+  "dob": "1963-03-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Virginia",
+    "last_name": "Allen",
+    "birth_date": "1963-03-25",
+    "birth_city": "Plano",
+    "birth_state": "Texas",
+    "birth_time": "12:58"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "871",
+          "459"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5579",
+          "6049",
+          "7566"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          22,
+          32,
+          35,
+          57,
+          61
+        ],
+        "mega_ball": [
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          10,
+          41,
+          53,
+          63
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          14,
+          28,
+          43,
+          46
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

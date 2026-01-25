@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0053",
+  "kit_type": "BOOK3",
+  "dob": "1998-01-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Judith",
+    "last_name": "Parker",
+    "birth_date": "1998-01-06",
+    "birth_city": "South Bend",
+    "birth_state": "Indiana",
+    "birth_time": "08:28"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "611"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3694",
+          "9762"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          23,
+          31,
+          45,
+          47,
+          67
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          21,
+          28,
+          33,
+          64
+        ],
+        "power_ball": [
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          26,
+          46,
+          55,
+          56
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

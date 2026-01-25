@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0031",
+  "kit_type": "BOOK3",
+  "dob": "1988-12-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Gregory",
+    "last_name": "Nguyen",
+    "birth_date": "1988-12-24",
+    "birth_city": "Palm Bay",
+    "birth_state": "Florida",
+    "birth_time": "15:47"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "908",
+          "761"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5433",
+          "3639"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          28,
+          51,
+          60,
+          64
+        ],
+        "mega_ball": [
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          10,
+          12,
+          22,
+          65
+        ],
+        "power_ball": [
+          14
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          9,
+          13,
+          31,
+          48
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

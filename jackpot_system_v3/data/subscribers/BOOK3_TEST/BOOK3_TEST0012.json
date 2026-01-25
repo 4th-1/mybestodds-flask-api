@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0012",
+  "kit_type": "BOOK3",
+  "dob": "1976-12-22",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Diane",
+    "last_name": "Morris",
+    "birth_date": "1976-12-22",
+    "birth_city": "Visalia",
+    "birth_state": "California",
+    "birth_time": "06:40"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "908",
+          "971",
+          "736",
+          "704"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4631",
+          "7684"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          26,
+          31,
+          33,
+          40,
+          68
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          18,
+          32,
+          49,
+          55
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          18,
+          41,
+          45,
+          51,
+          56
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

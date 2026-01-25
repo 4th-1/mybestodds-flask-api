@@ -1,0 +1,43 @@
+{
+  "name": "Rowan Thompson",
+  "first_name": "Rowan",
+  "last_name": "Thompson",
+  "initials": "RTH",
+  "gender": "F",
+  "dob": "1967-08-22",
+  "tob": "16:45",
+  "pob": "Chicago, IL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "661",
+      "832",
+      "339",
+      "331",
+      "314"
+    ],
+    "Cash4": [
+      "1969",
+      "1731",
+      "9339"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "661",
+    "832",
+    "339",
+    "331",
+    "314"
+  ],
+  "cash4_personal_numbers": [
+    "1969",
+    "1731",
+    "9339"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

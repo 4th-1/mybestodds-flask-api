@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0148",
+  "kit_type": "BOOK3",
+  "dob": "1996-04-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Noah",
+    "last_name": "Cooper",
+    "birth_date": "1996-04-24",
+    "birth_city": "Fargo",
+    "birth_state": "North Dakota",
+    "birth_time": "23:57"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "263",
+          "925",
+          "612",
+          "881",
+          "928"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4848",
+          "3674",
+          "0024"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          33,
+          34,
+          46,
+          61
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          12,
+          17,
+          25,
+          52
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          5,
+          6,
+          19,
+          31
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

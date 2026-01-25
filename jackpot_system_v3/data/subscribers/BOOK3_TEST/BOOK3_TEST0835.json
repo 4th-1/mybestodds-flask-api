@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0835",
+  "kit_type": "BOOK3",
+  "dob": "1975-01-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Frances",
+    "last_name": "Lopez",
+    "birth_date": "1975-01-04",
+    "birth_city": "Midland",
+    "birth_state": "Texas",
+    "birth_time": "01:01"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "044",
+          "395",
+          "561"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1655",
+          "4625",
+          "1230"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          8,
+          25,
+          49,
+          60
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          17,
+          37,
+          48,
+          56,
+          62
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          44,
+          48,
+          52,
+          55
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

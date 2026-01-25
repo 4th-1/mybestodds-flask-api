@@ -1,0 +1,43 @@
+{
+  "name": "Rowan Martin",
+  "first_name": "Rowan",
+  "last_name": "Martin",
+  "initials": "RMA",
+  "gender": "M",
+  "dob": "1968-12-07",
+  "tob": "02:15",
+  "pob": "New Orleans, LA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "340",
+      "906",
+      "087",
+      "298",
+      "379"
+    ],
+    "Cash4": [
+      "7483",
+      "9190",
+      "5585"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "340",
+    "906",
+    "087",
+    "298",
+    "379"
+  ],
+  "cash4_personal_numbers": [
+    "7483",
+    "9190",
+    "5585"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

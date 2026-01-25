@@ -1,0 +1,43 @@
+{
+  "name": "Cameron Thompson",
+  "first_name": "Cameron",
+  "last_name": "Thompson",
+  "initials": "CTH",
+  "gender": "M",
+  "dob": "1977-04-25",
+  "tob": "16:35",
+  "pob": "Chicago, IL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "897",
+      "028",
+      "611",
+      "930",
+      "694"
+    ],
+    "Cash4": [
+      "3524",
+      "0611",
+      "0023"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "897",
+    "028",
+    "611",
+    "930",
+    "694"
+  ],
+  "cash4_personal_numbers": [
+    "3524",
+    "0611",
+    "0023"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

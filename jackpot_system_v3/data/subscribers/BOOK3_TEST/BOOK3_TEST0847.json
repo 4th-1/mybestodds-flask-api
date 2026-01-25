@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0847",
+  "kit_type": "BOOK3",
+  "dob": "1989-09-22",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Dorothy",
+    "last_name": "Griffin",
+    "birth_date": "1989-09-22",
+    "birth_city": "Waco",
+    "birth_state": "Texas",
+    "birth_time": "10:23"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "356",
+          "771"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2353",
+          "4788",
+          "5612"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          19,
+          24,
+          49,
+          57
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          21,
+          36,
+          48,
+          60,
+          67
+        ],
+        "power_ball": [
+          18
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          36,
+          37,
+          48,
+          50
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

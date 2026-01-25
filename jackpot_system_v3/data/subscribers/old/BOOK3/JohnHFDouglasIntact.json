@@ -1,0 +1,30 @@
+{
+  "name": "John H. F. Douglas",
+  "subscriber_initials": "JFD",
+  "dob": "1970-11-27",
+  "pob": "Florence, SC",
+  "tob": "12:30",
+  "email": "fadeologist@me.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [
+      "831",
+      "721",
+      "271",
+      "127"
+    ],
+    "Cash4": [
+      "1127"
+    ]
+  },
+  "cohort": "PILOT07",
+  "birth_month": 11,
+  "kit": "BOOK3",
+  "initials": "JO"
+}

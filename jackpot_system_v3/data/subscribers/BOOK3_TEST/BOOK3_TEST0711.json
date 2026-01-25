@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0711",
+  "kit_type": "BOOK3",
+  "dob": "1980-10-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Betty",
+    "last_name": "Jones",
+    "birth_date": "1980-10-27",
+    "birth_city": "Lincoln",
+    "birth_state": "Nebraska",
+    "birth_time": "14:16"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "888"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6136",
+          "0477",
+          "2735"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          26,
+          33,
+          52,
+          63
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          19,
+          21,
+          46,
+          55,
+          65
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          21,
+          30,
+          49,
+          55
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

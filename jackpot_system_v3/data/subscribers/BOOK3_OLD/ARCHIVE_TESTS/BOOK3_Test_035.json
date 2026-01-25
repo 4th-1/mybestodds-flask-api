@@ -1,0 +1,38 @@
+{
+  "name": "Skyler Miller",
+  "subscriber_initials": "SM",
+  "dob": "2001-02-03",
+  "pob": "Columbus, GA",
+  "tob": "12:15",
+  "email": "book3_test_035@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 2,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "315",
+      "854",
+      "693",
+      "890"
+    ],
+    "Cash4": [
+      "2184",
+      "4999"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

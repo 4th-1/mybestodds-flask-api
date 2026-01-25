@@ -1,0 +1,43 @@
+{
+  "name": "Drew Brown",
+  "first_name": "Drew",
+  "last_name": "Brown",
+  "initials": "DBR",
+  "gender": "M",
+  "dob": "1966-09-10",
+  "tob": "07:40",
+  "pob": "Charlotte, NC",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "214",
+      "769",
+      "104",
+      "667",
+      "408"
+    ],
+    "Cash4": [
+      "4216",
+      "1491",
+      "8880"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "214",
+    "769",
+    "104",
+    "667",
+    "408"
+  ],
+  "cash4_personal_numbers": [
+    "4216",
+    "1491",
+    "8880"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

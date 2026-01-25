@@ -1,0 +1,43 @@
+{
+  "name": "Devon Taylor",
+  "first_name": "Devon",
+  "last_name": "Taylor",
+  "initials": "DTA",
+  "gender": "F",
+  "dob": "1990-03-25",
+  "tob": "06:05",
+  "pob": "Houston, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "355",
+      "787",
+      "847",
+      "672",
+      "704"
+    ],
+    "Cash4": [
+      "6922",
+      "8474",
+      "6471"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "355",
+    "787",
+    "847",
+    "672",
+    "704"
+  ],
+  "cash4_personal_numbers": [
+    "6922",
+    "8474",
+    "6471"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

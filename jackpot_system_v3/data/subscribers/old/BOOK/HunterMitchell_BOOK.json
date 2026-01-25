@@ -1,0 +1,22 @@
+{
+  "name": "Hunter Mitchell",
+  "initials": "HM",
+  "dob": "1967-03-27",
+  "pob": "Davidville, MI",
+  "tob": "12:59",
+  "email": "jody34@yahoo.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

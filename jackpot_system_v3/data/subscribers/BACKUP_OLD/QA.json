@@ -1,0 +1,36 @@
+{
+  "name": "Quentin Adams",
+  "initials": "QA",
+  "dob": "1968-03-11",
+  "tob": "19:06",
+  "pob": "Atlanta, GA",
+  "astrology": {
+    "western": {
+      "sun": "Leo",
+      "moon": "Cancer",
+      "rising": "Virgo"
+    },
+    "vedic": {
+      "sun": "Simha",
+      "moon": "Karka",
+      "ascendant": "Kanya"
+    }
+  },
+  "mmfsn_cash3": "3725",
+  "mmfsn_cash4": "8725",
+  "submitted_numbers_cash3": [
+    4,
+    0,
+    7
+  ],
+  "submitted_numbers_cash4": [
+    4,
+    2,
+    4,
+    2
+  ],
+  "kit": "BOOK3",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "timezone": "UTC-05"
+}

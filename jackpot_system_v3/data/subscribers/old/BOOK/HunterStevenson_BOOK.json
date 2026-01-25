@@ -1,0 +1,22 @@
+{
+  "name": "Hunter Stevenson",
+  "initials": "HS",
+  "dob": "1980-04-29",
+  "pob": "West Edwin, CA",
+  "tob": "02:53",
+  "email": "jeffreyzhang@cardenas.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

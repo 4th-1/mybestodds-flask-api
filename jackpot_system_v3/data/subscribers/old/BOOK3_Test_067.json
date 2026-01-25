@@ -1,0 +1,43 @@
+{
+  "name": "Hayden Robinson",
+  "first_name": "Hayden",
+  "last_name": "Robinson",
+  "initials": "HRO",
+  "gender": "F",
+  "dob": "1973-11-29",
+  "tob": "09:50",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "958",
+      "592",
+      "806",
+      "881",
+      "565"
+    ],
+    "Cash4": [
+      "4589",
+      "6400",
+      "3167"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "958",
+    "592",
+    "806",
+    "881",
+    "565"
+  ],
+  "cash4_personal_numbers": [
+    "4589",
+    "6400",
+    "3167"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

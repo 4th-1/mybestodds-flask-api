@@ -1,0 +1,43 @@
+{
+  "name": "Emerson Brown",
+  "first_name": "Emerson",
+  "last_name": "Brown",
+  "initials": "EBR",
+  "gender": "F",
+  "dob": "1992-02-25",
+  "tob": "11:25",
+  "pob": "Seattle, WA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "685",
+      "883",
+      "429",
+      "900",
+      "994"
+    ],
+    "Cash4": [
+      "4904",
+      "1835",
+      "7565"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "685",
+    "883",
+    "429",
+    "900",
+    "994"
+  ],
+  "cash4_personal_numbers": [
+    "4904",
+    "1835",
+    "7565"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

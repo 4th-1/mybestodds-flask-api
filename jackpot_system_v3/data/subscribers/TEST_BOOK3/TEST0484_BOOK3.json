@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0484",
+  "kit_type": "BOOK3",
+  "dob": "1952-05-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Susan",
+    "last_name": "Martinez",
+    "birth_date": "1952-05-17",
+    "birth_time": "11:36",
+    "birth_city": "Maryland City 9",
+    "birth_state": "Maryland"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "752,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          13,
+          17,
+          38,
+          60
+        ],
+        "mega_ball": [
+          24,
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          28,
+          48,
+          54,
+          57,
+          65
+        ],
+        "power_ball": [
+          3,
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          9,
+          27,
+          40,
+          42
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

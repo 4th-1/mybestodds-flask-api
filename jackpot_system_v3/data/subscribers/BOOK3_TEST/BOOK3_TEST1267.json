@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1267",
+  "kit_type": "BOOK3",
+  "dob": "1964-08-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Justin",
+    "last_name": "Ross",
+    "birth_date": "1964-08-18",
+    "birth_city": "Torrance",
+    "birth_state": "California",
+    "birth_time": "15:24"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "149",
+          "722",
+          "905",
+          "299"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7048"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          34,
+          51,
+          58,
+          60,
+          65
+        ],
+        "mega_ball": [
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          15,
+          20,
+          25,
+          36
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          18,
+          21,
+          24,
+          30,
+          48
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

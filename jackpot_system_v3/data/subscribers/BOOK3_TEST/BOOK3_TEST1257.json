@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1257",
+  "kit_type": "BOOK3",
+  "dob": "1977-04-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Mark",
+    "last_name": "Young",
+    "birth_date": "1977-04-14",
+    "birth_city": "Joliet",
+    "birth_state": "Illinois",
+    "birth_time": "21:10"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "176",
+          "329",
+          "550",
+          "829"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6184",
+          "7449"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          17,
+          21,
+          41,
+          44,
+          55
+        ],
+        "mega_ball": [
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          38,
+          46,
+          62,
+          69
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          6,
+          9,
+          36,
+          40
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

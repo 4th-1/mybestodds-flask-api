@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1391",
+  "kit_type": "BOOK3",
+  "dob": "1962-11-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Karen",
+    "last_name": "Myers",
+    "birth_date": "1962-11-05",
+    "birth_city": "Round Rock",
+    "birth_state": "Texas",
+    "birth_time": "13:40"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "813",
+          "631",
+          "978",
+          "650"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8732",
+          "6560"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          10,
+          33,
+          42,
+          46
+        ],
+        "mega_ball": [
+          2
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          16,
+          23,
+          32,
+          43,
+          45
+        ],
+        "power_ball": [
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          23,
+          26,
+          29,
+          56
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

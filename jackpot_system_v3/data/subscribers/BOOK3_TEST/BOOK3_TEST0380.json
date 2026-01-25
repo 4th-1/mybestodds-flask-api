@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0380",
+  "kit_type": "BOOK3",
+  "dob": "1979-07-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sharon",
+    "last_name": "Brown",
+    "birth_date": "1979-07-24",
+    "birth_city": "Dallas",
+    "birth_state": "Texas",
+    "birth_time": "18:52"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "962",
+          "042",
+          "849"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6761"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          35,
+          39,
+          51,
+          57,
+          70
+        ],
+        "mega_ball": [
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          19,
+          28,
+          53,
+          68
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          16,
+          29,
+          35,
+          40
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

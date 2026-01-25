@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0186",
+  "kit_type": "BOOK3",
+  "dob": "1988-11-03",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ashley",
+    "last_name": "King",
+    "birth_date": "1988-11-03",
+    "birth_city": "Roseville",
+    "birth_state": "California",
+    "birth_time": "14:06"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "611",
+          "362",
+          "645",
+          "843"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4675"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          22,
+          29,
+          30,
+          57,
+          58
+        ],
+        "mega_ball": [
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          12,
+          14,
+          28,
+          57
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          29,
+          39,
+          54,
+          60
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

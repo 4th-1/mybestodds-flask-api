@@ -1,0 +1,42 @@
+{
+  "subscriber_id": "BOOK_TEST0908",
+  "kit_type": "BOOK",
+  "dob": "1982-01-12",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Raymond",
+    "last_name": "Walker",
+    "birth_date": "1982-01-12",
+    "birth_city": "Knoxville",
+    "birth_state": "Tennessee",
+    "birth_time": "23:37"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

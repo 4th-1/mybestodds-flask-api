@@ -1,0 +1,22 @@
+{
+  "name": "Kevin Arias",
+  "initials": "KA",
+  "dob": "1978-08-04",
+  "pob": "South Andreahaven, MO",
+  "tob": "04:25",
+  "email": "brianjones@hotmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

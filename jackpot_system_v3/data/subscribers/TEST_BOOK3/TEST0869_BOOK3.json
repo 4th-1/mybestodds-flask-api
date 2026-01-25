@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0869",
+  "kit_type": "BOOK3",
+  "dob": "1978-09-22",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Daniel",
+    "last_name": "Thompson",
+    "birth_date": "1978-09-22",
+    "birth_time": "20:51",
+    "birth_city": "Rhode Island City 14",
+    "birth_state": "Rhode Island"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "298,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          41,
+          43,
+          45,
+          61,
+          62
+        ],
+        "mega_ball": [
+          16,
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          14,
+          20,
+          39,
+          41,
+          68
+        ],
+        "power_ball": [
+          22,
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          10,
+          50,
+          56,
+          59
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

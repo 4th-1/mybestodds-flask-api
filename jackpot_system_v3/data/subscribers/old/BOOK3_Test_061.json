@@ -1,0 +1,43 @@
+{
+  "name": "Alex Miller",
+  "first_name": "Alex",
+  "last_name": "Miller",
+  "initials": "AMI",
+  "gender": "F",
+  "dob": "1988-03-27",
+  "tob": "14:05",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "107",
+      "881",
+      "025",
+      "948",
+      "660"
+    ],
+    "Cash4": [
+      "2501",
+      "1472",
+      "4396"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "107",
+    "881",
+    "025",
+    "948",
+    "660"
+  ],
+  "cash4_personal_numbers": [
+    "2501",
+    "1472",
+    "4396"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

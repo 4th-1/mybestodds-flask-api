@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0738",
+  "kit_type": "BOOK3",
+  "dob": "1994-02-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Kevin",
+    "last_name": "Hill",
+    "birth_date": "1994-02-14",
+    "birth_city": "Omaha",
+    "birth_state": "Nebraska",
+    "birth_time": "06:00"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "354",
+          "239",
+          "740"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3632",
+          "4622",
+          "2148"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          21,
+          36,
+          51,
+          61
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          2,
+          6,
+          27,
+          64
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          26,
+          38,
+          41,
+          50
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0426",
+  "kit_type": "BOOK3",
+  "dob": "1964-11-10",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jonathan",
+    "last_name": "Wilson",
+    "birth_date": "1964-11-10",
+    "birth_city": "Austin",
+    "birth_state": "Texas",
+    "birth_time": "02:56"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "505",
+          "000",
+          "229",
+          "012",
+          "199"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3563",
+          "9232"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          22,
+          39,
+          44,
+          49
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          8,
+          21,
+          44,
+          47,
+          48
+        ],
+        "power_ball": [
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          25,
+          28,
+          36,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

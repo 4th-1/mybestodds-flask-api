@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0734",
+  "kit_type": "BOOK3",
+  "dob": "1960-01-12",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Peter",
+    "last_name": "Sullivan",
+    "birth_date": "1960-01-12",
+    "birth_city": "Indianapolis",
+    "birth_state": "Indiana",
+    "birth_time": "02:27"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "418",
+          "209"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1417",
+          "4386",
+          "7311"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          22,
+          32,
+          44,
+          52,
+          69
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          19,
+          26,
+          58,
+          64
+        ],
+        "power_ball": [
+          18
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          20,
+          34,
+          44,
+          57
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

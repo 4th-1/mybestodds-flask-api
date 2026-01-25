@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1060",
+  "kit_type": "BOOK3",
+  "dob": "1963-11-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Susan",
+    "last_name": "Hayes",
+    "birth_date": "1963-11-27",
+    "birth_city": "Sunnyvale",
+    "birth_state": "California",
+    "birth_time": "19:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "552",
+          "437"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0896",
+          "8819"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          22,
+          31,
+          41,
+          59
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          29,
+          40,
+          50,
+          65
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          37,
+          49,
+          53,
+          55,
+          57
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

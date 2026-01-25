@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1435",
+  "kit_type": "BOOK3",
+  "dob": "1962-04-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Rachel",
+    "last_name": "Martin",
+    "birth_date": "1962-04-07",
+    "birth_city": "Port St. Lucie",
+    "birth_state": "Florida",
+    "birth_time": "04:08"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "655",
+          "817",
+          "001",
+          "746",
+          "350"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0261"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          23,
+          30,
+          52,
+          54
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          25,
+          26,
+          52,
+          68
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          32,
+          37,
+          56,
+          60
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0979",
+  "kit_type": "BOOK3",
+  "dob": "1984-08-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Elizabeth",
+    "last_name": "Hernandez",
+    "birth_date": "1984-08-25",
+    "birth_time": "23:29",
+    "birth_city": "Vermont City 4",
+    "birth_state": "Vermont"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "584,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          24,
+          35,
+          41,
+          52,
+          58
+        ],
+        "mega_ball": [
+          2,
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          35,
+          39,
+          49,
+          69
+        ],
+        "power_ball": [
+          23,
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          15,
+          33,
+          44,
+          48
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

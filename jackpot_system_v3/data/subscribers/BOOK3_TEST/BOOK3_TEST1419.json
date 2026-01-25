@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1419",
+  "kit_type": "BOOK3",
+  "dob": "1963-08-12",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Michael",
+    "last_name": "West",
+    "birth_date": "1963-08-12",
+    "birth_city": "Norwalk",
+    "birth_state": "California",
+    "birth_time": "18:29"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "630"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2378",
+          "1837",
+          "1479"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          43,
+          55,
+          60,
+          62
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          36,
+          42,
+          52,
+          63,
+          67
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          25,
+          31,
+          32,
+          37,
+          49
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

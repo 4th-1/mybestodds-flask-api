@@ -1,0 +1,38 @@
+{
+  "name": "Dakota Taylor",
+  "subscriber_initials": "DT",
+  "dob": "1975-07-12",
+  "pob": "Columbus, GA",
+  "tob": "19:15",
+  "email": "bosk_test_097@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 7,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "460",
+      "829",
+      "755",
+      "086"
+    ],
+    "Cash4": [
+      "5724",
+      "5565"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

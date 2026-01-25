@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1163",
+  "kit_type": "BOOK3",
+  "dob": "1970-05-13",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Elizabeth",
+    "last_name": "Sullivan",
+    "birth_date": "1970-05-13",
+    "birth_city": "Long Beach",
+    "birth_state": "California",
+    "birth_time": "08:59"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "058",
+          "200"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4656"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          22,
+          34,
+          57,
+          65
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          32,
+          36,
+          39,
+          55
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          18,
+          25,
+          52,
+          56
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

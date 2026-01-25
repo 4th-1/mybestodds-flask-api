@@ -1,0 +1,43 @@
+{
+  "name": "Drew Robinson",
+  "first_name": "Drew",
+  "last_name": "Robinson",
+  "initials": "DRO",
+  "gender": "M",
+  "dob": "1971-07-21",
+  "tob": "08:15",
+  "pob": "Houston, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "380",
+      "458",
+      "418",
+      "392",
+      "882"
+    ],
+    "Cash4": [
+      "6754",
+      "6349",
+      "6810"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "380",
+    "458",
+    "418",
+    "392",
+    "882"
+  ],
+  "cash4_personal_numbers": [
+    "6754",
+    "6349",
+    "6810"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

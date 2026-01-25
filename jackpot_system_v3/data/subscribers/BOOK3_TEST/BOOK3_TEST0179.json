@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0179",
+  "kit_type": "BOOK3",
+  "dob": "1991-07-02",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Helen",
+    "last_name": "Howard",
+    "birth_date": "1991-07-02",
+    "birth_city": "Albuquerque",
+    "birth_state": "New Mexico",
+    "birth_time": "09:48"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "858",
+          "607",
+          "962",
+          "184"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4469",
+          "4508",
+          "9778"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          30,
+          33,
+          35,
+          57
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          16,
+          39,
+          41,
+          51
+        ],
+        "power_ball": [
+          13
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          11,
+          19,
+          44,
+          57
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

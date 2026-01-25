@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0409",
+  "kit_type": "BOOK3",
+  "dob": "1968-06-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sandra",
+    "last_name": "Walker",
+    "birth_date": "1968-06-25",
+    "birth_time": "09:48",
+    "birth_city": "Kansas City 14",
+    "birth_state": "Kansas"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "568,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          12,
+          52,
+          57,
+          65
+        ],
+        "mega_ball": [
+          25,
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          27,
+          29,
+          52,
+          58
+        ],
+        "power_ball": [
+          19,
+          14
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          15,
+          21,
+          34,
+          39
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

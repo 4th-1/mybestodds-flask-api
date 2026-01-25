@@ -1,0 +1,43 @@
+{
+  "name": "Cameron Anderson",
+  "first_name": "Cameron",
+  "last_name": "Anderson",
+  "initials": "CAN",
+  "gender": "M",
+  "dob": "1985-02-18",
+  "tob": "17:40",
+  "pob": "New York, NY",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "319",
+      "852",
+      "591",
+      "367",
+      "529"
+    ],
+    "Cash4": [
+      "2953",
+      "6731",
+      "1310"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "319",
+    "852",
+    "591",
+    "367",
+    "529"
+  ],
+  "cash4_personal_numbers": [
+    "2953",
+    "6731",
+    "1310"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "David Evans",
+  "initials": "DE",
+  "dob": "1952-07-20",
+  "pob": "Karenshire, MI",
+  "tob": "18:17",
+  "email": "denisecarter@davis-jones.biz",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

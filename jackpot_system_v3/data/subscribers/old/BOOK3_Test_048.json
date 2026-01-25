@@ -1,0 +1,43 @@
+{
+  "name": "Casey Martin",
+  "first_name": "Casey",
+  "last_name": "Martin",
+  "initials": "CMA",
+  "gender": "F",
+  "dob": "1963-04-03",
+  "tob": "01:35",
+  "pob": "Seattle, WA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "152",
+      "247",
+      "969",
+      "209",
+      "906"
+    ],
+    "Cash4": [
+      "4174",
+      "5406",
+      "8221"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "152",
+    "247",
+    "969",
+    "209",
+    "906"
+  ],
+  "cash4_personal_numbers": [
+    "4174",
+    "5406",
+    "8221"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

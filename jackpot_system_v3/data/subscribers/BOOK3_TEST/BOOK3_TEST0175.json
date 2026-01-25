@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0175",
+  "kit_type": "BOOK3",
+  "dob": "1995-08-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joyce",
+    "last_name": "Cooper",
+    "birth_date": "1995-08-01",
+    "birth_city": "Waco",
+    "birth_state": "Texas",
+    "birth_time": "07:30"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "942",
+          "983",
+          "580",
+          "750",
+          "145"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2420",
+          "3727",
+          "2140"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          14,
+          22,
+          35,
+          70
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          12,
+          13,
+          20,
+          61
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          19,
+          36,
+          38,
+          42
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

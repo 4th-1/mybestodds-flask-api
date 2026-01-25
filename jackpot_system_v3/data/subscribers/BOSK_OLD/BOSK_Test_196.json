@@ -1,0 +1,38 @@
+{
+  "name": "Skyler Smith",
+  "subscriber_initials": "SS",
+  "dob": "1989-07-11",
+  "pob": "Augusta, GA",
+  "tob": "12:15",
+  "email": "bosk_test_196@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 7,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "779",
+      "982",
+      "384"
+    ],
+    "Cash4": [
+      "2277",
+      "8635",
+      "0270"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

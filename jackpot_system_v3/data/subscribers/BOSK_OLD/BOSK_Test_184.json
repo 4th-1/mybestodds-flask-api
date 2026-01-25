@@ -1,0 +1,39 @@
+{
+  "name": "Casey Davis",
+  "subscriber_initials": "CD",
+  "dob": "1964-05-19",
+  "pob": "Columbus, GA",
+  "tob": "20:45",
+  "email": "bosk_test_184@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 5,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "090",
+      "399",
+      "696",
+      "158"
+    ],
+    "Cash4": [
+      "5145",
+      "9099",
+      "6566"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

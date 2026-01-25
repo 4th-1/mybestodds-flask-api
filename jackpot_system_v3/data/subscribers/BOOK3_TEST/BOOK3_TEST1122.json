@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST1122",
+  "kit_type": "BOOK3",
+  "dob": "1962-06-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Carol",
+    "last_name": "Phillips",
+    "birth_date": "1962-06-24",
+    "birth_city": "Vallejo",
+    "birth_state": "California",
+    "birth_time": "15:39"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "650",
+          "133",
+          "321",
+          "415",
+          "558"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9533",
+          "2415",
+          "2482"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          5,
+          24,
+          32,
+          60
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          17,
+          33,
+          46,
+          58,
+          68
+        ],
+        "power_ball": [
+          13
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          25,
+          26,
+          28,
+          48
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

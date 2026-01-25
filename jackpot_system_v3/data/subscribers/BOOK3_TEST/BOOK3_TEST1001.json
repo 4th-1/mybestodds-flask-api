@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1001",
+  "kit_type": "BOOK3",
+  "dob": "1969-12-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Janet",
+    "last_name": "Wood",
+    "birth_date": "1969-12-18",
+    "birth_city": "Pembroke Pines",
+    "birth_state": "Florida",
+    "birth_time": "09:47"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "392"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3341",
+          "4415"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          6,
+          7,
+          8,
+          28
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          10,
+          38,
+          48,
+          66
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          19,
+          34,
+          53,
+          58
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0882",
+  "kit_type": "BOOK3",
+  "dob": "1983-04-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Janet",
+    "last_name": "Hayes",
+    "birth_date": "1983-04-18",
+    "birth_city": "Fort Lauderdale",
+    "birth_state": "Florida",
+    "birth_time": "03:05"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "611",
+          "390",
+          "358",
+          "324"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8734",
+          "5887"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          24,
+          41,
+          43,
+          61
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          8,
+          19,
+          27,
+          39,
+          44
+        ],
+        "power_ball": [
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          21,
+          28,
+          42,
+          54
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

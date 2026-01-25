@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0259",
+  "kit_type": "BOOK3",
+  "dob": "1985-01-31",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joseph",
+    "last_name": "Brown",
+    "birth_date": "1985-01-31",
+    "birth_time": "06:12",
+    "birth_city": "Florida City 4",
+    "birth_state": "Florida"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "115,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          15,
+          20,
+          33,
+          52
+        ],
+        "mega_ball": [
+          18,
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          35,
+          42,
+          44,
+          57,
+          67
+        ],
+        "power_ball": [
+          10,
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          34,
+          38,
+          40,
+          46,
+          52
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

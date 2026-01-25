@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0117",
+  "kit_type": "BOOK3",
+  "dob": "1989-12-16",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Alexander",
+    "last_name": "Reyes",
+    "birth_date": "1989-12-16",
+    "birth_city": "Lafayette",
+    "birth_state": "Louisiana",
+    "birth_time": "17:44"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "625"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9334",
+          "7723"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          12,
+          42,
+          47,
+          55
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          19,
+          33,
+          39,
+          65
+        ],
+        "power_ball": [
+          18
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          27,
+          32,
+          36,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

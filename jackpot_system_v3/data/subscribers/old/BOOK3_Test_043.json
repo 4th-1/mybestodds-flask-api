@@ -1,0 +1,43 @@
+{
+  "name": "Kendall Rodriguez",
+  "first_name": "Kendall",
+  "last_name": "Rodriguez",
+  "initials": "KRO",
+  "gender": "F",
+  "dob": "1979-11-09",
+  "tob": "07:20",
+  "pob": "Atlanta, GA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "257",
+      "380",
+      "847",
+      "129",
+      "513"
+    ],
+    "Cash4": [
+      "8876",
+      "9794",
+      "8906"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "257",
+    "380",
+    "847",
+    "129",
+    "513"
+  ],
+  "cash4_personal_numbers": [
+    "8876",
+    "9794",
+    "8906"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

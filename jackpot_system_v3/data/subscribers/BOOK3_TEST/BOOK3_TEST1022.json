@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1022",
+  "kit_type": "BOOK3",
+  "dob": "1991-04-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Donna",
+    "last_name": "Patel",
+    "birth_date": "1991-04-05",
+    "birth_city": "Rockford",
+    "birth_state": "Illinois",
+    "birth_time": "22:31"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "050",
+          "005",
+          "336"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5717"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          34,
+          37,
+          42,
+          45,
+          62
+        ],
+        "mega_ball": [
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          32,
+          50,
+          53,
+          57,
+          65
+        ],
+        "power_ball": [
+          18
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          14,
+          17,
+          41,
+          56
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

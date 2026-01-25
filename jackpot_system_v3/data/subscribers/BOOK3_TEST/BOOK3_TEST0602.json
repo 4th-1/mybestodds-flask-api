@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0602",
+  "kit_type": "BOOK3",
+  "dob": "1975-05-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Christine",
+    "last_name": "Phillips",
+    "birth_date": "1975-05-07",
+    "birth_city": "Colorado Springs",
+    "birth_state": "Colorado",
+    "birth_time": "20:09"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "265",
+          "282",
+          "258",
+          "885",
+          "755"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6282",
+          "0986"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          18,
+          34,
+          35,
+          56,
+          58
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          13,
+          17,
+          46,
+          64
+        ],
+        "power_ball": [
+          18
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          43,
+          44,
+          49,
+          50,
+          53
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1493",
+  "kit_type": "BOOK3",
+  "dob": "1972-09-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Marie",
+    "last_name": "Adams",
+    "birth_date": "1972-09-11",
+    "birth_city": "Hialeah",
+    "birth_state": "Florida",
+    "birth_time": "18:59"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "093",
+          "130"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2590"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          17,
+          25,
+          27,
+          35,
+          62
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          28,
+          29,
+          35,
+          53,
+          68
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          23,
+          35,
+          38,
+          58
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

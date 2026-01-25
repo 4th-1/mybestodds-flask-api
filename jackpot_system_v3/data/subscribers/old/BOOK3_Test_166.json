@@ -1,0 +1,43 @@
+{
+  "name": "Rowan White",
+  "first_name": "Rowan",
+  "last_name": "White",
+  "initials": "RWH",
+  "gender": "M",
+  "dob": "1967-03-28",
+  "tob": "13:20",
+  "pob": "New Orleans, LA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "922",
+      "372",
+      "420",
+      "741",
+      "560"
+    ],
+    "Cash4": [
+      "1234",
+      "9690",
+      "4760"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "922",
+    "372",
+    "420",
+    "741",
+    "560"
+  ],
+  "cash4_personal_numbers": [
+    "1234",
+    "9690",
+    "4760"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

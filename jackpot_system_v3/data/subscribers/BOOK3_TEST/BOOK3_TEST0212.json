@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0212",
+  "kit_type": "BOOK3",
+  "dob": "1984-06-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Brenda",
+    "last_name": "Jackson",
+    "birth_date": "1984-06-17",
+    "birth_city": "Syracuse",
+    "birth_state": "New York",
+    "birth_time": "01:05"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "288",
+          "006"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2830",
+          "3430"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          16,
+          34,
+          37,
+          54
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          31,
+          37,
+          39,
+          51,
+          56
+        ],
+        "power_ball": [
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          12,
+          27,
+          39,
+          51
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

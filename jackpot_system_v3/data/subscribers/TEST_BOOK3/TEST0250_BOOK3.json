@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0250",
+  "kit_type": "BOOK3",
+  "dob": "1993-04-15",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Barbara",
+    "last_name": "Brown",
+    "birth_date": "1993-04-15",
+    "birth_time": "06:00",
+    "birth_city": "Delaware City 15",
+    "birth_state": "Delaware"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "543,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          6,
+          16,
+          22,
+          26
+        ],
+        "mega_ball": [
+          11,
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          21,
+          31,
+          42,
+          48
+        ],
+        "power_ball": [
+          15,
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          16,
+          29,
+          33,
+          53
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

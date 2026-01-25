@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0726",
+  "kit_type": "BOOK3",
+  "dob": "1994-12-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Martha",
+    "last_name": "Gonzales",
+    "birth_date": "1994-12-17",
+    "birth_city": "Atlanta",
+    "birth_state": "Georgia",
+    "birth_time": "14:27"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "987",
+          "391",
+          "911",
+          "603",
+          "715"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1397",
+          "9527",
+          "2042"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          22,
+          25,
+          35,
+          37,
+          48
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          13,
+          18,
+          26,
+          35,
+          69
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          24,
+          45,
+          48,
+          50,
+          60
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

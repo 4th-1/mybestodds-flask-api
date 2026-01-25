@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0492",
+  "kit_type": "BOOK3",
+  "dob": "1983-10-31",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Donald",
+    "last_name": "Walker",
+    "birth_date": "1983-10-31",
+    "birth_time": "11:48",
+    "birth_city": "Maryland City 17",
+    "birth_state": "Maryland"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "103,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          22,
+          32,
+          33,
+          34,
+          49
+        ],
+        "mega_ball": [
+          9,
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          6,
+          31,
+          45,
+          64
+        ],
+        "power_ball": [
+          1,
+          13
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          4,
+          8,
+          57,
+          59
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Jordan Davis",
+  "subscriber_initials": "JD",
+  "dob": "1963-09-04",
+  "pob": "Atlanta, GA",
+  "tob": "21:00",
+  "email": "bosk_test_042@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 9,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "114",
+      "728",
+      "505"
+    ],
+    "Cash4": [
+      "0522",
+      "5522",
+      "3118"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

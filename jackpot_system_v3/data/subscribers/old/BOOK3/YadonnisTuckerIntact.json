@@ -1,0 +1,31 @@
+{
+  "name": "Yadonnis Tucker",
+  "subscriber_initials": "YT",
+  "dob": "1971-07-20",
+  "pob": "Atlanta, GA",
+  "tob": "08:56",
+  "email": "bookleerealestateservices@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [
+      "163",
+      "751",
+      "146",
+      "210"
+    ],
+    "Cash4": [
+      "1216",
+      "1906"
+    ]
+  },
+  "cohort": "PILOT02",
+  "birth_month": 7,
+  "kit": "BOOK3",
+  "initials": "YA"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Jeffrey Small",
+  "initials": "JS",
+  "dob": "1981-06-15",
+  "pob": "Nathantown, WY",
+  "tob": "06:11",
+  "email": "rebecca04@bennett.org",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

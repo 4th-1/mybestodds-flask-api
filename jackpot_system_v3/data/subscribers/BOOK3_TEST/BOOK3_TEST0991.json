@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0991",
+  "kit_type": "BOOK3",
+  "dob": "1966-10-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ashley",
+    "last_name": "Reed",
+    "birth_date": "1966-10-23",
+    "birth_city": "Mesa",
+    "birth_state": "Arizona",
+    "birth_time": "07:23"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "737",
+          "261",
+          "796",
+          "296",
+          "526"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1393",
+          "7734",
+          "3523"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          17,
+          25,
+          26,
+          39
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          19,
+          26,
+          39,
+          48,
+          57
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          22,
+          29,
+          31,
+          45
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

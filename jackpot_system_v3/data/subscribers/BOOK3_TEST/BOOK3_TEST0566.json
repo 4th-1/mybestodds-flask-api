@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0566",
+  "kit_type": "BOOK3",
+  "dob": "1962-11-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Elizabeth",
+    "last_name": "Morales",
+    "birth_date": "1962-11-05",
+    "birth_city": "Pomona",
+    "birth_state": "California",
+    "birth_time": "18:10"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "266",
+          "934",
+          "252",
+          "589"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7285"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          20,
+          22,
+          66,
+          67
+        ],
+        "mega_ball": [
+          9
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          34,
+          43,
+          58,
+          61
+        ],
+        "power_ball": [
+          14
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          15,
+          31,
+          35,
+          53
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0336",
+  "kit_type": "BOOK3",
+  "dob": "2002-02-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joan",
+    "last_name": "Morgan",
+    "birth_date": "2002-02-07",
+    "birth_city": "Virginia Beach",
+    "birth_state": "Virginia",
+    "birth_time": "05:00"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "821",
+          "485"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9917"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          26,
+          39,
+          43,
+          59
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          5,
+          46,
+          57,
+          58
+        ],
+        "power_ball": [
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          19,
+          24,
+          40,
+          57
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

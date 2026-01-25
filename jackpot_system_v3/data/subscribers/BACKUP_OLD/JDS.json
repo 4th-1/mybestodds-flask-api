@@ -1,0 +1,39 @@
+{
+  "name": "Joseph D Smith",
+  "initials": "JDS",
+  "dob": "1972-08-22",
+  "pob": "Atlanta, GA",
+  "tob": "10:41",
+  "email": "jdsmith0822@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [
+      "132",
+      "176",
+      "451",
+      "510",
+      "724",
+      "822",
+      "824"
+    ],
+    "Cash4": [
+      "1234"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  },
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK3"
+}

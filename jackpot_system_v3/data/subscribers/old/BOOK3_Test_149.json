@@ -1,0 +1,43 @@
+{
+  "name": "Drew Garcia",
+  "first_name": "Drew",
+  "last_name": "Garcia",
+  "initials": "DGA",
+  "gender": "M",
+  "dob": "1960-06-12",
+  "tob": "16:05",
+  "pob": "New York, NY",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "717",
+      "655",
+      "886",
+      "029",
+      "263"
+    ],
+    "Cash4": [
+      "5036",
+      "5103",
+      "1204"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "717",
+    "655",
+    "886",
+    "029",
+    "263"
+  ],
+  "cash4_personal_numbers": [
+    "5036",
+    "5103",
+    "1204"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

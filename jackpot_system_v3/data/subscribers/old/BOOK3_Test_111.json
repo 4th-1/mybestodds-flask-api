@@ -1,0 +1,43 @@
+{
+  "name": "Alex White",
+  "first_name": "Alex",
+  "last_name": "White",
+  "initials": "AWH",
+  "gender": "M",
+  "dob": "1987-05-30",
+  "tob": "06:10",
+  "pob": "Detroit, MI",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "317",
+      "988",
+      "226",
+      "190",
+      "737"
+    ],
+    "Cash4": [
+      "6610",
+      "3640",
+      "1438"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "317",
+    "988",
+    "226",
+    "190",
+    "737"
+  ],
+  "cash4_personal_numbers": [
+    "6610",
+    "3640",
+    "1438"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

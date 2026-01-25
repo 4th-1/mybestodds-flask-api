@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST1029",
+  "kit_type": "BOOK3",
+  "dob": "1984-11-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Julie",
+    "last_name": "Lopez",
+    "birth_date": "1984-11-20",
+    "birth_city": "Birmingham",
+    "birth_state": "Alabama",
+    "birth_time": "06:02"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "797"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0398"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          37,
+          46,
+          53,
+          61
+        ],
+        "mega_ball": [
+          20
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          13,
+          48,
+          51,
+          68
+        ],
+        "power_ball": [
+          11
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          31,
+          47,
+          57,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

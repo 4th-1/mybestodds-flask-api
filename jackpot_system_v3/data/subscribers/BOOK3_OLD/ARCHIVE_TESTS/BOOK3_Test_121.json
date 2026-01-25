@@ -1,0 +1,35 @@
+{
+  "name": "Quinn White",
+  "subscriber_initials": "QW",
+  "dob": "1987-01-15",
+  "pob": "Decatur, GA",
+  "tob": "09:15",
+  "email": "book3_test_121@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 1,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "443",
+      "455"
+    ],
+    "Cash4": [
+      "0648"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

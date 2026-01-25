@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0927",
+  "kit_type": "BOOK3",
+  "dob": "1961-07-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Henry",
+    "last_name": "Murphy",
+    "birth_date": "1961-07-14",
+    "birth_city": "Salt Lake City",
+    "birth_state": "Utah",
+    "birth_time": "17:26"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "379",
+          "943",
+          "673",
+          "022"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8472",
+          "7058"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          13,
+          51,
+          61,
+          67
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          18,
+          29,
+          36,
+          47,
+          62
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          32,
+          39,
+          46,
+          50,
+          56
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

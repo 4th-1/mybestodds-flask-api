@@ -1,0 +1,43 @@
+{
+  "name": "Avery Anderson",
+  "first_name": "Avery",
+  "last_name": "Anderson",
+  "initials": "AAN",
+  "gender": "M",
+  "dob": "1992-01-27",
+  "tob": "06:45",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "200",
+      "424",
+      "135",
+      "222",
+      "328"
+    ],
+    "Cash4": [
+      "8058",
+      "3662",
+      "7400"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "200",
+    "424",
+    "135",
+    "222",
+    "328"
+  ],
+  "cash4_personal_numbers": [
+    "8058",
+    "3662",
+    "7400"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

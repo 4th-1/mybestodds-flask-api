@@ -1,0 +1,43 @@
+{
+  "name": "Cameron Davis",
+  "first_name": "Cameron",
+  "last_name": "Davis",
+  "initials": "CDA",
+  "gender": "F",
+  "dob": "1978-02-03",
+  "tob": "04:20",
+  "pob": "Charlotte, NC",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "646",
+      "214",
+      "319",
+      "083",
+      "140"
+    ],
+    "Cash4": [
+      "8448",
+      "6137",
+      "5515"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "646",
+    "214",
+    "319",
+    "083",
+    "140"
+  ],
+  "cash4_personal_numbers": [
+    "8448",
+    "6137",
+    "5515"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

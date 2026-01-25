@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0481",
+  "kit_type": "BOOK3",
+  "dob": "1979-11-15",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Timothy",
+    "last_name": "Mitchell",
+    "birth_date": "1979-11-15",
+    "birth_city": "Boston",
+    "birth_state": "Massachusetts",
+    "birth_time": "09:13"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "992",
+          "465"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4857",
+          "3436"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          12,
+          15,
+          19,
+          27
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          33,
+          35,
+          42,
+          53,
+          64
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          22,
+          32,
+          46,
+          51
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

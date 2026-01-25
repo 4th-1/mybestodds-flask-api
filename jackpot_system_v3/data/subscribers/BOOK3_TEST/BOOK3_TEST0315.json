@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0315",
+  "kit_type": "BOOK3",
+  "dob": "2001-02-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Martha",
+    "last_name": "Hughes",
+    "birth_date": "2001-02-28",
+    "birth_city": "Cincinnati",
+    "birth_state": "Ohio",
+    "birth_time": "13:25"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "207",
+          "801",
+          "327"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4889",
+          "8563"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          33,
+          34,
+          51,
+          55,
+          65
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          14,
+          17,
+          25,
+          37,
+          41
+        ],
+        "power_ball": [
+          13
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          16,
+          37,
+          41,
+          44,
+          52
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

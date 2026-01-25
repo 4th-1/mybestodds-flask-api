@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0912",
+  "kit_type": "BOOK3",
+  "dob": "1976-03-12",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Michael",
+    "last_name": "Garcia",
+    "birth_date": "1976-03-12",
+    "birth_time": "21:53",
+    "birth_city": "South Dakota City 17",
+    "birth_state": "South Dakota"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "236,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          8,
+          12,
+          29,
+          52
+        ],
+        "mega_ball": [
+          9,
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          17,
+          24,
+          34,
+          36
+        ],
+        "power_ball": [
+          11,
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          18,
+          35,
+          40,
+          50
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

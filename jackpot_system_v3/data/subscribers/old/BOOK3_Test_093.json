@@ -1,0 +1,43 @@
+{
+  "name": "Avery Harris",
+  "first_name": "Avery",
+  "last_name": "Harris",
+  "initials": "AHA",
+  "gender": "M",
+  "dob": "1986-06-28",
+  "tob": "18:55",
+  "pob": "Los Angeles, CA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "679",
+      "378",
+      "716",
+      "544",
+      "463"
+    ],
+    "Cash4": [
+      "2775",
+      "7264",
+      "3439"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "679",
+    "378",
+    "716",
+    "544",
+    "463"
+  ],
+  "cash4_personal_numbers": [
+    "2775",
+    "7264",
+    "3439"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

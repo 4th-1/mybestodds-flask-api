@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0133",
+  "kit_type": "BOOK3",
+  "dob": "2002-03-22",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Andrew",
+    "last_name": "Jenkins",
+    "birth_date": "2002-03-22",
+    "birth_city": "Fargo",
+    "birth_state": "North Dakota",
+    "birth_time": "00:30"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "130",
+          "139"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5831",
+          "1310"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          33,
+          39,
+          41,
+          46
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          10,
+          23,
+          32,
+          51
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          21,
+          37,
+          45,
+          58
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

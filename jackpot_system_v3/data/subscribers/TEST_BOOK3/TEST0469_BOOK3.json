@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0469",
+  "kit_type": "BOOK3",
+  "dob": "1954-08-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Barbara",
+    "last_name": "Harris",
+    "birth_date": "1954-08-06",
+    "birth_time": "11:15",
+    "birth_city": "Maine City 14",
+    "birth_state": "Maine"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "684,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          17,
+          18,
+          31,
+          43
+        ],
+        "mega_ball": [
+          13,
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          32,
+          38,
+          42,
+          61,
+          67
+        ],
+        "power_ball": [
+          16,
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          14,
+          29,
+          30,
+          38
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

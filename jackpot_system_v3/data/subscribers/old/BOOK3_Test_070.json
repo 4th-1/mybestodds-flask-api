@@ -1,0 +1,43 @@
+{
+  "name": "Drew Davis",
+  "first_name": "Drew",
+  "last_name": "Davis",
+  "initials": "DDA",
+  "gender": "F",
+  "dob": "1972-09-16",
+  "tob": "10:40",
+  "pob": "Los Angeles, CA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "258",
+      "550",
+      "647",
+      "426",
+      "601"
+    ],
+    "Cash4": [
+      "6385",
+      "8689",
+      "4176"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "258",
+    "550",
+    "647",
+    "426",
+    "601"
+  ],
+  "cash4_personal_numbers": [
+    "6385",
+    "8689",
+    "4176"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

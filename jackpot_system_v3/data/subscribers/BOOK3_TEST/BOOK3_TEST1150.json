@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1150",
+  "kit_type": "BOOK3",
+  "dob": "1993-03-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Julie",
+    "last_name": "Wallace",
+    "birth_date": "1993-03-04",
+    "birth_city": "Columbus",
+    "birth_state": "Ohio",
+    "birth_time": "11:06"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "073",
+          "622",
+          "475",
+          "069"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1763"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          35,
+          47,
+          48,
+          66
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          23,
+          29,
+          35,
+          48
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          8,
+          13,
+          34,
+          41
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

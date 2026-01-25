@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0923",
+  "kit_type": "BOOK3",
+  "dob": "1968-04-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Kyle",
+    "last_name": "Stewart",
+    "birth_date": "1968-04-04",
+    "birth_city": "Reno",
+    "birth_state": "Nevada",
+    "birth_time": "04:21"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "798",
+          "929"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4731",
+          "6055"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          50,
+          65,
+          67,
+          70
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          19,
+          25,
+          47,
+          56,
+          69
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          13,
+          14,
+          30,
+          54,
+          57
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Casey Wilson",
+  "first_name": "Casey",
+  "last_name": "Wilson",
+  "initials": "CWI",
+  "gender": "F",
+  "dob": "1997-05-21",
+  "tob": "20:10",
+  "pob": "Chicago, IL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "958",
+      "774",
+      "038",
+      "117",
+      "723"
+    ],
+    "Cash4": [
+      "4345",
+      "0791",
+      "7649"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "958",
+    "774",
+    "038",
+    "117",
+    "723"
+  ],
+  "cash4_personal_numbers": [
+    "4345",
+    "0791",
+    "7649"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

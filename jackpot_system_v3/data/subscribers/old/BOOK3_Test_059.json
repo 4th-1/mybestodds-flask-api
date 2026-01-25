@@ -1,0 +1,43 @@
+{
+  "name": "Taylor Anderson",
+  "first_name": "Taylor",
+  "last_name": "Anderson",
+  "initials": "TAN",
+  "gender": "F",
+  "dob": "1975-03-20",
+  "tob": "07:20",
+  "pob": "Los Angeles, CA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "725",
+      "084",
+      "129",
+      "524",
+      "233"
+    ],
+    "Cash4": [
+      "6549",
+      "4098",
+      "2087"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "725",
+    "084",
+    "129",
+    "524",
+    "233"
+  ],
+  "cash4_personal_numbers": [
+    "6549",
+    "4098",
+    "2087"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

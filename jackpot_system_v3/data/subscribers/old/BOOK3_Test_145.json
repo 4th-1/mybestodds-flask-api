@@ -1,0 +1,43 @@
+{
+  "name": "Devon Thompson",
+  "first_name": "Devon",
+  "last_name": "Thompson",
+  "initials": "DTH",
+  "gender": "M",
+  "dob": "1996-12-02",
+  "tob": "23:55",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "280",
+      "916",
+      "231",
+      "293",
+      "737"
+    ],
+    "Cash4": [
+      "7241",
+      "5932",
+      "7378"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "280",
+    "916",
+    "231",
+    "293",
+    "737"
+  ],
+  "cash4_personal_numbers": [
+    "7241",
+    "5932",
+    "7378"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

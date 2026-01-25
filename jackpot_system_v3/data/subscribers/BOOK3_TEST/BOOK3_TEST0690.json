@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST0690",
+  "kit_type": "BOOK3",
+  "dob": "1984-04-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Elizabeth",
+    "last_name": "Watson",
+    "birth_date": "1984-04-14",
+    "birth_city": "Wichita",
+    "birth_state": "Kansas",
+    "birth_time": "18:15"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "790"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4439"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          32,
+          41,
+          53,
+          55
+        ],
+        "mega_ball": [
+          9
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          28,
+          45,
+          48,
+          56
+        ],
+        "power_ball": [
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          10,
+          17,
+          42,
+          46
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

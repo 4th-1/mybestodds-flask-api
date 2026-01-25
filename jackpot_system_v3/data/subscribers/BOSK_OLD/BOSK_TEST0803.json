@@ -1,0 +1,31 @@
+{
+  "subscriber_name": "BOSK Test Subscriber 0803",
+  "subscriber_id": "BOSK_TEST0803",
+  "date_of_birth": "1989-01-15",
+  "kit_type": "BOSK",
+  "preferences": {
+    "favorite_numbers": [
+      52,
+      57,
+      61
+    ],
+    "lucky_numbers": [
+      52,
+      57,
+      61,
+      63,
+      64
+    ],
+    "avoid_numbers": []
+  },
+  "games": [
+    "Cash3",
+    "Cash4",
+    "MegaMillions",
+    "Powerball",
+    "Cash4Life"
+  ],
+  "active": true,
+  "subscription_start": "2025-01-01",
+  "notes": "Auto-generated BOSK test subscriber"
+}

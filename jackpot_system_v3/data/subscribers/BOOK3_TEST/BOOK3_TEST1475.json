@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1475",
+  "kit_type": "BOOK3",
+  "dob": "1976-06-13",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Patricia",
+    "last_name": "Phillips",
+    "birth_date": "1976-06-13",
+    "birth_city": "Hayward",
+    "birth_state": "California",
+    "birth_time": "17:15"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "739",
+          "493",
+          "936"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8569"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          27,
+          40,
+          42,
+          47,
+          58
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          9,
+          19,
+          27,
+          46
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          25,
+          27,
+          40,
+          43
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

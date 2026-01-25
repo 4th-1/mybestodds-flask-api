@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0182",
+  "kit_type": "BOOK3",
+  "dob": "1963-10-26",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Megan",
+    "last_name": "Griffin",
+    "birth_date": "1963-10-26",
+    "birth_city": "Simi Valley",
+    "birth_state": "California",
+    "birth_time": "17:15"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "992",
+          "775"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7191",
+          "4476",
+          "1076"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          17,
+          27,
+          30,
+          43,
+          50
+        ],
+        "mega_ball": [
+          11
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          29,
+          42,
+          61,
+          68
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          17,
+          23,
+          24,
+          29,
+          53
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

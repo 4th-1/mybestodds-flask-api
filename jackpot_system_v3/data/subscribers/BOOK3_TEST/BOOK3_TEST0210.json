@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0210",
+  "kit_type": "BOOK3",
+  "dob": "2004-10-10",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "James",
+    "last_name": "Henderson",
+    "birth_date": "2004-10-10",
+    "birth_city": "Cedar Rapids",
+    "birth_state": "Iowa",
+    "birth_time": "07:27"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "364",
+          "098"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3070"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          26,
+          34,
+          41,
+          57,
+          65
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          31,
+          36,
+          61,
+          68
+        ],
+        "power_ball": [
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          17,
+          18,
+          21,
+          43,
+          60
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

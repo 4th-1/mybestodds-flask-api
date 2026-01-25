@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST1474",
+  "kit_type": "BOOK3",
+  "dob": "1975-04-22",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Janet",
+    "last_name": "Cruz",
+    "birth_date": "1975-04-22",
+    "birth_city": "San Francisco",
+    "birth_state": "California",
+    "birth_time": "07:19"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "241"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4765"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          19,
+          37,
+          39,
+          49,
+          68
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          10,
+          12,
+          28,
+          63
+        ],
+        "power_ball": [
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          27,
+          45,
+          53,
+          56
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

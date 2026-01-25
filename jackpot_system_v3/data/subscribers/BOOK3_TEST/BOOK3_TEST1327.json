@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1327",
+  "kit_type": "BOOK3",
+  "dob": "1985-10-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Alexander",
+    "last_name": "Jones",
+    "birth_date": "1985-10-23",
+    "birth_city": "Spokane",
+    "birth_state": "Washington",
+    "birth_time": "03:53"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "451",
+          "039",
+          "553"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1941",
+          "3320",
+          "7097"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          32,
+          37,
+          60,
+          61,
+          65
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          16,
+          29,
+          37,
+          47,
+          54
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          41,
+          48,
+          50,
+          53
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

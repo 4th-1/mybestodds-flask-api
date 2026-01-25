@@ -1,0 +1,43 @@
+{
+  "name": "Drew Martinez",
+  "first_name": "Drew",
+  "last_name": "Martinez",
+  "initials": "DMA",
+  "gender": "M",
+  "dob": "1994-12-07",
+  "tob": "05:05",
+  "pob": "Dallas, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "070",
+      "299",
+      "931",
+      "605",
+      "340"
+    ],
+    "Cash4": [
+      "4160",
+      "4883",
+      "1686"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "070",
+    "299",
+    "931",
+    "605",
+    "340"
+  ],
+  "cash4_personal_numbers": [
+    "4160",
+    "4883",
+    "1686"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0733",
+  "kit_type": "BOOK3",
+  "dob": "1990-11-03",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Donald",
+    "last_name": "Ramirez",
+    "birth_date": "1990-11-03",
+    "birth_time": "17:35",
+    "birth_city": "New York City 18",
+    "birth_state": "New York"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "310,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          13,
+          38,
+          47,
+          67
+        ],
+        "mega_ball": [
+          22,
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          18,
+          25,
+          49,
+          53
+        ],
+        "power_ball": [
+          3,
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          34,
+          50,
+          54,
+          58
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

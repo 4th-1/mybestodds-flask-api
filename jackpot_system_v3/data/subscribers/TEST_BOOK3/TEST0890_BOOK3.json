@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0890",
+  "kit_type": "BOOK3",
+  "dob": "1988-12-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Michael",
+    "last_name": "Jones",
+    "birth_date": "1988-12-20",
+    "birth_time": "21:21",
+    "birth_city": "South Carolina City 15",
+    "birth_state": "South Carolina"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "028,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          22,
+          36,
+          46,
+          53,
+          58
+        ],
+        "mega_ball": [
+          23,
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          25,
+          28,
+          33,
+          35,
+          53
+        ],
+        "power_ball": [
+          9,
+          1
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          23,
+          45,
+          50,
+          55
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

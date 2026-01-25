@@ -1,0 +1,43 @@
+{
+  "name": "Jordan Miller",
+  "first_name": "Jordan",
+  "last_name": "Miller",
+  "initials": "JMI",
+  "gender": "F",
+  "dob": "1972-03-24",
+  "tob": "11:50",
+  "pob": "Atlanta, GA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "653",
+      "514",
+      "540",
+      "016",
+      "421"
+    ],
+    "Cash4": [
+      "3883",
+      "6357",
+      "1182"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "653",
+    "514",
+    "540",
+    "016",
+    "421"
+  ],
+  "cash4_personal_numbers": [
+    "3883",
+    "6357",
+    "1182"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Daniel Chang",
+  "initials": "DC",
+  "dob": "1963-10-22",
+  "pob": "Lake Loriburgh, WY",
+  "tob": "01:56",
+  "email": "spena@jacobs.biz",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

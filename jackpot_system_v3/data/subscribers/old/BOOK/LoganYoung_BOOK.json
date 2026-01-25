@@ -1,0 +1,22 @@
+{
+  "name": "Logan Young",
+  "initials": "LY",
+  "dob": "1977-10-04",
+  "pob": "Michaelmouth, PA",
+  "tob": "16:53",
+  "email": "matthewscindy@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

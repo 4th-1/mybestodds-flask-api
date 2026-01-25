@@ -1,0 +1,37 @@
+{
+  "name": "Taylor Brown",
+  "subscriber_initials": "TB",
+  "dob": "2005-09-26",
+  "pob": "Columbus, GA",
+  "tob": "06:30",
+  "email": "bosk_test_062@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 9,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "618",
+      "491",
+      "195",
+      "142"
+    ],
+    "Cash4": [
+      "0006"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

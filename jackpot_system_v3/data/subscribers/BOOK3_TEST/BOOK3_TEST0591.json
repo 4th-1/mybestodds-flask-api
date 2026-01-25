@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0591",
+  "kit_type": "BOOK3",
+  "dob": "2005-05-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Marie",
+    "last_name": "Miller",
+    "birth_date": "2005-05-06",
+    "birth_city": "Visalia",
+    "birth_state": "California",
+    "birth_time": "09:40"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "762",
+          "877",
+          "574",
+          "041",
+          "356"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6616",
+          "0926",
+          "0618"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          9,
+          16,
+          24,
+          63
+        ],
+        "mega_ball": [
+          20
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          7,
+          11,
+          52,
+          55
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          4,
+          17,
+          22,
+          24
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

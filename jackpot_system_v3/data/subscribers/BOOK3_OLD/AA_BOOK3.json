@@ -1,0 +1,74 @@
+{
+  "subscriber_id": "AA",
+  "kit_type": "BOOK3",
+
+  "dob": "1977-10-07",
+
+  "coverage_start": "2025-12-22",
+  "coverage_end": "2025-12-31",
+
+  "formats": ["JSON"],
+
+  "identity": {
+    "first_name": "Alisha",
+    "last_name": "Asha",
+    "birth_date": "1977-10-07",
+    "birth_time": "18:07",
+    "birth_city": "San Fernando",
+    "birth_state": "Trinidad"
+  },
+
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": ["926", "976", "413", "826","777"]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": ["7629", "4366"]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [3, 11, 27, 44, 56],
+        "mega_ball": [7, 19]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [5, 12, 33, 48, 61],
+        "power_ball": [9, 18]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [1, 13, 21, 34, 56],
+        "cash_ball": [2]
+      }
+    },
+
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-12"
+  }
+}

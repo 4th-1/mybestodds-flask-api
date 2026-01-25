@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0953",
+  "kit_type": "BOOK3",
+  "dob": "1982-08-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joyce",
+    "last_name": "Torres",
+    "birth_date": "1982-08-06",
+    "birth_city": "Seattle",
+    "birth_state": "Washington",
+    "birth_time": "14:09"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "674",
+          "570",
+          "862"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5563"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          16,
+          17,
+          42,
+          44,
+          58
+        ],
+        "mega_ball": [
+          12
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          23,
+          34,
+          37,
+          46,
+          64
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          19,
+          20,
+          52,
+          58,
+          60
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

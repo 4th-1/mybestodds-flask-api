@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0382",
+  "kit_type": "BOOK3",
+  "dob": "1989-12-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "David",
+    "last_name": "Chavez",
+    "birth_date": "1989-12-18",
+    "birth_city": "Surprise",
+    "birth_state": "Arizona",
+    "birth_time": "00:01"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "332",
+          "378",
+          "128"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4214",
+          "6085"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          18,
+          21,
+          49,
+          54,
+          60
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          11,
+          25,
+          55,
+          56
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          23,
+          41,
+          43,
+          58
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

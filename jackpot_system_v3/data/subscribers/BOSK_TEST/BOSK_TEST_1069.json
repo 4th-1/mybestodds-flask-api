@@ -1,0 +1,25 @@
+{
+  "subscriber_id": "BOSK_TEST_1069",
+  "kit": "BOSK_TEST",
+  "kit_type": "BOSK",
+  "dob": "1990-07-15",
+  "game_preferences": {
+    "games": [
+      "Cash3",
+      "Cash4"
+    ],
+    "playtypes": [
+      "straight",
+      "box"
+    ]
+  },
+  "preferences": {
+    "confidence_mode": "standard",
+    "overlay_enabled": true,
+    "rubix_enabled": true
+  },
+  "metadata": {
+    "created_by": "test_generator",
+    "test_mode": true
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0626",
+  "kit_type": "BOOK3",
+  "dob": "1988-03-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nicholas",
+    "last_name": "Brown",
+    "birth_date": "1988-03-11",
+    "birth_city": "Kansas City",
+    "birth_state": "Missouri",
+    "birth_time": "09:59"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "304",
+          "091",
+          "449"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4603",
+          "8616"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          19,
+          32,
+          40,
+          51,
+          52
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          34,
+          42,
+          58,
+          60
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          10,
+          22,
+          23,
+          58
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

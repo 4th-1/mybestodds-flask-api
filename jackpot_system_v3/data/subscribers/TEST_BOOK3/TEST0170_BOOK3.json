@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0170",
+  "kit_type": "BOOK3",
+  "dob": "1974-01-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Helen",
+    "last_name": "Jackson",
+    "birth_date": "1974-01-25",
+    "birth_time": "04:04",
+    "birth_city": "Arkansas City 15",
+    "birth_state": "Arkansas"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "aggressive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "514,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          28,
+          42,
+          57,
+          67
+        ],
+        "mega_ball": [
+          13,
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          18,
+          27,
+          33,
+          49
+        ],
+        "power_ball": [
+          5,
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          26,
+          43,
+          52,
+          58,
+          60
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

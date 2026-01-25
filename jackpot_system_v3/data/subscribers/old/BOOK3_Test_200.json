@@ -1,0 +1,43 @@
+{
+  "name": "Casey Rodriguez",
+  "first_name": "Casey",
+  "last_name": "Rodriguez",
+  "initials": "CRO",
+  "gender": "F",
+  "dob": "1990-12-21",
+  "tob": "15:00",
+  "pob": "Dallas, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "543",
+      "380",
+      "523",
+      "390",
+      "529"
+    ],
+    "Cash4": [
+      "4885",
+      "8844",
+      "5165"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "543",
+    "380",
+    "523",
+    "390",
+    "529"
+  ],
+  "cash4_personal_numbers": [
+    "4885",
+    "8844",
+    "5165"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

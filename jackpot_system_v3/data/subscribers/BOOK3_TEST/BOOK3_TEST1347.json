@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1347",
+  "kit_type": "BOOK3",
+  "dob": "1993-11-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Daniel",
+    "last_name": "Simmons",
+    "birth_date": "1993-11-25",
+    "birth_city": "El Cajon",
+    "birth_state": "California",
+    "birth_time": "06:56"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "888",
+          "718"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0452"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          16,
+          17,
+          56,
+          62
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          22,
+          34,
+          57,
+          66
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          12,
+          24,
+          53,
+          59
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

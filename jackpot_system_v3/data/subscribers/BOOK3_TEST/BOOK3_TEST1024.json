@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1024",
+  "kit_type": "BOOK3",
+  "dob": "1980-03-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Lionel",
+    "last_name": "Wood",
+    "birth_date": "1980-03-11",
+    "birth_city": "Toledo",
+    "birth_state": "Ohio",
+    "birth_time": "15:18"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "500",
+          "186",
+          "329",
+          "700"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0591",
+          "8424",
+          "3378"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          26,
+          27,
+          46,
+          47,
+          62
+        ],
+        "mega_ball": [
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          38,
+          47,
+          50,
+          51,
+          67
+        ],
+        "power_ball": [
+          1
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          24,
+          33,
+          51,
+          53,
+          55
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

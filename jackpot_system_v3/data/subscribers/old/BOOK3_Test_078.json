@@ -1,0 +1,43 @@
+{
+  "name": "Hayden Rodriguez",
+  "first_name": "Hayden",
+  "last_name": "Rodriguez",
+  "initials": "HRO",
+  "gender": "M",
+  "dob": "1965-11-09",
+  "tob": "20:15",
+  "pob": "New Orleans, LA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "438",
+      "740",
+      "997",
+      "923",
+      "980"
+    ],
+    "Cash4": [
+      "5270",
+      "0313",
+      "1938"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "438",
+    "740",
+    "997",
+    "923",
+    "980"
+  ],
+  "cash4_personal_numbers": [
+    "5270",
+    "0313",
+    "1938"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0802",
+  "kit_type": "BOOK3",
+  "dob": "1982-03-03",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Betty",
+    "last_name": "Garcia",
+    "birth_date": "1982-03-03",
+    "birth_city": "Grand Rapids",
+    "birth_state": "Michigan",
+    "birth_time": "21:49"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "461",
+          "218",
+          "510",
+          "568"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8542"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          20,
+          41,
+          55,
+          59
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          10,
+          56,
+          65,
+          69
+        ],
+        "power_ball": [
+          14
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          17,
+          22,
+          34,
+          41,
+          49
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

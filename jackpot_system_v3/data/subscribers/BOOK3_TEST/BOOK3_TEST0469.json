@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0469",
+  "kit_type": "BOOK3",
+  "dob": "1999-05-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Olivia",
+    "last_name": "Wallace",
+    "birth_date": "1999-05-20",
+    "birth_city": "Tucson",
+    "birth_state": "Arizona",
+    "birth_time": "10:49"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "860",
+          "536",
+          "924",
+          "619",
+          "762"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9659",
+          "5747"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          21,
+          27,
+          33,
+          52
+        ],
+        "mega_ball": [
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          19,
+          23,
+          29,
+          60
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          26,
+          34,
+          38,
+          54
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

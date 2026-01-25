@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0140",
+  "kit_type": "BOOK3",
+  "dob": "1973-06-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Maria",
+    "last_name": "Vasquez",
+    "birth_date": "1973-06-14",
+    "birth_city": "West Covina",
+    "birth_state": "California",
+    "birth_time": "06:31"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "169"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1153",
+          "2409",
+          "8827"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          17,
+          18,
+          42,
+          67
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          25,
+          29,
+          37,
+          44,
+          49
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          7,
+          10,
+          15,
+          33
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Casey Smith",
+  "subscriber_initials": "CS",
+  "dob": "1997-05-17",
+  "pob": "Atlanta, GA",
+  "tob": "13:00",
+  "email": "bosk_test_170@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 5,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "649",
+      "150",
+      "082"
+    ],
+    "Cash4": [
+      "2635",
+      "2610",
+      "5262"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

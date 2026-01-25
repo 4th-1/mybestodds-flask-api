@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0448",
+  "kit_type": "BOOK3",
+  "dob": "1979-09-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Janice",
+    "last_name": "Mitchell",
+    "birth_date": "1979-09-20",
+    "birth_city": "Santa Clara",
+    "birth_state": "California",
+    "birth_time": "00:05"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "924",
+          "763",
+          "411",
+          "749"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4178"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          12,
+          14,
+          29,
+          52
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          14,
+          19,
+          26,
+          28
+        ],
+        "power_ball": [
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          28,
+          30,
+          32,
+          51,
+          53
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

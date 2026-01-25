@@ -1,0 +1,37 @@
+{
+  "name": "Quinn Moore",
+  "subscriber_initials": "QM",
+  "dob": "1987-03-22",
+  "pob": "Macon, GA",
+  "tob": "08:30",
+  "email": "book3_test_174@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 3,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "111",
+      "604"
+    ],
+    "Cash4": [
+      "7569",
+      "3106",
+      "5550"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

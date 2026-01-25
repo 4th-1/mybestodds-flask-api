@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0285",
+  "kit_type": "BOOK3",
+  "dob": "1989-05-22",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Gregory",
+    "last_name": "Sanders",
+    "birth_date": "1989-05-22",
+    "birth_city": "Odessa",
+    "birth_state": "Texas",
+    "birth_time": "23:41"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "110",
+          "545",
+          "608",
+          "570",
+          "853"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4750",
+          "0039"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          29,
+          50,
+          51,
+          55
+        ],
+        "mega_ball": [
+          11
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          25,
+          37,
+          40,
+          46,
+          63
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          10,
+          39,
+          48,
+          59
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

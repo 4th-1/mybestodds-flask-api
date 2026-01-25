@@ -1,0 +1,43 @@
+{
+  "name": "Emerson Thompson",
+  "first_name": "Emerson",
+  "last_name": "Thompson",
+  "initials": "ETH",
+  "gender": "F",
+  "dob": "1978-03-04",
+  "tob": "04:15",
+  "pob": "Nashville, TN",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "050",
+      "358",
+      "929",
+      "122",
+      "855"
+    ],
+    "Cash4": [
+      "2535",
+      "7201",
+      "5721"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "050",
+    "358",
+    "929",
+    "122",
+    "855"
+  ],
+  "cash4_personal_numbers": [
+    "2535",
+    "7201",
+    "5721"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

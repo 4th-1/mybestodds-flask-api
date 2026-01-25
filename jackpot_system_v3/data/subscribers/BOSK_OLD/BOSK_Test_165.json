@@ -1,0 +1,36 @@
+{
+  "name": "Dakota Smith",
+  "subscriber_initials": "DS",
+  "dob": "1990-03-26",
+  "pob": "Augusta, GA",
+  "tob": "12:30",
+  "email": "bosk_test_165@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 3,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "516",
+      "803"
+    ],
+    "Cash4": [
+      "7664",
+      "3561"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

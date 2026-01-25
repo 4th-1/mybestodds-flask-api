@@ -1,0 +1,43 @@
+{
+  "name": "Rowan Garcia",
+  "first_name": "Rowan",
+  "last_name": "Garcia",
+  "initials": "RGA",
+  "gender": "F",
+  "dob": "1995-10-28",
+  "tob": "05:35",
+  "pob": "Seattle, WA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "714",
+      "781",
+      "211",
+      "721",
+      "556"
+    ],
+    "Cash4": [
+      "3805",
+      "5272",
+      "8630"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "714",
+    "781",
+    "211",
+    "721",
+    "556"
+  ],
+  "cash4_personal_numbers": [
+    "3805",
+    "5272",
+    "8630"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

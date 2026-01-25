@@ -1,0 +1,37 @@
+{
+  "name": "Logan Johnson",
+  "subscriber_initials": "LJ",
+  "dob": "2000-02-13",
+  "pob": "Columbus, GA",
+  "tob": "09:30",
+  "email": "bosk_test_125@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 2,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "984",
+      "745",
+      "366",
+      "324"
+    ],
+    "Cash4": [
+      "8296"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

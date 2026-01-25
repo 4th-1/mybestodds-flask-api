@@ -1,0 +1,43 @@
+{
+  "name": "Reese Harris",
+  "first_name": "Reese",
+  "last_name": "Harris",
+  "initials": "RHA",
+  "gender": "F",
+  "dob": "1991-10-18",
+  "tob": "14:10",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "464",
+      "917",
+      "621",
+      "171",
+      "845"
+    ],
+    "Cash4": [
+      "6248",
+      "4383",
+      "3315"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "464",
+    "917",
+    "621",
+    "171",
+    "845"
+  ],
+  "cash4_personal_numbers": [
+    "6248",
+    "4383",
+    "3315"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

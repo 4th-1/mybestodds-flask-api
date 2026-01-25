@@ -1,0 +1,43 @@
+{
+  "name": "Skyler Thomas",
+  "first_name": "Skyler",
+  "last_name": "Thomas",
+  "initials": "STH",
+  "gender": "M",
+  "dob": "1999-12-03",
+  "tob": "10:05",
+  "pob": "Dallas, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "363",
+      "012",
+      "093",
+      "208",
+      "008"
+    ],
+    "Cash4": [
+      "3756",
+      "4156",
+      "0162"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "363",
+    "012",
+    "093",
+    "208",
+    "008"
+  ],
+  "cash4_personal_numbers": [
+    "3756",
+    "4156",
+    "0162"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Hayden Davis",
+  "first_name": "Hayden",
+  "last_name": "Davis",
+  "initials": "HDA",
+  "gender": "F",
+  "dob": "1982-02-24",
+  "tob": "06:40",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "510",
+      "794",
+      "608",
+      "848",
+      "001"
+    ],
+    "Cash4": [
+      "0372",
+      "5692",
+      "4466"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "510",
+    "794",
+    "608",
+    "848",
+    "001"
+  ],
+  "cash4_personal_numbers": [
+    "0372",
+    "5692",
+    "4466"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

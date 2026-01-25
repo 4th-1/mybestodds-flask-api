@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0906",
+  "kit_type": "BOOK3",
+  "dob": "1955-11-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Betty",
+    "last_name": "Lee",
+    "birth_date": "1955-11-09",
+    "birth_time": "21:44",
+    "birth_city": "South Dakota City 11",
+    "birth_state": "South Dakota"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "aggressive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "915,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          30,
+          41,
+          48,
+          65
+        ],
+        "mega_ball": [
+          21,
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          28,
+          43,
+          51,
+          54,
+          67
+        ],
+        "power_ball": [
+          23,
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          6,
+          14,
+          29,
+          42
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

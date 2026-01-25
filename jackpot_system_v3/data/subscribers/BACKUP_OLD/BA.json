@@ -1,0 +1,25 @@
+{
+  "name": "Bakiea Owens",
+  "subscriber_initials": "BO",
+  "dob": "1972-02-27",
+  "pob": "Atlanta, GA",
+  "tob": "14:29",
+  "email": "obakiea@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [
+      "229"
+    ],
+    "Cash4": []
+  },
+  "cohort": "PILOT05",
+  "birth_month": 2,
+  "kit": "BOOK3",
+  "initials": "BA"
+}

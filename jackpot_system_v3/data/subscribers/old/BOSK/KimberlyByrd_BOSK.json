@@ -1,0 +1,29 @@
+{
+  "name": "Kimberly Byrd",
+  "initials": "KB",
+  "dob": "1959-12-21",
+  "pob": "West Melanieport, NY",
+  "tob": "xx:xx",
+  "email": "zgraham@hotmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  },
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOSK"
+}

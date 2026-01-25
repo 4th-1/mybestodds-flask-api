@@ -1,0 +1,43 @@
+{
+  "name": "Peyton Martinez",
+  "first_name": "Peyton",
+  "last_name": "Martinez",
+  "initials": "PMA",
+  "gender": "F",
+  "dob": "1960-08-21",
+  "tob": "21:25",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "214",
+      "548",
+      "525",
+      "056",
+      "039"
+    ],
+    "Cash4": [
+      "3560",
+      "9058",
+      "5022"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "214",
+    "548",
+    "525",
+    "056",
+    "039"
+  ],
+  "cash4_personal_numbers": [
+    "3560",
+    "9058",
+    "5022"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

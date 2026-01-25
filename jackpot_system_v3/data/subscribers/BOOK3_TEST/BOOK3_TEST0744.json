@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0744",
+  "kit_type": "BOOK3",
+  "dob": "1991-05-08",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ruth",
+    "last_name": "Turner",
+    "birth_date": "1991-05-08",
+    "birth_city": "Las Cruces",
+    "birth_state": "New Mexico",
+    "birth_time": "01:37"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "330",
+          "110",
+          "361"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8823"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          16,
+          40,
+          54,
+          55,
+          61
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          16,
+          21,
+          41,
+          46
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          8,
+          19,
+          37,
+          60
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

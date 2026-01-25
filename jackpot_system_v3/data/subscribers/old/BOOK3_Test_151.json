@@ -1,0 +1,43 @@
+{
+  "name": "Jamie Clark",
+  "first_name": "Jamie",
+  "last_name": "Clark",
+  "initials": "JCL",
+  "gender": "F",
+  "dob": "1983-06-09",
+  "tob": "15:15",
+  "pob": "Denver, CO",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "550",
+      "529",
+      "227",
+      "201",
+      "173"
+    ],
+    "Cash4": [
+      "6032",
+      "3986",
+      "1567"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "550",
+    "529",
+    "227",
+    "201",
+    "173"
+  ],
+  "cash4_personal_numbers": [
+    "6032",
+    "3986",
+    "1567"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

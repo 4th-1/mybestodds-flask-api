@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0388",
+  "kit_type": "BOOK3",
+  "dob": "1957-08-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Patricia",
+    "last_name": "Wilson",
+    "birth_date": "1957-08-05",
+    "birth_time": "09:18",
+    "birth_city": "Iowa City 13",
+    "birth_state": "Iowa"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "587,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          41,
+          46,
+          47,
+          53,
+          56
+        ],
+        "mega_ball": [
+          6,
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          15,
+          36,
+          46,
+          69
+        ],
+        "power_ball": [
+          24,
+          11
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          24,
+          41,
+          59,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

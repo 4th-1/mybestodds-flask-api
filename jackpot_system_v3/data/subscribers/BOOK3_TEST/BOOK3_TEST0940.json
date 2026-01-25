@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0940",
+  "kit_type": "BOOK3",
+  "dob": "1984-05-08",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Donald",
+    "last_name": "Stewart",
+    "birth_date": "1984-05-08",
+    "birth_city": "Concord",
+    "birth_state": "California",
+    "birth_time": "15:55"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "986",
+          "455"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2327",
+          "5255",
+          "8418"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          23,
+          60,
+          61,
+          69
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          26,
+          36,
+          48,
+          57
+        ],
+        "power_ball": [
+          12
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          29,
+          40,
+          48,
+          52,
+          56
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

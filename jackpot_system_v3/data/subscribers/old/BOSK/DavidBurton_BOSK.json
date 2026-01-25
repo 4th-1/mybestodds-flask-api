@@ -1,0 +1,29 @@
+{
+  "name": "David Burton",
+  "initials": "DB",
+  "dob": "1982-08-20",
+  "pob": "Mortonland, HI",
+  "tob": "xx:xx",
+  "email": "zachary05@patterson-duncan.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  },
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOSK"
+}

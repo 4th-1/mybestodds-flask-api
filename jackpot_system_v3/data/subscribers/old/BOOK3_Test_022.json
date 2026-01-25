@@ -1,0 +1,43 @@
+{
+  "name": "Jamie Jackson",
+  "first_name": "Jamie",
+  "last_name": "Jackson",
+  "initials": "JJA",
+  "gender": "M",
+  "dob": "1961-08-18",
+  "tob": "22:25",
+  "pob": "Miami, FL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "248",
+      "977",
+      "129",
+      "198",
+      "663"
+    ],
+    "Cash4": [
+      "6321",
+      "8975",
+      "9516"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "248",
+    "977",
+    "129",
+    "198",
+    "663"
+  ],
+  "cash4_personal_numbers": [
+    "6321",
+    "8975",
+    "9516"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

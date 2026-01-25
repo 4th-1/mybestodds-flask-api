@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0890",
+  "kit_type": "BOOK3",
+  "dob": "1993-11-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jerry",
+    "last_name": "Flores",
+    "birth_date": "1993-11-25",
+    "birth_city": "Downey",
+    "birth_state": "California",
+    "birth_time": "12:04"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "598",
+          "039",
+          "451"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8174"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          20,
+          25,
+          39,
+          53
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          8,
+          9,
+          43,
+          65
+        ],
+        "power_ball": [
+          12
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          28,
+          43,
+          46,
+          51
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

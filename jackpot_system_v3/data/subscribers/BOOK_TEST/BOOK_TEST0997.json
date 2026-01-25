@@ -1,0 +1,42 @@
+{
+  "subscriber_id": "BOOK_TEST0997",
+  "kit_type": "BOOK",
+  "dob": "1995-02-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Julia",
+    "last_name": "Rodriguez",
+    "birth_date": "1995-02-11",
+    "birth_city": "Minneapolis",
+    "birth_state": "Minnesota",
+    "birth_time": "21:26"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

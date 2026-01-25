@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0519",
+  "kit_type": "BOOK3",
+  "dob": "1997-09-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Elizabeth",
+    "last_name": "Gonzalez",
+    "birth_date": "1997-09-09",
+    "birth_time": "12:27",
+    "birth_city": "Michigan City 4",
+    "birth_state": "Michigan"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "aggressive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "997,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          18,
+          20,
+          45,
+          51,
+          70
+        ],
+        "mega_ball": [
+          3,
+          2
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          17,
+          20,
+          51,
+          53
+        ],
+        "power_ball": [
+          7,
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          26,
+          28,
+          34,
+          40
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

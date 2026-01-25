@@ -1,0 +1,22 @@
+{
+  "name": "Mia Gilbert",
+  "initials": "MG",
+  "dob": "1973-02-21",
+  "pob": "West Rachaelmouth, SD",
+  "tob": "13:42",
+  "email": "tonyasoto@yahoo.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

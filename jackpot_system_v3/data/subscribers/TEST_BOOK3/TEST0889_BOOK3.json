@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0889",
+  "kit_type": "BOOK3",
+  "dob": "1976-08-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Lisa",
+    "last_name": "Perez",
+    "birth_date": "1976-08-11",
+    "birth_time": "21:20",
+    "birth_city": "South Carolina City 14",
+    "birth_state": "South Carolina"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "186,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          28,
+          30,
+          37,
+          40,
+          43
+        ],
+        "mega_ball": [
+          17,
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          21,
+          23,
+          31,
+          38,
+          41
+        ],
+        "power_ball": [
+          3,
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          13,
+          38,
+          42,
+          50,
+          56
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

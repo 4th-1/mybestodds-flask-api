@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0803",
+  "kit_type": "BOOK3",
+  "dob": "2002-06-10",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Judith",
+    "last_name": "Mitchell",
+    "birth_date": "2002-06-10",
+    "birth_city": "Santa Rosa",
+    "birth_state": "California",
+    "birth_time": "12:43"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "350",
+          "558"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4079"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          23,
+          30,
+          46,
+          53
+        ],
+        "mega_ball": [
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          19,
+          25,
+          28,
+          32
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          11,
+          18,
+          42,
+          60
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

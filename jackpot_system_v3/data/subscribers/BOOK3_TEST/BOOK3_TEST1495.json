@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1495",
+  "kit_type": "BOOK3",
+  "dob": "1977-11-08",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Lauren",
+    "last_name": "Ward",
+    "birth_date": "1977-11-08",
+    "birth_city": "Burbank",
+    "birth_state": "California",
+    "birth_time": "17:50"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "327",
+          "453",
+          "216",
+          "068"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5426"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          14,
+          24,
+          26,
+          34
+        ],
+        "mega_ball": [
+          11
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          27,
+          28,
+          44,
+          67
+        ],
+        "power_ball": [
+          25
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          17,
+          22,
+          25,
+          30
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

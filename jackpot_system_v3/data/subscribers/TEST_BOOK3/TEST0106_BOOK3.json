@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0106",
+  "kit_type": "BOOK3",
+  "dob": "1956-11-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "David",
+    "last_name": "Garcia",
+    "birth_date": "1956-11-01",
+    "birth_time": "02:32",
+    "birth_city": "Alabama City 11",
+    "birth_state": "Alabama"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "116,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          19,
+          28,
+          41,
+          44
+        ],
+        "mega_ball": [
+          12,
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          24,
+          28,
+          29,
+          42,
+          61
+        ],
+        "power_ball": [
+          11,
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          23,
+          30,
+          42,
+          49
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

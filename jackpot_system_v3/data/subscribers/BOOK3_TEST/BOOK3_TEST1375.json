@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1375",
+  "kit_type": "BOOK3",
+  "dob": "1975-04-22",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Dorothy",
+    "last_name": "Reed",
+    "birth_date": "1975-04-22",
+    "birth_city": "Arvada",
+    "birth_state": "Colorado",
+    "birth_time": "14:51"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "898"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3971",
+          "4168"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          28,
+          41,
+          42,
+          63
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          23,
+          36,
+          37,
+          62,
+          69
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          42,
+          43,
+          46,
+          56
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

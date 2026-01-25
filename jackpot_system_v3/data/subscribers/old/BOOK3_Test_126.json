@@ -1,0 +1,43 @@
+{
+  "name": "Peyton Miller",
+  "first_name": "Peyton",
+  "last_name": "Miller",
+  "initials": "PMI",
+  "gender": "F",
+  "dob": "1964-03-17",
+  "tob": "03:30",
+  "pob": "Charlotte, NC",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "618",
+      "501",
+      "797",
+      "611",
+      "613"
+    ],
+    "Cash4": [
+      "6381",
+      "1378",
+      "1323"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "618",
+    "501",
+    "797",
+    "611",
+    "613"
+  ],
+  "cash4_personal_numbers": [
+    "6381",
+    "1378",
+    "1323"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

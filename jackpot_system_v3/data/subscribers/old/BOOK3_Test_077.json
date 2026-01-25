@@ -1,0 +1,43 @@
+{
+  "name": "Morgan Martin",
+  "first_name": "Morgan",
+  "last_name": "Martin",
+  "initials": "MMA",
+  "gender": "M",
+  "dob": "1976-04-23",
+  "tob": "01:15",
+  "pob": "Dallas, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "958",
+      "416",
+      "571",
+      "844",
+      "545"
+    ],
+    "Cash4": [
+      "5405",
+      "0880",
+      "5662"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "958",
+    "416",
+    "571",
+    "844",
+    "545"
+  ],
+  "cash4_personal_numbers": [
+    "5405",
+    "0880",
+    "5662"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

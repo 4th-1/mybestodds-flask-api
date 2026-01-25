@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1064",
+  "kit_type": "BOOK3",
+  "dob": "2004-02-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jessica",
+    "last_name": "Morris",
+    "birth_date": "2004-02-17",
+    "birth_city": "Boulder",
+    "birth_state": "Colorado",
+    "birth_time": "01:49"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "928",
+          "384"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1603",
+          "5800"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          16,
+          30,
+          33,
+          39
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          22,
+          41,
+          66,
+          69
+        ],
+        "power_ball": [
+          1
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          5,
+          25,
+          51,
+          56
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0156",
+  "kit_type": "BOOK3",
+  "dob": "1961-03-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Victoria",
+    "last_name": "Rogers",
+    "birth_date": "1961-03-25",
+    "birth_city": "Waco",
+    "birth_state": "Texas",
+    "birth_time": "19:19"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "690",
+          "116",
+          "627",
+          "391",
+          "201"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9314",
+          "1290",
+          "3778"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          36,
+          43,
+          53,
+          56
+        ],
+        "mega_ball": [
+          21
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          13,
+          25,
+          44,
+          59
+        ],
+        "power_ball": [
+          13
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          20,
+          25,
+          32,
+          46,
+          57
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

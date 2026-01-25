@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0403",
+  "kit_type": "BOOK3",
+  "dob": "1981-08-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Karen",
+    "last_name": "Price",
+    "birth_date": "1981-08-09",
+    "birth_city": "Lexington",
+    "birth_state": "Kentucky",
+    "birth_time": "22:38"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "190",
+          "247",
+          "887"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3929",
+          "7276",
+          "1367"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          4,
+          22,
+          28,
+          50
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          13,
+          18,
+          33,
+          46,
+          48
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          28,
+          35,
+          42,
+          53
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

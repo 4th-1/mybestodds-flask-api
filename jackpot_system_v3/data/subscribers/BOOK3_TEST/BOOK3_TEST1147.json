@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1147",
+  "kit_type": "BOOK3",
+  "dob": "1998-10-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Janet",
+    "last_name": "Gomez",
+    "birth_date": "1998-10-09",
+    "birth_city": "San Mateo",
+    "birth_state": "California",
+    "birth_time": "17:21"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "829",
+          "593",
+          "494"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4782",
+          "8687",
+          "1476"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          10,
+          11,
+          31,
+          70
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          19,
+          21,
+          28,
+          47,
+          54
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          18,
+          23,
+          33,
+          34,
+          40
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

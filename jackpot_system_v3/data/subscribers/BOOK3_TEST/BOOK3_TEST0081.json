@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0081",
+  "kit_type": "BOOK3",
+  "dob": "1998-01-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ruth",
+    "last_name": "Wallace",
+    "birth_date": "1998-01-04",
+    "birth_city": "Antioch",
+    "birth_state": "California",
+    "birth_time": "18:13"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "316",
+          "585",
+          "691",
+          "329",
+          "143"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6034",
+          "0530",
+          "9723"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          16,
+          26,
+          28,
+          40,
+          41
+        ],
+        "mega_ball": [
+          2
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          17,
+          21,
+          22,
+          40
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          26,
+          39,
+          42,
+          44
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

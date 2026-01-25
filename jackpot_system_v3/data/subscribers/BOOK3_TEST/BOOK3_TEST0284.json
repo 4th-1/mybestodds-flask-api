@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0284",
+  "kit_type": "BOOK3",
+  "dob": "1999-12-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Betty",
+    "last_name": "Morris",
+    "birth_date": "1999-12-14",
+    "birth_city": "Chula Vista",
+    "birth_state": "California",
+    "birth_time": "20:02"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "589",
+          "701"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1005"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          22,
+          29,
+          31,
+          64
+        ],
+        "mega_ball": [
+          11
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          19,
+          22,
+          55,
+          65
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          17,
+          19,
+          23,
+          32
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0361",
+  "kit_type": "BOOK3",
+  "dob": "1996-09-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Samantha",
+    "last_name": "Gray",
+    "birth_date": "1996-09-27",
+    "birth_city": "Atlanta",
+    "birth_state": "Georgia",
+    "birth_time": "21:57"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "925",
+          "643",
+          "630",
+          "157",
+          "891"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1339"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          11,
+          24,
+          33,
+          48
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          20,
+          21,
+          41,
+          51,
+          60
+        ],
+        "power_ball": [
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          17,
+          23,
+          31,
+          50
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

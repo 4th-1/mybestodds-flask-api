@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0269",
+  "kit_type": "BOOK3",
+  "dob": "1977-01-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Austin",
+    "last_name": "Kelly",
+    "birth_date": "1977-01-23",
+    "birth_city": "Ann Arbor",
+    "birth_state": "Michigan",
+    "birth_time": "17:27"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "189",
+          "831",
+          "786",
+          "988",
+          "524"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8393",
+          "3480",
+          "1408"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          44,
+          52,
+          54,
+          61
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          29,
+          36,
+          57,
+          62
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          17,
+          25,
+          28,
+          35,
+          55
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0769",
+  "kit_type": "BOOK3",
+  "dob": "1978-11-22",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jennifer",
+    "last_name": "Martinez",
+    "birth_date": "1978-11-22",
+    "birth_time": "18:27",
+    "birth_city": "North Dakota City 14",
+    "birth_state": "North Dakota"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "218,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          11,
+          19,
+          28,
+          42
+        ],
+        "mega_ball": [
+          23,
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          9,
+          18,
+          51,
+          63
+        ],
+        "power_ball": [
+          24,
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          7,
+          11,
+          40,
+          54
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Jordan Jackson",
+  "subscriber_initials": "JJ",
+  "dob": "1969-07-20",
+  "pob": "Savannah, GA",
+  "tob": "10:45",
+  "email": "bosk_test_050@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 7,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "428",
+      "309",
+      "763",
+      "048"
+    ],
+    "Cash4": [
+      "3190",
+      "4266",
+      "4363"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

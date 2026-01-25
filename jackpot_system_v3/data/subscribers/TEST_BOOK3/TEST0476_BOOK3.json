@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0476",
+  "kit_type": "BOOK3",
+  "dob": "1977-09-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sandra",
+    "last_name": "Smith",
+    "birth_date": "1977-09-07",
+    "birth_time": "11:25",
+    "birth_city": "Maryland City 1",
+    "birth_state": "Maryland"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "797,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          6,
+          7,
+          57,
+          69
+        ],
+        "mega_ball": [
+          1,
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          21,
+          24,
+          26,
+          37
+        ],
+        "power_ball": [
+          11,
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          30,
+          39,
+          41,
+          54
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

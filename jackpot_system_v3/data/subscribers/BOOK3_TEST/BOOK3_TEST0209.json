@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0209",
+  "kit_type": "BOOK3",
+  "dob": "1973-04-21",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Samuel",
+    "last_name": "Thomas",
+    "birth_date": "1973-04-21",
+    "birth_city": "Little Rock",
+    "birth_state": "Arkansas",
+    "birth_time": "09:47"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "176"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5152",
+          "4645",
+          "0736"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          20,
+          31,
+          35,
+          36
+        ],
+        "mega_ball": [
+          20
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          17,
+          27,
+          49,
+          56,
+          59
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          20,
+          28,
+          45,
+          55
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

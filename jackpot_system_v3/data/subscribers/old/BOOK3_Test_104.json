@@ -1,0 +1,43 @@
+{
+  "name": "Skyler Rodriguez",
+  "first_name": "Skyler",
+  "last_name": "Rodriguez",
+  "initials": "SRO",
+  "gender": "F",
+  "dob": "1993-02-11",
+  "tob": "12:05",
+  "pob": "Detroit, MI",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "414",
+      "349",
+      "852",
+      "767",
+      "723"
+    ],
+    "Cash4": [
+      "5243",
+      "0798",
+      "3580"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "414",
+    "349",
+    "852",
+    "767",
+    "723"
+  ],
+  "cash4_personal_numbers": [
+    "5243",
+    "0798",
+    "3580"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Bailey Anderson",
+  "subscriber_initials": "BA",
+  "dob": "2005-08-27",
+  "pob": "Decatur, GA",
+  "tob": "03:30",
+  "email": "book3_test_135@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 8,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "774",
+      "820",
+      "156",
+      "396"
+    ],
+    "Cash4": [
+      "0131",
+      "9760",
+      "9391"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

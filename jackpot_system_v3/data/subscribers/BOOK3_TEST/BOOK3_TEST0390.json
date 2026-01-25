@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0390",
+  "kit_type": "BOOK3",
+  "dob": "1973-06-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Christine",
+    "last_name": "Perez",
+    "birth_date": "1973-06-23",
+    "birth_city": "St. Louis",
+    "birth_state": "Missouri",
+    "birth_time": "03:36"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "508",
+          "407",
+          "454"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7282",
+          "6378",
+          "4429"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          9,
+          37,
+          50,
+          52
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          5,
+          22,
+          45,
+          69
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          13,
+          22,
+          24,
+          54,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

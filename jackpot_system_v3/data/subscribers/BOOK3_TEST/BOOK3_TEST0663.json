@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0663",
+  "kit_type": "BOOK3",
+  "dob": "1981-07-15",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Charles",
+    "last_name": "Ortiz",
+    "birth_date": "1981-07-15",
+    "birth_city": "Bellevue",
+    "birth_state": "Washington",
+    "birth_time": "02:38"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "460",
+          "297",
+          "635",
+          "594"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7971"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          20,
+          34,
+          49,
+          59,
+          70
+        ],
+        "mega_ball": [
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          22,
+          27,
+          35,
+          66
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          12,
+          29,
+          32,
+          59
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

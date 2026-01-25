@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0429",
+  "kit_type": "BOOK3",
+  "dob": "1963-02-12",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "James",
+    "last_name": "Butler",
+    "birth_date": "1963-02-12",
+    "birth_city": "Philadelphia",
+    "birth_state": "Pennsylvania",
+    "birth_time": "04:35"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "530",
+          "615"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4336",
+          "2787",
+          "6972"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          11,
+          19,
+          33,
+          65
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          22,
+          24,
+          47,
+          59,
+          65
+        ],
+        "power_ball": [
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          19,
+          20,
+          23,
+          33,
+          45
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

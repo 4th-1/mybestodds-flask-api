@@ -1,0 +1,43 @@
+{
+  "name": "Skyler Miller",
+  "first_name": "Skyler",
+  "last_name": "Miller",
+  "initials": "SMI",
+  "gender": "F",
+  "dob": "1996-01-21",
+  "tob": "18:05",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "075",
+      "817",
+      "548",
+      "498",
+      "875"
+    ],
+    "Cash4": [
+      "0357",
+      "8538",
+      "9142"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "075",
+    "817",
+    "548",
+    "498",
+    "875"
+  ],
+  "cash4_personal_numbers": [
+    "0357",
+    "8538",
+    "9142"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

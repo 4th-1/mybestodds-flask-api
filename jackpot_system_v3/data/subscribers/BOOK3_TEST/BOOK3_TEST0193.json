@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0193",
+  "kit_type": "BOOK3",
+  "dob": "1998-08-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sara",
+    "last_name": "Price",
+    "birth_date": "1998-08-19",
+    "birth_city": "Baltimore",
+    "birth_state": "Maryland",
+    "birth_time": "11:50"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "444",
+          "857"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5956"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          31,
+          32,
+          43,
+          45
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          21,
+          36,
+          48,
+          58,
+          63
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          14,
+          24,
+          44,
+          56
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

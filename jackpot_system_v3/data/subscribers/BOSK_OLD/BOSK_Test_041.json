@@ -1,0 +1,37 @@
+{
+  "name": "Casey Miller",
+  "subscriber_initials": "CM",
+  "dob": "1993-08-04",
+  "pob": "Decatur, GA",
+  "tob": "01:15",
+  "email": "bosk_test_041@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 8,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "986",
+      "797",
+      "516",
+      "000"
+    ],
+    "Cash4": [
+      "4170"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

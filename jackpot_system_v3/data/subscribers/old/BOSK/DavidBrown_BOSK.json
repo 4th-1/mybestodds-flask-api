@@ -1,0 +1,29 @@
+{
+  "name": "David Brown",
+  "initials": "DB",
+  "dob": "1994-04-10",
+  "pob": "Bentonshire, AK",
+  "tob": "xx:xx",
+  "email": "parkerwayne@martinez.net",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  },
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOSK"
+}

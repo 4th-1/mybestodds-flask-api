@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1134",
+  "kit_type": "BOOK3",
+  "dob": "2004-01-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Diane",
+    "last_name": "Mendoza",
+    "birth_date": "2004-01-19",
+    "birth_city": "Richmond",
+    "birth_state": "California",
+    "birth_time": "23:29"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "047",
+          "968",
+          "704",
+          "634",
+          "281"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9450",
+          "7641"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          19,
+          28,
+          49,
+          53,
+          58
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          27,
+          43,
+          45,
+          46,
+          67
+        ],
+        "power_ball": [
+          18
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          6,
+          25,
+          35,
+          57
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Juan Bailey Jr.",
+  "initials": "JJ",
+  "dob": "1981-03-07",
+  "pob": "Montoyaside, FL",
+  "tob": "06:42",
+  "email": "fhuynh@sharp.net",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

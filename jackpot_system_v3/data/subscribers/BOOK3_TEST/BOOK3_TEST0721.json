@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0721",
+  "kit_type": "BOOK3",
+  "dob": "1965-07-21",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Henry",
+    "last_name": "Graham",
+    "birth_date": "1965-07-21",
+    "birth_city": "Fargo",
+    "birth_state": "North Dakota",
+    "birth_time": "23:45"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "847",
+          "818"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2757",
+          "1232"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          25,
+          28,
+          34,
+          50,
+          51
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          22,
+          33,
+          61,
+          67
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          14,
+          27,
+          43,
+          44
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

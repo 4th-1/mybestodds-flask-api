@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0104",
+  "kit_type": "BOOK3",
+  "dob": "1972-10-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Helen",
+    "last_name": "Gonzalez",
+    "birth_date": "1972-10-14",
+    "birth_time": "02:29",
+    "birth_city": "Alabama City 9",
+    "birth_state": "Alabama"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "402,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          49,
+          50,
+          52,
+          64
+        ],
+        "mega_ball": [
+          15,
+          2
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          8,
+          14,
+          15,
+          16,
+          28
+        ],
+        "power_ball": [
+          19,
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          17,
+          29,
+          34,
+          46
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

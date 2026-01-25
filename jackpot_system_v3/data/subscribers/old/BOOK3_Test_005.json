@@ -1,0 +1,43 @@
+{
+  "name": "Peyton Garcia",
+  "first_name": "Peyton",
+  "last_name": "Garcia",
+  "initials": "PGA",
+  "gender": "M",
+  "dob": "1976-09-30",
+  "tob": "02:45",
+  "pob": "New Orleans, LA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "807",
+      "456",
+      "248",
+      "376",
+      "623"
+    ],
+    "Cash4": [
+      "1120",
+      "3407",
+      "1439"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "807",
+    "456",
+    "248",
+    "376",
+    "623"
+  ],
+  "cash4_personal_numbers": [
+    "1120",
+    "3407",
+    "1439"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

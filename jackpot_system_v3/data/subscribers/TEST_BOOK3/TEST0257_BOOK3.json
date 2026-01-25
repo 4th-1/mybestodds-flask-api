@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0257",
+  "kit_type": "BOOK3",
+  "dob": "1973-04-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Robert",
+    "last_name": "Hernandez",
+    "birth_date": "1973-04-24",
+    "birth_time": "06:10",
+    "birth_city": "Florida City 2",
+    "birth_state": "Florida"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "443,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          29,
+          38,
+          50,
+          64
+        ],
+        "mega_ball": [
+          13,
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          5,
+          14,
+          44,
+          57
+        ],
+        "power_ball": [
+          18,
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          5,
+          13,
+          18,
+          44
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

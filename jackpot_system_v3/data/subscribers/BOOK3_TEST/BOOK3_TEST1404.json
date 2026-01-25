@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST1404",
+  "kit_type": "BOOK3",
+  "dob": "1987-04-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Robert",
+    "last_name": "Butler",
+    "birth_date": "1987-04-24",
+    "birth_city": "New Orleans",
+    "birth_state": "Louisiana",
+    "birth_time": "21:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "049"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2443"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          21,
+          30,
+          66,
+          69
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          11,
+          35,
+          38,
+          55
+        ],
+        "power_ball": [
+          25
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          25,
+          27,
+          38,
+          45
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

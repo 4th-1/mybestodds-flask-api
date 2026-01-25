@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0965",
+  "kit_type": "BOOK3",
+  "dob": "1961-11-03",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joshua",
+    "last_name": "King",
+    "birth_date": "1961-11-03",
+    "birth_city": "Milwaukee",
+    "birth_state": "Wisconsin",
+    "birth_time": "04:20"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "246",
+          "587"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3652",
+          "0651"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          25,
+          37,
+          38,
+          39,
+          45
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          38,
+          52,
+          54,
+          56,
+          62
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          3,
+          5,
+          46,
+          49
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

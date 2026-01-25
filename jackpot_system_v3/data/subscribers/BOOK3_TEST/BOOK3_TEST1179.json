@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1179",
+  "kit_type": "BOOK3",
+  "dob": "1966-10-26",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Samuel",
+    "last_name": "Davis",
+    "birth_date": "1966-10-26",
+    "birth_city": "Port St. Lucie",
+    "birth_state": "Florida",
+    "birth_time": "04:10"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "193",
+          "280",
+          "459",
+          "885"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1664"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          15,
+          23,
+          41,
+          53
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          8,
+          14,
+          20,
+          33,
+          40
+        ],
+        "power_ball": [
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          18,
+          38,
+          51,
+          53
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

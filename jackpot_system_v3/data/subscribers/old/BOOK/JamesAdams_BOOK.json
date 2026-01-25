@@ -1,0 +1,22 @@
+{
+  "name": "James Adams",
+  "initials": "JA",
+  "dob": "2002-09-06",
+  "pob": "East Kathleen, NY",
+  "tob": "21:33",
+  "email": "tammygray@martin-kelly.info",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

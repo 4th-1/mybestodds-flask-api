@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0433",
+  "kit_type": "BOOK3",
+  "dob": "1973-11-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Charles",
+    "last_name": "White",
+    "birth_date": "1973-11-17",
+    "birth_time": "10:23",
+    "birth_city": "Kentucky City 18",
+    "birth_state": "Kentucky"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "713,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          4,
+          8,
+          9,
+          19
+        ],
+        "mega_ball": [
+          5,
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          28,
+          32,
+          52,
+          57,
+          64
+        ],
+        "power_ball": [
+          6,
+          25
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          15,
+          20,
+          25,
+          55
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

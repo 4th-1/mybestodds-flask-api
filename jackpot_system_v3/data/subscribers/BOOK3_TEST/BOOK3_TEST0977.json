@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0977",
+  "kit_type": "BOOK3",
+  "dob": "1982-06-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ronald",
+    "last_name": "Simmons",
+    "birth_date": "1982-06-25",
+    "birth_city": "Springfield",
+    "birth_state": "Missouri",
+    "birth_time": "10:29"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "133",
+          "332",
+          "310"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4269",
+          "1258"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          15,
+          32,
+          59,
+          61
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          32,
+          51,
+          60,
+          61,
+          64
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          28,
+          31,
+          59,
+          60
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1055",
+  "kit_type": "BOOK3",
+  "dob": "1972-01-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Kenneth",
+    "last_name": "Bailey",
+    "birth_date": "1972-01-09",
+    "birth_city": "Modesto",
+    "birth_state": "California",
+    "birth_time": "20:27"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "016",
+          "845"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7148",
+          "9142"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          36,
+          41,
+          57,
+          60
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          19,
+          22,
+          24,
+          25,
+          62
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          13,
+          15,
+          23,
+          36,
+          37
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

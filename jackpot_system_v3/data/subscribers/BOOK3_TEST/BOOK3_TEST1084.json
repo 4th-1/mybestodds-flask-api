@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1084",
+  "kit_type": "BOOK3",
+  "dob": "1972-04-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "John",
+    "last_name": "Vasquez",
+    "birth_date": "1972-04-07",
+    "birth_city": "Olathe",
+    "birth_state": "Kansas",
+    "birth_time": "08:24"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "863",
+          "627",
+          "267",
+          "523"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8721",
+          "3782",
+          "9233"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          9,
+          10,
+          47,
+          67
+        ],
+        "mega_ball": [
+          20
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          14,
+          20,
+          40,
+          66
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          20,
+          21,
+          38,
+          57,
+          58
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1354",
+  "kit_type": "BOOK3",
+  "dob": "1992-03-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Lionel",
+    "last_name": "Bailey",
+    "birth_date": "1992-03-18",
+    "birth_city": "Grand Prairie",
+    "birth_state": "Texas",
+    "birth_time": "23:54"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "674",
+          "799",
+          "735",
+          "452"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6648",
+          "8680"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          26,
+          38,
+          50,
+          65
+        ],
+        "mega_ball": [
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          34,
+          36,
+          42,
+          57,
+          66
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          19,
+          28,
+          39,
+          46,
+          59
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

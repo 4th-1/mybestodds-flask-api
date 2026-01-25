@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1348",
+  "kit_type": "BOOK3",
+  "dob": "1997-04-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jeremy",
+    "last_name": "Gray",
+    "birth_date": "1997-04-07",
+    "birth_city": "Pearland",
+    "birth_state": "Texas",
+    "birth_time": "15:40"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "932"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6598",
+          "1845",
+          "1666"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          12,
+          43,
+          60,
+          69
+        ],
+        "mega_ball": [
+          2
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          11,
+          17,
+          40,
+          43
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          13,
+          16,
+          18,
+          20,
+          53
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

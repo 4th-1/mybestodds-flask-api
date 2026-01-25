@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0155",
+  "kit_type": "BOOK3",
+  "dob": "1982-10-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Rachel",
+    "last_name": "Martinez",
+    "birth_date": "1982-10-09",
+    "birth_city": "Arvada",
+    "birth_state": "Colorado",
+    "birth_time": "20:30"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "757"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5194",
+          "2736",
+          "9725"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          27,
+          45,
+          59,
+          69
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          22,
+          43,
+          53,
+          58
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          17,
+          18,
+          25,
+          37
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

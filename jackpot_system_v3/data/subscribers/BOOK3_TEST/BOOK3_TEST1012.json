@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST1012",
+  "kit_type": "BOOK3",
+  "dob": "1995-05-12",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nathan",
+    "last_name": "Long",
+    "birth_date": "1995-05-12",
+    "birth_city": "Lafayette",
+    "birth_state": "Louisiana",
+    "birth_time": "03:47"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "582"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4057"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          23,
+          28,
+          30,
+          35
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          13,
+          22,
+          24,
+          44,
+          64
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          23,
+          24,
+          40,
+          58
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Parker Anderson",
+  "subscriber_initials": "PA",
+  "dob": "1992-07-10",
+  "pob": "Savannah, GA",
+  "tob": "06:15",
+  "email": "book3_test_197@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 7,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "916"
+    ],
+    "Cash4": [
+      "1127",
+      "0147"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

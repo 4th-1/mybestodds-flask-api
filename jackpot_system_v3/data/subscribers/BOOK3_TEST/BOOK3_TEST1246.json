@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1246",
+  "kit_type": "BOOK3",
+  "dob": "1994-05-02",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jacob",
+    "last_name": "Anderson",
+    "birth_date": "1994-05-02",
+    "birth_city": "Oceanside",
+    "birth_state": "California",
+    "birth_time": "09:25"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "177",
+          "059"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4586"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          9,
+          12,
+          16,
+          25
+        ],
+        "mega_ball": [
+          21
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          16,
+          38,
+          42,
+          48
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          18,
+          37,
+          53,
+          59
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

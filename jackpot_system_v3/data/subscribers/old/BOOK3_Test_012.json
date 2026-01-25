@@ -1,0 +1,43 @@
+{
+  "name": "Alex Brown",
+  "first_name": "Alex",
+  "last_name": "Brown",
+  "initials": "ABR",
+  "gender": "M",
+  "dob": "1983-11-08",
+  "tob": "03:20",
+  "pob": "Charlotte, NC",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "979",
+      "751",
+      "161",
+      "475",
+      "233"
+    ],
+    "Cash4": [
+      "9080",
+      "7785",
+      "7859"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "979",
+    "751",
+    "161",
+    "475",
+    "233"
+  ],
+  "cash4_personal_numbers": [
+    "9080",
+    "7785",
+    "7859"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

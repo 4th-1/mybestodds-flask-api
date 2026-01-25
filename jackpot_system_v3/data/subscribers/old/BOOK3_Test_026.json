@@ -1,0 +1,43 @@
+{
+  "name": "Casey Thomas",
+  "first_name": "Casey",
+  "last_name": "Thomas",
+  "initials": "CTH",
+  "gender": "M",
+  "dob": "1990-09-01",
+  "tob": "18:55",
+  "pob": "Miami, FL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "288",
+      "352",
+      "013",
+      "728",
+      "410"
+    ],
+    "Cash4": [
+      "7355",
+      "5027",
+      "9673"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "288",
+    "352",
+    "013",
+    "728",
+    "410"
+  ],
+  "cash4_personal_numbers": [
+    "7355",
+    "5027",
+    "9673"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

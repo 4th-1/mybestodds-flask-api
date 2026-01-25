@@ -1,0 +1,22 @@
+{
+  "name": "Tammy Webster",
+  "initials": "TW",
+  "dob": "1963-09-20",
+  "pob": "Johnsonmouth, UT",
+  "tob": "18:50",
+  "email": "ofletcher@espinoza-ross.org",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

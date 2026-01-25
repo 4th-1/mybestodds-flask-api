@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1486",
+  "kit_type": "BOOK3",
+  "dob": "1983-06-16",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joan",
+    "last_name": "Peterson",
+    "birth_date": "1983-06-16",
+    "birth_city": "Amarillo",
+    "birth_state": "Texas",
+    "birth_time": "19:45"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "135"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0188",
+          "7285",
+          "3536"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          29,
+          34,
+          39,
+          60
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          15,
+          33,
+          41,
+          60
+        ],
+        "power_ball": [
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          20,
+          51,
+          53,
+          54
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

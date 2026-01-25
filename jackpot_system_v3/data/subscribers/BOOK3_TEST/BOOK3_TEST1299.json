@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1299",
+  "kit_type": "BOOK3",
+  "dob": "1989-09-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Lisa",
+    "last_name": "Wallace",
+    "birth_date": "1989-09-28",
+    "birth_city": "Arlington",
+    "birth_state": "Texas",
+    "birth_time": "07:51"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "104"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8718",
+          "7515"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          41,
+          47,
+          49,
+          50
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          23,
+          26,
+          31,
+          55
+        ],
+        "power_ball": [
+          1
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          8,
+          32,
+          33,
+          55
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

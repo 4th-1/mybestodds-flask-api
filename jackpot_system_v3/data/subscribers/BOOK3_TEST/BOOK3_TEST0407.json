@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0407",
+  "kit_type": "BOOK3",
+  "dob": "1975-04-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Kyle",
+    "last_name": "Rodriguez",
+    "birth_date": "1975-04-06",
+    "birth_city": "Buffalo",
+    "birth_state": "New York",
+    "birth_time": "14:39"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "611",
+          "416",
+          "614",
+          "924"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5809",
+          "4635"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          23,
+          41,
+          58,
+          59,
+          64
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          14,
+          15,
+          25,
+          31,
+          62
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          11,
+          24,
+          54,
+          58
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

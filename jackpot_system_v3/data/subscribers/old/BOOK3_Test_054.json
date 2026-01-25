@@ -1,0 +1,43 @@
+{
+  "name": "Quinn Brown",
+  "first_name": "Quinn",
+  "last_name": "Brown",
+  "initials": "QBR",
+  "gender": "M",
+  "dob": "1997-06-04",
+  "tob": "07:30",
+  "pob": "Miami, FL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "725",
+      "192",
+      "548",
+      "326",
+      "353"
+    ],
+    "Cash4": [
+      "3868",
+      "6900",
+      "9112"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "725",
+    "192",
+    "548",
+    "326",
+    "353"
+  ],
+  "cash4_personal_numbers": [
+    "3868",
+    "6900",
+    "9112"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

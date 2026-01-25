@@ -1,0 +1,35 @@
+{
+  "name": "Riley Harris",
+  "subscriber_initials": "RH",
+  "dob": "1970-01-13",
+  "pob": "Columbus, GA",
+  "tob": "04:30",
+  "email": "bosk_test_007@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 1,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "810",
+      "875",
+      "081",
+      "926"
+    ],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

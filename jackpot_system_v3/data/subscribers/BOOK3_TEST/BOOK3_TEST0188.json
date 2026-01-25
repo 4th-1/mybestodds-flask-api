@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST0188",
+  "kit_type": "BOOK3",
+  "dob": "1985-06-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Julie",
+    "last_name": "Gutierrez",
+    "birth_date": "1985-06-06",
+    "birth_city": "Sterling Heights",
+    "birth_state": "Michigan",
+    "birth_time": "19:25"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "640"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4836"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          29,
+          36,
+          38,
+          43,
+          60
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          14,
+          33,
+          49,
+          51,
+          59
+        ],
+        "power_ball": [
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          4,
+          20,
+          22,
+          60
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

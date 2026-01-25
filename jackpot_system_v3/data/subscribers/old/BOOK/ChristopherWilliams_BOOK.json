@@ -1,0 +1,22 @@
+{
+  "name": "Christopher Williams",
+  "initials": "CW",
+  "dob": "1958-06-08",
+  "pob": "Huntbury, OR",
+  "tob": "03:08",
+  "email": "jillfranklin@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Mary Russell",
+  "initials": "MR",
+  "dob": "2005-07-20",
+  "pob": "Lake Jonathanbury, GA",
+  "tob": "14:57",
+  "email": "stacey24@yahoo.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

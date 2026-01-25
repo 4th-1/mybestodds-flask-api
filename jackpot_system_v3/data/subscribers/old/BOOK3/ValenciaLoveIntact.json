@@ -1,0 +1,33 @@
+{
+  "name": "Valencia Lashun Allen-Love",
+  "subscriber_initials": "VAL",
+  "dob": "1963-09-26",
+  "pob": "Statesboro, GA, United States",
+  "tob": "10:18",
+  "email": "vloveme21963@yahoo.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [
+      263,
+      312,
+      623,
+      712,
+      616,
+      926
+    ],
+    "Cash4": [
+      1103,
+      3177
+    ]
+  },
+  "cohort": "PILOTXX",
+  "birth_month": 9,
+  "kit": "BOOK3",
+  "initials": "VA"
+}

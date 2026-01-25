@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0984",
+  "kit_type": "BOOK3",
+  "dob": "1975-11-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Janet",
+    "last_name": "Bennett",
+    "birth_date": "1975-11-17",
+    "birth_city": "Erie",
+    "birth_state": "Pennsylvania",
+    "birth_time": "12:00"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "939",
+          "309",
+          "977",
+          "753",
+          "691"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7475",
+          "1881"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          15,
+          39,
+          67,
+          69
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          16,
+          18,
+          58,
+          67
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          22,
+          28,
+          33,
+          34,
+          56
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

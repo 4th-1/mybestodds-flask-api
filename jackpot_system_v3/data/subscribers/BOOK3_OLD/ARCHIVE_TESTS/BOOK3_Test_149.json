@@ -1,0 +1,36 @@
+{
+  "name": "Casey Jones",
+  "subscriber_initials": "CJ",
+  "dob": "1996-07-06",
+  "pob": "Decatur, GA",
+  "tob": "14:45",
+  "email": "book3_test_149@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 7,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "664",
+      "794"
+    ],
+    "Cash4": [
+      "3307",
+      "6040"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

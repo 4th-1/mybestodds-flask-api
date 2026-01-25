@@ -1,0 +1,22 @@
+{
+  "name": "Bryan Lucas DDS",
+  "initials": "BD",
+  "dob": "2002-07-20",
+  "pob": "Sharonton, WV",
+  "tob": "07:22",
+  "email": "andrea89@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

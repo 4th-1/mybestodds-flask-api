@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0667",
+  "kit_type": "BOOK3",
+  "dob": "1963-12-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Karen",
+    "last_name": "Cole",
+    "birth_date": "1963-12-28",
+    "birth_city": "Clovis",
+    "birth_state": "California",
+    "birth_time": "14:38"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "458",
+          "007",
+          "064"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9955"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          12,
+          27,
+          28,
+          44
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          14,
+          31,
+          50,
+          66
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          30,
+          40,
+          46,
+          51
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

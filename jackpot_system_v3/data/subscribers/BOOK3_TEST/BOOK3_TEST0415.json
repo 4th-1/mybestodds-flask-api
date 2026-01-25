@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0415",
+  "kit_type": "BOOK3",
+  "dob": "1966-05-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jacob",
+    "last_name": "Cox",
+    "birth_date": "1966-05-11",
+    "birth_city": "Springfield",
+    "birth_state": "Missouri",
+    "birth_time": "00:02"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "128",
+          "688"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3954"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          40,
+          41,
+          55,
+          59
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          12,
+          24,
+          53,
+          65
+        ],
+        "power_ball": [
+          11
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          6,
+          15,
+          31,
+          38
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

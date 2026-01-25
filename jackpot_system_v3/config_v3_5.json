@@ -1,0 +1,201 @@
+{
+  "engine_version": "3.5",
+  "last_updated": "2025-12-01",
+  "description": "Master configuration for My Best Odds – SMART LOGIC Predictive Forecast Engine V3.5",
+
+  "games": {
+    "Cash3": {
+      "enabled": true,
+      "sessions": ["Midday", "Evening", "Night"],
+      "use_mmfsn": true,
+      "use_dhigh": true
+    },
+    "Cash4": {
+      "enabled": true,
+      "sessions": ["Midday", "Evening", "Night"],
+      "use_mmfsn": true,
+      "use_dhigh": true
+    },
+    "MegaMillions": {
+      "enabled": true,
+      "sessions": ["Main"],
+      "use_mmfsn": false,
+      "use_dhigh": false
+    },
+    "Powerball": {
+      "enabled": true,
+      "sessions": ["Main"],
+      "use_mmfsn": false,
+      "use_dhigh": false
+    },
+    "Cash4Life": {
+      "enabled": true,
+      "sessions": ["Main"],
+      "use_mmfsn": false,
+      "use_dhigh": false
+    }
+  },
+
+  "lanes": {
+    "A": {
+      "enabled": true,
+      "description": "Historical statistics, MMFSN (Cash3/Cash4 only), Δ-High, pattern logic.",
+      "weight": 0.60
+    },
+    "B": {
+      "enabled": true,
+      "description": "Numerology overlays: Life Path, Personal Year, Personal Month, Moorish numerology.",
+      "weight": 0.15
+    },
+    "C": {
+      "enabled": true,
+      "description": "Planetary hours, lunar phase, weather, retailer geo-patterns.",
+      "weight": 0.15
+    },
+    "D": {
+      "enabled": true,
+      "description": "Dream Sync and intuitive overlays (boost only when supported by Lane A).",
+      "weight": 0.10
+    }
+  },
+
+  "scoring_weights": {
+    "astro": 0.25,
+    "stats": 0.20,
+    "mmfsn": 0.15,
+    "planetary": 0.15,
+    "numerology": 0.10,
+    "pattern": 0.10,
+    "lane": 0.05
+  },
+
+  "north_node": {
+    "enabled": true,
+    "alignment_levels": ["Low", "Medium", "High"],
+    "boosts": {
+      "Low": 0.00,
+      "Medium": 0.02,
+      "High": 0.05
+    },
+    "marketing_trigger_on_high": true
+  },
+
+  "confidence_bands": {
+    "0-20": {
+      "label": "Trash",
+      "color": "gray",
+      "play": false,
+      "marketing_trigger": false
+    },
+    "21-40": {
+      "label": "Weak",
+      "color": "gray",
+      "play": false,
+      "marketing_trigger": false
+    },
+    "41-60": {
+      "label": "Medium",
+      "color": "yellow",
+      "play": "optional",
+      "marketing_trigger": false
+    },
+    "61-80": {
+      "label": "Strong",
+      "color": "green",
+      "play": true,
+      "marketing_trigger": true
+    },
+    "81-100": {
+      "label": "Jackpot",
+      "color": "green",
+      "play": true,
+      "marketing_trigger": true
+    }
+  },
+
+  "odds_conversion": {
+    "method": "score_to_odds",
+    "round_to": 1,
+    "mapping": [
+      {
+        "confidence_min": 81,
+        "confidence_max": 100,
+        "odds_range": "1-50",
+        "color": "green"
+      },
+      {
+        "confidence_min": 61,
+        "confidence_max": 80,
+        "odds_range": "51-150",
+        "color": "green"
+      },
+      {
+        "confidence_min": 41,
+        "confidence_max": 60,
+        "odds_range": "151-300",
+        "color": "yellow"
+      },
+      {
+        "confidence_min": 21,
+        "confidence_max": 40,
+        "odds_range": "301-600",
+        "color": "gray"
+      },
+      {
+        "confidence_min": 0,
+        "confidence_max": 20,
+        "odds_range": "601+",
+        "color": "gray"
+      }
+    ]
+  },
+
+  "timing_window": {
+    "use_planetary_hour": true,
+    "planetary_sources": ["Sun", "Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn"],
+    "sessions": {
+      "Cash3": ["Midday", "Evening", "Night"],
+      "Cash4": ["Midday", "Evening", "Night"]
+    }
+  },
+
+  "alignment_strength": {
+    "levels": ["Weak", "Moderate", "Strong", "Very Strong"],
+    "description": "Summarizes historical patterns, timing overlays, and numeric alignment in a non-technical form."
+  },
+
+  "outputs": {
+    "internal": {
+      "raw_subscores": true,
+      "bayesian_tables": true,
+      "markov_transition": true,
+      "planetary_matrices": true,
+      "tracking_records": true
+    },
+    "external": {
+      "confidence": true,
+      "best_odds": true,
+      "color_band": true,
+      "alignment_strength": true,
+      "timing_window": true,
+      "notes": true
+    },
+    "formats": {
+      "pdf": true,
+      "excel": true,
+      "base44_json": true
+    }
+  },
+
+  "legal": {
+    "copyright_notice": "© 2025 4th and 1 Mobile Services. This S.M.A.R.T. L O G I C Predictive Forecast Kit is proprietary and may not be redistributed, copied, or reverse-engineered without written permission. Support: support@4thand1services.com",
+    "disclaimer": "Powered by the S.M.A.R.T. System — Statistical Modeling for Accurate Results & Timing. With MyBestOdds.net, Everybody Wins — it’s just a matter of WHEN… For entertainment, tax write-off, and life-purpose use only. Take Alignment & Timing seriously while playing responsibly.",
+    "official_lottery_odds": {
+      "MegaMillionsJackpot": "1 in 302,575,350",
+      "PowerballJackpot": "1 in 292,201,338",
+      "Cash4LifeJackpot": "1 in 21,846,048",
+      "Cash3Straight": "1 in 1,000",
+      "Cash4Straight": "1 in 10,000"
+    }
+  }
+}

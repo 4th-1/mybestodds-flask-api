@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0790",
+  "kit_type": "BOOK3",
+  "dob": "1975-10-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ethan",
+    "last_name": "Ward",
+    "birth_date": "1975-10-11",
+    "birth_city": "Pomona",
+    "birth_state": "California",
+    "birth_time": "11:41"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "410",
+          "381",
+          "095",
+          "591"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0115",
+          "7660"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          20,
+          39,
+          46,
+          59
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          13,
+          22,
+          29,
+          30
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          19,
+          23,
+          28,
+          32
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

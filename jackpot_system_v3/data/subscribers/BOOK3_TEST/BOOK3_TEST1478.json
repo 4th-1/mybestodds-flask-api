@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1478",
+  "kit_type": "BOOK3",
+  "dob": "1986-05-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Kimberly",
+    "last_name": "Sanchez",
+    "birth_date": "1986-05-23",
+    "birth_city": "Elgin",
+    "birth_state": "Illinois",
+    "birth_time": "11:51"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "341",
+          "739",
+          "420"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8043",
+          "8702"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          17,
+          21,
+          26,
+          41,
+          42
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          27,
+          53,
+          61,
+          65
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          10,
+          33,
+          37,
+          38
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

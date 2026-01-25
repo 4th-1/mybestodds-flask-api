@@ -1,0 +1,43 @@
+{
+  "name": "Peyton Smith",
+  "first_name": "Peyton",
+  "last_name": "Smith",
+  "initials": "PSM",
+  "gender": "M",
+  "dob": "1960-08-11",
+  "tob": "04:20",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "403",
+      "818",
+      "005",
+      "270",
+      "304"
+    ],
+    "Cash4": [
+      "0120",
+      "6942",
+      "0738"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "403",
+    "818",
+    "005",
+    "270",
+    "304"
+  ],
+  "cash4_personal_numbers": [
+    "0120",
+    "6942",
+    "0738"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

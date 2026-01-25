@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1115",
+  "kit_type": "BOOK3",
+  "dob": "1999-03-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Marie",
+    "last_name": "Murphy",
+    "birth_date": "1999-03-01",
+    "birth_city": "Downey",
+    "birth_state": "California",
+    "birth_time": "13:16"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "373",
+          "232",
+          "494"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3171",
+          "1530"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          35,
+          44,
+          58,
+          64
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          9,
+          26,
+          54,
+          69
+        ],
+        "power_ball": [
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          7,
+          10,
+          42,
+          51
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

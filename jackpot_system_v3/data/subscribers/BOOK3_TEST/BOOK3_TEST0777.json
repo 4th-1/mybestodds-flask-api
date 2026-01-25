@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0777",
+  "kit_type": "BOOK3",
+  "dob": "1986-08-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Alan",
+    "last_name": "Hernandez",
+    "birth_date": "1986-08-18",
+    "birth_city": "Kenosha",
+    "birth_state": "Wisconsin",
+    "birth_time": "02:12"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "791",
+          "909",
+          "978"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1514",
+          "9296"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          18,
+          44,
+          47,
+          53
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          25,
+          43,
+          45,
+          58,
+          65
+        ],
+        "power_ball": [
+          1
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          15,
+          40,
+          51,
+          57
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

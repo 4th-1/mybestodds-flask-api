@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0785",
+  "kit_type": "BOOK3",
+  "dob": "1995-01-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Kevin",
+    "last_name": "Jackson",
+    "birth_date": "1995-01-11",
+    "birth_city": "Albuquerque",
+    "birth_state": "New Mexico",
+    "birth_time": "16:37"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "141",
+          "160",
+          "727",
+          "685",
+          "418"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9121",
+          "6423"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          21,
+          33,
+          43,
+          45,
+          69
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          12,
+          34,
+          44,
+          54
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          13,
+          21,
+          41,
+          58
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

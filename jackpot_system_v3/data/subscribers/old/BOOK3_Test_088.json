@@ -1,0 +1,43 @@
+{
+  "name": "Cameron Taylor",
+  "first_name": "Cameron",
+  "last_name": "Taylor",
+  "initials": "CTA",
+  "gender": "M",
+  "dob": "1978-07-10",
+  "tob": "08:40",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "658",
+      "607",
+      "991",
+      "727",
+      "466"
+    ],
+    "Cash4": [
+      "5974",
+      "1244",
+      "1687"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "658",
+    "607",
+    "991",
+    "727",
+    "466"
+  ],
+  "cash4_personal_numbers": [
+    "5974",
+    "1244",
+    "1687"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

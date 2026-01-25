@@ -1,0 +1,43 @@
+{
+  "name": "Casey Thompson",
+  "first_name": "Casey",
+  "last_name": "Thompson",
+  "initials": "CTH",
+  "gender": "F",
+  "dob": "1977-01-13",
+  "tob": "00:15",
+  "pob": "Houston, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "907",
+      "487",
+      "981",
+      "914",
+      "620"
+    ],
+    "Cash4": [
+      "1110",
+      "2667",
+      "9749"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "907",
+    "487",
+    "981",
+    "914",
+    "620"
+  ],
+  "cash4_personal_numbers": [
+    "1110",
+    "2667",
+    "9749"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

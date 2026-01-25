@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0138",
+  "kit_type": "BOOK3",
+  "dob": "1999-04-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "David",
+    "last_name": "James",
+    "birth_date": "1999-04-18",
+    "birth_city": "Santa Clarita",
+    "birth_state": "California",
+    "birth_time": "12:12"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "583",
+          "025",
+          "563",
+          "554"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1532"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          31,
+          40,
+          42,
+          64
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          32,
+          48,
+          56,
+          61,
+          65
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          29,
+          35,
+          41,
+          44,
+          55
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

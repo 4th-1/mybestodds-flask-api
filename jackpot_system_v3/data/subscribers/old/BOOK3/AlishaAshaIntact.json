@@ -1,0 +1,41 @@
+{
+  "name": "Alisha Asha Alim",
+  "subscriber_initials": "AAA",
+  "dob": "1977-10-07",
+  "pob": "San Fernando, Trinidad",
+  "tob": "18:07",
+  "email": "kionasnonnah826@hotmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [
+      "926",
+      "976",
+      "413",
+      "826",
+      "777",
+      "775",
+      "435",
+      "928",
+      "310",
+      "821",
+      "922",
+      "918",
+      "628",
+      "728"
+    ],
+    "Cash4": [
+      "7629",
+      "4366"
+    ]
+  },
+  "cohort": "PILOT07",
+  "birth_month": 10,
+  "kit": "BOOK3",
+  "initials": "AL"
+}

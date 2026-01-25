@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0007",
+  "kit_type": "BOOK3",
+  "dob": "1993-02-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Heather",
+    "last_name": "Rodriguez",
+    "birth_date": "1993-02-28",
+    "birth_city": "Buffalo",
+    "birth_state": "New York",
+    "birth_time": "19:13"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "653",
+          "299",
+          "230"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6609",
+          "1611",
+          "2196"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          15,
+          25,
+          29,
+          39
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          41,
+          43,
+          44,
+          45,
+          47
+        ],
+        "power_ball": [
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          17,
+          27,
+          44,
+          50
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

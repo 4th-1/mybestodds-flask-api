@@ -1,0 +1,38 @@
+{
+  "name": "Casey Brown",
+  "subscriber_initials": "CB",
+  "dob": "1962-09-17",
+  "pob": "Decatur, GA",
+  "tob": "15:45",
+  "email": "bosk_test_176@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 9,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "115",
+      "191",
+      "132"
+    ],
+    "Cash4": [
+      "6114",
+      "4943",
+      "8131"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

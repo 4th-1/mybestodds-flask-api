@@ -1,0 +1,32 @@
+{
+  "name": "Morgan Jackson",
+  "subscriber_initials": "MJ",
+  "dob": "1994-11-02",
+  "pob": "Columbus, GA",
+  "tob": "00:45",
+  "email": "bosk_test_111@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 11,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [
+      "8937"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

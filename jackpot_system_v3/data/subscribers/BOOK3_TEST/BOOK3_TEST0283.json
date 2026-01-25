@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0283",
+  "kit_type": "BOOK3",
+  "dob": "1989-04-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Arthur",
+    "last_name": "Morgan",
+    "birth_date": "1989-04-06",
+    "birth_city": "Manchester",
+    "birth_state": "New Hampshire",
+    "birth_time": "11:40"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "875",
+          "117"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2374",
+          "6471",
+          "3153"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          20,
+          22,
+          23,
+          35,
+          59
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          8,
+          19,
+          33,
+          58
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          10,
+          43,
+          48,
+          56
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Cameron Smith",
+  "subscriber_initials": "CS",
+  "dob": "2003-11-18",
+  "pob": "Augusta, GA",
+  "tob": "11:00",
+  "email": "book3_test_049@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 11,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "102",
+      "823"
+    ],
+    "Cash4": [
+      "9804",
+      "3225",
+      "9500"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

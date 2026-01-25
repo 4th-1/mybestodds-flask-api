@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0917",
+  "kit_type": "BOOK3",
+  "dob": "1966-04-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Samantha",
+    "last_name": "Kelly",
+    "birth_date": "1966-04-28",
+    "birth_city": "Elgin",
+    "birth_state": "Illinois",
+    "birth_time": "08:45"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "477",
+          "928"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1056",
+          "8060",
+          "6331"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          54,
+          56,
+          60,
+          69
+        ],
+        "mega_ball": [
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          25,
+          36,
+          41,
+          66,
+          67
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          15,
+          16,
+          17,
+          45
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0444",
+  "kit_type": "BOOK3",
+  "dob": "1992-03-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jason",
+    "last_name": "Roberts",
+    "birth_date": "1992-03-04",
+    "birth_city": "Salinas",
+    "birth_state": "California",
+    "birth_time": "20:00"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "688",
+          "987",
+          "789",
+          "338",
+          "354"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1132",
+          "4642",
+          "1315"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          16,
+          22,
+          41,
+          65
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          21,
+          43,
+          51,
+          58,
+          68
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          13,
+          27,
+          41,
+          51
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

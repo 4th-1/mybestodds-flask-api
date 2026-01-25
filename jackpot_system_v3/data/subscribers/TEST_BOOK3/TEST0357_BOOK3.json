@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0357",
+  "kit_type": "BOOK3",
+  "dob": "1986-06-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nancy",
+    "last_name": "Anderson",
+    "birth_date": "1986-06-06",
+    "birth_time": "08:34",
+    "birth_city": "Indiana City 2",
+    "birth_state": "Indiana"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "666,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          20,
+          26,
+          30,
+          38,
+          47
+        ],
+        "mega_ball": [
+          8,
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          26,
+          35,
+          44,
+          53
+        ],
+        "power_ball": [
+          23,
+          11
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          4,
+          10,
+          15,
+          20
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

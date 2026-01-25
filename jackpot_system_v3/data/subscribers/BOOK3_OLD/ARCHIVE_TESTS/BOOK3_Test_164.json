@@ -1,0 +1,32 @@
+{
+  "name": "Parker Smith",
+  "subscriber_initials": "PS",
+  "dob": "1988-05-22",
+  "pob": "Atlanta, GA",
+  "tob": "03:45",
+  "email": "book3_test_164@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 5,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "518"
+    ],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

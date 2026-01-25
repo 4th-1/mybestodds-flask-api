@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1053",
+  "kit_type": "BOOK3",
+  "dob": "2003-04-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "William",
+    "last_name": "Sanchez",
+    "birth_date": "2003-04-23",
+    "birth_city": "Rancho Cucamonga",
+    "birth_state": "California",
+    "birth_time": "04:54"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "020",
+          "892",
+          "503"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7760",
+          "5086",
+          "1386"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          32,
+          36,
+          52,
+          59
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          14,
+          15,
+          32,
+          44,
+          60
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          16,
+          24,
+          31,
+          32
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

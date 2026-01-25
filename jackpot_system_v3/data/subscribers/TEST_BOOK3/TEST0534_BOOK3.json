@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0534",
+  "kit_type": "BOOK3",
+  "dob": "1973-06-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Elizabeth",
+    "last_name": "Brown",
+    "birth_date": "1973-06-27",
+    "birth_time": "12:48",
+    "birth_city": "Michigan City 19",
+    "birth_state": "Michigan"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "763,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          29,
+          39,
+          43,
+          51,
+          57
+        ],
+        "mega_ball": [
+          4,
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          30,
+          32,
+          45,
+          50,
+          58
+        ],
+        "power_ball": [
+          22,
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          32,
+          37,
+          41,
+          55,
+          60
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

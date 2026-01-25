@@ -1,0 +1,34 @@
+{
+  "name": "Skyler Moore",
+  "subscriber_initials": "SM",
+  "dob": "2000-04-08",
+  "pob": "Atlanta, GA",
+  "tob": "21:15",
+  "email": "bosk_test_067@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 4,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [
+      "2092",
+      "8463",
+      "6991"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Cameron Martin",
+  "first_name": "Cameron",
+  "last_name": "Martin",
+  "initials": "CMA",
+  "gender": "F",
+  "dob": "1973-06-15",
+  "tob": "17:35",
+  "pob": "Seattle, WA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "014",
+      "127",
+      "801",
+      "315",
+      "159"
+    ],
+    "Cash4": [
+      "2179",
+      "5062",
+      "4023"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "014",
+    "127",
+    "801",
+    "315",
+    "159"
+  ],
+  "cash4_personal_numbers": [
+    "2179",
+    "5062",
+    "4023"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0022",
+  "kit_type": "BOOK3",
+  "dob": "1986-03-13",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Emma",
+    "last_name": "Garcia",
+    "birth_date": "1986-03-13",
+    "birth_city": "Honolulu",
+    "birth_state": "Hawaii",
+    "birth_time": "01:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "803",
+          "418",
+          "720",
+          "838"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9618"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          16,
+          17,
+          34,
+          59
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          16,
+          17,
+          18,
+          58,
+          66
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          18,
+          22,
+          26,
+          29
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

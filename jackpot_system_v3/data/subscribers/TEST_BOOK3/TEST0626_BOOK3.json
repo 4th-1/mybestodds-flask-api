@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0626",
+  "kit_type": "BOOK3",
+  "dob": "1971-01-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Thomas",
+    "last_name": "Ramirez",
+    "birth_date": "1971-01-25",
+    "birth_time": "15:01",
+    "birth_city": "Nebraska City 11",
+    "birth_state": "Nebraska"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "511,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          26,
+          29,
+          35,
+          70
+        ],
+        "mega_ball": [
+          5,
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          16,
+          17,
+          25,
+          30,
+          67
+        ],
+        "power_ball": [
+          13,
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          25,
+          39,
+          52,
+          58
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

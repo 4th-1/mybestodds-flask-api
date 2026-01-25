@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1198",
+  "kit_type": "BOOK3",
+  "dob": "2002-01-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Donald",
+    "last_name": "Moreno",
+    "birth_date": "2002-01-05",
+    "birth_city": "Mobile",
+    "birth_state": "Alabama",
+    "birth_time": "22:35"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "638",
+          "634"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7632",
+          "8520"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          42,
+          45,
+          49,
+          53
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          18,
+          26,
+          28,
+          39,
+          40
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          33,
+          38,
+          39,
+          56
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

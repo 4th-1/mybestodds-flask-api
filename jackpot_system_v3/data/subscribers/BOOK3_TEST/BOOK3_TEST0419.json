@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0419",
+  "kit_type": "BOOK3",
+  "dob": "1987-04-03",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "George",
+    "last_name": "Graham",
+    "birth_date": "1987-04-03",
+    "birth_city": "Concord",
+    "birth_state": "California",
+    "birth_time": "09:24"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "159"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3458",
+          "9558"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          21,
+          25,
+          32,
+          35
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          12,
+          34,
+          59,
+          64
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          17,
+          18,
+          44,
+          55
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

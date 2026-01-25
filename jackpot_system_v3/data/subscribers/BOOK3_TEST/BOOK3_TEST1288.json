@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1288",
+  "kit_type": "BOOK3",
+  "dob": "1963-02-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joshua",
+    "last_name": "Lopez",
+    "birth_date": "1963-02-20",
+    "birth_city": "Montgomery",
+    "birth_state": "Alabama",
+    "birth_time": "02:40"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "145",
+          "549"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0652",
+          "9769",
+          "1826"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          6,
+          14,
+          16,
+          19
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          9,
+          19,
+          28,
+          37
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          6,
+          23,
+          28,
+          56
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

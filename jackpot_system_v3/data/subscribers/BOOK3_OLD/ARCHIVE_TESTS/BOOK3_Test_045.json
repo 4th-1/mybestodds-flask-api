@@ -1,0 +1,30 @@
+{
+  "name": "Jordan Moore",
+  "subscriber_initials": "JM",
+  "dob": "1981-08-07",
+  "pob": "Savannah, GA",
+  "tob": "15:45",
+  "email": "book3_test_045@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 8,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Emily Hall",
+  "initials": "EH",
+  "dob": "1966-09-02",
+  "pob": "North Tammy, NH",
+  "tob": "11:33",
+  "email": "daniellejohnson@yahoo.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

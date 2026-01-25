@@ -1,0 +1,37 @@
+{
+  "name": "Cameron Harris",
+  "subscriber_initials": "CH",
+  "dob": "1992-12-24",
+  "pob": "Atlanta, GA",
+  "tob": "09:00",
+  "email": "book3_test_113@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 12,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "472",
+      "554",
+      "483"
+    ],
+    "Cash4": [
+      "0911",
+      "9031"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

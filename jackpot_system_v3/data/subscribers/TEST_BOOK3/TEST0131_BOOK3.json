@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0131",
+  "kit_type": "BOOK3",
+  "dob": "1998-10-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Karen",
+    "last_name": "Perez",
+    "birth_date": "1998-10-06",
+    "birth_time": "03:08",
+    "birth_city": "Alaska City 16",
+    "birth_state": "Alaska"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "aggressive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "608,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          25,
+          28,
+          33,
+          42,
+          61
+        ],
+        "mega_ball": [
+          25,
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          21,
+          34,
+          35,
+          38,
+          63
+        ],
+        "power_ball": [
+          22,
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          21,
+          28,
+          32,
+          52,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

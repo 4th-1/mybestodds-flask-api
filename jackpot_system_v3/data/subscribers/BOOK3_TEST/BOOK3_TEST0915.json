@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0915",
+  "kit_type": "BOOK3",
+  "dob": "1979-07-16",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Dennis",
+    "last_name": "Mitchell",
+    "birth_date": "1979-07-16",
+    "birth_city": "Orange",
+    "birth_state": "California",
+    "birth_time": "02:50"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "629"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2635",
+          "3996",
+          "2796"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          22,
+          28,
+          38,
+          55
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          46,
+          54,
+          57,
+          62
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          36,
+          44,
+          46,
+          47,
+          50
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

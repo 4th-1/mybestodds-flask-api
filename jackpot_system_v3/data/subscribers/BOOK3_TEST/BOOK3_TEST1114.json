@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1114",
+  "kit_type": "BOOK3",
+  "dob": "1993-08-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Brandon",
+    "last_name": "Bennett",
+    "birth_date": "1993-08-01",
+    "birth_city": "Pembroke Pines",
+    "birth_state": "Florida",
+    "birth_time": "04:03"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "328",
+          "253",
+          "991",
+          "929",
+          "865"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4240",
+          "9062"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          41,
+          50,
+          61,
+          62
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          43,
+          50,
+          55,
+          57,
+          60
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          22,
+          25,
+          26,
+          27
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

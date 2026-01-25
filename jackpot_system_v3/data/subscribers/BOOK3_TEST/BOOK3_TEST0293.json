@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0293",
+  "kit_type": "BOOK3",
+  "dob": "1988-08-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Catherine",
+    "last_name": "Butler",
+    "birth_date": "1988-08-11",
+    "birth_city": "Gainesville",
+    "birth_state": "Florida",
+    "birth_time": "19:49"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "876",
+          "728",
+          "942"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2346",
+          "7072"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          19,
+          24,
+          42,
+          50,
+          59
+        ],
+        "mega_ball": [
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          16,
+          32,
+          61,
+          63,
+          68
+        ],
+        "power_ball": [
+          12
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          11,
+          26,
+          41,
+          60
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Luis Hall",
+  "initials": "LH",
+  "dob": "1989-05-03",
+  "pob": "Lake Jasminemouth, CO",
+  "tob": "18:00",
+  "email": "kelli58@hughes.org",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

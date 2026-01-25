@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0560",
+  "kit_type": "BOOK3",
+  "dob": "1999-04-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Anthony",
+    "last_name": "Gonzalez",
+    "birth_date": "1999-04-19",
+    "birth_time": "13:26",
+    "birth_city": "Mississippi City 5",
+    "birth_state": "Mississippi"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "949,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          17,
+          25,
+          39,
+          70
+        ],
+        "mega_ball": [
+          10,
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          26,
+          27,
+          43,
+          65
+        ],
+        "power_ball": [
+          26,
+          12
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          13,
+          14,
+          20,
+          50
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

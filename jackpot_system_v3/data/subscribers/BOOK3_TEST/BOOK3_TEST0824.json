@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0824",
+  "kit_type": "BOOK3",
+  "dob": "1980-10-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Brandon",
+    "last_name": "Bailey",
+    "birth_date": "1980-10-20",
+    "birth_city": "Hollywood",
+    "birth_state": "Florida",
+    "birth_time": "10:12"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "777",
+          "302",
+          "799",
+          "845",
+          "169"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5041",
+          "1315"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          46,
+          48,
+          49,
+          55
+        ],
+        "mega_ball": [
+          9
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          14,
+          19,
+          23,
+          28
+        ],
+        "power_ball": [
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          13,
+          20,
+          38,
+          56,
+          59
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

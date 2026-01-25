@@ -1,0 +1,43 @@
+{
+  "name": "Emerson Jackson",
+  "first_name": "Emerson",
+  "last_name": "Jackson",
+  "initials": "EJA",
+  "gender": "M",
+  "dob": "1989-03-07",
+  "tob": "10:50",
+  "pob": "Detroit, MI",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "275",
+      "833",
+      "869",
+      "779",
+      "057"
+    ],
+    "Cash4": [
+      "0309",
+      "1888",
+      "1453"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "275",
+    "833",
+    "869",
+    "779",
+    "057"
+  ],
+  "cash4_personal_numbers": [
+    "0309",
+    "1888",
+    "1453"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

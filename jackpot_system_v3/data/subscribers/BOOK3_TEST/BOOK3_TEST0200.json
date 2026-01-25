@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0200",
+  "kit_type": "BOOK3",
+  "dob": "1981-03-15",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Deborah",
+    "last_name": "Peterson",
+    "birth_date": "1981-03-15",
+    "birth_city": "Wilmington",
+    "birth_state": "North Carolina",
+    "birth_time": "12:17"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "577",
+          "049",
+          "655"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6966",
+          "5121",
+          "0233"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          26,
+          34,
+          37,
+          61
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          23,
+          25,
+          38,
+          44,
+          67
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          15,
+          30,
+          50,
+          57
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

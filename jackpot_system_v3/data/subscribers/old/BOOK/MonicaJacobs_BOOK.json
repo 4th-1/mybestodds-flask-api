@@ -1,0 +1,22 @@
+{
+  "name": "Monica Jacobs",
+  "initials": "MJ",
+  "dob": "1986-10-08",
+  "pob": "South Connieton, TX",
+  "tob": "18:07",
+  "email": "dsilva@rivera.biz",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

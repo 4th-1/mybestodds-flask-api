@@ -1,0 +1,43 @@
+{
+  "name": "Morgan Johnson",
+  "first_name": "Morgan",
+  "last_name": "Johnson",
+  "initials": "MJO",
+  "gender": "F",
+  "dob": "1972-05-01",
+  "tob": "20:30",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "814",
+      "004",
+      "098",
+      "118",
+      "724"
+    ],
+    "Cash4": [
+      "2374",
+      "0475",
+      "9067"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "814",
+    "004",
+    "098",
+    "118",
+    "724"
+  ],
+  "cash4_personal_numbers": [
+    "2374",
+    "0475",
+    "9067"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

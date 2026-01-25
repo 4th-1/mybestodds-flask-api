@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0628",
+  "kit_type": "BOOK3",
+  "dob": "1995-03-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Christian",
+    "last_name": "Allen",
+    "birth_date": "1995-03-17",
+    "birth_city": "High Point",
+    "birth_state": "North Carolina",
+    "birth_time": "18:59"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "969"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6442",
+          "1600"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          31,
+          40,
+          51,
+          57,
+          60
+        ],
+        "mega_ball": [
+          2
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          14,
+          39,
+          42,
+          53,
+          63
+        ],
+        "power_ball": [
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          9,
+          25,
+          38,
+          48
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

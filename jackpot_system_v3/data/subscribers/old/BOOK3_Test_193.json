@@ -1,0 +1,43 @@
+{
+  "name": "Avery Thomas",
+  "first_name": "Avery",
+  "last_name": "Thomas",
+  "initials": "ATH",
+  "gender": "F",
+  "dob": "1981-07-22",
+  "tob": "11:40",
+  "pob": "Atlanta, GA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "492",
+      "677",
+      "198",
+      "997",
+      "171"
+    ],
+    "Cash4": [
+      "6910",
+      "0521",
+      "1716"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "492",
+    "677",
+    "198",
+    "997",
+    "171"
+  ],
+  "cash4_personal_numbers": [
+    "6910",
+    "0521",
+    "1716"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0424",
+  "kit_type": "BOOK3",
+  "dob": "1998-08-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ruth",
+    "last_name": "Ramos",
+    "birth_date": "1998-08-09",
+    "birth_city": "Shreveport",
+    "birth_state": "Louisiana",
+    "birth_time": "02:48"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "253",
+          "774",
+          "779",
+          "951",
+          "109"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2623",
+          "5783",
+          "9203"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          8,
+          38,
+          66,
+          67
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          23,
+          25,
+          48,
+          66
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          23,
+          24,
+          25,
+          41
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST1314",
+  "kit_type": "BOOK3",
+  "dob": "2004-01-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Laura",
+    "last_name": "Collins",
+    "birth_date": "2004-01-27",
+    "birth_city": "Irvine",
+    "birth_state": "California",
+    "birth_time": "18:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "621"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3943"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          8,
+          26,
+          27,
+          35
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          34,
+          37,
+          48,
+          65
+        ],
+        "power_ball": [
+          12
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          12,
+          14,
+          22,
+          34
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

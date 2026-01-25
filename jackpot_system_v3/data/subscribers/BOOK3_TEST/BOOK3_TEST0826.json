@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0826",
+  "kit_type": "BOOK3",
+  "dob": "1980-02-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Wayne",
+    "last_name": "Lopez",
+    "birth_date": "1980-02-17",
+    "birth_city": "Wichita Falls",
+    "birth_state": "Texas",
+    "birth_time": "00:56"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "816",
+          "467",
+          "717",
+          "658",
+          "686"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7268"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          36,
+          37,
+          38,
+          58
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          27,
+          28,
+          39,
+          58
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          18,
+          22,
+          31,
+          57
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

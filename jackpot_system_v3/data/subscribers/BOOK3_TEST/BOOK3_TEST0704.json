@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0704",
+  "kit_type": "BOOK3",
+  "dob": "1978-11-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Olivia",
+    "last_name": "Harris",
+    "birth_date": "1978-11-19",
+    "birth_city": "Rockford",
+    "birth_state": "Illinois",
+    "birth_time": "09:10"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "662",
+          "172",
+          "941",
+          "287",
+          "060"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3015"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          29,
+          33,
+          62,
+          68,
+          70
+        ],
+        "mega_ball": [
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          15,
+          39,
+          45,
+          58
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          41,
+          44,
+          54,
+          55
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

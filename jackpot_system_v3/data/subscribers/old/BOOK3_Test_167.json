@@ -1,0 +1,43 @@
+{
+  "name": "Devon Moore",
+  "first_name": "Devon",
+  "last_name": "Moore",
+  "initials": "DMO",
+  "gender": "F",
+  "dob": "1999-08-05",
+  "tob": "08:35",
+  "pob": "Charlotte, NC",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "935",
+      "288",
+      "889",
+      "301",
+      "483"
+    ],
+    "Cash4": [
+      "3464",
+      "4177",
+      "0342"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "935",
+    "288",
+    "889",
+    "301",
+    "483"
+  ],
+  "cash4_personal_numbers": [
+    "3464",
+    "4177",
+    "0342"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

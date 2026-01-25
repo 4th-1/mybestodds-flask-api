@@ -1,0 +1,34 @@
+{
+  "name": "Taylor White",
+  "subscriber_initials": "TW",
+  "dob": "1983-07-25",
+  "pob": "Columbus, GA",
+  "tob": "12:45",
+  "email": "book3_test_150@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 7,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "140",
+      "180",
+      "580"
+    ],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0292",
+  "kit_type": "BOOK3",
+  "dob": "1982-01-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Daniel",
+    "last_name": "Harris",
+    "birth_date": "1982-01-01",
+    "birth_time": "07:00",
+    "birth_city": "Georgia City 17",
+    "birth_state": "Georgia"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "112,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          28,
+          41,
+          56,
+          67
+        ],
+        "mega_ball": [
+          24,
+          9
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          11,
+          42,
+          56,
+          65
+        ],
+        "power_ball": [
+          2,
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          7,
+          30,
+          31,
+          55
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "subscriber_id": "VAL",
+  "kit_type": "BOOK3",
+
+  "dob": "1962-09-26",
+
+  "coverage_start": "2025-12-22",
+  "coverage_end": "2025-12-31",
+
+  "formats": ["JSON"],
+
+  "identity": {
+    "first_name": "Valencia",
+    "last_name": "Allen-Love",
+    "birth_date": "1962-09-26",
+    "birth_time": "10:18",
+    "birth_city": "Statesboro",
+    "birth_state": "Georgia"
+  },
+
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": ["263,","312", "623", "712", "616"]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": ["1103", 3177]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [3, 11, 27, 44, 56],
+        "mega_ball": [7, 19]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [5, 12, 33, 48, 61],
+        "power_ball": [9, 18]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [1, 13, 21, 34, 56],
+        "cash_ball": [2]
+      }
+    },
+
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-12"
+  }
+}

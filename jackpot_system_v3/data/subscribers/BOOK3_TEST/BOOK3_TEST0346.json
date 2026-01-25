@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST0346",
+  "kit_type": "BOOK3",
+  "dob": "1993-01-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joshua",
+    "last_name": "Kim",
+    "birth_date": "1993-01-23",
+    "birth_city": "McKinney",
+    "birth_state": "Texas",
+    "birth_time": "20:52"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "540"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8369"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          23,
+          55,
+          58,
+          62,
+          65
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          15,
+          38,
+          43,
+          66
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          28,
+          40,
+          50,
+          55
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

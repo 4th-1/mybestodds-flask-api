@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1099",
+  "kit_type": "BOOK3",
+  "dob": "1988-02-16",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Heather",
+    "last_name": "Cook",
+    "birth_date": "1988-02-16",
+    "birth_city": "Midland",
+    "birth_state": "Texas",
+    "birth_time": "11:09"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "656",
+          "952",
+          "133",
+          "395"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7174",
+          "6725",
+          "0576"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          21,
+          45,
+          56,
+          69
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          7,
+          8,
+          12,
+          44
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          32,
+          40,
+          44,
+          46
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

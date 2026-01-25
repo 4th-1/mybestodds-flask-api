@@ -1,0 +1,43 @@
+{
+  "name": "Drew Taylor",
+  "first_name": "Drew",
+  "last_name": "Taylor",
+  "initials": "DTA",
+  "gender": "F",
+  "dob": "1971-03-22",
+  "tob": "00:00",
+  "pob": "Nashville, TN",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "131",
+      "124",
+      "542",
+      "811",
+      "680"
+    ],
+    "Cash4": [
+      "4816",
+      "3554",
+      "7638"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "131",
+    "124",
+    "542",
+    "811",
+    "680"
+  ],
+  "cash4_personal_numbers": [
+    "4816",
+    "3554",
+    "7638"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

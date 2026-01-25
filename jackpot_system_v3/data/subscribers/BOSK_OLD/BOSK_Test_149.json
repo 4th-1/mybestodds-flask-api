@@ -1,0 +1,39 @@
+{
+  "name": "Quinn Johnson",
+  "subscriber_initials": "QJ",
+  "dob": "1960-02-03",
+  "pob": "Savannah, GA",
+  "tob": "23:45",
+  "email": "bosk_test_149@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 2,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "740",
+      "727",
+      "904",
+      "045"
+    ],
+    "Cash4": [
+      "9808",
+      "9463",
+      "9544"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0990",
+  "kit_type": "BOOK3",
+  "dob": "1996-09-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Gregory",
+    "last_name": "Young",
+    "birth_date": "1996-09-27",
+    "birth_city": "Oxnard",
+    "birth_state": "California",
+    "birth_time": "09:57"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "914",
+          "647"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0726",
+          "0867",
+          "0845"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          18,
+          25,
+          60,
+          66
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          18,
+          20,
+          21,
+          35,
+          37
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          22,
+          28,
+          29,
+          33
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

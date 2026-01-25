@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0195",
+  "kit_type": "BOOK3",
+  "dob": "1977-05-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Douglas",
+    "last_name": "Rogers",
+    "birth_date": "1977-05-18",
+    "birth_city": "Philadelphia",
+    "birth_state": "Pennsylvania",
+    "birth_time": "01:12"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "590",
+          "275",
+          "638"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7612",
+          "4662"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          28,
+          32,
+          62,
+          70
+        ],
+        "mega_ball": [
+          2
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          28,
+          39,
+          41,
+          44,
+          62
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          16,
+          17,
+          27,
+          32,
+          40
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

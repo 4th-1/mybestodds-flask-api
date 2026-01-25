@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0942",
+  "kit_type": "BOOK3",
+  "dob": "1974-03-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Christopher",
+    "last_name": "Gray",
+    "birth_date": "1974-03-07",
+    "birth_city": "Norman",
+    "birth_state": "Oklahoma",
+    "birth_time": "16:59"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "180",
+          "524",
+          "218",
+          "243",
+          "158"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3499",
+          "0780",
+          "5687"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          21,
+          26,
+          53,
+          69
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          20,
+          35,
+          39,
+          44,
+          55
+        ],
+        "power_ball": [
+          1
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          7,
+          15,
+          19,
+          50
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

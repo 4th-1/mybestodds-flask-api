@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0962",
+  "kit_type": "BOOK3",
+  "dob": "1959-08-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sandra",
+    "last_name": "Harris",
+    "birth_date": "1959-08-24",
+    "birth_time": "23:05",
+    "birth_city": "Utah City 7",
+    "birth_state": "Utah"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "489,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          18,
+          25,
+          31,
+          48
+        ],
+        "mega_ball": [
+          14,
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          5,
+          46,
+          57,
+          66
+        ],
+        "power_ball": [
+          14,
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          21,
+          24,
+          37,
+          41
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

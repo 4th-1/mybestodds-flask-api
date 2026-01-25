@@ -1,0 +1,35 @@
+{
+  "name": "Alex Jackson",
+  "subscriber_initials": "AJ",
+  "dob": "1970-05-22",
+  "pob": "Macon, GA",
+  "tob": "04:30",
+  "email": "bosk_test_168@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 5,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "687"
+    ],
+    "Cash4": [
+      "0839",
+      "7935"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1365",
+  "kit_type": "BOOK3",
+  "dob": "1979-03-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ronald",
+    "last_name": "Murphy",
+    "birth_date": "1979-03-01",
+    "birth_city": "Arvada",
+    "birth_state": "Colorado",
+    "birth_time": "06:22"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "469",
+          "215",
+          "869"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5896",
+          "2498",
+          "8396"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          23,
+          25,
+          27,
+          46,
+          67
+        ],
+        "mega_ball": [
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          18,
+          20,
+          46,
+          64
+        ],
+        "power_ball": [
+          18
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          21,
+          45,
+          46,
+          48,
+          50
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

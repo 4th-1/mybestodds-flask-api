@@ -1,0 +1,43 @@
+{
+  "name": "Emerson Smith",
+  "first_name": "Emerson",
+  "last_name": "Smith",
+  "initials": "ESM",
+  "gender": "F",
+  "dob": "1980-09-27",
+  "tob": "21:00",
+  "pob": "Detroit, MI",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "448",
+      "349",
+      "713",
+      "471",
+      "279"
+    ],
+    "Cash4": [
+      "5470",
+      "6039",
+      "6620"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "448",
+    "349",
+    "713",
+    "471",
+    "279"
+  ],
+  "cash4_personal_numbers": [
+    "5470",
+    "6039",
+    "6620"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

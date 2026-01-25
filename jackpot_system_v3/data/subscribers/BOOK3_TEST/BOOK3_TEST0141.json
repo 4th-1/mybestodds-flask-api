@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0141",
+  "kit_type": "BOOK3",
+  "dob": "1967-05-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Laura",
+    "last_name": "Cooper",
+    "birth_date": "1967-05-09",
+    "birth_city": "Stamford",
+    "birth_state": "Connecticut",
+    "birth_time": "01:33"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "192",
+          "553",
+          "032"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9291",
+          "0218"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          20,
+          27,
+          45,
+          60,
+          67
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          8,
+          19,
+          51,
+          58
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          28,
+          32,
+          33,
+          35,
+          39
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

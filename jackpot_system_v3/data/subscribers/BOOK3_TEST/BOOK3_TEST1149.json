@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1149",
+  "kit_type": "BOOK3",
+  "dob": "1979-05-16",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jeffrey",
+    "last_name": "Jenkins",
+    "birth_date": "1979-05-16",
+    "birth_city": "Norman",
+    "birth_state": "Oklahoma",
+    "birth_time": "20:21"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "706"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8751",
+          "4870"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          27,
+          28,
+          41,
+          48,
+          65
+        ],
+        "mega_ball": [
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          7,
+          41,
+          43,
+          58
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          28,
+          40,
+          45,
+          49
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

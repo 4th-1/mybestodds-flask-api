@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1333",
+  "kit_type": "BOOK3",
+  "dob": "1964-09-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Anthony",
+    "last_name": "Ramirez",
+    "birth_date": "1964-09-28",
+    "birth_city": "Newark",
+    "birth_state": "New Jersey",
+    "birth_time": "13:00"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "606",
+          "400",
+          "695",
+          "380"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6247",
+          "6581",
+          "8981"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          25,
+          26,
+          56,
+          64
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          23,
+          49,
+          54,
+          58
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          18,
+          23,
+          28,
+          33
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1174",
+  "kit_type": "BOOK3",
+  "dob": "1992-08-12",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Lisa",
+    "last_name": "Mitchell",
+    "birth_date": "1992-08-12",
+    "birth_city": "Gresham",
+    "birth_state": "Oregon",
+    "birth_time": "07:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "707",
+          "405",
+          "871"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9464",
+          "2941",
+          "9611"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          24,
+          29,
+          45,
+          48
+        ],
+        "mega_ball": [
+          21
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          11,
+          15,
+          29,
+          53
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          39,
+          45,
+          50,
+          59
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

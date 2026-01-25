@@ -1,0 +1,22 @@
+{
+  "name": "Marissa Garcia",
+  "initials": "MG",
+  "dob": "1962-06-14",
+  "pob": "North Marilynbury, MA",
+  "tob": "04:31",
+  "email": "richard71@rodriguez.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

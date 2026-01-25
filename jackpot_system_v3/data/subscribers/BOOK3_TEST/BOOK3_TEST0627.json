@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0627",
+  "kit_type": "BOOK3",
+  "dob": "1994-06-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Christine",
+    "last_name": "Perez",
+    "birth_date": "1994-06-04",
+    "birth_city": "Springfield",
+    "birth_state": "Illinois",
+    "birth_time": "16:39"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "799",
+          "408"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7865",
+          "8052"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          28,
+          36,
+          63,
+          69
+        ],
+        "mega_ball": [
+          20
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          17,
+          21,
+          33,
+          41
+        ],
+        "power_ball": [
+          14
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          13,
+          25,
+          36,
+          49
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

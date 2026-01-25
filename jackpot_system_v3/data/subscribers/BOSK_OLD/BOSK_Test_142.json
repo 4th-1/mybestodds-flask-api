@@ -1,0 +1,37 @@
+{
+  "name": "Reese Smith",
+  "subscriber_initials": "RS",
+  "dob": "1999-04-14",
+  "pob": "Decatur, GA",
+  "tob": "03:30",
+  "email": "bosk_test_142@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 4,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "822",
+      "679"
+    ],
+    "Cash4": [
+      "8414",
+      "3125",
+      "5328"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

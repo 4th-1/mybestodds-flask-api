@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1425",
+  "kit_type": "BOOK3",
+  "dob": "1966-11-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Dennis",
+    "last_name": "Powell",
+    "birth_date": "1966-11-23",
+    "birth_city": "Rialto",
+    "birth_state": "California",
+    "birth_time": "22:19"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "870",
+          "455",
+          "108"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4131"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          18,
+          35,
+          39,
+          45,
+          56
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          43,
+          48,
+          60,
+          61
+        ],
+        "power_ball": [
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          36,
+          38,
+          39,
+          50
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

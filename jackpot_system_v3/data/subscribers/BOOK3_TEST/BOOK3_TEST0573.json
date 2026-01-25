@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0573",
+  "kit_type": "BOOK3",
+  "dob": "1984-04-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Hannah",
+    "last_name": "Edwards",
+    "birth_date": "1984-04-28",
+    "birth_city": "McKinney",
+    "birth_state": "Texas",
+    "birth_time": "09:40"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "636",
+          "773",
+          "535"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6782"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          20,
+          26,
+          42,
+          53
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          43,
+          45,
+          51,
+          64
+        ],
+        "power_ball": [
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          28,
+          41,
+          45,
+          53
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

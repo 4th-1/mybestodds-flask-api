@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0412",
+  "kit_type": "BOOK3",
+  "dob": "1998-12-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "William",
+    "last_name": "Martinez",
+    "birth_date": "1998-12-25",
+    "birth_time": "09:53",
+    "birth_city": "Kansas City 17",
+    "birth_state": "Kansas"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "aggressive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "528,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          10,
+          16,
+          50,
+          67
+        ],
+        "mega_ball": [
+          18,
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          7,
+          35,
+          40,
+          55
+        ],
+        "power_ball": [
+          5,
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          35,
+          38,
+          41,
+          43,
+          49
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

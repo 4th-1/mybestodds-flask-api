@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0389",
+  "kit_type": "BOOK3",
+  "dob": "1952-06-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "William",
+    "last_name": "Johnson",
+    "birth_date": "1952-06-17",
+    "birth_time": "09:20",
+    "birth_city": "Iowa City 14",
+    "birth_state": "Iowa"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "762,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          9,
+          14,
+          52,
+          70
+        ],
+        "mega_ball": [
+          8,
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          8,
+          18,
+          20,
+          45,
+          54
+        ],
+        "power_ball": [
+          23,
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          31,
+          34,
+          43,
+          47,
+          52
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

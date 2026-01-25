@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0529",
+  "kit_type": "BOOK3",
+  "dob": "1983-02-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jacob",
+    "last_name": "Brooks",
+    "birth_date": "1983-02-04",
+    "birth_city": "Sioux Falls",
+    "birth_state": "South Dakota",
+    "birth_time": "11:02"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "810",
+          "946",
+          "176",
+          "032"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7391",
+          "4326"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          41,
+          45,
+          49,
+          69
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          30,
+          32,
+          42,
+          45
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          13,
+          14,
+          40,
+          44,
+          53
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

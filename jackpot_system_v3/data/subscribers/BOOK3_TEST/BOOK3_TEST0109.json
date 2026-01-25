@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0109",
+  "kit_type": "BOOK3",
+  "dob": "1974-08-15",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Christopher",
+    "last_name": "Cox",
+    "birth_date": "1974-08-15",
+    "birth_city": "Chandler",
+    "birth_state": "Arizona",
+    "birth_time": "10:50"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "788",
+          "247",
+          "103"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7988"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          19,
+          33,
+          39,
+          50,
+          67
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          47,
+          48,
+          62,
+          66
+        ],
+        "power_ball": [
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          14,
+          36,
+          40,
+          57
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0231",
+  "kit_type": "BOOK3",
+  "dob": "1984-07-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Robert",
+    "last_name": "Martinez",
+    "birth_date": "1984-07-27",
+    "birth_city": "San Mateo",
+    "birth_state": "California",
+    "birth_time": "23:29"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "136",
+          "213",
+          "432"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6034"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          28,
+          38,
+          57,
+          62
+        ],
+        "mega_ball": [
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          13,
+          56,
+          66,
+          67
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          23,
+          25,
+          41,
+          55
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

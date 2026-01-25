@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0272",
+  "kit_type": "BOOK3",
+  "dob": "1991-04-02",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Samantha",
+    "last_name": "Hernandez",
+    "birth_date": "1991-04-02",
+    "birth_city": "San Diego",
+    "birth_state": "California",
+    "birth_time": "21:02"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "138",
+          "240",
+          "733"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0553",
+          "2915"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          33,
+          35,
+          45,
+          64
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          17,
+          18,
+          30,
+          33,
+          60
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          5,
+          33,
+          43,
+          51
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

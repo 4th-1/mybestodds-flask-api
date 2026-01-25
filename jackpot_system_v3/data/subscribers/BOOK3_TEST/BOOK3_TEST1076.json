@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST1076",
+  "kit_type": "BOOK3",
+  "dob": "1980-01-26",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Gary",
+    "last_name": "Patel",
+    "birth_date": "1980-01-26",
+    "birth_city": "Springfield",
+    "birth_state": "Missouri",
+    "birth_time": "19:30"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "309",
+          "706",
+          "447",
+          "090",
+          "953"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6611",
+          "5211",
+          "6094"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          14,
+          28,
+          29,
+          63
+        ],
+        "mega_ball": [
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          7,
+          50,
+          51,
+          59
+        ],
+        "power_ball": [
+          1
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          23,
+          28,
+          29,
+          52,
+          57
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

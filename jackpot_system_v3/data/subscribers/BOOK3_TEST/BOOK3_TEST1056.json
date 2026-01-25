@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1056",
+  "kit_type": "BOOK3",
+  "dob": "2005-01-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Julia",
+    "last_name": "Williams",
+    "birth_date": "2005-01-20",
+    "birth_city": "Tyler",
+    "birth_state": "Texas",
+    "birth_time": "19:09"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "476",
+          "337",
+          "277",
+          "717",
+          "148"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3352",
+          "6763"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          20,
+          50,
+          62,
+          67
+        ],
+        "mega_ball": [
+          21
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          29,
+          36,
+          39,
+          45,
+          66
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          30,
+          35,
+          45,
+          53
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

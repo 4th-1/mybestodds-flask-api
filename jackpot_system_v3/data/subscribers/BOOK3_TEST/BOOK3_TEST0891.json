@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0891",
+  "kit_type": "BOOK3",
+  "dob": "1998-09-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jeremy",
+    "last_name": "Baker",
+    "birth_date": "1998-09-04",
+    "birth_city": "Long Beach",
+    "birth_state": "California",
+    "birth_time": "10:10"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "513",
+          "098"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0740",
+          "4465",
+          "8410"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          16,
+          32,
+          37,
+          69
+        ],
+        "mega_ball": [
+          9
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          14,
+          25,
+          27,
+          41,
+          63
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          22,
+          25,
+          28,
+          30,
+          53
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

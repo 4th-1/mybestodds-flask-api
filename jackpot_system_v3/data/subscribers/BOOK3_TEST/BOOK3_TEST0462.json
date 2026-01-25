@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0462",
+  "kit_type": "BOOK3",
+  "dob": "1993-04-08",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Samantha",
+    "last_name": "Patel",
+    "birth_date": "1993-04-08",
+    "birth_city": "Overland Park",
+    "birth_state": "Kansas",
+    "birth_time": "03:52"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "601",
+          "272",
+          "860"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0759",
+          "3444"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          21,
+          24,
+          32,
+          53,
+          55
+        ],
+        "mega_ball": [
+          11
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          21,
+          44,
+          48,
+          54,
+          63
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          22,
+          38,
+          51,
+          57
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

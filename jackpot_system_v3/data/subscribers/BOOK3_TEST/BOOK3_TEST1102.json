@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1102",
+  "kit_type": "BOOK3",
+  "dob": "1977-09-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Edward",
+    "last_name": "Scott",
+    "birth_date": "1977-09-09",
+    "birth_city": "Syracuse",
+    "birth_state": "New York",
+    "birth_time": "10:03"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "183",
+          "565"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5527",
+          "8736",
+          "2323"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          32,
+          44,
+          46,
+          56
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          28,
+          38,
+          52,
+          65
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          12,
+          15,
+          53,
+          55
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

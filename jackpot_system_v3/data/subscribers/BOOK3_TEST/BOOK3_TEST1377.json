@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1377",
+  "kit_type": "BOOK3",
+  "dob": "2001-05-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Olivia",
+    "last_name": "Turner",
+    "birth_date": "2001-05-05",
+    "birth_city": "Gresham",
+    "birth_state": "Oregon",
+    "birth_time": "05:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "119",
+          "707"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4859",
+          "5769"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          18,
+          20,
+          42,
+          70
+        ],
+        "mega_ball": [
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          18,
+          23,
+          37,
+          41,
+          58
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          34,
+          35,
+          41,
+          59
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1471",
+  "kit_type": "BOOK3",
+  "dob": "1976-01-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Laura",
+    "last_name": "Parker",
+    "birth_date": "1976-01-28",
+    "birth_city": "Yonkers",
+    "birth_state": "New York",
+    "birth_time": "21:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "203",
+          "149",
+          "966"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0112",
+          "1496"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          13,
+          23,
+          35,
+          47
+        ],
+        "mega_ball": [
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          25,
+          26,
+          34,
+          40,
+          43
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          23,
+          27,
+          34,
+          58
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

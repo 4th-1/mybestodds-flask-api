@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0877",
+  "kit_type": "BOOK3",
+  "dob": "1982-03-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Teresa",
+    "last_name": "Reyes",
+    "birth_date": "1982-03-09",
+    "birth_city": "Vancouver",
+    "birth_state": "Washington",
+    "birth_time": "23:55"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "558"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6595",
+          "3411",
+          "7704"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          18,
+          46,
+          58,
+          67
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          16,
+          20,
+          31,
+          63
+        ],
+        "power_ball": [
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          30,
+          51,
+          56,
+          57,
+          58
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

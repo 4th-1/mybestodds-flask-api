@@ -1,0 +1,22 @@
+{
+  "name": "Emily Graves",
+  "initials": "EG",
+  "dob": "2001-03-05",
+  "pob": "New Jennifer, NC",
+  "tob": "07:08",
+  "email": "imclaughlin@huber.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Morgan Brown",
+  "first_name": "Morgan",
+  "last_name": "Brown",
+  "initials": "MBR",
+  "gender": "M",
+  "dob": "1993-10-23",
+  "tob": "21:25",
+  "pob": "Dallas, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "622",
+      "006",
+      "674",
+      "124",
+      "505"
+    ],
+    "Cash4": [
+      "8378",
+      "5160",
+      "5469"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "622",
+    "006",
+    "674",
+    "124",
+    "505"
+  ],
+  "cash4_personal_numbers": [
+    "8378",
+    "5160",
+    "5469"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

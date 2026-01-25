@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST0440",
+  "kit_type": "BOOK3",
+  "dob": "1983-12-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Robert",
+    "last_name": "Adams",
+    "birth_date": "1983-12-25",
+    "birth_city": "Frisco",
+    "birth_state": "Texas",
+    "birth_time": "14:00"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "840"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3787"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          22,
+          35,
+          52,
+          69
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          32,
+          37,
+          45,
+          47,
+          56
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          26,
+          27,
+          32,
+          38,
+          43
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

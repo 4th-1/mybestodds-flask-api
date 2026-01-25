@@ -1,0 +1,39 @@
+{
+  "name": "Taylor Williams",
+  "subscriber_initials": "TW",
+  "dob": "1966-06-03",
+  "pob": "Macon, GA",
+  "tob": "15:45",
+  "email": "book3_test_105@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 6,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "394",
+      "875",
+      "048",
+      "909"
+    ],
+    "Cash4": [
+      "4912",
+      "6946",
+      "8560"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1107",
+  "kit_type": "BOOK3",
+  "dob": "1991-01-21",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Carol",
+    "last_name": "Morgan",
+    "birth_date": "1991-01-21",
+    "birth_city": "Fort Smith",
+    "birth_state": "Arkansas",
+    "birth_time": "15:12"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "028",
+          "278"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3487",
+          "2051",
+          "7401"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          14,
+          31,
+          50,
+          66
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          28,
+          42,
+          53,
+          61,
+          66
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          15,
+          30,
+          48,
+          52
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

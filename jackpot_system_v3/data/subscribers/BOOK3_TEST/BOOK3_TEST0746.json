@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0746",
+  "kit_type": "BOOK3",
+  "dob": "1980-07-08",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ashley",
+    "last_name": "Garcia",
+    "birth_date": "1980-07-08",
+    "birth_city": "Milwaukee",
+    "birth_state": "Wisconsin",
+    "birth_time": "03:46"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "603"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2599",
+          "6255",
+          "1281"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          16,
+          25,
+          32,
+          57,
+          66
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          21,
+          38,
+          46,
+          69
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          11,
+          19,
+          20,
+          40
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

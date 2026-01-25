@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0694",
+  "kit_type": "BOOK3",
+  "dob": "2004-04-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joan",
+    "last_name": "Reynolds",
+    "birth_date": "2004-04-18",
+    "birth_city": "Davenport",
+    "birth_state": "Iowa",
+    "birth_time": "14:53"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "408"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3640",
+          "1083",
+          "4713"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          21,
+          44,
+          51,
+          68
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          3,
+          15,
+          21,
+          50,
+          51
+        ],
+        "power_ball": [
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          24,
+          26,
+          28,
+          31,
+          56
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

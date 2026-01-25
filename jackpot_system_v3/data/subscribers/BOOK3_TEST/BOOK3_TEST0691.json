@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0691",
+  "kit_type": "BOOK3",
+  "dob": "1972-05-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Benjamin",
+    "last_name": "Lee",
+    "birth_date": "1972-05-14",
+    "birth_city": "Hartford",
+    "birth_state": "Connecticut",
+    "birth_time": "11:01"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "007",
+          "888",
+          "047",
+          "436",
+          "246"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5501",
+          "7655",
+          "2421"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          24,
+          34,
+          47,
+          53,
+          70
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          15,
+          34,
+          36,
+          55
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          34,
+          47,
+          52,
+          55,
+          59
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

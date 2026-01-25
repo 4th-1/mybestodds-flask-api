@@ -1,0 +1,43 @@
+{
+  "name": "Riley Thomas",
+  "first_name": "Riley",
+  "last_name": "Thomas",
+  "initials": "RTH",
+  "gender": "M",
+  "dob": "1963-04-03",
+  "tob": "01:05",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "040",
+      "400",
+      "265",
+      "472",
+      "239"
+    ],
+    "Cash4": [
+      "6770",
+      "9084",
+      "6899"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "040",
+    "400",
+    "265",
+    "472",
+    "239"
+  ],
+  "cash4_personal_numbers": [
+    "6770",
+    "9084",
+    "6899"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Reese Harris",
+  "subscriber_initials": "RH",
+  "dob": "1970-12-21",
+  "pob": "Atlanta, GA",
+  "tob": "01:30",
+  "email": "bosk_test_047@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 12,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "504"
+    ],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

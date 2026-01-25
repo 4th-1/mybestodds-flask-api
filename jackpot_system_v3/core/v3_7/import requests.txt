@@ -1,0 +1,57 @@
+import requests
+import json
+
+# Config
+email = "support@4thand1mobile.com"
+password = "*SupPORT$mi28"
+lottery_id = 101  # Replace this if needed
+year = 2025
+evening_time = "18:59:00"  # 6:59 PM (Evening draw)
+base_url = "https://www.lotteryresultsfeed.com/api/"
+
+# Step 1: Login
+print("🔐 Logging in...")
+resp = requests.post(base_url + "login", headers={"Accept": "application/json"}, data={
+    "email": email,
+    "password": password
+})
+
+if resp.status_code != 200:
+    print("❌ Login failed:", resp.text)
+    exit(1)
+
+token = resp.json().get("token")
+print("✅ Logged in successfully.")
+
+# Step 2: Fetch draw results
+results_url = base_url + "lottery/results"
+print(f"📦 Fetching results for ID {lottery_id} and year {year}...")
+resp = requests.get(results_url, headers={
+    "Authorization": f"Bearer {token}",
+    "Accept": "application/json"
+}, params={
+    "id": lottery_id,
+    "year": year
+})
+
+if resp.status_code != 200:
+    print("❌ Failed to fetch results:", resp.text)
+    exit(1)
+
+results = resp.json().get("data", [])
+print(f"\n🎯 Total results returned: {len(results)}")
+
+# Step 3: Filter for evening draws
+evening_results = [r for r in results if r.get("draw_time") == evening_time]
+
+print(f"🌙 Evening draws at {evening_time}: {len(evening_results)} found.\n")
+
+# Optional: Print a preview
+for r in evening_results[:10]:  # Preview only first 10
+    print(f"🗓 {r['draw_date']} | 🕕 {r['draw_time']} | 🎯 {r['numbers']}")
+
+# Step 4: Save to file
+with open("cash3_evening_2025_filtered.json", "w", encoding="utf-8") as f:
+    json.dump(evening_results, f, indent=2)
+
+print("\n💾 Saved filtered results to: cash3_evening_2025_filtered.json")

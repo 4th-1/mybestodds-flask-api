@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1287",
+  "kit_type": "BOOK3",
+  "dob": "1993-01-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Douglas",
+    "last_name": "Kelly",
+    "birth_date": "1993-01-18",
+    "birth_city": "Spokane",
+    "birth_state": "Washington",
+    "birth_time": "23:37"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "868"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6319",
+          "1018",
+          "5307"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          39,
+          53,
+          54,
+          67
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          20,
+          22,
+          38,
+          53
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          24,
+          30,
+          34,
+          40,
+          58
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

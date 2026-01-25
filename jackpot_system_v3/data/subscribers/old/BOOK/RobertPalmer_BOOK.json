@@ -1,0 +1,22 @@
+{
+  "name": "Robert Palmer",
+  "initials": "RP",
+  "dob": "1963-05-12",
+  "pob": "Johnsonbury, MN",
+  "tob": "09:56",
+  "email": "kaguilar@reyes-roberts.info",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

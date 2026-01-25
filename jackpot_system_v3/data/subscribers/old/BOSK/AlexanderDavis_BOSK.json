@@ -1,0 +1,29 @@
+{
+  "name": "Alexander Davis",
+  "initials": "AD",
+  "dob": "1985-09-09",
+  "pob": "Michaelchester, RI",
+  "tob": "xx:xx",
+  "email": "leenathaniel@palmer.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  },
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOSK"
+}

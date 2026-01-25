@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0576",
+  "kit_type": "BOOK3",
+  "dob": "1963-10-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jessica",
+    "last_name": "Sanchez",
+    "birth_date": "1963-10-25",
+    "birth_city": "Bellevue",
+    "birth_state": "Washington",
+    "birth_time": "20:28"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "544",
+          "460",
+          "030"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1455",
+          "5717",
+          "3553"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          7,
+          37,
+          48,
+          50
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          23,
+          33,
+          43,
+          66
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          30,
+          39,
+          40,
+          55
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

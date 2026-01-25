@@ -1,0 +1,43 @@
+{
+  "name": "Jamie Smith",
+  "first_name": "Jamie",
+  "last_name": "Smith",
+  "initials": "JSM",
+  "gender": "F",
+  "dob": "1991-07-29",
+  "tob": "04:10",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "901",
+      "746",
+      "456",
+      "236",
+      "504"
+    ],
+    "Cash4": [
+      "9995",
+      "7088",
+      "3367"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "901",
+    "746",
+    "456",
+    "236",
+    "504"
+  ],
+  "cash4_personal_numbers": [
+    "9995",
+    "7088",
+    "3367"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

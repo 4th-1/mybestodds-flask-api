@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0194",
+  "kit_type": "BOOK3",
+  "dob": "1991-01-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Anthony",
+    "last_name": "Edwards",
+    "birth_date": "1991-01-09",
+    "birth_city": "Allentown",
+    "birth_state": "Pennsylvania",
+    "birth_time": "00:41"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "688"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4170",
+          "2534"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          18,
+          25,
+          37,
+          58
+        ],
+        "mega_ball": [
+          11
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          21,
+          22,
+          32,
+          61
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          7,
+          34,
+          40,
+          52
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

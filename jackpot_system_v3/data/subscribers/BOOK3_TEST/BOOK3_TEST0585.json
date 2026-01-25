@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0585",
+  "kit_type": "BOOK3",
+  "dob": "1977-09-21",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jack",
+    "last_name": "Patterson",
+    "birth_date": "1977-09-21",
+    "birth_city": "Miami Gardens",
+    "birth_state": "Florida",
+    "birth_time": "05:01"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "856",
+          "138"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9673"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          17,
+          18,
+          23,
+          52
+        ],
+        "mega_ball": [
+          15
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          11,
+          27,
+          32,
+          56
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          28,
+          34,
+          39,
+          45,
+          50
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

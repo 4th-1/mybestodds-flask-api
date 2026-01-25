@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0216",
+  "kit_type": "BOOK3",
+  "dob": "2001-09-10",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Marie",
+    "last_name": "James",
+    "birth_date": "2001-09-10",
+    "birth_city": "Fairfield",
+    "birth_state": "California",
+    "birth_time": "09:18"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "822",
+          "233",
+          "470",
+          "607"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5647",
+          "4697",
+          "2720"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          9,
+          57,
+          65,
+          66
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          18,
+          21,
+          28,
+          46
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          35,
+          40,
+          42,
+          50,
+          56
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

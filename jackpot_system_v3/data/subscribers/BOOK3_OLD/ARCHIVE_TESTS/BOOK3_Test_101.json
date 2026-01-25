@@ -1,0 +1,36 @@
+{
+  "name": "Dakota Harris",
+  "subscriber_initials": "DH",
+  "dob": "1988-08-10",
+  "pob": "Columbus, GA",
+  "tob": "02:45",
+  "email": "book3_test_101@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 8,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "879",
+      "111",
+      "952"
+    ],
+    "Cash4": [
+      "6400"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

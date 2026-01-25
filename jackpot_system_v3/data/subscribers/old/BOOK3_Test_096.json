@@ -1,0 +1,43 @@
+{
+  "name": "Kendall Anderson",
+  "first_name": "Kendall",
+  "last_name": "Anderson",
+  "initials": "KAN",
+  "gender": "F",
+  "dob": "1982-06-07",
+  "tob": "15:00",
+  "pob": "New York, NY",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "070",
+      "317",
+      "465",
+      "731",
+      "304"
+    ],
+    "Cash4": [
+      "1641",
+      "1241",
+      "3581"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "070",
+    "317",
+    "465",
+    "731",
+    "304"
+  ],
+  "cash4_personal_numbers": [
+    "1641",
+    "1241",
+    "3581"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

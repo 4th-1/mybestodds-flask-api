@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0149",
+  "kit_type": "BOOK3",
+  "dob": "1984-10-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Diane",
+    "last_name": "Wood",
+    "birth_date": "1984-10-19",
+    "birth_city": "Fontana",
+    "birth_state": "California",
+    "birth_time": "18:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "597",
+          "862",
+          "284",
+          "577",
+          "257"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1622",
+          "3385",
+          "2126"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          26,
+          40,
+          47,
+          57
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          21,
+          42,
+          44,
+          55
+        ],
+        "power_ball": [
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          13,
+          18,
+          36,
+          56
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

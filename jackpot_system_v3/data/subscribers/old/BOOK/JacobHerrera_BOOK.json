@@ -1,0 +1,22 @@
+{
+  "name": "Jacob Herrera",
+  "initials": "JH",
+  "dob": "1997-11-18",
+  "pob": "East Carrie, NV",
+  "tob": "06:49",
+  "email": "oosborne@johnson.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Peyton Rodriguez",
+  "first_name": "Peyton",
+  "last_name": "Rodriguez",
+  "initials": "PRO",
+  "gender": "F",
+  "dob": "1968-08-12",
+  "tob": "09:40",
+  "pob": "Atlanta, GA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "107",
+      "622",
+      "703",
+      "046",
+      "071"
+    ],
+    "Cash4": [
+      "8322",
+      "1600",
+      "0569"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "107",
+    "622",
+    "703",
+    "046",
+    "071"
+  ],
+  "cash4_personal_numbers": [
+    "8322",
+    "1600",
+    "0569"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

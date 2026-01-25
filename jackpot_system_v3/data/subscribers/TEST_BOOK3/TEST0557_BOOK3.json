@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0557",
+  "kit_type": "BOOK3",
+  "dob": "1960-12-13",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Mark",
+    "last_name": "Garcia",
+    "birth_date": "1960-12-13",
+    "birth_time": "13:22",
+    "birth_city": "Mississippi City 2",
+    "birth_state": "Mississippi"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "320,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          40,
+          41,
+          44,
+          66
+        ],
+        "mega_ball": [
+          4,
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          13,
+          17,
+          21,
+          47,
+          62
+        ],
+        "power_ball": [
+          2,
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          21,
+          43,
+          47,
+          52
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

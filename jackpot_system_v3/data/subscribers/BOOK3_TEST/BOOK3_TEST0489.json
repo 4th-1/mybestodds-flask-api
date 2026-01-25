@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0489",
+  "kit_type": "BOOK3",
+  "dob": "1973-01-10",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Lauren",
+    "last_name": "Price",
+    "birth_date": "1973-01-10",
+    "birth_city": "Warren",
+    "birth_state": "Michigan",
+    "birth_time": "05:43"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "801",
+          "528",
+          "213",
+          "806",
+          "996"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2457"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          12,
+          22,
+          27,
+          55
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          22,
+          30,
+          39,
+          42,
+          47
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          23,
+          42,
+          48,
+          60
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

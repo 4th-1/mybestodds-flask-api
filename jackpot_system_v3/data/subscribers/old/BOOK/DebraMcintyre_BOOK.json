@@ -1,0 +1,22 @@
+{
+  "name": "Debra Mcintyre",
+  "initials": "DM",
+  "dob": "1996-01-03",
+  "pob": "South Deborahside, ME",
+  "tob": "03:09",
+  "email": "rileysandra@phillips.org",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

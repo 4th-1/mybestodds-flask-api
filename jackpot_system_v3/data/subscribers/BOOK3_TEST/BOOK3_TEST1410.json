@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1410",
+  "kit_type": "BOOK3",
+  "dob": "1962-09-26",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Dorothy",
+    "last_name": "Perez",
+    "birth_date": "1962-09-26",
+    "birth_city": "Pompano Beach",
+    "birth_state": "Florida",
+    "birth_time": "20:14"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "466",
+          "693",
+          "882"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6145",
+          "8356",
+          "0978"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          19,
+          26,
+          29,
+          53,
+          60
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          2,
+          18,
+          38,
+          62
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          5,
+          14,
+          36,
+          49
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

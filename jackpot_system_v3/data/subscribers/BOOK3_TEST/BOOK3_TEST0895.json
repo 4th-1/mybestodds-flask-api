@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0895",
+  "kit_type": "BOOK3",
+  "dob": "1973-12-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Martha",
+    "last_name": "Myers",
+    "birth_date": "1973-12-25",
+    "birth_city": "Pomona",
+    "birth_state": "California",
+    "birth_time": "23:06"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "620",
+          "722"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5691",
+          "8865",
+          "4183"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          12,
+          44,
+          58,
+          68
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          14,
+          44,
+          61,
+          62,
+          64
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          39,
+          44,
+          49,
+          56,
+          59
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

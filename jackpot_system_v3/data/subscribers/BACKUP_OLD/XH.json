@@ -1,0 +1,36 @@
+{
+  "name": "Xavier Holt",
+  "initials": "XH",
+  "dob": "2004-05-17",
+  "tob": "08:16",
+  "pob": "Seattle, WA",
+  "astrology": {
+    "western": {
+      "sun": "Leo",
+      "moon": "Cancer",
+      "rising": "Virgo"
+    },
+    "vedic": {
+      "sun": "Simha",
+      "moon": "Karka",
+      "ascendant": "Kanya"
+    }
+  },
+  "mmfsn_cash3": "1621",
+  "mmfsn_cash4": "8929",
+  "submitted_numbers_cash3": [
+    8,
+    5,
+    2
+  ],
+  "submitted_numbers_cash4": [
+    8,
+    5,
+    5,
+    9
+  ],
+  "kit": "BOOK3",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "timezone": "UTC-05"
+}

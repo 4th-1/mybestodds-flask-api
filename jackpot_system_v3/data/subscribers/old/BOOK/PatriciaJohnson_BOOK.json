@@ -1,0 +1,22 @@
+{
+  "name": "Patricia Johnson",
+  "initials": "PJ",
+  "dob": "2000-05-29",
+  "pob": "West Johnton, TN",
+  "tob": "22:26",
+  "email": "david00@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

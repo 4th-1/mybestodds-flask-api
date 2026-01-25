@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0520",
+  "kit_type": "BOOK3",
+  "dob": "1964-06-08",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Eugene",
+    "last_name": "Hayes",
+    "birth_date": "1964-06-08",
+    "birth_city": "Chula Vista",
+    "birth_state": "California",
+    "birth_time": "14:21"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "566",
+          "729",
+          "672",
+          "084"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5502",
+          "8519"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          29,
+          31,
+          57,
+          59
+        ],
+        "mega_ball": [
+          9
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          6,
+          37,
+          42,
+          53
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          16,
+          26,
+          44,
+          47
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

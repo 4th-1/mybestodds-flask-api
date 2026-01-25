@@ -1,0 +1,22 @@
+{
+  "name": "Christine Manning",
+  "initials": "CM",
+  "dob": "1952-07-30",
+  "pob": "North Linda, DE",
+  "tob": "21:20",
+  "email": "raymond71@gibson-barrett.net",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

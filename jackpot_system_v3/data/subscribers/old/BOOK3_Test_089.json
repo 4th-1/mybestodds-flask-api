@@ -1,0 +1,43 @@
+{
+  "name": "Casey Davis",
+  "first_name": "Casey",
+  "last_name": "Davis",
+  "initials": "CDA",
+  "gender": "F",
+  "dob": "1994-11-15",
+  "tob": "02:40",
+  "pob": "Detroit, MI",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "324",
+      "547",
+      "833",
+      "767",
+      "421"
+    ],
+    "Cash4": [
+      "2415",
+      "5870",
+      "1384"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "324",
+    "547",
+    "833",
+    "767",
+    "421"
+  ],
+  "cash4_personal_numbers": [
+    "2415",
+    "5870",
+    "1384"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

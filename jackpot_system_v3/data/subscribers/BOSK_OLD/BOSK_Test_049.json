@@ -1,0 +1,38 @@
+{
+  "name": "Casey Anderson",
+  "subscriber_initials": "CA",
+  "dob": "1978-07-09",
+  "pob": "Macon, GA",
+  "tob": "05:30",
+  "email": "bosk_test_049@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 7,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "012",
+      "457",
+      "816"
+    ],
+    "Cash4": [
+      "2768",
+      "8769",
+      "8177"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

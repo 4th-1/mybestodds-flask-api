@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1079",
+  "kit_type": "BOOK3",
+  "dob": "1978-08-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Justin",
+    "last_name": "Ward",
+    "birth_date": "1978-08-24",
+    "birth_city": "Rockford",
+    "birth_state": "Illinois",
+    "birth_time": "13:19"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "048",
+          "707"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2791"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          28,
+          30,
+          33,
+          44,
+          55
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          38,
+          51,
+          52,
+          57
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          9,
+          14,
+          23,
+          51
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

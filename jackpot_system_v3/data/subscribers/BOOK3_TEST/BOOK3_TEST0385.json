@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0385",
+  "kit_type": "BOOK3",
+  "dob": "2002-04-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Larry",
+    "last_name": "James",
+    "birth_date": "2002-04-04",
+    "birth_city": "Santa Rosa",
+    "birth_state": "California",
+    "birth_time": "02:12"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "133",
+          "658"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1552",
+          "4205"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          7,
+          10,
+          15,
+          31
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          13,
+          18,
+          31,
+          59,
+          68
+        ],
+        "power_ball": [
+          25
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          23,
+          27,
+          47,
+          53
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

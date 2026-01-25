@@ -1,0 +1,38 @@
+{
+  "name": "Reese Johnson",
+  "subscriber_initials": "RJ",
+  "dob": "1965-01-25",
+  "pob": "Atlanta, GA",
+  "tob": "03:00",
+  "email": "bosk_test_069@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 1,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "460",
+      "176",
+      "972"
+    ],
+    "Cash4": [
+      "7505",
+      "6791",
+      "3491"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

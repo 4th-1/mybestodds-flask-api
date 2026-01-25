@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0333",
+  "kit_type": "BOOK3",
+  "dob": "1950-08-31",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Matthew",
+    "last_name": "Jackson",
+    "birth_date": "1950-08-31",
+    "birth_time": "07:59",
+    "birth_city": "Idaho City 18",
+    "birth_state": "Idaho"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "180,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          13,
+          37,
+          43,
+          69
+        ],
+        "mega_ball": [
+          22,
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          13,
+          38,
+          52,
+          62,
+          69
+        ],
+        "power_ball": [
+          10,
+          11
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          11,
+          36,
+          43,
+          58
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

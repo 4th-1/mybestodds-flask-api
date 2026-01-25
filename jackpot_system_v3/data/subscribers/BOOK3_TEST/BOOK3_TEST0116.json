@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0116",
+  "kit_type": "BOOK3",
+  "dob": "1977-05-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Noah",
+    "last_name": "Diaz",
+    "birth_date": "1977-05-23",
+    "birth_city": "Carrollton",
+    "birth_state": "Texas",
+    "birth_time": "14:34"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "862",
+          "737",
+          "767",
+          "087"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8579",
+          "3592"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          13,
+          36,
+          48,
+          66
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          11,
+          26,
+          33,
+          38
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          7,
+          9,
+          27,
+          53
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

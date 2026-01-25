@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0755",
+  "kit_type": "BOOK3",
+  "dob": "1987-02-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Frances",
+    "last_name": "Henderson",
+    "birth_date": "1987-02-27",
+    "birth_city": "Miami",
+    "birth_state": "Florida",
+    "birth_time": "21:38"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "831"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4799",
+          "4058"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          32,
+          36,
+          56,
+          57,
+          58
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          9,
+          12,
+          22,
+          30
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          41,
+          50,
+          54,
+          60
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

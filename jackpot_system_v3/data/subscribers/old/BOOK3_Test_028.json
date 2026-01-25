@@ -1,0 +1,43 @@
+{
+  "name": "Devon Thomas",
+  "first_name": "Devon",
+  "last_name": "Thomas",
+  "initials": "DTH",
+  "gender": "M",
+  "dob": "1961-10-11",
+  "tob": "08:10",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "576",
+      "250",
+      "892",
+      "603",
+      "103"
+    ],
+    "Cash4": [
+      "7600",
+      "7870",
+      "7634"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "576",
+    "250",
+    "892",
+    "603",
+    "103"
+  ],
+  "cash4_personal_numbers": [
+    "7600",
+    "7870",
+    "7634"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

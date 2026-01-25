@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0101",
+  "kit_type": "BOOK3",
+  "dob": "2000-06-21",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Edward",
+    "last_name": "Ramos",
+    "birth_date": "2000-06-21",
+    "birth_city": "Norman",
+    "birth_state": "Oklahoma",
+    "birth_time": "10:09"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "024",
+          "557",
+          "471"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4166",
+          "6221",
+          "3754"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          23,
+          32,
+          43,
+          70
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          8,
+          15,
+          16,
+          62,
+          64
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          13,
+          31,
+          49,
+          50
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

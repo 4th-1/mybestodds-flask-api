@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1342",
+  "kit_type": "BOOK3",
+  "dob": "1964-04-08",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Helen",
+    "last_name": "Green",
+    "birth_date": "1964-04-08",
+    "birth_city": "Davenport",
+    "birth_state": "Iowa",
+    "birth_time": "18:01"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "602",
+          "447",
+          "138"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8445",
+          "9520"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          29,
+          36,
+          61,
+          69
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          29,
+          38,
+          54,
+          65
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          9,
+          15,
+          27,
+          46
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

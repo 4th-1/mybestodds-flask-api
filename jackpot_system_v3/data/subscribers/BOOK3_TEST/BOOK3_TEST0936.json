@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0936",
+  "kit_type": "BOOK3",
+  "dob": "1990-07-10",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Michelle",
+    "last_name": "Alvarez",
+    "birth_date": "1990-07-10",
+    "birth_city": "Santa Clara",
+    "birth_state": "California",
+    "birth_time": "22:25"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "423"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4709",
+          "1333"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          31,
+          36,
+          39,
+          45,
+          51
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          21,
+          22,
+          49,
+          59,
+          64
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          17,
+          19,
+          26,
+          37,
+          47
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

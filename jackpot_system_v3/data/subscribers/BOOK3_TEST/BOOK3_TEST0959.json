@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0959",
+  "kit_type": "BOOK3",
+  "dob": "1971-01-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Brandon",
+    "last_name": "Baker",
+    "birth_date": "1971-01-25",
+    "birth_city": "Clovis",
+    "birth_state": "California",
+    "birth_time": "05:05"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "034",
+          "408",
+          "442",
+          "424",
+          "476"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6697",
+          "0426"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          9,
+          40,
+          42,
+          48,
+          57
+        ],
+        "mega_ball": [
+          20
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          33,
+          44,
+          60,
+          61,
+          66
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          23,
+          27,
+          28,
+          52
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

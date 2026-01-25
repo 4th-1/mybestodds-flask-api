@@ -1,0 +1,43 @@
+{
+  "name": "Rowan Miller",
+  "first_name": "Rowan",
+  "last_name": "Miller",
+  "initials": "RMI",
+  "gender": "F",
+  "dob": "1971-08-24",
+  "tob": "01:00",
+  "pob": "Los Angeles, CA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "172",
+      "954",
+      "791",
+      "122",
+      "620"
+    ],
+    "Cash4": [
+      "0131",
+      "5900",
+      "7986"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "172",
+    "954",
+    "791",
+    "122",
+    "620"
+  ],
+  "cash4_personal_numbers": [
+    "0131",
+    "5900",
+    "7986"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

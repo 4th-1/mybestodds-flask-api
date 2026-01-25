@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0945",
+  "kit_type": "BOOK3",
+  "dob": "2005-10-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ruth",
+    "last_name": "Hall",
+    "birth_date": "2005-10-11",
+    "birth_city": "Memphis",
+    "birth_state": "Tennessee",
+    "birth_time": "10:53"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "988",
+          "370",
+          "903",
+          "031",
+          "864"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8636",
+          "3146"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          14,
+          22,
+          27,
+          43
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          17,
+          24,
+          52,
+          55,
+          62
+        ],
+        "power_ball": [
+          18
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          4,
+          14,
+          29,
+          37
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

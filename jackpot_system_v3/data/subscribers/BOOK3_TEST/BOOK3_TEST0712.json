@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0712",
+  "kit_type": "BOOK3",
+  "dob": "2001-08-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Douglas",
+    "last_name": "Cook",
+    "birth_date": "2001-08-14",
+    "birth_city": "Cary",
+    "birth_state": "North Carolina",
+    "birth_time": "12:52"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "087"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9458",
+          "8700",
+          "8869"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          4,
+          11,
+          27,
+          52
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          16,
+          35,
+          36,
+          48,
+          64
+        ],
+        "power_ball": [
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          21,
+          24,
+          28,
+          29
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

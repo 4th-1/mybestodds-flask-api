@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0428",
+  "kit_type": "BOOK3",
+  "dob": "2001-01-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nicholas",
+    "last_name": "Kim",
+    "birth_date": "2001-01-19",
+    "birth_city": "Chandler",
+    "birth_state": "Arizona",
+    "birth_time": "22:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "047",
+          "778",
+          "773"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0392",
+          "4068",
+          "2654"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          35,
+          37,
+          47,
+          48,
+          63
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          9,
+          29,
+          57,
+          66
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          11,
+          12,
+          39,
+          51
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1457",
+  "kit_type": "BOOK3",
+  "dob": "1966-09-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Dorothy",
+    "last_name": "Ramirez",
+    "birth_date": "1966-09-28",
+    "birth_city": "Grand Prairie",
+    "birth_state": "Texas",
+    "birth_time": "14:00"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "438",
+          "409"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0158",
+          "7121"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          22,
+          27,
+          49,
+          50,
+          56
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          13,
+          24,
+          31,
+          46,
+          52
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          16,
+          29,
+          52,
+          60
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

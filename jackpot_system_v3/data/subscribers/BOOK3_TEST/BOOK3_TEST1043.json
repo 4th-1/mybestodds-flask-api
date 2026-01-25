@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1043",
+  "kit_type": "BOOK3",
+  "dob": "2003-12-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Deborah",
+    "last_name": "Richardson",
+    "birth_date": "2003-12-18",
+    "birth_city": "Vancouver",
+    "birth_state": "Washington",
+    "birth_time": "07:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "704",
+          "906"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1837",
+          "7964"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          29,
+          44,
+          45,
+          47,
+          48
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          13,
+          20,
+          25,
+          65,
+          69
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          39,
+          47,
+          49,
+          55
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

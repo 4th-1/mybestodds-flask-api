@@ -1,0 +1,38 @@
+{
+  "name": "Casey Thomas",
+  "subscriber_initials": "CT",
+  "dob": "1973-02-21",
+  "pob": "Atlanta, GA",
+  "tob": "02:00",
+  "email": "bosk_test_152@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 2,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "920",
+      "895",
+      "667",
+      "716"
+    ],
+    "Cash4": [
+      "0392",
+      "8461"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

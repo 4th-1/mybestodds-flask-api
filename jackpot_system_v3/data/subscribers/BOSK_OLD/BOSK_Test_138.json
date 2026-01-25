@@ -1,0 +1,33 @@
+{
+  "name": "Quinn Anderson",
+  "subscriber_initials": "QA",
+  "dob": "2002-09-29",
+  "pob": "Columbus, GA",
+  "tob": "08:45",
+  "email": "bosk_test_138@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 9,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [
+      "8616",
+      "8435"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

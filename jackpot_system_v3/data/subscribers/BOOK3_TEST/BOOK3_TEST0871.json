@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0871",
+  "kit_type": "BOOK3",
+  "dob": "1973-05-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nancy",
+    "last_name": "Henderson",
+    "birth_date": "1973-05-24",
+    "birth_city": "Elizabeth",
+    "birth_state": "New Jersey",
+    "birth_time": "22:51"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "852",
+          "600",
+          "530",
+          "345",
+          "043"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1643"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          33,
+          46,
+          48,
+          66,
+          67
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          37,
+          38,
+          55,
+          57,
+          65
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          7,
+          44,
+          47,
+          49
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0834",
+  "kit_type": "BOOK3",
+  "dob": "1995-04-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Andrea",
+    "last_name": "Price",
+    "birth_date": "1995-04-01",
+    "birth_city": "Alexandria",
+    "birth_state": "Virginia",
+    "birth_time": "03:29"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "888",
+          "326",
+          "858",
+          "726",
+          "313"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4834"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          16,
+          17,
+          35,
+          37
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          35,
+          53,
+          56,
+          60,
+          63
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          9,
+          10,
+          27,
+          51
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

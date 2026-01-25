@@ -1,0 +1,35 @@
+{
+  "name": "Sydney Harris",
+  "subscriber_initials": "SH",
+  "dob": "1965-08-30",
+  "pob": "Columbus, GA",
+  "tob": "00:45",
+  "email": "book3_test_081@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 8,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "904",
+      "432"
+    ],
+    "Cash4": [
+      "7480"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

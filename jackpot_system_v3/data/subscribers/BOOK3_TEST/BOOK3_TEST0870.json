@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0870",
+  "kit_type": "BOOK3",
+  "dob": "1993-10-13",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Amy",
+    "last_name": "Clark",
+    "birth_date": "1993-10-13",
+    "birth_city": "Montgomery",
+    "birth_state": "Alabama",
+    "birth_time": "11:07"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "654",
+          "481",
+          "780"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5397",
+          "8191"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          36,
+          42,
+          48,
+          60
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          11,
+          20,
+          23,
+          56
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          13,
+          19,
+          21,
+          57
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Riley White",
+  "first_name": "Riley",
+  "last_name": "White",
+  "initials": "RWH",
+  "gender": "M",
+  "dob": "1971-02-15",
+  "tob": "13:25",
+  "pob": "Dallas, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "152",
+      "589",
+      "106",
+      "474",
+      "580"
+    ],
+    "Cash4": [
+      "1452",
+      "1184",
+      "8050"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "152",
+    "589",
+    "106",
+    "474",
+    "580"
+  ],
+  "cash4_personal_numbers": [
+    "1452",
+    "1184",
+    "8050"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

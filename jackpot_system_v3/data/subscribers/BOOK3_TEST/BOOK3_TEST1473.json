@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST1473",
+  "kit_type": "BOOK3",
+  "dob": "1962-01-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Gary",
+    "last_name": "Collins",
+    "birth_date": "1962-01-07",
+    "birth_city": "Maple Grove",
+    "birth_state": "Minnesota",
+    "birth_time": "10:17"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "604"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6611"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          17,
+          23,
+          33,
+          68
+        ],
+        "mega_ball": [
+          9
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          15,
+          22,
+          50,
+          51
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          13,
+          17,
+          19,
+          28,
+          54
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

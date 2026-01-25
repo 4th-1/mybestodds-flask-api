@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0502",
+  "kit_type": "BOOK3",
+  "dob": "1960-10-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nancy",
+    "last_name": "Gutierrez",
+    "birth_date": "1960-10-09",
+    "birth_city": "Las Cruces",
+    "birth_state": "New Mexico",
+    "birth_time": "03:51"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "046",
+          "072",
+          "819"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7987",
+          "4235",
+          "6919"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          16,
+          48,
+          51,
+          61,
+          65
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          20,
+          21,
+          25,
+          45,
+          46
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          18,
+          32,
+          36,
+          43
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

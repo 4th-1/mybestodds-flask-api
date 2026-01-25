@@ -1,0 +1,36 @@
+{
+  "name": "Riley Taylor",
+  "subscriber_initials": "RT",
+  "dob": "1968-10-01",
+  "pob": "Augusta, GA",
+  "tob": "06:15",
+  "email": "book3_test_199@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 10,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "778",
+      "506"
+    ],
+    "Cash4": [
+      "5015",
+      "1135"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

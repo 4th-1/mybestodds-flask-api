@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1133",
+  "kit_type": "BOOK3",
+  "dob": "1990-09-21",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Deborah",
+    "last_name": "Kim",
+    "birth_date": "1990-09-21",
+    "birth_city": "Sterling Heights",
+    "birth_state": "Michigan",
+    "birth_time": "10:03"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "996",
+          "167",
+          "978"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4497"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          18,
+          38,
+          42,
+          52,
+          55
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          15,
+          31,
+          37,
+          57
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          18,
+          24,
+          40,
+          43,
+          59
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

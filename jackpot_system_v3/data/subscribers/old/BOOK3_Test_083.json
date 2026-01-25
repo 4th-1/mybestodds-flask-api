@@ -1,0 +1,43 @@
+{
+  "name": "Alex Moore",
+  "first_name": "Alex",
+  "last_name": "Moore",
+  "initials": "AMO",
+  "gender": "F",
+  "dob": "1961-12-23",
+  "tob": "14:35",
+  "pob": "Chicago, IL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "768",
+      "509",
+      "822",
+      "815",
+      "750"
+    ],
+    "Cash4": [
+      "0699",
+      "9419",
+      "2717"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "768",
+    "509",
+    "822",
+    "815",
+    "750"
+  ],
+  "cash4_personal_numbers": [
+    "0699",
+    "9419",
+    "2717"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

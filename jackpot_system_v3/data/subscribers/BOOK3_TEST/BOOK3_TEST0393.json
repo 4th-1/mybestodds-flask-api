@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0393",
+  "kit_type": "BOOK3",
+  "dob": "1963-02-03",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Helen",
+    "last_name": "James",
+    "birth_date": "1963-02-03",
+    "birth_city": "Boulder",
+    "birth_state": "Colorado",
+    "birth_time": "19:09"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "713",
+          "029",
+          "964"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7709",
+          "8165",
+          "8117"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          22,
+          40,
+          47,
+          50
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          23,
+          31,
+          56,
+          64,
+          69
+        ],
+        "power_ball": [
+          18
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          28,
+          50,
+          51,
+          55
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

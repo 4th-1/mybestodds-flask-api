@@ -1,0 +1,22 @@
+{
+  "name": "Ricky Russell",
+  "initials": "RR",
+  "dob": "1986-12-03",
+  "pob": "South Lorichester, LA",
+  "tob": "11:42",
+  "email": "graykirsten@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

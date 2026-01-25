@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0792",
+  "kit_type": "BOOK3",
+  "dob": "1961-09-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joyce",
+    "last_name": "Henderson",
+    "birth_date": "1961-09-20",
+    "birth_city": "Indianapolis",
+    "birth_state": "Indiana",
+    "birth_time": "23:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "499",
+          "546",
+          "296"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7573",
+          "5359"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          23,
+          33,
+          56,
+          61,
+          68
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          17,
+          19,
+          62,
+          67
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          12,
+          25,
+          42,
+          47
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

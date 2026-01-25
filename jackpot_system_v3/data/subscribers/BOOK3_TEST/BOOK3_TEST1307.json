@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1307",
+  "kit_type": "BOOK3",
+  "dob": "2000-10-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Emma",
+    "last_name": "Jenkins",
+    "birth_date": "2000-10-24",
+    "birth_city": "Plano",
+    "birth_state": "Texas",
+    "birth_time": "18:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "989",
+          "640",
+          "565",
+          "959"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0966",
+          "5525",
+          "7860"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          38,
+          39,
+          47,
+          59
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          48,
+          50,
+          52,
+          67
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          26,
+          34,
+          38,
+          46,
+          57
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

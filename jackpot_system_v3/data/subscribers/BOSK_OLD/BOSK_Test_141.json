@@ -1,0 +1,36 @@
+{
+  "name": "Dakota Johnson",
+  "subscriber_initials": "DJ",
+  "dob": "2000-12-17",
+  "pob": "Augusta, GA",
+  "tob": "01:15",
+  "email": "bosk_test_141@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 12,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "178"
+    ],
+    "Cash4": [
+      "0952",
+      "4767",
+      "8251"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

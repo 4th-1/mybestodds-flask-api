@@ -1,0 +1,35 @@
+{
+  "name": "Jordan Williams",
+  "subscriber_initials": "JW",
+  "dob": "1997-09-14",
+  "pob": "Savannah, GA",
+  "tob": "06:45",
+  "email": "book3_test_133@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 9,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "806"
+    ],
+    "Cash4": [
+      "3064",
+      "7805"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

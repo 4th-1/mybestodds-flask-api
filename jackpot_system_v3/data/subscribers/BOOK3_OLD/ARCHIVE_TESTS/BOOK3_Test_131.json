@@ -1,0 +1,37 @@
+{
+  "name": "Cameron White",
+  "subscriber_initials": "CW",
+  "dob": "1981-07-30",
+  "pob": "Macon, GA",
+  "tob": "04:00",
+  "email": "book3_test_131@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 7,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "788",
+      "754"
+    ],
+    "Cash4": [
+      "0436",
+      "3721",
+      "9934"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

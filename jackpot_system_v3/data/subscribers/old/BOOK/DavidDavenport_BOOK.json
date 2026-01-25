@@ -1,0 +1,22 @@
+{
+  "name": "David Davenport",
+  "initials": "DD",
+  "dob": "1987-11-01",
+  "pob": "Ericfort, RI",
+  "tob": "21:09",
+  "email": "carrieflynn@santos-gregory.net",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

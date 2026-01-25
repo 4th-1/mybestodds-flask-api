@@ -1,0 +1,36 @@
+{
+  "name": "Tanner Drake",
+  "initials": "TD",
+  "dob": "1997-08-07",
+  "tob": "15:50",
+  "pob": "Atlanta, GA",
+  "astrology": {
+    "western": {
+      "sun": "Leo",
+      "moon": "Cancer",
+      "rising": "Virgo"
+    },
+    "vedic": {
+      "sun": "Simha",
+      "moon": "Karka",
+      "ascendant": "Kanya"
+    }
+  },
+  "mmfsn_cash3": "8619",
+  "mmfsn_cash4": "1440",
+  "submitted_numbers_cash3": [
+    2,
+    7,
+    7
+  ],
+  "submitted_numbers_cash4": [
+    0,
+    9,
+    9,
+    4
+  ],
+  "kit": "BOOK3",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "timezone": "UTC-05"
+}

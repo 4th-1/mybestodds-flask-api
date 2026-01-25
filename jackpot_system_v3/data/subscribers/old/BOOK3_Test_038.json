@@ -1,0 +1,43 @@
+{
+  "name": "Rowan Johnson",
+  "first_name": "Rowan",
+  "last_name": "Johnson",
+  "initials": "RJO",
+  "gender": "M",
+  "dob": "1970-04-13",
+  "tob": "10:45",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "276",
+      "751",
+      "245",
+      "463",
+      "379"
+    ],
+    "Cash4": [
+      "0143",
+      "0524",
+      "2420"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "276",
+    "751",
+    "245",
+    "463",
+    "379"
+  ],
+  "cash4_personal_numbers": [
+    "0143",
+    "0524",
+    "2420"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Brittany Wells",
+  "initials": "BW",
+  "dob": "1987-09-22",
+  "pob": "Lake Danielle, PA",
+  "tob": "00:48",
+  "email": "bneal@wood.biz",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

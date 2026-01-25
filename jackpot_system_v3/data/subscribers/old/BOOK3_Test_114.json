@@ -1,0 +1,43 @@
+{
+  "name": "Hayden Wilson",
+  "first_name": "Hayden",
+  "last_name": "Wilson",
+  "initials": "HWI",
+  "gender": "M",
+  "dob": "1960-09-16",
+  "tob": "08:05",
+  "pob": "Denver, CO",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "196",
+      "828",
+      "167",
+      "009",
+      "472"
+    ],
+    "Cash4": [
+      "5458",
+      "6263",
+      "0761"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "196",
+    "828",
+    "167",
+    "009",
+    "472"
+  ],
+  "cash4_personal_numbers": [
+    "5458",
+    "6263",
+    "0761"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

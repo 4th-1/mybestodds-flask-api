@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1104",
+  "kit_type": "BOOK3",
+  "dob": "1981-04-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Noah",
+    "last_name": "Romero",
+    "birth_date": "1981-04-04",
+    "birth_city": "Newark",
+    "birth_state": "New Jersey",
+    "birth_time": "13:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "777",
+          "624"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7263",
+          "7587"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          20,
+          27,
+          42,
+          65,
+          70
+        ],
+        "mega_ball": [
+          11
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          21,
+          26,
+          48,
+          51,
+          63
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          16,
+          18,
+          24,
+          29
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

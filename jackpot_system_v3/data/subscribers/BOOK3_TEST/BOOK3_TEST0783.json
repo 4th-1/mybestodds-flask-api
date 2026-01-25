@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0783",
+  "kit_type": "BOOK3",
+  "dob": "1993-11-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nancy",
+    "last_name": "Morales",
+    "birth_date": "1993-11-05",
+    "birth_city": "Chattanooga",
+    "birth_state": "Tennessee",
+    "birth_time": "21:08"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "601",
+          "649",
+          "726",
+          "461",
+          "074"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0680",
+          "7664"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          21,
+          22,
+          34,
+          37,
+          60
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          11,
+          13,
+          45,
+          60
+        ],
+        "power_ball": [
+          12
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          39,
+          55,
+          56,
+          60
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

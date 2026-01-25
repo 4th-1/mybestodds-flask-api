@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1003",
+  "kit_type": "BOOK3",
+  "dob": "1983-02-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Debra",
+    "last_name": "Simmons",
+    "birth_date": "1983-02-19",
+    "birth_city": "Jersey City",
+    "birth_state": "New Jersey",
+    "birth_time": "09:48"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "958",
+          "033",
+          "003",
+          "214",
+          "671"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4301"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          21,
+          28,
+          34,
+          47
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          28,
+          36,
+          40,
+          42,
+          67
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          17,
+          22,
+          25,
+          55
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

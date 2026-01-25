@@ -1,0 +1,43 @@
+{
+  "name": "Riley Davis",
+  "first_name": "Riley",
+  "last_name": "Davis",
+  "initials": "RDA",
+  "gender": "F",
+  "dob": "1960-01-27",
+  "tob": "20:45",
+  "pob": "New Orleans, LA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "141",
+      "384",
+      "347",
+      "399",
+      "947"
+    ],
+    "Cash4": [
+      "9513",
+      "7426",
+      "2881"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "141",
+    "384",
+    "347",
+    "399",
+    "947"
+  ],
+  "cash4_personal_numbers": [
+    "9513",
+    "7426",
+    "2881"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

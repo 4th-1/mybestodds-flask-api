@@ -1,0 +1,36 @@
+{
+  "name": "Casey Harris",
+  "subscriber_initials": "CH",
+  "dob": "1997-01-26",
+  "pob": "Columbus, GA",
+  "tob": "16:15",
+  "email": "book3_test_064@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 1,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "984"
+    ],
+    "Cash4": [
+      "6127",
+      "4190",
+      "1191"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

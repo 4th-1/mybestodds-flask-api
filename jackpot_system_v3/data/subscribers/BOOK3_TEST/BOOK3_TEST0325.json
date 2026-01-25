@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0325",
+  "kit_type": "BOOK3",
+  "dob": "1988-03-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Carolyn",
+    "last_name": "Wright",
+    "birth_date": "1988-03-09",
+    "birth_city": "Augusta",
+    "birth_state": "Georgia",
+    "birth_time": "00:58"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "483",
+          "347",
+          "130",
+          "925"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3732"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          15,
+          24,
+          26,
+          57
+        ],
+        "mega_ball": [
+          2
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          7,
+          41,
+          54,
+          55
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          3,
+          21,
+          41,
+          59
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

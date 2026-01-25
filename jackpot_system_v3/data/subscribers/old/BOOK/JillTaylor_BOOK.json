@@ -1,0 +1,22 @@
+{
+  "name": "Jill Taylor",
+  "initials": "JT",
+  "dob": "2003-08-07",
+  "pob": "West Teresa, NJ",
+  "tob": "17:33",
+  "email": "rossjessica@wright-walsh.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

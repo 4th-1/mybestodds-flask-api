@@ -1,0 +1,43 @@
+{
+  "name": "Hayden Miller",
+  "first_name": "Hayden",
+  "last_name": "Miller",
+  "initials": "HMI",
+  "gender": "M",
+  "dob": "1986-03-18",
+  "tob": "09:05",
+  "pob": "Seattle, WA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "946",
+      "317",
+      "158",
+      "009",
+      "663"
+    ],
+    "Cash4": [
+      "4816",
+      "7981",
+      "1224"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "946",
+    "317",
+    "158",
+    "009",
+    "663"
+  ],
+  "cash4_personal_numbers": [
+    "4816",
+    "7981",
+    "1224"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1334",
+  "kit_type": "BOOK3",
+  "dob": "1992-01-08",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sarah",
+    "last_name": "Hall",
+    "birth_date": "1992-01-08",
+    "birth_city": "Carrollton",
+    "birth_state": "Texas",
+    "birth_time": "04:18"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "897",
+          "883",
+          "167",
+          "839"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7319"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          22,
+          52,
+          58,
+          69
+        ],
+        "mega_ball": [
+          12
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          9,
+          15,
+          23,
+          24
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          18,
+          38,
+          53,
+          56
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

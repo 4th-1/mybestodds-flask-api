@@ -1,0 +1,22 @@
+{
+  "name": "Mindy Lopez",
+  "initials": "ML",
+  "dob": "1986-03-27",
+  "pob": "Foxtown, OR",
+  "tob": "20:59",
+  "email": "davidcastillo@snyder.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

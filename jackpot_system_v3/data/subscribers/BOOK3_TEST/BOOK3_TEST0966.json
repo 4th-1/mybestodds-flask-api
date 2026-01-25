@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0966",
+  "kit_type": "BOOK3",
+  "dob": "1987-05-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Raymond",
+    "last_name": "Bennett",
+    "birth_date": "1987-05-01",
+    "birth_city": "Huntsville",
+    "birth_state": "Alabama",
+    "birth_time": "18:02"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "442",
+          "578",
+          "053",
+          "496"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9277"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          14,
+          29,
+          40,
+          43
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          18,
+          36,
+          59,
+          60
+        ],
+        "power_ball": [
+          14
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          26,
+          30,
+          55,
+          60
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

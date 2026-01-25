@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0531",
+  "kit_type": "BOOK3",
+  "dob": "1972-03-02",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Michelle",
+    "last_name": "Murphy",
+    "birth_date": "1972-03-02",
+    "birth_city": "Cleveland",
+    "birth_state": "Ohio",
+    "birth_time": "02:24"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "512",
+          "197",
+          "048",
+          "093",
+          "881"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1128",
+          "6405",
+          "0277"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          9,
+          24,
+          59,
+          69
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          14,
+          18,
+          40,
+          68
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          18,
+          25,
+          49,
+          53
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

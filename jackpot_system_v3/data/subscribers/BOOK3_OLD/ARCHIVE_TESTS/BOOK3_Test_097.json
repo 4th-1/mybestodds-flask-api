@@ -1,0 +1,38 @@
+{
+  "name": "Skyler Jackson",
+  "subscriber_initials": "SJ",
+  "dob": "1961-10-10",
+  "pob": "Macon, GA",
+  "tob": "06:15",
+  "email": "book3_test_097@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 10,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "602",
+      "189",
+      "853",
+      "039"
+    ],
+    "Cash4": [
+      "0964",
+      "2364"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

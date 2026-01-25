@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0918",
+  "kit_type": "BOOK3",
+  "dob": "1978-10-03",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Angela",
+    "last_name": "Rogers",
+    "birth_date": "1978-10-03",
+    "birth_city": "Everett",
+    "birth_state": "Washington",
+    "birth_time": "18:12"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "380",
+          "239",
+          "757"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8879",
+          "0727"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          7,
+          20,
+          35,
+          49
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          16,
+          19,
+          59,
+          69
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          18,
+          19,
+          27,
+          50,
+          57
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

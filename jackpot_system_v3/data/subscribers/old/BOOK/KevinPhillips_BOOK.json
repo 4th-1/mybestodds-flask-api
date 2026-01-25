@@ -1,0 +1,22 @@
+{
+  "name": "Kevin Phillips",
+  "initials": "KP",
+  "dob": "1951-02-28",
+  "pob": "Danielview, CA",
+  "tob": "05:30",
+  "email": "cwallace@winters-thomas.net",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

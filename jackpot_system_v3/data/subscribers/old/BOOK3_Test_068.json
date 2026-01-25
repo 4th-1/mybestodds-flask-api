@@ -1,0 +1,43 @@
+{
+  "name": "Logan Moore",
+  "first_name": "Logan",
+  "last_name": "Moore",
+  "initials": "LMO",
+  "gender": "F",
+  "dob": "1967-10-02",
+  "tob": "00:55",
+  "pob": "Detroit, MI",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "336",
+      "204",
+      "499",
+      "676",
+      "799"
+    ],
+    "Cash4": [
+      "2240",
+      "8534",
+      "7711"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "336",
+    "204",
+    "499",
+    "676",
+    "799"
+  ],
+  "cash4_personal_numbers": [
+    "2240",
+    "8534",
+    "7711"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

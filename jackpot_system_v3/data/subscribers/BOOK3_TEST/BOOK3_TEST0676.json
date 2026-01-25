@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0676",
+  "kit_type": "BOOK3",
+  "dob": "1969-09-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Deborah",
+    "last_name": "Lee",
+    "birth_date": "1969-09-06",
+    "birth_city": "Manchester",
+    "birth_state": "New Hampshire",
+    "birth_time": "03:12"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "164",
+          "325",
+          "103"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2669",
+          "8352",
+          "5890"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          23,
+          35,
+          56,
+          65
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          22,
+          36,
+          37,
+          39,
+          58
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          24,
+          30,
+          37,
+          45,
+          56
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

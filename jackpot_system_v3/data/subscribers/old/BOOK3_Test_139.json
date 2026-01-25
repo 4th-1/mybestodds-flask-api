@@ -1,0 +1,43 @@
+{
+  "name": "Cameron Robinson",
+  "first_name": "Cameron",
+  "last_name": "Robinson",
+  "initials": "CRO",
+  "gender": "F",
+  "dob": "1983-09-16",
+  "tob": "14:45",
+  "pob": "New Orleans, LA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "520",
+      "503",
+      "280",
+      "162",
+      "839"
+    ],
+    "Cash4": [
+      "6971",
+      "0052",
+      "4268"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "520",
+    "503",
+    "280",
+    "162",
+    "839"
+  ],
+  "cash4_personal_numbers": [
+    "6971",
+    "0052",
+    "4268"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

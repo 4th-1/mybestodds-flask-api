@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0055",
+  "kit_type": "BOOK3",
+  "dob": "2004-10-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Zachary",
+    "last_name": "Walker",
+    "birth_date": "2004-10-11",
+    "birth_city": "Peoria",
+    "birth_state": "Arizona",
+    "birth_time": "22:29"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "919",
+          "058",
+          "357",
+          "201"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6859"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          16,
+          19,
+          29,
+          70
+        ],
+        "mega_ball": [
+          2
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          5,
+          33,
+          47,
+          62
+        ],
+        "power_ball": [
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          22,
+          36,
+          42,
+          51,
+          56
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

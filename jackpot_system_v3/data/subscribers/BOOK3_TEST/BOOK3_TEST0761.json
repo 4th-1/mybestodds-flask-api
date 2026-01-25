@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0761",
+  "kit_type": "BOOK3",
+  "dob": "1987-08-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Christopher",
+    "last_name": "Roberts",
+    "birth_date": "1987-08-25",
+    "birth_city": "Broken Arrow",
+    "birth_state": "Oklahoma",
+    "birth_time": "06:01"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "490"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8110",
+          "5818",
+          "4919"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          30,
+          43,
+          45,
+          58,
+          66
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          11,
+          12,
+          38,
+          65
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          4,
+          13,
+          44,
+          58
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

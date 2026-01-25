@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0265",
+  "kit_type": "BOOK3",
+  "dob": "1969-01-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Paul",
+    "last_name": "Wilson",
+    "birth_date": "1969-01-14",
+    "birth_city": "Tulsa",
+    "birth_state": "Oklahoma",
+    "birth_time": "00:22"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "806"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0599",
+          "5584"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          23,
+          43,
+          45,
+          57,
+          68
+        ],
+        "mega_ball": [
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          20,
+          46,
+          54,
+          64
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          10,
+          25,
+          58,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

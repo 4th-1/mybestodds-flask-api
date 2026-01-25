@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0649",
+  "kit_type": "BOOK3",
+  "dob": "1996-10-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joseph",
+    "last_name": "Walker",
+    "birth_date": "1996-10-23",
+    "birth_city": "Clarksville",
+    "birth_state": "Tennessee",
+    "birth_time": "17:58"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "422",
+          "667",
+          "643"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1723"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          16,
+          37,
+          59,
+          60
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          14,
+          22,
+          39,
+          63,
+          65
+        ],
+        "power_ball": [
+          16
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          21,
+          41,
+          56,
+          59
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

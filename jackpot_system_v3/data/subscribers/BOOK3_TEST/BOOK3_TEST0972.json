@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0972",
+  "kit_type": "BOOK3",
+  "dob": "2000-07-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Betty",
+    "last_name": "Moreno",
+    "birth_date": "2000-07-27",
+    "birth_city": "Vancouver",
+    "birth_state": "Washington",
+    "birth_time": "18:54"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "957",
+          "882",
+          "556"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7692"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          39,
+          54,
+          61,
+          62
+        ],
+        "mega_ball": [
+          21
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          21,
+          27,
+          31,
+          67
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          34,
+          43,
+          44,
+          45,
+          48
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

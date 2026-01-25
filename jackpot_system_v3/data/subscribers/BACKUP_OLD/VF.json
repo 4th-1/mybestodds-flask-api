@@ -1,0 +1,36 @@
+{
+  "name": "Victor Flores",
+  "initials": "VF",
+  "dob": "1977-08-02",
+  "tob": "09:58",
+  "pob": "Denver, CO",
+  "astrology": {
+    "western": {
+      "sun": "Leo",
+      "moon": "Cancer",
+      "rising": "Virgo"
+    },
+    "vedic": {
+      "sun": "Simha",
+      "moon": "Karka",
+      "ascendant": "Kanya"
+    }
+  },
+  "mmfsn_cash3": "5984",
+  "mmfsn_cash4": "4418",
+  "submitted_numbers_cash3": [
+    7,
+    7,
+    7
+  ],
+  "submitted_numbers_cash4": [
+    8,
+    4,
+    3,
+    2
+  ],
+  "kit": "BOOK3",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "timezone": "UTC-05"
+}

@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1110",
+  "kit_type": "BOOK3",
+  "dob": "1967-12-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Dorothy",
+    "last_name": "Anderson",
+    "birth_date": "1967-12-04",
+    "birth_city": "Cleveland",
+    "birth_state": "Ohio",
+    "birth_time": "08:49"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "793",
+          "375"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7668",
+          "0057",
+          "9289"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          40,
+          49,
+          54,
+          67
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          22,
+          28,
+          36,
+          53
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          18,
+          22,
+          49,
+          57,
+          60
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0724",
+  "kit_type": "BOOK3",
+  "dob": "2005-04-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jacob",
+    "last_name": "Reynolds",
+    "birth_date": "2005-04-04",
+    "birth_city": "Maple Grove",
+    "birth_state": "Minnesota",
+    "birth_time": "06:27"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "177",
+          "514",
+          "855",
+          "645",
+          "196"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1461"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          38,
+          41,
+          54,
+          58
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          20,
+          21,
+          30,
+          44,
+          53
+        ],
+        "power_ball": [
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          28,
+          40,
+          44,
+          46
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

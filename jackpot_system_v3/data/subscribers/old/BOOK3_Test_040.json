@@ -1,0 +1,43 @@
+{
+  "name": "Kendall Jackson",
+  "first_name": "Kendall",
+  "last_name": "Jackson",
+  "initials": "KJA",
+  "gender": "F",
+  "dob": "1974-09-01",
+  "tob": "05:25",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "956",
+      "543",
+      "038",
+      "189",
+      "738"
+    ],
+    "Cash4": [
+      "3600",
+      "8826",
+      "3498"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "956",
+    "543",
+    "038",
+    "189",
+    "738"
+  ],
+  "cash4_personal_numbers": [
+    "3600",
+    "8826",
+    "3498"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

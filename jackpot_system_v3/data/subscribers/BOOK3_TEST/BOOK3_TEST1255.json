@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST1255",
+  "kit_type": "BOOK3",
+  "dob": "1974-11-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Elizabeth",
+    "last_name": "Jones",
+    "birth_date": "1974-11-04",
+    "birth_city": "Columbus",
+    "birth_state": "Ohio",
+    "birth_time": "03:13"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "020"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4347"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          30,
+          54,
+          63,
+          70
+        ],
+        "mega_ball": [
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          13,
+          33,
+          45,
+          54
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          7,
+          16,
+          29,
+          58
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

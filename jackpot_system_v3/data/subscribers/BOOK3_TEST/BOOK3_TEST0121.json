@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0121",
+  "kit_type": "BOOK3",
+  "dob": "1963-09-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Angela",
+    "last_name": "Brooks",
+    "birth_date": "1963-09-18",
+    "birth_city": "Pittsburgh",
+    "birth_state": "Pennsylvania",
+    "birth_time": "08:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "733",
+          "612",
+          "086",
+          "404"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0246",
+          "5018"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          17,
+          18,
+          31,
+          33
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          33,
+          49,
+          51,
+          55
+        ],
+        "power_ball": [
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          6,
+          13,
+          46,
+          59
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

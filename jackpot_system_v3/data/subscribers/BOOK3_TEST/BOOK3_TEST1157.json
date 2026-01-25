@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1157",
+  "kit_type": "BOOK3",
+  "dob": "1996-02-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "George",
+    "last_name": "Brown",
+    "birth_date": "1996-02-17",
+    "birth_city": "Maple Grove",
+    "birth_state": "Minnesota",
+    "birth_time": "16:28"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "241",
+          "656"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4170",
+          "0533",
+          "4983"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          7,
+          31,
+          38,
+          49,
+          64
+        ],
+        "mega_ball": [
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          32,
+          36,
+          52,
+          64
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          21,
+          34,
+          41,
+          45
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

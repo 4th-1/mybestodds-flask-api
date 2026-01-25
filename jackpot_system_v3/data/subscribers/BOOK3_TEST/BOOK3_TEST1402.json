@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1402",
+  "kit_type": "BOOK3",
+  "dob": "1995-11-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Raymond",
+    "last_name": "Rodriguez",
+    "birth_date": "1995-11-27",
+    "birth_city": "Tulsa",
+    "birth_state": "Oklahoma",
+    "birth_time": "03:10"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "709"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9186",
+          "9473"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          15,
+          18,
+          28,
+          51
+        ],
+        "mega_ball": [
+          12
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          28,
+          48,
+          52,
+          53
+        ],
+        "power_ball": [
+          11
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          11,
+          17,
+          20,
+          27
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

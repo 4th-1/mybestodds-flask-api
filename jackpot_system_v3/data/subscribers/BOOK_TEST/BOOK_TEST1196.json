@@ -1,0 +1,42 @@
+{
+  "subscriber_id": "BOOK_TEST1196",
+  "kit_type": "BOOK",
+  "dob": "1987-05-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Martha",
+    "last_name": "Morris",
+    "birth_date": "1987-05-14",
+    "birth_city": "Corpus Christi",
+    "birth_state": "Texas",
+    "birth_time": "12:46"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

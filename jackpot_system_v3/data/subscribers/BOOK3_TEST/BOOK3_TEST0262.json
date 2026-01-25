@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0262",
+  "kit_type": "BOOK3",
+  "dob": "1961-12-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nathan",
+    "last_name": "Thomas",
+    "birth_date": "1961-12-23",
+    "birth_city": "West Covina",
+    "birth_state": "California",
+    "birth_time": "17:09"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "218",
+          "408",
+          "348",
+          "498",
+          "288"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3619",
+          "2002",
+          "1876"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          24,
+          39,
+          66,
+          69
+        ],
+        "mega_ball": [
+          11
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          28,
+          31,
+          39,
+          54,
+          69
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          32,
+          45,
+          46,
+          52
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

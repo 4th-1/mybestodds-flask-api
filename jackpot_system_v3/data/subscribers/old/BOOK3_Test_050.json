@@ -1,0 +1,43 @@
+{
+  "name": "Quinn Moore",
+  "first_name": "Quinn",
+  "last_name": "Moore",
+  "initials": "QMO",
+  "gender": "F",
+  "dob": "1975-03-15",
+  "tob": "04:05",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "428",
+      "802",
+      "735",
+      "766",
+      "087"
+    ],
+    "Cash4": [
+      "2733",
+      "2613",
+      "8100"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "428",
+    "802",
+    "735",
+    "766",
+    "087"
+  ],
+  "cash4_personal_numbers": [
+    "2733",
+    "2613",
+    "8100"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

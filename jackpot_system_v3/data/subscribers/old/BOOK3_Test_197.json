@@ -1,0 +1,43 @@
+{
+  "name": "Drew Anderson",
+  "first_name": "Drew",
+  "last_name": "Anderson",
+  "initials": "DAN",
+  "gender": "M",
+  "dob": "1984-12-31",
+  "tob": "07:00",
+  "pob": "Atlanta, GA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "156",
+      "260",
+      "571",
+      "730",
+      "018"
+    ],
+    "Cash4": [
+      "5383",
+      "9894",
+      "5828"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "156",
+    "260",
+    "571",
+    "730",
+    "018"
+  ],
+  "cash4_personal_numbers": [
+    "5383",
+    "9894",
+    "5828"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

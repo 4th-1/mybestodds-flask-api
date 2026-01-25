@@ -1,0 +1,29 @@
+{
+  "name": "Todd Gutierrez",
+  "initials": "TG",
+  "dob": "1961-09-17",
+  "pob": "Dillonhaven, AK",
+  "tob": "xx:xx",
+  "email": "tammy89@yahoo.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  },
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOSK"
+}

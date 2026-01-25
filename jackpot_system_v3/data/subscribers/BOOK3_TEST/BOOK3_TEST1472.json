@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1472",
+  "kit_type": "BOOK3",
+  "dob": "1982-05-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Dorothy",
+    "last_name": "Stewart",
+    "birth_date": "1982-05-28",
+    "birth_city": "High Point",
+    "birth_state": "North Carolina",
+    "birth_time": "13:36"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "935",
+          "029"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2457",
+          "8303",
+          "2872"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          22,
+          41,
+          48,
+          56
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          8,
+          36,
+          50,
+          67
+        ],
+        "power_ball": [
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          19,
+          33,
+          51,
+          54
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0601",
+  "kit_type": "BOOK3",
+  "dob": "1993-05-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Kevin",
+    "last_name": "Mendoza",
+    "birth_date": "1993-05-05",
+    "birth_city": "Dayton",
+    "birth_state": "Ohio",
+    "birth_time": "20:34"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "239",
+          "079",
+          "186",
+          "320"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1496",
+          "1231",
+          "8631"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          35,
+          61,
+          65,
+          67
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          29,
+          39,
+          45,
+          46,
+          58
+        ],
+        "power_ball": [
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          18,
+          19,
+          38,
+          43
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

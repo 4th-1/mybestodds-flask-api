@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0980",
+  "kit_type": "BOOK3",
+  "dob": "1964-02-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Christopher",
+    "last_name": "Gonzalez",
+    "birth_date": "1964-02-01",
+    "birth_time": "23:31",
+    "birth_city": "Vermont City 5",
+    "birth_state": "Vermont"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "124,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          27,
+          33,
+          51,
+          52
+        ],
+        "mega_ball": [
+          1,
+          12
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          15,
+          48,
+          53,
+          60
+        ],
+        "power_ball": [
+          20,
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          25,
+          35,
+          37,
+          50
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Reese Brown",
+  "first_name": "Reese",
+  "last_name": "Brown",
+  "initials": "RBR",
+  "gender": "M",
+  "dob": "1978-10-19",
+  "tob": "10:10",
+  "pob": "New Orleans, LA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "274",
+      "615",
+      "290",
+      "650",
+      "753"
+    ],
+    "Cash4": [
+      "6612",
+      "8705",
+      "1635"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "274",
+    "615",
+    "290",
+    "650",
+    "753"
+  ],
+  "cash4_personal_numbers": [
+    "6612",
+    "8705",
+    "1635"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

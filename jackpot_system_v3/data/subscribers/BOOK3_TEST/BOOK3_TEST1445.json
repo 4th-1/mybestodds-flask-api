@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1445",
+  "kit_type": "BOOK3",
+  "dob": "1960-11-03",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Donna",
+    "last_name": "White",
+    "birth_date": "1960-11-03",
+    "birth_city": "Tulsa",
+    "birth_state": "Oklahoma",
+    "birth_time": "10:01"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "339",
+          "820",
+          "396",
+          "651"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8066",
+          "1766",
+          "4797"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          32,
+          48,
+          50,
+          58,
+          59
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          14,
+          57,
+          60,
+          62
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          9,
+          22,
+          30,
+          50
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

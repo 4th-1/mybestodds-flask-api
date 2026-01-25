@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1277",
+  "kit_type": "BOOK3",
+  "dob": "1972-12-21",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Teresa",
+    "last_name": "Garcia",
+    "birth_date": "1972-12-21",
+    "birth_city": "Colorado Springs",
+    "birth_state": "Colorado",
+    "birth_time": "08:39"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "854",
+          "504",
+          "972"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9905",
+          "4673"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          34,
+          38,
+          44,
+          70
+        ],
+        "mega_ball": [
+          9
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          9,
+          36,
+          49,
+          60
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          7,
+          12,
+          45,
+          52
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

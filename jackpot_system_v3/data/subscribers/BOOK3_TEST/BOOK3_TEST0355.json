@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0355",
+  "kit_type": "BOOK3",
+  "dob": "1999-03-22",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jacqueline",
+    "last_name": "Edwards",
+    "birth_date": "1999-03-22",
+    "birth_city": "Denton",
+    "birth_state": "Texas",
+    "birth_time": "13:24"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "651",
+          "518",
+          "943",
+          "471",
+          "361"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1163"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          34,
+          35,
+          38,
+          68
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          5,
+          7,
+          59,
+          69
+        ],
+        "power_ball": [
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          7,
+          29,
+          31,
+          43
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

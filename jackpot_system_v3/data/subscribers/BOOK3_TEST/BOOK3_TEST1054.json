@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST1054",
+  "kit_type": "BOOK3",
+  "dob": "1998-04-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Marie",
+    "last_name": "Ramos",
+    "birth_date": "1998-04-07",
+    "birth_city": "Allentown",
+    "birth_state": "Pennsylvania",
+    "birth_time": "20:54"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "801",
+          "308",
+          "287",
+          "616",
+          "283"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5172",
+          "4009",
+          "1031"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          7,
+          54,
+          67,
+          70
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          16,
+          39,
+          42,
+          64,
+          66
+        ],
+        "power_ball": [
+          12
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          20,
+          21,
+          26,
+          59
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

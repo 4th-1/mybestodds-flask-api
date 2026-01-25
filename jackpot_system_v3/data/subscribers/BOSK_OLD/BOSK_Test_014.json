@@ -1,0 +1,34 @@
+{
+  "name": "Skyler Harris",
+  "subscriber_initials": "SH",
+  "dob": "1969-08-25",
+  "pob": "Atlanta, GA",
+  "tob": "20:15",
+  "email": "bosk_test_014@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 8,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [
+      "3906",
+      "4549",
+      "0549"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

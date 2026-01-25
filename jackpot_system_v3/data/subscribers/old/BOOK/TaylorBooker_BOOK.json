@@ -1,0 +1,22 @@
+{
+  "name": "Taylor Booker",
+  "initials": "TB",
+  "dob": "1991-05-06",
+  "pob": "Lake Cynthia, DC",
+  "tob": "21:11",
+  "email": "danielle05@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

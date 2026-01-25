@@ -1,0 +1,46 @@
+{
+  "subscriber_id": "BOOK3_test_cohort_004_0136",
+  "kit_type": "BOOK3",
+  "identity": {
+    "first_name": "Test136",
+    "last_name": "Subscriber",
+    "dob": "1961-02-23",
+    "birth_time": "20:26",
+    "birth_city": "Stockton",
+    "birth_state": "CA"
+  },
+  "coverage": {
+    "start": "2025-12-01",
+    "end": "2025-12-31"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ]
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": [
+        "113",
+        "116",
+        "123",
+        "549",
+        "941",
+        "982"
+      ],
+      "Cash4": [
+        "4075",
+        "4401",
+        "4732",
+        "5158",
+        "5238",
+        "5717"
+      ],
+      "Jackpot": []
+    }
+  }
+}

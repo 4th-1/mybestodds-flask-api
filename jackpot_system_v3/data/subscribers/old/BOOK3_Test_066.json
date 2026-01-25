@@ -1,0 +1,43 @@
+{
+  "name": "Drew Rodriguez",
+  "first_name": "Drew",
+  "last_name": "Rodriguez",
+  "initials": "DRO",
+  "gender": "M",
+  "dob": "1970-11-30",
+  "tob": "15:10",
+  "pob": "Charlotte, NC",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "107",
+      "304",
+      "940",
+      "339",
+      "873"
+    ],
+    "Cash4": [
+      "0309",
+      "1966",
+      "1819"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "107",
+    "304",
+    "940",
+    "339",
+    "873"
+  ],
+  "cash4_personal_numbers": [
+    "0309",
+    "1966",
+    "1819"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

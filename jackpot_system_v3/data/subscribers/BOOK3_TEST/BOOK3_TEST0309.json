@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0309",
+  "kit_type": "BOOK3",
+  "dob": "1980-09-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Gloria",
+    "last_name": "Clark",
+    "birth_date": "1980-09-24",
+    "birth_city": "Grand Rapids",
+    "birth_state": "Michigan",
+    "birth_time": "21:39"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "600",
+          "412",
+          "702"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5683",
+          "4417"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          21,
+          29,
+          43,
+          48
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          23,
+          39,
+          46,
+          69
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          22,
+          31,
+          44,
+          54
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

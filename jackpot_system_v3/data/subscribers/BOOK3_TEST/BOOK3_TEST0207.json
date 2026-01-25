@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0207",
+  "kit_type": "BOOK3",
+  "dob": "1988-06-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "John",
+    "last_name": "Hayes",
+    "birth_date": "1988-06-23",
+    "birth_city": "Worcester",
+    "birth_state": "Massachusetts",
+    "birth_time": "11:06"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "027"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4293",
+          "2232",
+          "5342"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          38,
+          42,
+          52,
+          70
+        ],
+        "mega_ball": [
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          13,
+          36,
+          60,
+          69
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          3,
+          16,
+          20,
+          25
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

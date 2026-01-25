@@ -1,0 +1,43 @@
+{
+  "name": "Avery Thompson",
+  "first_name": "Avery",
+  "last_name": "Thompson",
+  "initials": "ATH",
+  "gender": "F",
+  "dob": "1991-06-12",
+  "tob": "05:15",
+  "pob": "New York, NY",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "857",
+      "527",
+      "953",
+      "202",
+      "970"
+    ],
+    "Cash4": [
+      "6668",
+      "2491",
+      "4807"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "857",
+    "527",
+    "953",
+    "202",
+    "970"
+  ],
+  "cash4_personal_numbers": [
+    "6668",
+    "2491",
+    "4807"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

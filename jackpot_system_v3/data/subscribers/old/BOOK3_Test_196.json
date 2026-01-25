@@ -1,0 +1,43 @@
+{
+  "name": "Devon Moore",
+  "first_name": "Devon",
+  "last_name": "Moore",
+  "initials": "DMO",
+  "gender": "F",
+  "dob": "1992-11-28",
+  "tob": "05:15",
+  "pob": "Denver, CO",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "609",
+      "941",
+      "538",
+      "151",
+      "148"
+    ],
+    "Cash4": [
+      "2226",
+      "0299",
+      "1535"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "609",
+    "941",
+    "538",
+    "151",
+    "148"
+  ],
+  "cash4_personal_numbers": [
+    "2226",
+    "0299",
+    "1535"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

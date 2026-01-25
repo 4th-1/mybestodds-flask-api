@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0510",
+  "kit_type": "BOOK3",
+  "dob": "1964-08-26",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Raymond",
+    "last_name": "Flores",
+    "birth_date": "1964-08-26",
+    "birth_city": "El Monte",
+    "birth_state": "California",
+    "birth_time": "12:10"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "668",
+          "280",
+          "322",
+          "231"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6232",
+          "5184"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          27,
+          45,
+          64,
+          70
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          17,
+          39,
+          52,
+          54,
+          59
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          7,
+          19,
+          49,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

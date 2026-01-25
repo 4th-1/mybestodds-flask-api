@@ -1,0 +1,43 @@
+{
+  "name": "Jamie Taylor",
+  "first_name": "Jamie",
+  "last_name": "Taylor",
+  "initials": "JTA",
+  "gender": "F",
+  "dob": "1968-11-26",
+  "tob": "08:05",
+  "pob": "Los Angeles, CA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "749",
+      "619",
+      "969",
+      "483",
+      "056"
+    ],
+    "Cash4": [
+      "3788",
+      "9858",
+      "1091"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "749",
+    "619",
+    "969",
+    "483",
+    "056"
+  ],
+  "cash4_personal_numbers": [
+    "3788",
+    "9858",
+    "1091"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

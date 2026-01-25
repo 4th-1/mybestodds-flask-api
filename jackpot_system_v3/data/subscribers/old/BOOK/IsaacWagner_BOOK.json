@@ -1,0 +1,22 @@
+{
+  "name": "Isaac Wagner",
+  "initials": "IW",
+  "dob": "1974-07-01",
+  "pob": "New Malik, GA",
+  "tob": "16:54",
+  "email": "derek82@henry.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

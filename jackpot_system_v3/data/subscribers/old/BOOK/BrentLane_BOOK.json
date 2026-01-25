@@ -1,0 +1,22 @@
+{
+  "name": "Brent Lane",
+  "initials": "BL",
+  "dob": "1997-04-28",
+  "pob": "East Lynn, DC",
+  "tob": "10:13",
+  "email": "anitareynolds@warren.biz",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

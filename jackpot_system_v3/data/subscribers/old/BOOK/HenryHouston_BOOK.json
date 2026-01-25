@@ -1,0 +1,22 @@
+{
+  "name": "Henry Houston",
+  "initials": "HH",
+  "dob": "1978-11-21",
+  "pob": "Torresstad, SC",
+  "tob": "06:55",
+  "email": "sandovalkelly@hart-vega.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

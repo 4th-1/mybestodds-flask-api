@@ -1,0 +1,43 @@
+{
+  "name": "Jamie Miller",
+  "first_name": "Jamie",
+  "last_name": "Miller",
+  "initials": "JMI",
+  "gender": "F",
+  "dob": "1976-05-15",
+  "tob": "17:30",
+  "pob": "Miami, FL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "845",
+      "566",
+      "970",
+      "596",
+      "898"
+    ],
+    "Cash4": [
+      "9706",
+      "5611",
+      "4287"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "845",
+    "566",
+    "970",
+    "596",
+    "898"
+  ],
+  "cash4_personal_numbers": [
+    "9706",
+    "5611",
+    "4287"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

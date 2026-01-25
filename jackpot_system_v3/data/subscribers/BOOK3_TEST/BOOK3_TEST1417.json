@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1417",
+  "kit_type": "BOOK3",
+  "dob": "1991-12-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Mark",
+    "last_name": "Harris",
+    "birth_date": "1991-12-09",
+    "birth_city": "Fayetteville",
+    "birth_state": "North Carolina",
+    "birth_time": "22:34"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "949",
+          "034",
+          "249"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2516"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          33,
+          42,
+          53,
+          59
+        ],
+        "mega_ball": [
+          12
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          17,
+          18,
+          20,
+          21,
+          37
+        ],
+        "power_ball": [
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          14,
+          16,
+          33,
+          54
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

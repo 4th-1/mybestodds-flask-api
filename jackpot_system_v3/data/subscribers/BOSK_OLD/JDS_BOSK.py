@@ -1,0 +1,41 @@
+{
+  "subscriber_id": "JDS_BOSK",
+  "kit_type": "BOSK",
+
+  "dob": "1972-08-22",
+
+  "coverage_start": "2025-12-05",
+  "coverage_end": "2025-12-31",
+
+  "formats": ["JSON"],
+
+  "identity": {
+    "first_name": "Joseph",
+    "last_name": "Smith",
+    "birth_date": "1972-08-22",
+    "birth_city": "Atlanta",
+    "birth_state": "GA"
+  },
+
+  "preferences": {
+    "games": ["Cash3", "Cash4"],
+    "risk_profile": "conservative"
+  },
+
+  "engine_profile": {
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": false
+    },
+
+    "astrology": {
+      "requires_birth_time": false,
+      "requires_location": false
+    }
+  },
+
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-12"
+  }
+}

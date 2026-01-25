@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0493",
+  "kit_type": "BOOK3",
+  "dob": "1985-10-12",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ryan",
+    "last_name": "Richardson",
+    "birth_date": "1985-10-12",
+    "birth_city": "Glendale",
+    "birth_state": "Arizona",
+    "birth_time": "01:39"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "627",
+          "523",
+          "100"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7164",
+          "6786",
+          "3572"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          3,
+          28,
+          35,
+          59,
+          63
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          30,
+          36,
+          38,
+          69
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          16,
+          30,
+          32,
+          54
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

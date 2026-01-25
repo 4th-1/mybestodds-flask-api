@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0812",
+  "kit_type": "BOOK3",
+  "dob": "1994-03-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jennifer",
+    "last_name": "Mitchell",
+    "birth_date": "1994-03-18",
+    "birth_city": "Toledo",
+    "birth_state": "Ohio",
+    "birth_time": "00:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "780",
+          "299",
+          "815",
+          "477",
+          "363"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9209",
+          "1197"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          6,
+          20,
+          41,
+          49,
+          66
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          20,
+          29,
+          46,
+          69
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          18,
+          22,
+          42,
+          58
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

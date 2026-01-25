@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1125",
+  "kit_type": "BOOK3",
+  "dob": "1999-07-27",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Brandon",
+    "last_name": "Wood",
+    "birth_date": "1999-07-27",
+    "birth_city": "Little Rock",
+    "birth_state": "Arkansas",
+    "birth_time": "05:57"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "605",
+          "796"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3711"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          13,
+          28,
+          40,
+          47
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          13,
+          35,
+          43,
+          66,
+          68
+        ],
+        "power_ball": [
+          25
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          14,
+          25,
+          34,
+          51
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

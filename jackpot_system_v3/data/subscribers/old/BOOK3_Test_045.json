@@ -1,0 +1,43 @@
+{
+  "name": "Peyton Davis",
+  "first_name": "Peyton",
+  "last_name": "Davis",
+  "initials": "PDA",
+  "gender": "M",
+  "dob": "1968-12-31",
+  "tob": "12:10",
+  "pob": "Miami, FL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "014",
+      "078",
+      "661",
+      "326",
+      "313"
+    ],
+    "Cash4": [
+      "7947",
+      "6622",
+      "9498"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "014",
+    "078",
+    "661",
+    "326",
+    "313"
+  ],
+  "cash4_personal_numbers": [
+    "7947",
+    "6622",
+    "9498"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0974",
+  "kit_type": "BOOK3",
+  "dob": "1987-02-02",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Andrew",
+    "last_name": "Johnson",
+    "birth_date": "1987-02-02",
+    "birth_city": "Boise",
+    "birth_state": "Idaho",
+    "birth_time": "15:09"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "960",
+          "959",
+          "810",
+          "642"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2910"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          18,
+          24,
+          52,
+          59,
+          69
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          27,
+          29,
+          41,
+          42
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          21,
+          41,
+          50,
+          55
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

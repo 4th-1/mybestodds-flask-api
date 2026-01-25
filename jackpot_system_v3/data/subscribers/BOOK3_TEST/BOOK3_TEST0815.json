@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0815",
+  "kit_type": "BOOK3",
+  "dob": "1995-10-04",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Andrew",
+    "last_name": "Lopez",
+    "birth_date": "1995-10-04",
+    "birth_city": "Palm Bay",
+    "birth_state": "Florida",
+    "birth_time": "07:06"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "357",
+          "673"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6893",
+          "6181",
+          "6206"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          28,
+          29,
+          31,
+          41,
+          59
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          19,
+          52,
+          56,
+          67
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          17,
+          18,
+          37,
+          43
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

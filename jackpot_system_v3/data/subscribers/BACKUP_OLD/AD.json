@@ -1,0 +1,24 @@
+{
+  "name": "Adonna Janay Smith",
+  "subscriber_initials": "AJS",
+  "dob": "1999-05-02",
+  "pob": "Decatur, GA",
+  "tob": "18:11",
+  "email": "successfuljanay@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [
+      "502"
+    ],
+    "Cash4": []
+  },
+  "cohort": "PILOT09",
+  "birth_month": 9,
+  "kit": "BOOK3",
+  "initials": "AD"
+}

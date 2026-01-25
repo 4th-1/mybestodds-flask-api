@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0352",
+  "kit_type": "BOOK3",
+  "dob": "1998-04-09",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Timothy",
+    "last_name": "Hernandez",
+    "birth_date": "1998-04-09",
+    "birth_city": "Denton",
+    "birth_state": "Texas",
+    "birth_time": "16:26"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "836",
+          "990"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3053",
+          "6186",
+          "4569"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          41,
+          50,
+          59,
+          63,
+          65
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          13,
+          34,
+          37,
+          65
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          35,
+          38,
+          52,
+          56,
+          60
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

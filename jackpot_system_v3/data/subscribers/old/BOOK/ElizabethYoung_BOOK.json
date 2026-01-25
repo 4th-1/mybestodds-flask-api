@@ -1,0 +1,22 @@
+{
+  "name": "Elizabeth Young",
+  "initials": "EY",
+  "dob": "1991-04-11",
+  "pob": "East Johnny, NY",
+  "tob": "08:15",
+  "email": "veronicasmith@gutierrez.biz",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

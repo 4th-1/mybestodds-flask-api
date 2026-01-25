@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0924",
+  "kit_type": "BOOK3",
+  "dob": "1993-06-12",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joseph",
+    "last_name": "Garcia",
+    "birth_date": "1993-06-12",
+    "birth_city": "Fresno",
+    "birth_state": "California",
+    "birth_time": "23:17"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "995",
+          "722",
+          "556",
+          "689",
+          "277"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0572",
+          "2477"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          23,
+          30,
+          41,
+          61
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          20,
+          53,
+          60,
+          66
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          18,
+          31,
+          38,
+          54,
+          56
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

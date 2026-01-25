@@ -1,0 +1,224 @@
+{
+  "version": "3.7.0",
+  "engine_name": "My Best Odds v3.7 – Option C",
+  "kits_supported": ["BOSK", "BOOK", "BOOK3"],
+
+  "history_files": {
+    "cash3": "data/ga_results/Sorted/Cash3_History.csv",
+    "cash4": "data/ga_results/Sorted/Cash4_History.csv",
+    "megamillions": "data/ga_results/Sorted/MegaMillions.csv",
+    "powerball": "data/ga_results/Sorted/Powerball.csv",
+    "cash4life": "data/ga_results/Sorted/Cash4Life.csv",
+    "millionaireforlife": "data/ga_results/Sorted/MillionaireForLife.csv"
+  },
+
+  "output_paths": {
+    "root": "outputs",
+    "bosk": "outputs/BOSK",
+    "book": "outputs/BOOK",
+    "book3": "outputs/BOOK3"
+  },
+
+  "games": {
+    "Cash3": {
+      "type": "digit",
+      "digits": 3,
+      "default_play_type": "Straight",
+      "play_types_allowed": [
+        "Straight",
+        "Straight/Box",
+        "Box",
+        "Combo",
+        "1-Off",
+        "Pairs"
+      ],
+      "ticket_price": 1.0,
+      "sum_min": 0,
+      "sum_max": 27
+    },
+    "Cash4": {
+      "type": "digit",
+      "digits": 4,
+      "default_play_type": "Straight",
+      "play_types_allowed": [
+        "Straight",
+        "Straight/Box",
+        "Box",
+        "Combo",
+        "1-Off"
+      ],
+      "ticket_price": 1.0,
+      "sum_min": 0,
+      "sum_max": 36
+    },
+    "MegaMillions": {
+      "type": "jackpot",
+      "main_balls": 5,
+      "bonus_balls": 1,
+      "default_play_type": "Standard",
+      "ticket_price": 5.0
+    },
+    "Powerball": {
+      "type": "jackpot",
+      "main_balls": 5,
+      "bonus_balls": 1,
+      "default_play_type": "Standard",
+      "ticket_price": 2.0
+    },
+    "Cash4Life": {
+      "type": "jackpot",
+      "main_balls": 5,
+      "bonus_balls": 1,
+      "default_play_type": "Standard",
+      "ticket_price": 2.0,
+      "active": true,
+      "retirement_date": "2026-02-21",
+      "notes": "Retiring Feb 21, 2026. Replaced by Millionaire for Life."
+    },
+    "MillionaireForLife": {
+      "type": "jackpot",
+      "main_balls": 5,
+      "bonus_balls": 1,
+      "default_play_type": "Standard",
+      "ticket_price": 2.0,
+      "active": false,
+      "launch_date": "2026-02-22",
+      "prize_structure": {
+        "top_prize": "$1,000,000/year for life",
+        "second_prize": "$100,000/year for life"
+      },
+      "notes": "Launches Feb 22, 2026. Early play recommended (first 3 weeks)."
+    }
+  },
+
+  "option_c": {
+    "required_fields": [
+      "game_code",
+      "forecast_date",
+      "draw_time",
+      "number",
+      "primary_play_type",
+      "confidence_score",
+      "win_odds_1_in",
+      "sum",
+      "legend_code",
+      "play_flag"
+    ]
+  },
+
+  "confidence_rules": {
+    "scale": "0_to_1",
+    "default_confidence": 0.0,
+
+    "play_flag_thresholds": {
+      "PLAY": 0.033,
+      "WATCH": 0.020,
+      "HOLD": 0.010,
+      "SKIP": 0.0
+    },
+
+    "bands_percent": [
+      { "name": "Very Low", "min": 0, "max": 30, "code": "0-30" },
+      { "name": "Low-Med", "min": 30, "max": 60, "code": "30-60" },
+      { "name": "Strong", "min": 60, "max": 80, "code": "60-80" },
+      { "name": "Very Strong", "min": 80, "max": 100, "code": "80-100" }
+    ]
+  },
+
+  "win_odds_bands": {
+    "emoji_green": "🟩",
+    "emoji_yellow": "🟨",
+    "emoji_tan": "🤎",
+    "emoji_gray": "🚫",
+
+    "bands": [
+      {
+        "name": "Strong",
+        "min_odds": 1,
+        "max_odds": 50,
+        "emoji": "🟩",
+        "description": "Strong signal – Play confidently."
+      },
+      {
+        "name": "Decent",
+        "min_odds": 51,
+        "max_odds": 150,
+        "emoji": "🟨",
+        "description": "Decent edge – Play cautiously."
+      },
+      {
+        "name": "Low",
+        "min_odds": 151,
+        "max_odds": 300,
+        "emoji": "🤎",
+        "description": "Low odds – Only play if intuitively aligned."
+      },
+      {
+        "name": "Skip",
+        "min_odds": 301,
+        "max_odds": 9999999,
+        "emoji": "🚫",
+        "description": "Skip Zone – Extremely low probability."
+      }
+    ]
+  },
+
+  "play_flag_labels": {
+    "PLAY": {
+      "priority": 1,
+      "headline": "Qualified Play",
+      "description": "Confidence and odds are strong enough to actively play this draw."
+    },
+    "WATCH": {
+      "priority": 2,
+      "headline": "Watch Window",
+      "description": "Pattern is forming; monitor results and consider light play."
+    },
+    "HOLD": {
+      "priority": 3,
+      "headline": "Hold Pattern",
+      "description": "Do not commit heavily yet; keep this on your watchlist."
+    },
+    "SKIP": {
+      "priority": 4,
+      "headline": "Skip Draw",
+      "description": "Not aligned with current odds and confidence. Preserve bankroll."
+    }
+  },
+
+  "legend_codes": {
+    "PLAY_STRONG": {
+      "group": "PLAY",
+      "teaching": "Strong alignment across lanes and signals. This is a Qualified Play."
+    },
+    "WATCH_WINDOW": {
+      "group": "WATCH",
+      "teaching": "Pattern is warming up. Consider light play and track performance."
+    },
+    "HOLD_PATTERN": {
+      "group": "HOLD",
+      "teaching": "Keep this pattern noted but do not commit yet."
+    },
+    "SKIP_LOW_CONF": {
+      "group": "SKIP",
+      "teaching": "Low confidence or poor odds. Best to skip this draw."
+    },
+    "GENERIC": {
+      "group": "INFO",
+      "teaching": "General informational flag when no specific legend applies."
+    }
+  },
+
+  "sum_ranges": {
+    "Cash3": [
+      { "name": "Low Sum", "min": 0, "max": 9 },
+      { "name": "Mid Sum", "min": 10, "max": 18 },
+      { "name": "High Sum", "min": 19, "max": 27 }
+    ],
+    "Cash4": [
+      { "name": "Low Sum", "min": 0, "max": 12 },
+      { "name": "Mid Sum", "min": 13, "max": 24 },
+      { "name": "High Sum", "min": 25, "max": 36 }
+    ]
+  }
+}

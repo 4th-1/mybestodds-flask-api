@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1281",
+  "kit_type": "BOOK3",
+  "dob": "1961-08-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Andrea",
+    "last_name": "Gray",
+    "birth_date": "1961-08-28",
+    "birth_city": "Phoenix",
+    "birth_state": "Arizona",
+    "birth_time": "15:53"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "122",
+          "463",
+          "513"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2795",
+          "3154",
+          "4158"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          14,
+          26,
+          32,
+          38,
+          50
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          6,
+          11,
+          23,
+          35
+        ],
+        "power_ball": [
+          11
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          14,
+          32,
+          38,
+          56
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

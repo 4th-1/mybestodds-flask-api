@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0527",
+  "kit_type": "BOOK3",
+  "dob": "1966-01-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Matthew",
+    "last_name": "Collins",
+    "birth_date": "1966-01-05",
+    "birth_city": "Richardson",
+    "birth_state": "Texas",
+    "birth_time": "18:16"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "285",
+          "426",
+          "826",
+          "447",
+          "182"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7236"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          46,
+          52,
+          55,
+          57,
+          58
+        ],
+        "mega_ball": [
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          16,
+          21,
+          38,
+          50,
+          58
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          25,
+          35,
+          40,
+          41,
+          44
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

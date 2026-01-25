@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0371",
+  "kit_type": "BOOK3",
+  "dob": "2001-01-10",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Austin",
+    "last_name": "Allen",
+    "birth_date": "2001-01-10",
+    "birth_city": "Santa Rosa",
+    "birth_state": "California",
+    "birth_time": "13:47"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "475",
+          "914",
+          "679"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6604"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          18,
+          23,
+          38,
+          49
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          10,
+          18,
+          28,
+          57
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          31,
+          33,
+          40,
+          57
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

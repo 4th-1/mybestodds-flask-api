@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST1387",
+  "kit_type": "BOOK3",
+  "dob": "1985-10-10",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Mary",
+    "last_name": "Perry",
+    "birth_date": "1985-10-10",
+    "birth_city": "Grand Prairie",
+    "birth_state": "Texas",
+    "birth_time": "18:02"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "556"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3005"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          47,
+          54,
+          57,
+          61
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          4,
+          6,
+          15,
+          21
+        ],
+        "power_ball": [
+          14
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          19,
+          23,
+          26,
+          43,
+          53
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

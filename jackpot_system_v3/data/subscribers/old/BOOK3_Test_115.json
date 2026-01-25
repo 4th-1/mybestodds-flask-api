@@ -1,0 +1,43 @@
+{
+  "name": "Emerson Martinez",
+  "first_name": "Emerson",
+  "last_name": "Martinez",
+  "initials": "EMA",
+  "gender": "F",
+  "dob": "1983-09-27",
+  "tob": "06:20",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "384",
+      "976",
+      "658",
+      "468",
+      "730"
+    ],
+    "Cash4": [
+      "7585",
+      "6770",
+      "3838"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "384",
+    "976",
+    "658",
+    "468",
+    "730"
+  ],
+  "cash4_personal_numbers": [
+    "7585",
+    "6770",
+    "3838"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

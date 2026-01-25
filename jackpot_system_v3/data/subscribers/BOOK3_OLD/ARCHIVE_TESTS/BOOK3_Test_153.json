@@ -1,0 +1,35 @@
+{
+  "name": "Riley Anderson",
+  "subscriber_initials": "RA",
+  "dob": "1996-01-25",
+  "pob": "Decatur, GA",
+  "tob": "08:45",
+  "email": "book3_test_153@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 1,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "942"
+    ],
+    "Cash4": [
+      "4000",
+      "4738"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

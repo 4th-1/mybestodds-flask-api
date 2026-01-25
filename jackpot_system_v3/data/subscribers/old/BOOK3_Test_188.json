@@ -1,0 +1,43 @@
+{
+  "name": "Riley Jackson",
+  "first_name": "Riley",
+  "last_name": "Jackson",
+  "initials": "RJA",
+  "gender": "M",
+  "dob": "1985-03-08",
+  "tob": "14:05",
+  "pob": "New Orleans, LA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "219",
+      "772",
+      "176",
+      "828",
+      "060"
+    ],
+    "Cash4": [
+      "3909",
+      "1639",
+      "0439"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "219",
+    "772",
+    "176",
+    "828",
+    "060"
+  ],
+  "cash4_personal_numbers": [
+    "3909",
+    "1639",
+    "0439"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

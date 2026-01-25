@@ -1,0 +1,36 @@
+{
+  "name": "Wendy Grant",
+  "initials": "WG",
+  "dob": "1951-05-06",
+  "tob": "05:48",
+  "pob": "Nashville, TN",
+  "astrology": {
+    "western": {
+      "sun": "Leo",
+      "moon": "Cancer",
+      "rising": "Virgo"
+    },
+    "vedic": {
+      "sun": "Simha",
+      "moon": "Karka",
+      "ascendant": "Kanya"
+    }
+  },
+  "mmfsn_cash3": "5037",
+  "mmfsn_cash4": "0406",
+  "submitted_numbers_cash3": [
+    2,
+    6,
+    8
+  ],
+  "submitted_numbers_cash4": [
+    3,
+    5,
+    0,
+    5
+  ],
+  "kit": "BOOK3",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "timezone": "UTC-05"
+}

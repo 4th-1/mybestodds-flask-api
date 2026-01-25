@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "TEST0085",
+  "kit_type": "BOOK3",
+  "dob": "1981-06-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sandra",
+    "last_name": "Young",
+    "birth_date": "1981-06-24",
+    "birth_time": "02:02",
+    "birth_city": "Baton Rouge",
+    "birth_state": "Louisiana"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "461,"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": []
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          30,
+          60,
+          63,
+          65
+        ],
+        "mega_ball": [
+          12,
+          12
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          26,
+          35,
+          51,
+          62,
+          68
+        ],
+        "power_ball": [
+          5,
+          11
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          26,
+          27,
+          30,
+          32
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-20",
+    "test_batch": "1000_validation"
+  }
+}

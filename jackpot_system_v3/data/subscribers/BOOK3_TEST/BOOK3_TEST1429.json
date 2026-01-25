@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1429",
+  "kit_type": "BOOK3",
+  "dob": "1980-06-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Donald",
+    "last_name": "Wallace",
+    "birth_date": "1980-06-23",
+    "birth_city": "Springfield",
+    "birth_state": "Illinois",
+    "birth_time": "22:43"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "661",
+          "546"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3737",
+          "4773",
+          "0884"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          17,
+          18,
+          28,
+          51,
+          64
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          16,
+          35,
+          53,
+          58
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          47,
+          50,
+          52,
+          54
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

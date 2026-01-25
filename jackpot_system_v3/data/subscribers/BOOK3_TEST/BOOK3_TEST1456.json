@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1456",
+  "kit_type": "BOOK3",
+  "dob": "1975-05-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sarah",
+    "last_name": "Parker",
+    "birth_date": "1975-05-28",
+    "birth_city": "Kansas City",
+    "birth_state": "Missouri",
+    "birth_time": "07:24"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "111",
+          "330",
+          "391"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9858",
+          "0973",
+          "7551"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          22,
+          35,
+          42,
+          50
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          36,
+          41,
+          48,
+          52
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          11,
+          20,
+          26,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

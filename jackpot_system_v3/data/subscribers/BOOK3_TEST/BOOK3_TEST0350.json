@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0350",
+  "kit_type": "BOOK3",
+  "dob": "1982-06-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joseph",
+    "last_name": "Sanchez",
+    "birth_date": "1982-06-14",
+    "birth_city": "St. Petersburg",
+    "birth_state": "Florida",
+    "birth_time": "14:36"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "931",
+          "614",
+          "883",
+          "427",
+          "262"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8696",
+          "2359"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          16,
+          17,
+          19,
+          31
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          16,
+          35,
+          47,
+          49
+        ],
+        "power_ball": [
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          30,
+          32,
+          41,
+          49
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

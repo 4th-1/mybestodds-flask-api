@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0967",
+  "kit_type": "BOOK3",
+  "dob": "1997-04-17",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Justin",
+    "last_name": "Collins",
+    "birth_date": "1997-04-17",
+    "birth_city": "Anchorage",
+    "birth_state": "Alaska",
+    "birth_time": "20:49"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "113",
+          "262",
+          "572",
+          "799"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1811",
+          "7096",
+          "9942"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          8,
+          12,
+          26,
+          45
+        ],
+        "mega_ball": [
+          20
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          15,
+          46,
+          51,
+          62
+        ],
+        "power_ball": [
+          15
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          16,
+          17,
+          18,
+          28,
+          57
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

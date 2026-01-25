@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0478",
+  "kit_type": "BOOK3",
+  "dob": "1985-07-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joyce",
+    "last_name": "Martinez",
+    "birth_date": "1985-07-18",
+    "birth_city": "Boise",
+    "birth_state": "Idaho",
+    "birth_time": "05:00"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "094",
+          "662",
+          "706",
+          "175"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3695",
+          "2028"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          38,
+          40,
+          50,
+          63,
+          64
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          27,
+          47,
+          49,
+          57
+        ],
+        "power_ball": [
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          16,
+          17,
+          42,
+          44,
+          51
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

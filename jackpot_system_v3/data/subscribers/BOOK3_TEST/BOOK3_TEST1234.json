@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1234",
+  "kit_type": "BOOK3",
+  "dob": "1986-06-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Diane",
+    "last_name": "Reynolds",
+    "birth_date": "1986-06-19",
+    "birth_city": "Pasadena",
+    "birth_state": "California",
+    "birth_time": "23:45"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "499",
+          "177",
+          "962",
+          "477"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1400"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          15,
+          17,
+          22,
+          27
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          4,
+          18,
+          31,
+          65
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          11,
+          18,
+          27,
+          46
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

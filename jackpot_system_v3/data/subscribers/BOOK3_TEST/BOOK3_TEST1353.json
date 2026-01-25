@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1353",
+  "kit_type": "BOOK3",
+  "dob": "1981-11-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Douglas",
+    "last_name": "Hill",
+    "birth_date": "1981-11-24",
+    "birth_city": "Cleveland",
+    "birth_state": "Ohio",
+    "birth_time": "21:35"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "127",
+          "170"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8669",
+          "1278",
+          "4345"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          7,
+          23,
+          33,
+          42
+        ],
+        "mega_ball": [
+          11
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          2,
+          12,
+          22,
+          58,
+          60
+        ],
+        "power_ball": [
+          14
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          18,
+          39,
+          43,
+          60
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

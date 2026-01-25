@@ -1,0 +1,29 @@
+{
+  "name": "Collin Hunter",
+  "initials": "CH",
+  "dob": "1953-04-18",
+  "pob": "North Keith, MD",
+  "tob": "xx:xx",
+  "email": "abowman@price.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  },
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOSK"
+}

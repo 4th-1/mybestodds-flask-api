@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0562",
+  "kit_type": "BOOK3",
+  "dob": "2001-09-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Frank",
+    "last_name": "Ross",
+    "birth_date": "2001-09-07",
+    "birth_city": "Colorado Springs",
+    "birth_state": "Colorado",
+    "birth_time": "19:46"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "166",
+          "657",
+          "430",
+          "115",
+          "504"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4987",
+          "7884",
+          "8494"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          7,
+          35,
+          43,
+          56
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          8,
+          19,
+          35,
+          38,
+          47
+        ],
+        "power_ball": [
+          23
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          10,
+          30,
+          51,
+          55
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

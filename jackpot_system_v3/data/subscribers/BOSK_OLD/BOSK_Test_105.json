@@ -1,0 +1,34 @@
+{
+  "name": "Quinn Taylor",
+  "subscriber_initials": "QT",
+  "dob": "1982-04-01",
+  "pob": "Savannah, GA",
+  "tob": "11:45",
+  "email": "bosk_test_105@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 4,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "019",
+      "909",
+      "698"
+    ],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

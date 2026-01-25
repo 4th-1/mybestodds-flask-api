@@ -1,0 +1,43 @@
+{
+  "name": "Avery Martinez",
+  "first_name": "Avery",
+  "last_name": "Martinez",
+  "initials": "AMA",
+  "gender": "F",
+  "dob": "1999-11-15",
+  "tob": "00:35",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "630",
+      "242",
+      "013",
+      "751",
+      "996"
+    ],
+    "Cash4": [
+      "8485",
+      "0605",
+      "4351"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "630",
+    "242",
+    "013",
+    "751",
+    "996"
+  ],
+  "cash4_personal_numbers": [
+    "8485",
+    "0605",
+    "4351"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

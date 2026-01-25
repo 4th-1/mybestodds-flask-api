@@ -1,0 +1,43 @@
+{
+  "name": "Alex Thompson",
+  "first_name": "Alex",
+  "last_name": "Thompson",
+  "initials": "ATH",
+  "gender": "M",
+  "dob": "1986-11-01",
+  "tob": "07:20",
+  "pob": "Seattle, WA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "506",
+      "123",
+      "982",
+      "118",
+      "184"
+    ],
+    "Cash4": [
+      "2893",
+      "3129",
+      "4895"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "506",
+    "123",
+    "982",
+    "118",
+    "184"
+  ],
+  "cash4_personal_numbers": [
+    "2893",
+    "3129",
+    "4895"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

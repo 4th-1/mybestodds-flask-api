@@ -1,0 +1,43 @@
+{
+  "name": "Avery Wilson",
+  "first_name": "Avery",
+  "last_name": "Wilson",
+  "initials": "AWI",
+  "gender": "F",
+  "dob": "1983-10-19",
+  "tob": "08:55",
+  "pob": "New York, NY",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "851",
+      "181",
+      "603",
+      "367",
+      "095"
+    ],
+    "Cash4": [
+      "9177",
+      "2483",
+      "6351"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "851",
+    "181",
+    "603",
+    "367",
+    "095"
+  ],
+  "cash4_personal_numbers": [
+    "9177",
+    "2483",
+    "6351"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

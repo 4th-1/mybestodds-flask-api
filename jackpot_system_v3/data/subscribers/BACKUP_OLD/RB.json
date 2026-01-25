@@ -1,0 +1,36 @@
+{
+  "name": "Riley Benson",
+  "initials": "RB",
+  "dob": "1972-09-01",
+  "tob": "11:37",
+  "pob": "Seattle, WA",
+  "astrology": {
+    "western": {
+      "sun": "Leo",
+      "moon": "Cancer",
+      "rising": "Virgo"
+    },
+    "vedic": {
+      "sun": "Simha",
+      "moon": "Karka",
+      "ascendant": "Kanya"
+    }
+  },
+  "mmfsn_cash3": "0267",
+  "mmfsn_cash4": "5510",
+  "submitted_numbers_cash3": [
+    0,
+    4,
+    1
+  ],
+  "submitted_numbers_cash4": [
+    7,
+    6,
+    4,
+    4
+  ],
+  "kit": "BOOK3",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "timezone": "UTC-05"
+}

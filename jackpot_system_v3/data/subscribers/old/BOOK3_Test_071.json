@@ -1,0 +1,43 @@
+{
+  "name": "Skyler Anderson",
+  "first_name": "Skyler",
+  "last_name": "Anderson",
+  "initials": "SAN",
+  "gender": "M",
+  "dob": "1979-11-16",
+  "tob": "11:05",
+  "pob": "Detroit, MI",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "764",
+      "143",
+      "499",
+      "938",
+      "738"
+    ],
+    "Cash4": [
+      "6030",
+      "0738",
+      "1665"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "764",
+    "143",
+    "499",
+    "938",
+    "738"
+  ],
+  "cash4_personal_numbers": [
+    "6030",
+    "0738",
+    "1665"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

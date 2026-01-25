@@ -1,0 +1,43 @@
+{
+  "name": "Avery Jackson",
+  "first_name": "Avery",
+  "last_name": "Jackson",
+  "initials": "AJA",
+  "gender": "F",
+  "dob": "1963-09-29",
+  "tob": "06:35",
+  "pob": "Nashville, TN",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "068",
+      "228",
+      "340",
+      "484",
+      "370"
+    ],
+    "Cash4": [
+      "4424",
+      "0656",
+      "1896"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "068",
+    "228",
+    "340",
+    "484",
+    "370"
+  ],
+  "cash4_personal_numbers": [
+    "4424",
+    "0656",
+    "1896"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

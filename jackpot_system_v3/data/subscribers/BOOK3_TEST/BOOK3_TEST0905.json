@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0905",
+  "kit_type": "BOOK3",
+  "dob": "1994-11-08",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sean",
+    "last_name": "Robinson",
+    "birth_date": "1994-11-08",
+    "birth_city": "Salinas",
+    "birth_state": "California",
+    "birth_time": "21:55"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "075",
+          "907",
+          "239",
+          "290"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8862",
+          "0223",
+          "8527"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          32,
+          37,
+          38,
+          46
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          48,
+          50,
+          58,
+          66,
+          68
+        ],
+        "power_ball": [
+          7
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          20,
+          31,
+          35,
+          44,
+          51
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

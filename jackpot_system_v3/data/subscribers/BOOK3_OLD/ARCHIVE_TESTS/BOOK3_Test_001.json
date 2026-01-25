@@ -1,0 +1,35 @@
+{
+  "name": "Skyler Taylor",
+  "subscriber_initials": "ST",
+  "dob": "1989-05-26",
+  "pob": "Augusta, GA",
+  "tob": "01:30",
+  "email": "book3_test_001@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 5,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "471",
+      "899",
+      "035",
+      "193"
+    ],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0018",
+  "kit_type": "BOOK3",
+  "dob": "1985-06-26",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Lisa",
+    "last_name": "Martin",
+    "birth_date": "1985-06-26",
+    "birth_city": "Brownsville",
+    "birth_state": "Texas",
+    "birth_time": "02:50"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "623",
+          "165",
+          "823"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1471",
+          "6988",
+          "5100"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          15,
+          26,
+          42,
+          43,
+          53
+        ],
+        "mega_ball": [
+          14
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          29,
+          40,
+          58,
+          61
+        ],
+        "power_ball": [
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          14,
+          28,
+          39,
+          43
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

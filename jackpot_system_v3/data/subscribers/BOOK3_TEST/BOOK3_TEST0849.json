@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0849",
+  "kit_type": "BOOK3",
+  "dob": "1982-04-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Teresa",
+    "last_name": "Scott",
+    "birth_date": "1982-04-18",
+    "birth_city": "Glendale",
+    "birth_state": "California",
+    "birth_time": "20:04"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "301",
+          "260",
+          "044",
+          "340",
+          "630"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5924",
+          "4184"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          19,
+          43,
+          46,
+          55,
+          64
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          6,
+          17,
+          20,
+          56
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          14,
+          33,
+          43,
+          49,
+          51
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

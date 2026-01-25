@@ -1,0 +1,22 @@
+{
+  "name": "Ian White",
+  "initials": "IW",
+  "dob": "1995-10-04",
+  "pob": "Meadowsshire, NV",
+  "tob": "05:39",
+  "email": "nelsonjacob@hotmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Jordan Smith",
+  "first_name": "Jordan",
+  "last_name": "Smith",
+  "initials": "JSM",
+  "gender": "F",
+  "dob": "1963-12-05",
+  "tob": "16:40",
+  "pob": "Detroit, MI",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "232",
+      "022",
+      "755",
+      "512",
+      "066"
+    ],
+    "Cash4": [
+      "0960",
+      "4826",
+      "4027"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "232",
+    "022",
+    "755",
+    "512",
+    "066"
+  ],
+  "cash4_personal_numbers": [
+    "0960",
+    "4826",
+    "4027"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Veronica Benton",
+  "initials": "VB",
+  "dob": "1956-12-05",
+  "pob": "Barreraview, DC",
+  "tob": "01:43",
+  "email": "zmartinez@turner-lee.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

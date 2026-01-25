@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0028",
+  "kit_type": "BOOK3",
+  "dob": "1998-07-13",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Lisa",
+    "last_name": "Williams",
+    "birth_date": "1998-07-13",
+    "birth_city": "Burbank",
+    "birth_state": "California",
+    "birth_time": "04:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "302",
+          "806",
+          "420",
+          "316",
+          "479"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2002",
+          "9045"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          38,
+          49,
+          57,
+          66,
+          69
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          10,
+          28,
+          41,
+          62,
+          67
+        ],
+        "power_ball": [
+          20
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          5,
+          11,
+          35,
+          41
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

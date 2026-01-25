@@ -1,0 +1,81 @@
+{
+  "api_sources": {
+    "primary": {
+      "name": "RapidAPI USA Lottery Results",
+      "base_url": "https://usa-lottery-result-all-state-api.p.rapidapi.com",
+      "requires_key": true,
+      "supported_games": [
+        "cash3_midday",
+        "cash3_evening", 
+        "cash4_night",
+        "megamillions",
+        "powerball",
+        "cash4life"
+      ]
+    },
+    "fallback": {
+      "name": "Manual Entry",
+      "base_url": null,
+      "requires_key": false,
+      "supported_games": "all"
+    }
+  },
+  "automation_settings": {
+    "auto_fetch_enabled": true,
+    "fetch_frequency_hours": 24,
+    "days_to_fetch": 7,
+    "run_analysis_after_fetch": true,
+    "send_notifications": false
+  },
+  "game_configurations": {
+    "cash3_midday": {
+      "state": "georgia",
+      "session": "midday",
+      "format": "###",
+      "draw_time": "12:29"
+    },
+    "cash3_evening": {
+      "state": "georgia", 
+      "session": "evening",
+      "format": "###",
+      "draw_time": "7:00"
+    },
+    "cash4_night": {
+      "state": "georgia",
+      "session": "night", 
+      "format": "####",
+      "draw_time": "10:34"
+    },
+    "megamillions": {
+      "national": true,
+      "format": "##-##-##-##-##-##",
+      "draw_days": ["Tuesday", "Friday"],
+      "draw_time": "11:00"
+    },
+    "powerball": {
+      "national": true,
+      "format": "##-##-##-##-##-##",
+      "draw_days": ["Monday", "Wednesday", "Saturday"], 
+      "draw_time": "10:59"
+    },
+    "cash4life": {
+      "multi_state": true,
+      "format": "##-##-##-##-##-##",
+      "draw_days": ["Daily"],
+      "draw_time": "9:00"
+    }
+  },
+  "performance_monitoring": {
+    "min_confidence_threshold": 75.0,
+    "mmfsn_adjustment_factor": 0.05,
+    "generate_reports": true,
+    "track_all_executions": true
+  },
+  "notification_settings": {
+    "email_enabled": false,
+    "email_address": "",
+    "notify_on_high_accuracy": true,
+    "notify_on_weight_adjustments": true,
+    "notify_on_api_errors": true
+  }
+}

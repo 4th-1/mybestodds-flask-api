@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0664",
+  "kit_type": "BOOK3",
+  "dob": "1975-11-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Michelle",
+    "last_name": "Simmons",
+    "birth_date": "1975-11-20",
+    "birth_city": "Arlington",
+    "birth_state": "Texas",
+    "birth_time": "10:25"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "728",
+          "591",
+          "432"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2402"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          29,
+          36,
+          51,
+          61,
+          64
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          46,
+          53,
+          60,
+          63
+        ],
+        "power_ball": [
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          11,
+          29,
+          50,
+          53,
+          58
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

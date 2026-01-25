@@ -1,0 +1,43 @@
+{
+  "name": "Quinn Thomas",
+  "first_name": "Quinn",
+  "last_name": "Thomas",
+  "initials": "QTH",
+  "gender": "F",
+  "dob": "1982-03-10",
+  "tob": "16:55",
+  "pob": "Seattle, WA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "411",
+      "875",
+      "607",
+      "292",
+      "348"
+    ],
+    "Cash4": [
+      "3035",
+      "9882",
+      "4740"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "411",
+    "875",
+    "607",
+    "292",
+    "348"
+  ],
+  "cash4_personal_numbers": [
+    "3035",
+    "9882",
+    "4740"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

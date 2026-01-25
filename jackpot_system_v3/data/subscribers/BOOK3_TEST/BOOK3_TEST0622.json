@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0622",
+  "kit_type": "BOOK3",
+  "dob": "1985-01-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Aaron",
+    "last_name": "Hayes",
+    "birth_date": "1985-01-14",
+    "birth_city": "Fort Worth",
+    "birth_state": "Texas",
+    "birth_time": "21:42"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "508",
+          "204"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7391",
+          "5547"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          46,
+          50,
+          57,
+          58,
+          69
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          16,
+          26,
+          34,
+          39
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          9,
+          19,
+          22,
+          30
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

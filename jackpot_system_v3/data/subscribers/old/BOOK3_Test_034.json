@@ -1,0 +1,43 @@
+{
+  "name": "Jamie Garcia",
+  "first_name": "Jamie",
+  "last_name": "Garcia",
+  "initials": "JGA",
+  "gender": "F",
+  "dob": "1975-01-22",
+  "tob": "09:05",
+  "pob": "Denver, CO",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "284",
+      "624",
+      "953",
+      "609",
+      "516"
+    ],
+    "Cash4": [
+      "6676",
+      "0236",
+      "1922"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "284",
+    "624",
+    "953",
+    "609",
+    "516"
+  ],
+  "cash4_personal_numbers": [
+    "6676",
+    "0236",
+    "1922"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

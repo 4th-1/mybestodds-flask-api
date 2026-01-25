@@ -1,0 +1,39 @@
+{
+  "name": "Skyler Moore",
+  "subscriber_initials": "SM",
+  "dob": "1972-06-02",
+  "pob": "Macon, GA",
+  "tob": "19:00",
+  "email": "book3_test_057@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 6,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "831",
+      "680",
+      "875",
+      "936"
+    ],
+    "Cash4": [
+      "3990",
+      "9976",
+      "0538"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

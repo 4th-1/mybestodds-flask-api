@@ -1,0 +1,35 @@
+{
+  "name": "Logan Williams",
+  "subscriber_initials": "LW",
+  "dob": "1967-05-29",
+  "pob": "Decatur, GA",
+  "tob": "19:45",
+  "email": "book3_test_090@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 5,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "287",
+      "209",
+      "297",
+      "296"
+    ],
+    "Cash4": [],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

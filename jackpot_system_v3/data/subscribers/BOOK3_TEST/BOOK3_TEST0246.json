@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0246",
+  "kit_type": "BOOK3",
+  "dob": "2002-09-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sean",
+    "last_name": "James",
+    "birth_date": "2002-09-19",
+    "birth_city": "Toledo",
+    "birth_state": "Ohio",
+    "birth_time": "20:34"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "659",
+          "116",
+          "784"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6468"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          21,
+          26,
+          40,
+          69
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          7,
+          8,
+          27,
+          35,
+          51
+        ],
+        "power_ball": [
+          12
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          3,
+          7,
+          16,
+          34,
+          42
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

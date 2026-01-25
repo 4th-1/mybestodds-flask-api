@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1395",
+  "kit_type": "BOOK3",
+  "dob": "1961-09-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Diane",
+    "last_name": "Clark",
+    "birth_date": "1961-09-23",
+    "birth_city": "Columbus",
+    "birth_state": "Ohio",
+    "birth_time": "00:14"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "131",
+          "810"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8033"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          27,
+          47,
+          53,
+          62,
+          67
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          15,
+          39,
+          54,
+          64
+        ],
+        "power_ball": [
+          21
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          5,
+          13,
+          22,
+          30,
+          39
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

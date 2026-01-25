@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST0404",
+  "kit_type": "BOOK3",
+  "dob": "1990-10-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Laura",
+    "last_name": "Rodriguez",
+    "birth_date": "1990-10-24",
+    "birth_city": "Clearwater",
+    "birth_state": "Florida",
+    "birth_time": "01:13"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "239"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8167",
+          "0133",
+          "8981"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          5,
+          13,
+          30,
+          38
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          42,
+          49,
+          50,
+          62
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          38,
+          44,
+          48,
+          52
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

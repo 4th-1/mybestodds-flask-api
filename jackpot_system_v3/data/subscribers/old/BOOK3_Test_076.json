@@ -1,0 +1,43 @@
+{
+  "name": "Quinn Johnson",
+  "first_name": "Quinn",
+  "last_name": "Johnson",
+  "initials": "QJO",
+  "gender": "F",
+  "dob": "1962-02-28",
+  "tob": "06:55",
+  "pob": "Miami, FL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "473",
+      "380",
+      "290",
+      "712",
+      "796"
+    ],
+    "Cash4": [
+      "6270",
+      "3615",
+      "2648"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "473",
+    "380",
+    "290",
+    "712",
+    "796"
+  ],
+  "cash4_personal_numbers": [
+    "6270",
+    "3615",
+    "2648"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

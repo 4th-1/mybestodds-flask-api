@@ -1,0 +1,43 @@
+{
+  "name": "Hayden Smith",
+  "first_name": "Hayden",
+  "last_name": "Smith",
+  "initials": "HSM",
+  "gender": "M",
+  "dob": "1981-11-13",
+  "tob": "13:55",
+  "pob": "Dallas, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "567",
+      "931",
+      "416",
+      "926",
+      "747"
+    ],
+    "Cash4": [
+      "3432",
+      "8661",
+      "1553"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "567",
+    "931",
+    "416",
+    "926",
+    "747"
+  ],
+  "cash4_personal_numbers": [
+    "3432",
+    "8661",
+    "1553"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

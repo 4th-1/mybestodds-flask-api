@@ -1,0 +1,43 @@
+{
+  "name": "Alex Davis",
+  "first_name": "Alex",
+  "last_name": "Davis",
+  "initials": "ADA",
+  "gender": "F",
+  "dob": "1991-03-01",
+  "tob": "00:25",
+  "pob": "Charlotte, NC",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "470",
+      "674",
+      "822",
+      "282",
+      "692"
+    ],
+    "Cash4": [
+      "4088",
+      "1583",
+      "8898"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "470",
+    "674",
+    "822",
+    "282",
+    "692"
+  ],
+  "cash4_personal_numbers": [
+    "4088",
+    "1583",
+    "8898"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

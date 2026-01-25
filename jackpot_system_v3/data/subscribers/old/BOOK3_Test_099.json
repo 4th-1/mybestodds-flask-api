@@ -1,0 +1,43 @@
+{
+  "name": "Morgan Clark",
+  "first_name": "Morgan",
+  "last_name": "Clark",
+  "initials": "MCL",
+  "gender": "M",
+  "dob": "1997-03-25",
+  "tob": "11:05",
+  "pob": "Nashville, TN",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "861",
+      "386",
+      "639",
+      "784",
+      "623"
+    ],
+    "Cash4": [
+      "3910",
+      "4183",
+      "5678"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "861",
+    "386",
+    "639",
+    "784",
+    "623"
+  ],
+  "cash4_personal_numbers": [
+    "3910",
+    "4183",
+    "5678"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

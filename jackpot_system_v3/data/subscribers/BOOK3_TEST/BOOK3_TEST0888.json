@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0888",
+  "kit_type": "BOOK3",
+  "dob": "1980-04-02",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Deborah",
+    "last_name": "Allen",
+    "birth_date": "1980-04-02",
+    "birth_city": "West Covina",
+    "birth_state": "California",
+    "birth_time": "14:59"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "117",
+          "734",
+          "155",
+          "961"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9825"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          12,
+          50,
+          54,
+          57,
+          70
+        ],
+        "mega_ball": [
+          7
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          20,
+          34,
+          42,
+          53
+        ],
+        "power_ball": [
+          17
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          19,
+          20,
+          46,
+          51
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

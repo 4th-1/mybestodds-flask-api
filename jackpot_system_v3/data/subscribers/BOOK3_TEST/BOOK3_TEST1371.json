@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST1371",
+  "kit_type": "BOOK3",
+  "dob": "1968-04-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jeremy",
+    "last_name": "Perry",
+    "birth_date": "1968-04-19",
+    "birth_city": "Miami Gardens",
+    "birth_state": "Florida",
+    "birth_time": "08:09"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "014",
+          "532",
+          "410",
+          "266"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0177",
+          "3483",
+          "4144"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          21,
+          41,
+          43,
+          53,
+          64
+        ],
+        "mega_ball": [
+          5
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          10,
+          16,
+          52,
+          66
+        ],
+        "power_ball": [
+          9
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          15,
+          24,
+          49,
+          52
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

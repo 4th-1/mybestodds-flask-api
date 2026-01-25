@@ -1,0 +1,43 @@
+{
+  "name": "Alex Garcia",
+  "first_name": "Alex",
+  "last_name": "Garcia",
+  "initials": "AGA",
+  "gender": "F",
+  "dob": "1973-08-17",
+  "tob": "02:20",
+  "pob": "Los Angeles, CA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "346",
+      "115",
+      "555",
+      "669",
+      "719"
+    ],
+    "Cash4": [
+      "6223",
+      "8133",
+      "2533"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "346",
+    "115",
+    "555",
+    "669",
+    "719"
+  ],
+  "cash4_personal_numbers": [
+    "6223",
+    "8133",
+    "2533"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Bailey Brown",
+  "subscriber_initials": "BB",
+  "dob": "1974-01-07",
+  "pob": "Macon, GA",
+  "tob": "23:00",
+  "email": "book3_test_139@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 1,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "976",
+      "737",
+      "590"
+    ],
+    "Cash4": [
+      "4808",
+      "7086",
+      "7280"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

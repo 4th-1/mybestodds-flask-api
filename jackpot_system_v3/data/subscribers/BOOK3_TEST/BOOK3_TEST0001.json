@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0001",
+  "kit_type": "BOOK3",
+  "dob": "1978-04-20",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Linda",
+    "last_name": "Hughes",
+    "birth_date": "1978-04-20",
+    "birth_city": "Manchester",
+    "birth_state": "New Hampshire",
+    "birth_time": "15:52"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "771",
+          "590",
+          "132"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6514",
+          "7958",
+          "0198"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          11,
+          14,
+          32,
+          33,
+          52
+        ],
+        "mega_ball": [
+          12
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          20,
+          22,
+          23,
+          41,
+          59
+        ],
+        "power_ball": [
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          10,
+          19,
+          50,
+          53
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Sydney Williams",
+  "subscriber_initials": "SW",
+  "dob": "1980-04-20",
+  "pob": "Augusta, GA",
+  "tob": "17:45",
+  "email": "book3_test_127@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 4,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "724",
+      "328",
+      "757",
+      "677"
+    ],
+    "Cash4": [
+      "0877"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

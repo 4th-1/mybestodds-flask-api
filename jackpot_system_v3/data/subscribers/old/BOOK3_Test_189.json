@@ -1,0 +1,43 @@
+{
+  "name": "Quinn Miller",
+  "first_name": "Quinn",
+  "last_name": "Miller",
+  "initials": "QMI",
+  "gender": "M",
+  "dob": "1962-12-18",
+  "tob": "13:10",
+  "pob": "Denver, CO",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "001",
+      "973",
+      "826",
+      "825",
+      "462"
+    ],
+    "Cash4": [
+      "3647",
+      "8912",
+      "8627"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "001",
+    "973",
+    "826",
+    "825",
+    "462"
+  ],
+  "cash4_personal_numbers": [
+    "3647",
+    "8912",
+    "8627"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

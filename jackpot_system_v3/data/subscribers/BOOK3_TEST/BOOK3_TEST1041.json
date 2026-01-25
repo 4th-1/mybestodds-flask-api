@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1041",
+  "kit_type": "BOOK3",
+  "dob": "1967-05-23",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Carol",
+    "last_name": "Wallace",
+    "birth_date": "1967-05-23",
+    "birth_city": "Columbus",
+    "birth_state": "Georgia",
+    "birth_time": "23:17"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "719"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3522",
+          "3742",
+          "5101"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          5,
+          9,
+          18,
+          40,
+          48
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          15,
+          23,
+          59,
+          68
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          11,
+          18,
+          19,
+          51
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

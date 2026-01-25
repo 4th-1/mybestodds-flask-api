@@ -1,0 +1,22 @@
+{
+  "name": "Tiffany Santana",
+  "initials": "TS",
+  "dob": "1952-05-26",
+  "pob": "Johnsonville, TN",
+  "tob": "09:22",
+  "email": "murraybrianna@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

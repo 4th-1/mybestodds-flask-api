@@ -1,0 +1,43 @@
+{
+  "name": "Avery Moore",
+  "first_name": "Avery",
+  "last_name": "Moore",
+  "initials": "AMO",
+  "gender": "F",
+  "dob": "1970-07-11",
+  "tob": "23:35",
+  "pob": "Seattle, WA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "207",
+      "672",
+      "628",
+      "978",
+      "353"
+    ],
+    "Cash4": [
+      "3072",
+      "1105",
+      "3961"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "207",
+    "672",
+    "628",
+    "978",
+    "353"
+  ],
+  "cash4_personal_numbers": [
+    "3072",
+    "1105",
+    "3961"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

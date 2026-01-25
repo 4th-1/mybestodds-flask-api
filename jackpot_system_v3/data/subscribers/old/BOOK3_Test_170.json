@@ -1,0 +1,43 @@
+{
+  "name": "Logan Harris",
+  "first_name": "Logan",
+  "last_name": "Harris",
+  "initials": "LHA",
+  "gender": "F",
+  "dob": "1974-12-03",
+  "tob": "00:30",
+  "pob": "Dallas, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "398",
+      "321",
+      "884",
+      "979",
+      "763"
+    ],
+    "Cash4": [
+      "4228",
+      "6619",
+      "2912"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "398",
+    "321",
+    "884",
+    "979",
+    "763"
+  ],
+  "cash4_personal_numbers": [
+    "4228",
+    "6619",
+    "2912"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1263",
+  "kit_type": "BOOK3",
+  "dob": "1981-08-19",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Joshua",
+    "last_name": "Allen",
+    "birth_date": "1981-08-19",
+    "birth_city": "Sterling Heights",
+    "birth_state": "Michigan",
+    "birth_time": "06:04"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "552",
+          "814",
+          "260"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4672"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          41,
+          48,
+          65,
+          67,
+          68
+        ],
+        "mega_ball": [
+          1
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          20,
+          29,
+          38,
+          46,
+          69
+        ],
+        "power_ball": [
+          1
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          16,
+          20,
+          43,
+          58
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Reese Jackson",
+  "first_name": "Reese",
+  "last_name": "Jackson",
+  "initials": "RJA",
+  "gender": "M",
+  "dob": "1965-06-16",
+  "tob": "15:00",
+  "pob": "Dallas, TX",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "019",
+      "891",
+      "431",
+      "483",
+      "348"
+    ],
+    "Cash4": [
+      "4565",
+      "4610",
+      "7525"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "019",
+    "891",
+    "431",
+    "483",
+    "348"
+  ],
+  "cash4_personal_numbers": [
+    "4565",
+    "4610",
+    "7525"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

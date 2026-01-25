@@ -1,0 +1,32 @@
+{
+  "name": "Parker Taylor",
+  "subscriber_initials": "PT",
+  "dob": "1972-10-07",
+  "pob": "Savannah, GA",
+  "tob": "12:45",
+  "email": "book3_test_166@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 10,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [
+      "0255"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Jordan Moore",
+  "subscriber_initials": "JM",
+  "dob": "1975-06-26",
+  "pob": "Augusta, GA",
+  "tob": "20:15",
+  "email": "bosk_test_122@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 6,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [],
+    "Cash4": [
+      "6442",
+      "1291"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Taylor Wilson",
+  "subscriber_initials": "TW",
+  "dob": "1963-11-28",
+  "pob": "Atlanta, GA",
+  "tob": "01:30",
+  "email": "bosk_test_146@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 11,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "998",
+      "744",
+      "768",
+      "277"
+    ],
+    "Cash4": [
+      "0870",
+      "5764",
+      "2748"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

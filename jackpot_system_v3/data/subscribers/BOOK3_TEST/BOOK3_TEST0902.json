@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0902",
+  "kit_type": "BOOK3",
+  "dob": "1982-03-16",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Austin",
+    "last_name": "Rodriguez",
+    "birth_date": "1982-03-16",
+    "birth_city": "Cincinnati",
+    "birth_state": "Ohio",
+    "birth_time": "01:57"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "569",
+          "905",
+          "389",
+          "045"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "4856",
+          "5096",
+          "2536"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          30,
+          38,
+          46,
+          50,
+          64
+        ],
+        "mega_ball": [
+          3
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          7,
+          17,
+          23,
+          60
+        ],
+        "power_ball": [
+          2
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          30,
+          31,
+          33,
+          46,
+          56
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

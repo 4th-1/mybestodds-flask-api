@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0681",
+  "kit_type": "BOOK3",
+  "dob": "1987-03-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Susan",
+    "last_name": "Rogers",
+    "birth_date": "1987-03-14",
+    "birth_city": "Kent",
+    "birth_state": "Washington",
+    "birth_time": "16:38"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "847",
+          "317",
+          "897",
+          "216",
+          "471"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0644",
+          "8892",
+          "8729"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          1,
+          18,
+          22,
+          39,
+          62
+        ],
+        "mega_ball": [
+          13
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          14,
+          24,
+          26,
+          27
+        ],
+        "power_ball": [
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          26,
+          39,
+          49,
+          58
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

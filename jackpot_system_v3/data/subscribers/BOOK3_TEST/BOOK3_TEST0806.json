@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0806",
+  "kit_type": "BOOK3",
+  "dob": "1965-07-07",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sandra",
+    "last_name": "Hall",
+    "birth_date": "1965-07-07",
+    "birth_city": "Atlanta",
+    "birth_state": "Georgia",
+    "birth_time": "06:55"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "283",
+          "154"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1506",
+          "4361",
+          "3310"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          20,
+          36,
+          41,
+          65
+        ],
+        "mega_ball": [
+          23
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          12,
+          23,
+          53,
+          56
+        ],
+        "power_ball": [
+          14
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          20,
+          22,
+          32,
+          38
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

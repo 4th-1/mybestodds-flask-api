@@ -1,0 +1,43 @@
+{
+  "name": "Riley Clark",
+  "first_name": "Riley",
+  "last_name": "Clark",
+  "initials": "RCL",
+  "gender": "M",
+  "dob": "1997-10-11",
+  "tob": "01:10",
+  "pob": "Los Angeles, CA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "203",
+      "255",
+      "456",
+      "893",
+      "011"
+    ],
+    "Cash4": [
+      "0345",
+      "3207",
+      "6768"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "203",
+    "255",
+    "456",
+    "893",
+    "011"
+  ],
+  "cash4_personal_numbers": [
+    "0345",
+    "3207",
+    "6768"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

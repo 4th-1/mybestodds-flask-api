@@ -1,0 +1,22 @@
+{
+  "name": "Stephen Mccoy",
+  "initials": "SM",
+  "dob": "1999-08-21",
+  "pob": "Lake George, OH",
+  "tob": "19:26",
+  "email": "torreschristopher@taylor-salazar.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

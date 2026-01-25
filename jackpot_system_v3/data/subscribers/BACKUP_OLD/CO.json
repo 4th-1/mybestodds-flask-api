@@ -1,0 +1,25 @@
+{
+  "name": "Corey Patterson",
+  "subscriber_initials": "CP",
+  "dob": "1982-04-11",
+  "pob": "Atlanta, GA",
+  "tob": "16:15",
+  "email": "coreyjpat@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [
+      "411"
+    ],
+    "Cash4": []
+  },
+  "cohort": "PILOT04",
+  "birth_month": 4,
+  "kit": "BOOK3",
+  "initials": "CO"
+}

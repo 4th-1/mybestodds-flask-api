@@ -1,0 +1,43 @@
+{
+  "name": "Rowan Robinson",
+  "first_name": "Rowan",
+  "last_name": "Robinson",
+  "initials": "RRO",
+  "gender": "M",
+  "dob": "2000-01-09",
+  "tob": "10:35",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "653",
+      "776",
+      "514",
+      "016",
+      "645"
+    ],
+    "Cash4": [
+      "3810",
+      "9629",
+      "8264"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "653",
+    "776",
+    "514",
+    "016",
+    "645"
+  ],
+  "cash4_personal_numbers": [
+    "3810",
+    "9629",
+    "8264"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

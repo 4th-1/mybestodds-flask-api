@@ -1,0 +1,43 @@
+{
+  "name": "Skyler Wilson",
+  "first_name": "Skyler",
+  "last_name": "Wilson",
+  "initials": "SWI",
+  "gender": "M",
+  "dob": "1963-02-04",
+  "tob": "05:50",
+  "pob": "Detroit, MI",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "210",
+      "152",
+      "917",
+      "425",
+      "184"
+    ],
+    "Cash4": [
+      "0969",
+      "9857",
+      "6493"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "210",
+    "152",
+    "917",
+    "425",
+    "184"
+  ],
+  "cash4_personal_numbers": [
+    "0969",
+    "9857",
+    "6493"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Logan Garcia",
+  "first_name": "Logan",
+  "last_name": "Garcia",
+  "initials": "LGA",
+  "gender": "F",
+  "dob": "1965-06-08",
+  "tob": "06:50",
+  "pob": "Miami, FL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "508",
+      "862",
+      "744",
+      "357",
+      "033"
+    ],
+    "Cash4": [
+      "3364",
+      "9340",
+      "3267"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "508",
+    "862",
+    "744",
+    "357",
+    "033"
+  ],
+  "cash4_personal_numbers": [
+    "3364",
+    "9340",
+    "3267"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

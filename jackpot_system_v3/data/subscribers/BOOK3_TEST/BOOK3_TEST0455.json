@@ -1,0 +1,101 @@
+{
+  "subscriber_id": "BOOK3_TEST0455",
+  "kit_type": "BOOK3",
+  "dob": "1989-09-06",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Diane",
+    "last_name": "Griffin",
+    "birth_date": "1989-09-06",
+    "birth_city": "Meridian",
+    "birth_state": "Idaho",
+    "birth_time": "14:48"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "113",
+          "151",
+          "348",
+          "325",
+          "019"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9029",
+          "2587",
+          "0134"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          21,
+          30,
+          42,
+          64,
+          70
+        ],
+        "mega_ball": [
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          17,
+          25,
+          40,
+          41
+        ],
+        "power_ball": [
+          25
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          2,
+          14,
+          38,
+          52,
+          56
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

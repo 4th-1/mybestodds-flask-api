@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1154",
+  "kit_type": "BOOK3",
+  "dob": "1991-03-02",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Tyler",
+    "last_name": "Myers",
+    "birth_date": "1991-03-02",
+    "birth_city": "Lafayette",
+    "birth_state": "Louisiana",
+    "birth_time": "05:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "975"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7930",
+          "9256"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          8,
+          23,
+          46,
+          60,
+          69
+        ],
+        "mega_ball": [
+          10
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          6,
+          21,
+          30,
+          32,
+          65
+        ],
+        "power_ball": [
+          25
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          10,
+          17,
+          19,
+          21,
+          31
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

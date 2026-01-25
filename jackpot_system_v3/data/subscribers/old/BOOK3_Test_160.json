@@ -1,0 +1,43 @@
+{
+  "name": "Kendall Robinson",
+  "first_name": "Kendall",
+  "last_name": "Robinson",
+  "initials": "KRO",
+  "gender": "M",
+  "dob": "1990-09-13",
+  "tob": "05:15",
+  "pob": "Miami, FL",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "983",
+      "578",
+      "146",
+      "723",
+      "590"
+    ],
+    "Cash4": [
+      "6096",
+      "0004",
+      "9687"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "983",
+    "578",
+    "146",
+    "723",
+    "590"
+  ],
+  "cash4_personal_numbers": [
+    "6096",
+    "0004",
+    "9687"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

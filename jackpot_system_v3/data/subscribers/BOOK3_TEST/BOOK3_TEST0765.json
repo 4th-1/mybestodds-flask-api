@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0765",
+  "kit_type": "BOOK3",
+  "dob": "1995-09-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Sarah",
+    "last_name": "Gonzalez",
+    "birth_date": "1995-09-05",
+    "birth_city": "Simi Valley",
+    "birth_state": "California",
+    "birth_time": "18:57"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "043",
+          "849",
+          "765"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "5641",
+          "6035"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          35,
+          36,
+          40,
+          46,
+          55
+        ],
+        "mega_ball": [
+          21
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          4,
+          22,
+          45,
+          51,
+          61
+        ],
+        "power_ball": [
+          19
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          9,
+          33,
+          36,
+          46,
+          58
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

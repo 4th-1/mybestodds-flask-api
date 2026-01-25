@@ -1,0 +1,43 @@
+{
+  "name": "Hayden Taylor",
+  "first_name": "Hayden",
+  "last_name": "Taylor",
+  "initials": "HTA",
+  "gender": "M",
+  "dob": "1980-02-15",
+  "tob": "07:40",
+  "pob": "Los Angeles, CA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "614",
+      "842",
+      "892",
+      "795",
+      "215"
+    ],
+    "Cash4": [
+      "4353",
+      "4564",
+      "2861"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "614",
+    "842",
+    "892",
+    "795",
+    "215"
+  ],
+  "cash4_personal_numbers": [
+    "4353",
+    "4564",
+    "2861"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0154",
+  "kit_type": "BOOK3",
+  "dob": "1997-03-13",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Aaron",
+    "last_name": "Campbell",
+    "birth_date": "1997-03-13",
+    "birth_city": "San Francisco",
+    "birth_state": "California",
+    "birth_time": "07:45"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "658",
+          "401",
+          "729",
+          "757",
+          "330"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6433",
+          "3964"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          13,
+          28,
+          34,
+          63,
+          69
+        ],
+        "mega_ball": [
+          17
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          35,
+          36,
+          41,
+          52
+        ],
+        "power_ball": [
+          3
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          6,
+          10,
+          12,
+          55,
+          58
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

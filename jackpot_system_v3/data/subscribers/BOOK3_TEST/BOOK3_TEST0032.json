@@ -1,0 +1,100 @@
+{
+  "subscriber_id": "BOOK3_TEST0032",
+  "kit_type": "BOOK3",
+  "dob": "1981-11-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nathan",
+    "last_name": "Alvarez",
+    "birth_date": "1981-11-28",
+    "birth_city": "Abilene",
+    "birth_state": "Texas",
+    "birth_time": "14:38"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "951",
+          "325",
+          "547",
+          "218",
+          "690"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6022",
+          "0595"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          17,
+          29,
+          30,
+          32,
+          40
+        ],
+        "mega_ball": [
+          24
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          20,
+          52,
+          55,
+          58,
+          67
+        ],
+        "power_ball": [
+          8
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          7,
+          15,
+          19,
+          25,
+          57
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

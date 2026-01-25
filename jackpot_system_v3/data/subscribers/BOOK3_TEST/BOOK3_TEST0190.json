@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST0190",
+  "kit_type": "BOOK3",
+  "dob": "1971-05-05",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Ryan",
+    "last_name": "Chavez",
+    "birth_date": "1971-05-05",
+    "birth_city": "Long Beach",
+    "birth_state": "California",
+    "birth_time": "06:41"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "152"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7275",
+          "9864"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          23,
+          45,
+          55,
+          58,
+          60
+        ],
+        "mega_ball": [
+          19
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          27,
+          36,
+          42,
+          68
+        ],
+        "power_ball": [
+          6
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          21,
+          26,
+          43,
+          47
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

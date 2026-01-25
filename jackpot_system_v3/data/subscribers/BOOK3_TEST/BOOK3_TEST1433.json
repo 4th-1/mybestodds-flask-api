@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1433",
+  "kit_type": "BOOK3",
+  "dob": "1986-11-11",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Christina",
+    "last_name": "Walker",
+    "birth_date": "1986-11-11",
+    "birth_city": "Huntington Beach",
+    "birth_state": "California",
+    "birth_time": "03:19"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "454",
+          "956",
+          "983"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8348",
+          "5737"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          2,
+          6,
+          9,
+          13,
+          56
+        ],
+        "mega_ball": [
+          12
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          5,
+          15,
+          46,
+          48,
+          63
+        ],
+        "power_ball": [
+          26
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          29,
+          40,
+          48,
+          50,
+          57
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

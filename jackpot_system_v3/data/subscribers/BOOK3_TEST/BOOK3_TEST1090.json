@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1090",
+  "kit_type": "BOOK3",
+  "dob": "1990-08-25",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Helen",
+    "last_name": "Jackson",
+    "birth_date": "1990-08-25",
+    "birth_city": "Lancaster",
+    "birth_state": "California",
+    "birth_time": "18:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "041"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "8766",
+          "0208",
+          "4162"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          37,
+          40,
+          46,
+          47,
+          65
+        ],
+        "mega_ball": [
+          20
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          20,
+          22,
+          38,
+          45,
+          64
+        ],
+        "power_ball": [
+          25
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          28,
+          35,
+          39,
+          42
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Emerson Martin",
+  "first_name": "Emerson",
+  "last_name": "Martin",
+  "initials": "EMA",
+  "gender": "M",
+  "dob": "1964-04-18",
+  "tob": "13:20",
+  "pob": "New York, NY",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "669",
+      "117",
+      "441",
+      "866",
+      "442"
+    ],
+    "Cash4": [
+      "2031",
+      "5173",
+      "1941"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "669",
+    "117",
+    "441",
+    "866",
+    "442"
+  ],
+  "cash4_personal_numbers": [
+    "2031",
+    "5173",
+    "1941"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

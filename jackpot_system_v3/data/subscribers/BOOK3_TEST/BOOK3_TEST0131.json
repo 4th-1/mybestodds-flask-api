@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0131",
+  "kit_type": "BOOK3",
+  "dob": "1975-03-18",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Diane",
+    "last_name": "Mendoza",
+    "birth_date": "1975-03-18",
+    "birth_city": "Hialeah",
+    "birth_state": "Florida",
+    "birth_time": "02:30"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "533",
+          "802",
+          "405",
+          "882"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "2825"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          30,
+          32,
+          38,
+          61,
+          67
+        ],
+        "mega_ball": [
+          22
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          26,
+          30,
+          38,
+          46,
+          50
+        ],
+        "power_ball": [
+          12
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          4,
+          5,
+          20,
+          25,
+          43
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

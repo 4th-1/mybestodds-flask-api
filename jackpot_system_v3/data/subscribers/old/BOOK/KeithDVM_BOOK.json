@@ -1,0 +1,22 @@
+{
+  "name": "Keith Poole DVM",
+  "initials": "KD",
+  "dob": "1952-06-23",
+  "pob": "Lake Austinchester, KS",
+  "tob": "21:12",
+  "email": "reyessteven@foster.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Martin Taylor III",
+  "subscriber_initials": "MT",
+  "dob": "1971-12-16",
+  "pob": "Chicago, IL",
+  "tob": "15:29",
+  "email": "martintaylorfh@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "mmfsn": {
+    "Cash3": [
+      "926",
+      "729"
+    ],
+    "Cash4": [
+      "1216",
+      "1906"
+    ]
+  },
+  "cohort": "PILOT03",
+  "birth_month": 12,
+  "kit": "BOOK3",
+  "initials": "MA"
+}

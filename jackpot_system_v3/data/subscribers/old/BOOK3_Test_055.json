@@ -1,0 +1,43 @@
+{
+  "name": "Morgan Moore",
+  "first_name": "Morgan",
+  "last_name": "Moore",
+  "initials": "MMO",
+  "gender": "M",
+  "dob": "1967-10-07",
+  "tob": "23:25",
+  "pob": "Atlanta, GA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "599",
+      "012",
+      "425",
+      "390",
+      "031"
+    ],
+    "Cash4": [
+      "1298",
+      "6102",
+      "4103"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "599",
+    "012",
+    "425",
+    "390",
+    "031"
+  ],
+  "cash4_personal_numbers": [
+    "1298",
+    "6102",
+    "4103"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

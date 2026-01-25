@@ -1,0 +1,35 @@
+{
+  "name": "Sydney Taylor",
+  "subscriber_initials": "ST",
+  "dob": "2003-07-25",
+  "pob": "Savannah, GA",
+  "tob": "02:30",
+  "email": "bosk_test_002@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 7,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "842",
+      "026"
+    ],
+    "Cash4": [
+      "1885"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

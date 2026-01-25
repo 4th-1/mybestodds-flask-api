@@ -1,0 +1,22 @@
+{
+  "name": "Samantha Johnston",
+  "initials": "SJ",
+  "dob": "1995-10-23",
+  "pob": "South Jonathanland, AR",
+  "tob": "21:25",
+  "email": "mezajohn@hotmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

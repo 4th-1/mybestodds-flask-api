@@ -1,0 +1,39 @@
+{
+  "name": "Taylor Jones",
+  "subscriber_initials": "TJ",
+  "dob": "1964-05-16",
+  "pob": "Savannah, GA",
+  "tob": "14:00",
+  "email": "book3_test_186@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOOK3_V37",
+  "birth_month": 5,
+  "kit": "BOOK3",
+  "mmfsn": {
+    "Cash3": [
+      "327",
+      "620",
+      "918",
+      "936"
+    ],
+    "Cash4": [
+      "6748",
+      "5356",
+      "4094"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

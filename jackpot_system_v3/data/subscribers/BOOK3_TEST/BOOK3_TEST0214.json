@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST0214",
+  "kit_type": "BOOK3",
+  "dob": "1961-03-16",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Michelle",
+    "last_name": "Bryant",
+    "birth_date": "1961-03-16",
+    "birth_city": "Baton Rouge",
+    "birth_state": "Louisiana",
+    "birth_time": "20:57"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "483",
+          "018",
+          "633",
+          "375"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "0857",
+          "4105"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          28,
+          39,
+          46,
+          48,
+          54
+        ],
+        "mega_ball": [
+          8
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          11,
+          15,
+          30,
+          31,
+          46
+        ],
+        "power_ball": [
+          13
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          30,
+          36,
+          38,
+          39,
+          51
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

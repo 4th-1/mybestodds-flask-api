@@ -1,0 +1,43 @@
+{
+  "name": "Skyler Garcia",
+  "first_name": "Skyler",
+  "last_name": "Garcia",
+  "initials": "SGA",
+  "gender": "M",
+  "dob": "1979-02-08",
+  "tob": "13:35",
+  "pob": "New Orleans, LA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "540",
+      "288",
+      "296",
+      "994",
+      "233"
+    ],
+    "Cash4": [
+      "7619",
+      "6972",
+      "2249"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "540",
+    "288",
+    "296",
+    "994",
+    "233"
+  ],
+  "cash4_personal_numbers": [
+    "7619",
+    "6972",
+    "2249"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

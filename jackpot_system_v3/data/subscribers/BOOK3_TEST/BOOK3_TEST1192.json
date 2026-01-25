@@ -1,0 +1,97 @@
+{
+  "subscriber_id": "BOOK3_TEST1192",
+  "kit_type": "BOOK3",
+  "dob": "1997-08-01",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jack",
+    "last_name": "Henderson",
+    "birth_date": "1997-08-01",
+    "birth_city": "Columbus",
+    "birth_state": "Georgia",
+    "birth_time": "05:50"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "671",
+          "940",
+          "728"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7498"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          27,
+          35,
+          37,
+          53,
+          59
+        ],
+        "mega_ball": [
+          18
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          15,
+          30,
+          35,
+          52,
+          59
+        ],
+        "power_ball": [
+          1
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          1,
+          6,
+          20,
+          46,
+          47
+        ],
+        "cash_ball": [
+          2
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

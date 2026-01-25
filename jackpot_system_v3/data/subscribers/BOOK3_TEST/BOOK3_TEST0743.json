@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST0743",
+  "kit_type": "BOOK3",
+  "dob": "2001-03-15",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jack",
+    "last_name": "Lewis",
+    "birth_date": "2001-03-15",
+    "birth_city": "Lakewood",
+    "birth_state": "Colorado",
+    "birth_time": "10:32"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "290",
+          "704"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "7481",
+          "1472",
+          "7916"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          16,
+          27,
+          28,
+          65,
+          70
+        ],
+        "mega_ball": [
+          6
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          37,
+          50,
+          51,
+          56,
+          61
+        ],
+        "power_ball": [
+          4
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          15,
+          28,
+          47,
+          48,
+          53
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

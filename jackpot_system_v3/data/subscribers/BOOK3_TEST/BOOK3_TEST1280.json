@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1280",
+  "kit_type": "BOOK3",
+  "dob": "1985-07-26",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Laura",
+    "last_name": "Sanders",
+    "birth_date": "1985-07-26",
+    "birth_city": "Columbia",
+    "birth_state": "South Carolina",
+    "birth_time": "06:08"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "balanced"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "362",
+          "731",
+          "542"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9326",
+          "3244",
+          "0601"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          10,
+          18,
+          30,
+          56,
+          69
+        ],
+        "mega_ball": [
+          4
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          17,
+          27,
+          32,
+          54,
+          55
+        ],
+        "power_ball": [
+          10
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          28,
+          31,
+          46,
+          49,
+          50
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

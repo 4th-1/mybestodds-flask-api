@@ -1,0 +1,22 @@
+{
+  "name": "Matthew English",
+  "initials": "ME",
+  "dob": "1970-11-01",
+  "pob": "West Renee, MT",
+  "tob": "03:05",
+  "email": "troymccullough@gmail.com",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "cash_sessions": [
+    "Mid",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "PILOT10",
+  "KIT_TYPE": "BOOK"
+}

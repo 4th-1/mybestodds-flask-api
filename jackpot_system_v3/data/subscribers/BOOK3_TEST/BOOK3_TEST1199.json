@@ -1,0 +1,99 @@
+{
+  "subscriber_id": "BOOK3_TEST1199",
+  "kit_type": "BOOK3",
+  "dob": "1963-11-14",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Nancy",
+    "last_name": "Patterson",
+    "birth_date": "1963-11-14",
+    "birth_city": "Garden Grove",
+    "birth_state": "California",
+    "birth_time": "19:44"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "assertive"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "705",
+          "192",
+          "427"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "3695",
+          "6472",
+          "4249"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          47,
+          52,
+          53,
+          62,
+          68
+        ],
+        "mega_ball": [
+          12
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          21,
+          28,
+          35,
+          41,
+          56
+        ],
+        "power_ball": [
+          22
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          8,
+          11,
+          41,
+          43,
+          47
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

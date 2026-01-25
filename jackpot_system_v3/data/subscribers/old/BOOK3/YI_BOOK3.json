@@ -1,0 +1,36 @@
+{
+  "name": "Yara Iverson",
+  "initials": "YI",
+  "dob": "2000-07-23",
+  "tob": "19:59",
+  "pob": "Houston, TX",
+  "astrology": {
+    "western": {
+      "sun": "Leo",
+      "moon": "Cancer",
+      "rising": "Virgo"
+    },
+    "vedic": {
+      "sun": "Simha",
+      "moon": "Karka",
+      "ascendant": "Kanya"
+    }
+  },
+  "mmfsn_cash3": "9302",
+  "mmfsn_cash4": "6085",
+  "submitted_numbers_cash3": [
+    0,
+    2,
+    1
+  ],
+  "submitted_numbers_cash4": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "kit": "BOOK3",
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "timezone": "UTC-05"
+}

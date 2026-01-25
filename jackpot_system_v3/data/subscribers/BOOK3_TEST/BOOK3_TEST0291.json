@@ -1,0 +1,95 @@
+{
+  "subscriber_id": "BOOK3_TEST0291",
+  "kit_type": "BOOK3",
+  "dob": "1977-11-28",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Jack",
+    "last_name": "Rivera",
+    "birth_date": "1977-11-28",
+    "birth_city": "Pearland",
+    "birth_state": "Texas",
+    "birth_time": "09:27"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "290"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "6522"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          25,
+          36,
+          43,
+          56,
+          66
+        ],
+        "mega_ball": [
+          25
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          12,
+          13,
+          27,
+          31,
+          34
+        ],
+        "power_ball": [
+          25
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          23,
+          25,
+          26,
+          39,
+          59
+        ],
+        "cash_ball": [
+          3
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Sydney Williams",
+  "subscriber_initials": "SW",
+  "dob": "1973-08-08",
+  "pob": "Augusta, GA",
+  "tob": "09:00",
+  "email": "bosk_test_132@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 8,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "785",
+      "928",
+      "491"
+    ],
+    "Cash4": [
+      "2114",
+      "2563",
+      "7076"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

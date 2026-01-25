@@ -1,0 +1,37 @@
+{
+  "name": "Quinn Smith",
+  "subscriber_initials": "QS",
+  "dob": "1968-07-27",
+  "pob": "Columbus, GA",
+  "tob": "19:45",
+  "email": "bosk_test_133@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 7,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "793",
+      "027",
+      "427",
+      "542"
+    ],
+    "Cash4": [
+      "2627"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

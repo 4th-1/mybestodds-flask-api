@@ -1,0 +1,38 @@
+{
+  "name": "Bailey Miller",
+  "subscriber_initials": "BM",
+  "dob": "1991-04-06",
+  "pob": "Savannah, GA",
+  "tob": "18:00",
+  "email": "bosk_test_137@example.com",
+  "coverage_start": "1900-01-01",
+  "coverage_end": "2100-12-31",
+  "cash_sessions": [
+    "Midday",
+    "Evening",
+    "Night"
+  ],
+  "formats": [
+    "JSON",
+    "XLSX"
+  ],
+  "astrology_enabled": true,
+  "cohort": "TEST_BOSK_V37",
+  "birth_month": 4,
+  "kit": "BOSK",
+  "mmfsn": {
+    "Cash3": [
+      "887",
+      "619",
+      "632"
+    ],
+    "Cash4": [
+      "9357",
+      "7259",
+      "5791"
+    ],
+    "Powerball": [],
+    "MegaMillions": [],
+    "Cash4Life": []
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Reese Davis",
+  "first_name": "Reese",
+  "last_name": "Davis",
+  "initials": "RDA",
+  "gender": "M",
+  "dob": "1976-10-28",
+  "tob": "10:10",
+  "pob": "Phoenix, AZ",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "083",
+      "679",
+      "420",
+      "060",
+      "188"
+    ],
+    "Cash4": [
+      "4862",
+      "8757",
+      "2607"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "083",
+    "679",
+    "420",
+    "060",
+    "188"
+  ],
+  "cash4_personal_numbers": [
+    "4862",
+    "8757",
+    "2607"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

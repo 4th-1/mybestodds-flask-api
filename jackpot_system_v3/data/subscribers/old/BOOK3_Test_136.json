@@ -1,0 +1,43 @@
+{
+  "name": "Logan Smith",
+  "first_name": "Logan",
+  "last_name": "Smith",
+  "initials": "LSM",
+  "gender": "F",
+  "dob": "1962-11-13",
+  "tob": "05:30",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "993",
+      "253",
+      "382",
+      "279",
+      "479"
+    ],
+    "Cash4": [
+      "1719",
+      "8650",
+      "1360"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "993",
+    "253",
+    "382",
+    "279",
+    "479"
+  ],
+  "cash4_personal_numbers": [
+    "1719",
+    "8650",
+    "1360"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

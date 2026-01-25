@@ -1,0 +1,43 @@
+{
+  "name": "Devon Clark",
+  "first_name": "Devon",
+  "last_name": "Clark",
+  "initials": "DCL",
+  "gender": "F",
+  "dob": "1996-03-21",
+  "tob": "04:20",
+  "pob": "Boston, MA",
+  "kit": "BOOK3",
+  "subscriber_type": "BOOK3",
+  "cycle_id": "TEST_BOOK3_2025_FALL",
+  "kit_enabled": true,
+  "coverage_start": "2025-09-01",
+  "coverage_end": "2025-11-10",
+  "mmfsn": {
+    "Cash3": [
+      "205",
+      "829",
+      "846",
+      "595",
+      "811"
+    ],
+    "Cash4": [
+      "7961",
+      "1051",
+      "7463"
+    ]
+  },
+  "cash3_personal_numbers": [
+    "205",
+    "829",
+    "846",
+    "595",
+    "811"
+  ],
+  "cash4_personal_numbers": [
+    "7961",
+    "1051",
+    "7463"
+  ],
+  "notes": "Auto-generated test subscriber for BOOK3 engine validation."
+}

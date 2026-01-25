@@ -1,0 +1,96 @@
+{
+  "subscriber_id": "BOOK3_TEST1323",
+  "kit_type": "BOOK3",
+  "dob": "2004-08-24",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Raymond",
+    "last_name": "Walker",
+    "birth_date": "2004-08-24",
+    "birth_city": "Lubbock",
+    "birth_state": "Texas",
+    "birth_time": "00:24"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "548",
+          "581"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "1454"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          4,
+          13,
+          52,
+          66,
+          70
+        ],
+        "mega_ball": [
+          16
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          9,
+          19,
+          25,
+          56,
+          60
+        ],
+        "power_ball": [
+          5
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          12,
+          31,
+          36,
+          45,
+          49
+        ],
+        "cash_ball": [
+          1
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}

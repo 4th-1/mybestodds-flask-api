@@ -1,0 +1,98 @@
+{
+  "subscriber_id": "BOOK3_TEST1249",
+  "kit_type": "BOOK3",
+  "dob": "1976-11-16",
+  "coverage_start": "2025-01-01",
+  "coverage_end": "2025-12-01",
+  "formats": [
+    "JSON"
+  ],
+  "identity": {
+    "first_name": "Dennis",
+    "last_name": "Bryant",
+    "birth_date": "1976-11-16",
+    "birth_city": "North Las Vegas",
+    "birth_state": "Nevada",
+    "birth_time": "05:12"
+  },
+  "preferences": {
+    "games": [
+      "Cash3",
+      "Cash4",
+      "MegaMillions",
+      "Powerball",
+      "Cash4Life"
+    ],
+    "risk_profile": "conservative"
+  },
+  "meta": {
+    "version": "v3.7",
+    "created_at": "2025-12-27"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": [
+          "601",
+          "934",
+          "366"
+        ]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": [
+          "9250",
+          "9659"
+        ]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [
+          30,
+          37,
+          43,
+          53,
+          56
+        ],
+        "mega_ball": [
+          20
+        ]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [
+          1,
+          3,
+          5,
+          18,
+          46
+        ],
+        "power_ball": [
+          24
+        ]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [
+          20,
+          28,
+          36,
+          43,
+          54
+        ],
+        "cash_ball": [
+          4
+        ]
+      }
+    },
+    "numerology": {
+      "life_path_required": true,
+      "personal_day_required": true
+    },
+    "astrology": {
+      "requires_birth_time": true,
+      "requires_location": true
+    }
+  }
+}
