@@ -1,0 +1,45 @@
+{
+  "subscriber_id": "sub_josephdavidsmith",
+  "kit_type": "BOOK3",
+  "initials": "JDS",
+  "dob": "1972-08-22",
+  "date_of_birth": "1972-08-22",
+  "coverage_start": "2026-01-01",
+  "coverage_end": "2026-12-31",
+  "identity": {
+    "first_name": "Joseph",
+    "middle_name": "David",
+    "last_name": "Smith",
+    "birth_date": "1972-08-22",
+    "birth_time": "10:41",
+    "birth_city": "Atlanta",
+    "birth_state": "GA"
+  },
+  "engine_profile": {
+    "mmfsn": {
+      "Cash3": {
+        "type": "combination",
+        "values": ["132", "176", "451", "510", "724", "822", "824"]
+      },
+      "Cash4": {
+        "type": "combination",
+        "values": ["1234"]
+      },
+      "MegaMillions": {
+        "type": "ball-set",
+        "main": [3, 11, 27, 44, 56],
+        "mega_ball": [7, 19]
+      },
+      "Powerball": {
+        "type": "ball-set",
+        "main": [5, 12, 33, 48, 61],
+        "power_ball": [9, 18]
+      },
+      "Cash4Life": {
+        "type": "ball-set",
+        "main": [1, 13, 21, 34, 56],
+        "cash_ball": [2]
+      }
+    }
+  }
+}
