@@ -1,0 +1,11 @@
+{
+  "name": "Sample BOSK Subscriber",
+  "dob": "1975-05-15",
+  "kit": "BOSK",
+  "games": ["cash3", "cash4"],
+  "active": true,
+  "preferences": {
+    "play_types": ["BOX", "COMBO"],
+    "max_stake": 5
+  }
+}

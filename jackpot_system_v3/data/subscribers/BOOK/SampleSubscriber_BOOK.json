@@ -1,0 +1,11 @@
+{
+  "name": "Sample BOOK Subscriber",
+  "dob": "1980-01-01",
+  "kit": "BOOK",
+  "games": ["megamillions", "powerball", "cash4life"],
+  "active": true,
+  "preferences": {
+    "play_types": ["STRAIGHT"],
+    "max_stake": 10
+  }
+}
