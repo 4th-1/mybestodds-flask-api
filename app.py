@@ -8,12 +8,70 @@ from flask import Flask, request, jsonify
 from datetime import datetime
 import os
 import sys
+import json
+import subprocess
+import tempfile
 
 # Setup paths
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(PROJECT_ROOT, 'jackpot_system_v3'))
+JACKPOT_SYSTEM = os.path.join(PROJECT_ROOT, 'jackpot_system_v3')
+sys.path.insert(0, JACKPOT_SYSTEM)
 
 app = Flask(__name__)
+
+# Helper function to run prediction engine
+def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
+    """
+    Run the actual v3.7 prediction engine
+    """
+    try:
+        # Create temporary subscriber config file
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+            json.dump(subscriber_data, f, indent=2)
+            temp_config = f.name
+        
+        # Path to run_kit_v3.py
+        run_kit_script = os.path.join(JACKPOT_SYSTEM, 'run_kit_v3.py')
+        
+        # Run the prediction engine
+        result = subprocess.run(
+            ['python', run_kit_script, temp_config, kit],
+            capture_output=True,
+            text=True,
+            cwd=JACKPOT_SYSTEM,
+            timeout=300  # 5 minute timeout
+        )
+        
+        # Clean up temp file
+        try:
+            os.unlink(temp_config)
+        except:
+            pass
+        
+        if result.returncode == 0:
+            return {
+                'success': True,
+                'output': result.stdout,
+                'game': game,
+                'kit': kit
+            }
+        else:
+            return {
+                'success': False,
+                'error': result.stderr,
+                'returncode': result.returncode
+            }
+            
+    except subprocess.TimeoutExpired:
+        return {
+            'success': False,
+            'error': 'Prediction engine timeout (exceeded 5 minutes)'
+        }
+    except Exception as e:
+        return {
+            'success': False,
+            'error': str(e)
+        }
 
 @app.route('/')
 def index():
@@ -129,21 +187,41 @@ def predict():
                 'valid_games': valid_games
             }), 400
         
-        # TODO: Integrate with actual prediction engine
-        # For now, return a placeholder response
-        response = {
-            'status': 'success',
-            'message': 'Prediction engine integration pending',
-            'request': {
-                'subscriber': subscriber_name,
-                'game': game,
-                'dob': dob,
-                'kit': kit
-            },
-            'note': 'Full prediction engine integration coming soon'
+        # Build subscriber configuration
+        subscriber_config = {
+            'name': subscriber_name,
+            'dob': dob,
+            'kit': kit,
+            'games': [game],
+            'active': True,
+            'preferences': data.get('preferences', {}),
+            'play_types': data.get('play_types', ['STRAIGHT', 'BOX', 'COMBO']),
+            'prediction_date': data.get('prediction_date', datetime.utcnow().strftime('%Y-%m-%d'))
         }
         
-        return jsonify(response), 200
+        # Run the actual prediction engine
+        result = run_prediction_engine(subscriber_config, game, kit)
+        
+        if result['success']:
+            return jsonify({
+                'status': 'success',
+                'subscriber': subscriber_name,
+                'game': game,
+                'kit': kit,
+                'dob': dob,
+                'prediction_date': subscriber_config['prediction_date'],
+                'engine_output': result['output'],
+                'message': 'Predictions generated successfully',
+                'note': 'Check engine_output for detailed forecast data'
+            }), 200
+        else:
+            return jsonify({
+                'status': 'error',
+                'error': 'Prediction engine failed',
+                'details': result.get('error', 'Unknown error'),
+                'subscriber': subscriber_name,
+                'game': game
+            }), 500
         
     except Exception as e:
         return jsonify({
