@@ -59,8 +59,17 @@ quad_engine = None
 #     quad_engine = None
 
 # Configuration
-SUBSCRIBERS_DIR = os.path.join(PROJECT_ROOT, "data", "subscribers")
-PYTHON_EXE = os.path.join(PROJECT_ROOT, ".venv", "Scripts", "python.exe")
+JACKPOT_SYSTEM_DIR = os.path.join(PROJECT_ROOT, "jackpot_system_v3")
+SUBSCRIBERS_DIR = os.path.join(JACKPOT_SYSTEM_DIR, "data", "subscribers")
+
+# Detect OS and use correct Python path
+import platform
+if platform.system() == "Windows":
+    PYTHON_EXE = os.path.join(PROJECT_ROOT, ".venv", "Scripts", "python.exe")
+else:  # Linux/Unix (Railway)
+    PYTHON_EXE = os.path.join(PROJECT_ROOT, ".venv", "bin", "python")
+
+RUN_KIT_SCRIPT = os.path.join(JACKPOT_SYSTEM_DIR, "run_kit_v3.py")
 
 
 def get_all_subscribers() -> List[Dict]:
@@ -613,7 +622,7 @@ def generate_predictions_from_inline_data(subscriber_id: str, dob: str, kit: str
         }
         
         # Write to temp file
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False, dir=PROJECT_ROOT) as f:
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False, dir=JACKPOT_SYSTEM_DIR) as f:
             json.dump(temp_config, f, indent=2)
             temp_file_path = f.name
         
@@ -623,7 +632,7 @@ def generate_predictions_from_inline_data(subscriber_id: str, dob: str, kit: str
             # Run prediction engine with temp config
             cmd = [
                 PYTHON_EXE,
-                "run_kit_v3.py",
+                RUN_KIT_SCRIPT,
                 temp_filename,  # Just filename, not full path
                 kit
             ]
@@ -632,7 +641,7 @@ def generate_predictions_from_inline_data(subscriber_id: str, dob: str, kit: str
             
             result = subprocess.run(
                 cmd,
-                cwd=PROJECT_ROOT,
+                cwd=JACKPOT_SYSTEM_DIR,
                 capture_output=True,
                 text=True,
                 timeout=120
@@ -770,7 +779,7 @@ def run_prediction_engine(subscriber_file: str, kit: str) -> Dict:
         # Run prediction engine
         cmd = [
             PYTHON_EXE,
-            "run_kit_v3.py",
+            RUN_KIT_SCRIPT,
             f"{kit}/{subscriber_file}",
             kit
         ]
@@ -779,7 +788,7 @@ def run_prediction_engine(subscriber_file: str, kit: str) -> Dict:
         
         result = subprocess.run(
             cmd,
-            cwd=PROJECT_ROOT,
+            cwd=JACKPOT_SYSTEM_DIR,
             capture_output=True,
             text=True,
             timeout=120
