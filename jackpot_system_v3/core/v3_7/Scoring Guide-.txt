@@ -1,0 +1,64 @@
+Scoring Guide-
+A-11.74
+B- 21.95
+C- 32.79
+D-21.16
+E.16.84
+
+
+
+
+
+
+
+
+
+def _run_cash3(forecast_date):
+    output = []
+    for session in ["MIDDAY", "EVENING", "NIGHT"]:
+        rows = generate_for_session(game_code="CASH3", session=session, forecast_date=forecast_date)
+        for row in rows:
+            row["draw_time"] = session
+            output.append(row)
+    return output
+
+def _run_cash4(forecast_date):
+    output = []
+    for session in ["MIDDAY", "EVENING", "NIGHT"]:
+        rows = generate_for_session(game_code="CASH4", session=session, forecast_date=forecast_date)
+        for row in rows:
+            row["draw_time"] = session
+            output.append(row)
+    return output
+
+def _run_for_date(forecast_date, subscriber_context):
+    unified_rows = []
+
+    # 1. Generate Cash3/Cash4 rows (Left Engine)
+    cash3_rows = _run_cash3(forecast_date)
+    cash4_rows = _run_cash4(forecast_date)
+    unified_rows.extend(cash3_rows + cash4_rows)
+
+    # 2. Apply Phase 2 transformations
+    transformed_rows = apply_phase_two_transforms(unified_rows)
+
+    # 3. Apply MMFSN resonance (Phase 3) — only to Cash rows
+    cash_rows = [row for row in transformed_rows if row["game"] in ["CASH3", "CASH4"]]
+    personalized_cash_rows = apply_mmfsn_resonance(cash_rows, subscriber_context)
+
+    # Preserve any non-cash rows (e.g., future pipeline extension)
+    non_cash_rows = [row for row in transformed_rows if row["game"] not in ["CASH3", "CASH4"]]
+
+    # 4. Execute Right Engine for scheduled jackpot games
+    jackpot_rows = []
+    for game_code in ["MEGA", "POWER", "CASH4LIFE"]:
+        if is_valid_draw_day({"game_code": game_code, "forecast_date": forecast_date}):
+            rows = build_engine_for_game(game_code, forecast_date)
+            for row in rows:
+                if not row.get("number"):
+                    row["number"] = compose_jackpot_number(row)  # ensure executable number string
+            jackpot_rows.extend(rows)
+
+    # 5. Combine all rows
+    final_rows = personalized_cash_rows + non_cash_rows + jackpot_rows
+    return final_rows

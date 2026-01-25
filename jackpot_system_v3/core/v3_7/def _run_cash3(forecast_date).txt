@@ -1,0 +1,97 @@
+def _run_cash3(forecast_date):
+    output = []
+    for session in ["MIDDAY", "EVENING", "NIGHT"]:
+        rows = generate_for_session(game_code="CASH3", session=session, forecast_date=forecast_date)
+        for row in rows:
+            row["draw_time"] = session
+            output.append(row)
+    return output
+
+def _run_cash4(forecast_date):
+    output = []
+    for session in ["MIDDAY", "EVENING", "NIGHT"]:
+        rows = generate_for_session(game_code="CASH4", session=session, forecast_date=forecast_date)
+        for row in rows:
+            row["draw_time"] = session
+            output.append(row)
+    return output
+
+def _run_for_date(forecast_date, subscriber_context):
+    unified_rows = []
+
+    # 1. Generate Cash3/Cash4 rows (Left Engine)
+    cash3_rows = _run_cash3(forecast_date)
+    cash4_rows = _run_cash4(forecast_date)
+    unified_rows.extend(cash3_rows + cash4_rows)
+
+    # 2. Apply Phase 2 transformations
+    transformed_rows = apply_phase_two_transforms(unified_rows)
+
+    # 3. Apply MMFSN resonance (Phase 3) — only to Cash rows
+    cash_rows = [row for row in transformed_rows if row["game"] in ["CASH3", "CASH4"]]
+    personalized_cash_rows = apply_mmfsn_resonance(cash_rows, subscriber_context)
+
+    # Preserve any non-cash rows (e.g., future pipeline extension)
+    non_cash_rows = [row for row in transformed_rows if row["game"] not in ["CASH3", "CASH4"]]
+
+    # 4. Execute Right Engine for scheduled jackpot games
+    jackpot_rows = []
+    for game_code in ["MEGA", "POWER", "CASH4LIFE"]:
+        if is_valid_draw_day({"game_code": game_code, "forecast_date": forecast_date}):
+            rows = build_engine_for_game(game_code, forecast_date)
+            for row in rows:
+                if not row.get("number"):
+                    row["number"] = compose_jackpot_number(row)  # ensure executable number string
+            jackpot_rows.extend(rows)
+
+    # 5. Combine all rows
+    final_rows = personalized_cash_rows + non_cash_rows + jackpot_rows
+    return final_rows
+
+# --- TEST SCRIPT FOR VALIDATION ---
+def test_run_for_date():
+    from datetime import date
+
+    forecast_date = date(2025, 12, 16)  # Choose a known Tuesday for Mega
+    subscriber_context = {"mmfsn_sets": ["123", "456"], "subscriber_id": "test_user_1"}
+
+    results = _run_for_date(forecast_date, subscriber_context)
+
+    sessions_cash3 = set()
+    sessions_cash4 = set()
+    games_seen = set()
+    jackpot_games_seen = set()
+    cash_mmfsn_ok = True
+    jackpot_mmfsn_absent = True
+
+    for row in results:
+        game = row.get("game")
+        draw_time = row.get("draw_time")
+
+        if game == "CASH3":
+            sessions_cash3.add(draw_time)
+        elif game == "CASH4":
+            sessions_cash4.add(draw_time)
+
+        if game in ["MEGA", "POWER", "CASH4LIFE"]:
+            games_seen.add(game)
+            jackpot_games_seen.add(game)
+            if row.get("mmfsn_relation") or row.get("resonance_score"):
+                jackpot_mmfsn_absent = False
+        elif game in ["CASH3", "CASH4"]:
+            if not row.get("mmfsn_relation") or not isinstance(row.get("resonance_score"), (int, float)):
+                cash_mmfsn_ok = False
+
+    print("Test Date:", forecast_date)
+    print("Cash3 Sessions:", sessions_cash3)
+    print("Cash4 Sessions:", sessions_cash4)
+    print("Jackpot Games Seen:", jackpot_games_seen)
+    print("Cash MMFSN Applied Correctly:", cash_mmfsn_ok)
+    print("Jackpot MMFSN Absent:", jackpot_mmfsn_absent)
+
+    assert sessions_cash3 == {"MIDDAY", "EVENING", "NIGHT"}, "Cash3 sessions missing"
+    assert sessions_cash4 == {"MIDDAY", "EVENING", "NIGHT"}, "Cash4 sessions missing"
+    assert "MEGA" in jackpot_games_seen, "Mega Millions missing on Tuesday"
+    assert cash_mmfsn_ok, "MMFSN incorrect on cash rows"
+    assert jackpot_mmfsn_absent, "MMFSN incorrectly applied to jackpots"
+    print("All tests passed.")

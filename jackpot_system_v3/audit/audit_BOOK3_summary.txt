@@ -1,0 +1,6 @@
+BOOK3 SENTINEL v3.7 Audit Summary
+---------------------------------
+hit_type
+BOX            3
+MISS        1256
+STRAIGHT       7

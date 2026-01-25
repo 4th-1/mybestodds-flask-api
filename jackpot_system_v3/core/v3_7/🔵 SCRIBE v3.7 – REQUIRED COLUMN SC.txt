@@ -1,0 +1,102 @@
+🔵 SCRIBE v3.7 – REQUIRED COLUMN SCHEMA (Updated)
+
+SCRIBE must validate that every forecast.csv contains these columns.
+Nothing else is required. Anything not listed here is allowed but not required.
+
+SCRIBE must mark a row “missing_required” only if any of these columns are missing:
+
+IDENTITY (Required)
+
+kit_name
+
+game_code
+
+forecast_date
+
+draw_time
+
+number
+
+OVERLAY (Required)
+
+overlay_score
+
+(Note: In v3.7 all other overlay components — moon, zodiac, numerology, planetary — are now internal only. They are NOT required in the forecast.csv.)
+
+RUBIK (Required)
+
+play_type
+
+play_type_rubix
+
+rubik_code
+
+rubik_bucket
+
+CONFIDENCE (Required)
+
+confidence_score
+
+confidence_band
+
+confidence_pct
+
+MBO ODDS (Required)
+
+mbo_odds
+
+mbo_odds_text
+
+mbo_odds_band
+
+BOB (Required)
+
+bob_action
+
+bob_note
+
+WLS (Required)
+
+wls
+(Important: wls_rank is NO LONGER required. Remove it from expected columns.)
+
+HITLOG (Required)
+
+hit_type_book
+
+hit_type_book3
+
+hit_type_bosk
+
+MISC (Required)
+
+sum
+
+sum_range
+
+priority
+
+lane
+
+delta_pattern
+
+(All other MISC fields such as posterior, markov, kelly, ML score are now optional or deprecated.)
+
+🔶 SCRIBE must treat ALL OTHER COLUMNS as optional
+
+If any column appears in the CSV that is not listed above, SCRIBE should treat it as:
+
+Unexpected but allowed
+(not an error)
+
+🔥 Scribe’s job after the update
+
+After pasting the above rules, SCRIBE will:
+
+✔ Only flag true missing-required columns
+✔ Stop flagging wls_rank as missing
+✔ Stop flagging old overlay fields as missing
+✔ Stop flagging ML/WLS/Markov/Kelly/Posteriors as missing
+✔ Pass your new v3.7 kits cleanly
+✔ Give accurate alignment and schema pass/fail reports
+✔ Eliminate all false positives across all output folders

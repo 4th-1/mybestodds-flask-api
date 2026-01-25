@@ -1,0 +1,38 @@
+@echo off
+set DOWNLOADS=%USERPROFILE%\Downloads
+set TARGET=%USERPROFILE%\Documents\Oracle_Book_Kit\Generated_Jackpot_Draw_Schedule_Sep1_Nov10_2025.csv
+
+echo Moving file to Oracle_Book_Kit folder...
+move "%DOWNLOADS%\Generated_Jackpot_Draw_Schedule_Sep1_Nov10_2025.csv" "%TARGET%"
+
+echo Opening in Excel...
+start excel "%TARGET%"
+pause
+
+
+vest9salon4ones
+
+
+____________________
+
+semo_20.se1, sepl_20.se1
+
+
+
+
+semo_20.se1 (already downloaded)
+
+semo_18.se1 already downloaded)
+
+sepl_18.se1 (already downloaded)
+
+sepl_20.se1
+
+
+
+
+
+sepl_20.se1
+semo_20.se1
+
+sepl_19.se1 missing

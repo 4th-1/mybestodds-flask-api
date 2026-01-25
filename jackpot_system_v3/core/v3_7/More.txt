@@ -1,0 +1,24 @@
+
+import pandas as pd
+
+def load_triples_quads(filepath):
+    return pd.read_csv(filepath)
+
+def extract_smart_picks(forecast_json):
+    triples, quads = [333], [7777]
+    for entry in forecast_json.get("forecast", []):
+        numbers = ''.join(filter(str.isdigit, entry.get("Your Numbers", "")))
+        if len(numbers) == 3:
+            triples.append(numbers)
+        elif len(numbers) == 4:
+            quads.append(numbers)
+    return triples, quads
+
+def audit_triples_quads(triples_quads_df, smart_triples, smart_quads):
+    matches = []
+    for index, row in triples_quads_df.iterrows():
+        combo = row.get("Triple / Quad", "").replace(" ", "").split("/")
+        for c in combo:
+            if c in smart_triples or c in smart_quads:
+                matches.append((c, row.to_dict()))
+    return matches

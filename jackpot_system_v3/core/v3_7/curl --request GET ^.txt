@@ -1,0 +1,17 @@
+curl --request GET ^
+  --url "https://usa-lottery-result-all-state-api.p.rapidapi.com/lottery-results/states/game-list?state=GA" ^
+  --header "x-rapidapi-host: usa-lottery-result-all-state-api.p.rapidapi.com" ^
+  --header "x-rapidapi-key: a0a23c4713msh72afb05b0e7b414p18e883jsn6452579f960a"
+
+
+GAME_ID_MAP = {
+    "Mega Millions": 116,
+    "Powerball": 115,
+    "Cash4Life": 117,
+    "Cash 3 Midday": 100,
+    "Cash 3 Evening": 101,
+    "Cash 3 Night": 102,
+    "Cash 4 Midday": 103,
+    "Cash 4 Evening": 104,
+    "Cash 4 Night": 105
+}

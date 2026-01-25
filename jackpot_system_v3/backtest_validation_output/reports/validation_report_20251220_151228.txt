@@ -1,0 +1,109 @@
+
+COMPREHENSIVE BOOK3 BACKTEST VALIDATION REPORT
+==============================================
+Date Range: 2025-01-01 to 2025-11-10
+Generated: 2025-12-20 15:12:28
+
+EXECUTION SUMMARY
+-----------------
+Total Subscribers: 15
+Successful Runs: 15
+Failed Runs: 0
+Success Rate: 100.0%
+
+PREDICTION VOLUME
+-----------------
+Total Raw Predictions: 30,375
+After Selectivity Filtering: 30,375
+Overall Silence Rate: 0.0% (Target: ~25%)
+
+CONFIDENCE SCORING IMPROVEMENTS
+-------------------------------
+Subscribers with Healthy Score Variation: 0.0% (Target: >90%)
+Subscribers with Healthy Score Range: 0.0% (Target: >90%)
+
+Average Confidence Statistics:
+- Average Standard Deviation: 0.36 (Target: >5.0)
+- Average Unique Scores per Subscriber: 13.0 (Target: >20)
+
+GAME COVERAGE
+-------------
+Games Tested: Cash3, Cash4
+Cash Games Included: ✓
+Jackpot Games Included: ✗
+
+VALIDATION STATUS
+-----------------
+
+Overall Verdict: ❌ VALIDATION FAILED
+Both confidence scoring and selectivity filtering need additional work.
+
+RECOMMENDATIONS
+---------------
+• Adjust confidence scoring variation parameters in score_fx_v3_7.py
+• Tune selectivity threshold in post_engine_filter_v3_7.py
+
+DETAILED SUBSCRIBER RESULTS
+===========================
+
+AA:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+AJS:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+Unknown:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+BO:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+CP:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+CW:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+JDR:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+JDSII:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+JDS_BOOK3:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+JHD:
+- Predictions: 2025 → 2025
+- Silence Rate: 100.0%
+- Confidence Range: 20.4 - 21.8
+- Score Variation: Poor
+
+... and 5 more subscribers (see detailed JSON output)

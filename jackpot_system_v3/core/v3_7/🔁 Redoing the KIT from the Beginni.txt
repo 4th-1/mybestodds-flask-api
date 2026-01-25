@@ -1,0 +1,43 @@
+🔁 Redoing the KIT from the Beginning
+We'll structure your system into its three main engines:
+
+1. Oracle (Forecast Intelligence Engine)
+Inputs: DOB, TOB, POB, Forecast Dates
+
+Process: Compute planetary overlays using Skyfield
+
+Output: JSON with positions and astrology overlay data
+
+Purpose Usage for Astrology Overlay:  
+Astrology Timing Includes:
+2nd, 5th, 8th, 11th Houses
+
+Jupiter / Saturn transits
+
+North Node guidance
+
+Moon phase activations
+
+Red / Yellow / Green Timing Days
+
+
+2. Scribe (Narrative Generator)
+Inputs: JSON from Oracle
+
+Process: Interpret astrological positions into narrative insights
+
+Output: Written forecast report (text or PDF)
+
+3. Sentinel (User Interface & Trigger System)
+Inputs: User selection or schedule
+
+Process: Run scripts, show output, trigger forecasts
+
+Output: Interface or automation for report generation
+
+⚙️ How to Run It: Manual or Command Line?
+You can do both — but here’s the breakdown:
+
+Method	When to Use	Tools Involved
+Command Prompt (Manual CLI)	For full control, testing individual parts, scripting automation	Run python run_oracle.py, run_scribe.py, etc.
+Oracle, Scribe & Sentinel (Full Pipeline)	Once you’ve modularized everything	Run a master script or GUI (main.py) to trigger the full flow

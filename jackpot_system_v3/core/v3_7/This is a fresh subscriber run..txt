@@ -1,0 +1,28 @@
+This is a fresh subscriber run.
+
+✅ Do not use memory
+✅ Do not recall past sessions
+✅ Use only the uploaded files:
+    1. JosephSmith_bestodds_data_BOOK3
+    2. Oracle_generate_lotcast_BOOK3.py
+    3. Scribe_styleprotect_BOOK3.py
+    4. lottery_odds_book3.json (if needed)
+    5. astrology_utils.py
+
+🛠️ Purpose: Generate, style, and audit a personalized lottery forecast for [Subscriber Name] using the [KIT] system.
+
+Start fresh now. I’ll upload the files.
+
+
+Reset session. Do not use memory. Work only from the files I now upload!
+
+Run FULL BOOK3 KIT BUILD
+Name: Joseph D. Smith
+DOB: 08/22/1972
+POB: Atlanta, GA
+TOB: 10:41 AM EST
+Email: jdsmith0822@gmail.com
+KIT: BOOK3
+Most Frequently Seen Numbers (MMFSN): 822, 406, 502, 416, 115, 628, 706, 119 
+Formats: EXCEL
+	

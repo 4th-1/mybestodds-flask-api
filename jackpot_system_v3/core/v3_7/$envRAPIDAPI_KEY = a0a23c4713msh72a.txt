@@ -1,0 +1,9 @@
+$env:RAPIDAPI_KEY = "a0a23c4713msh72afb05b0e7b414p18e883jsn6452579f960a"
+# (to persist for future sessions)
+[Environment]::SetEnvironmentVariable("RAPIDAPI_KEY", "a0a23c4713msh72afb05b0e7b414p18e883jsn6452579f960a", "User")
+
+
+[Environment]::SetEnvironmentVariable("RAPIDAPI_KEY", "a0a23c4713msh72afb05b0e7b414p18e883jsn6452579f960a", "User")
+
+
+$env:RAPIDAPI_KEY = [Environment]::GetEnvironmentVariable("a0a23c4713msh72afb05b0e7b414p18e883jsn6452579f960a", "User")
