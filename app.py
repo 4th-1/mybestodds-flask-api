@@ -345,6 +345,84 @@ def generate_batch_predictions():
             'error': str(e)
         }), 500
 
+
+@app.route('/api/predictions/generate/<subscriber_id>', methods=['POST'])
+def generate_single_prediction(subscriber_id):
+    ""\"Generate prediction for a specific subscriber (Base44 UI trigger)""\"
+    import logging
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger('api_server')
+    
+    logger.info(f"Generating prediction for {subscriber_id} on 2026-01-26")
+    
+    try:
+        data = request.get_json() or {}
+        target_date = data.get('date', datetime.utcnow().strftime('%Y-%m-%d'))
+        
+        # Import Base44 integration
+        sys.path.insert(0, PROJECT_ROOT)
+        from base44_integration import get_subscriber_from_base44
+        
+        logger.info(f"Subscriber {subscriber_id} not in local configs - using inline data from webhook")
+        
+        # Try to get subscriber from Base44
+        subscriber = get_subscriber_from_base44(subscriber_id)
+        
+        if not subscriber:
+            # If not in Base44, use inline data from request
+            subscriber_config = {
+                'name': data.get('name', subscriber_id),
+                'dob': data.get('date_of_birth', data.get('dob', '1980-01-01')),
+                'kit': data.get('kit', 'BOOK3'),
+                'games': data.get('games', ['cash3']),
+                'active': True,
+                'prediction_date': target_date
+            }
+            logger.info(f"Generating predictions from inline data: {subscriber_config['name']}, DOB: {subscriber_config['dob']}, Kit: {subscriber_config['kit']}")
+        else:
+            subscriber_config = {
+                'name': subscriber.get('name', subscriber_id),
+                'dob': subscriber.get('date_of_birth', '1980-01-01'),
+                'kit': subscriber.get('kit', 'BOOK3'),
+                'games': subscriber.get('games', ['cash3']),
+                'active': True,
+                'prediction_date': target_date
+            }
+        
+        game = subscriber_config['games'][0] if subscriber_config['games'] else 'cash3'
+        kit = subscriber_config['kit']
+        
+        logger.info(f"Running: /app/.venv/bin/python /app/jackpot_system_v3/run_kit_v3.py tmp{subscriber_id}.json {kit}")
+        
+        # Generate prediction
+        result = run_prediction_engine(subscriber_config, game, kit)
+        
+        if result['success']:
+            return jsonify({
+                'status': 'success',
+                'subscriber_id': subscriber_id,
+                'subscriber_name': subscriber_config['name'],
+                'date': target_date,
+                'game': game,
+                'kit': kit,
+                'prediction': result['output']
+            }), 200
+        else:
+            logger.error(f"Prediction failed: {result.get('error', 'Unknown error')}")
+            return jsonify({
+                'status': 'error',
+                'subscriber_id': subscriber_id,
+                'error': result.get('error', 'Prediction failed')
+            }), 500
+            
+    except Exception as e:
+        logger.error(f"Error generating prediction: {e}")
+        return jsonify({
+            'status': 'error',
+            'subscriber_id': subscriber_id,
+            'error': str(e)
+        }), 500
+
 @app.route('/api/predictions/<subscriber_id>/<target_date>', methods=['GET'])
 def get_subscriber_prediction(subscriber_id, target_date):
     ""\"Get prediction for specific subscriber and date""\"
