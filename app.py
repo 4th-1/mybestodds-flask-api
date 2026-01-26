@@ -1,4 +1,4 @@
-"""
+﻿"""
 My Best Odds Flask API - Production Server
 Supports: Cash3, Cash4, MegaMillions, Powerball, Cash4Life
 Version: 3.7
@@ -250,6 +250,164 @@ def api_status():
         }
     })
 
+
+# Base44 Integration Endpoints
+@app.route('/api/predictions/generate', methods=['POST'])
+def generate_batch_predictions():
+    ""\"Batch generate predictions for all active subscribers (Base44 webhook)""\"
+    import logging
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger('api_server')
+    
+    logger.info(f"Received POST request to /api/predictions/generate")
+    logger.info(f"Headers: {dict(request.headers)}")
+    logger.info(f"Content-Type: {request.content_type}")
+    
+    try:
+        data = request.get_json() or {}
+        target_date = data.get('date', datetime.utcnow().strftime('%Y-%m-%d'))
+        
+        logger.info(f"Generating predictions for {target_date}")
+        
+        # Import Base44 integration
+        sys.path.insert(0, PROJECT_ROOT)
+        from base44_integration import get_active_subscribers_from_base44
+        
+        # Get active subscribers from Base44
+        subscribers = get_active_subscribers_from_base44()
+        
+        if not subscribers:
+            logger.warning("No active subscribers found in Base44")
+            return jsonify({
+                'status': 'success',
+                'message': 'No active subscribers to process',
+                'predictions': [],
+                'date': target_date
+            }), 200
+        
+        # Generate predictions for each subscriber
+        results = {'success': [], 'failed': []}
+        
+        for sub in subscribers:
+            try:
+                subscriber_config = {
+                    'name': sub.get('name', f"sub_{sub['id']}"),
+                    'dob': sub.get('date_of_birth', '1980-01-01'),
+                    'kit': sub.get('kit', 'BOOK3'),
+                    'games': sub.get('games', ['cash3']),
+                    'active': True,
+                    'prediction_date': target_date
+                }
+                
+                game = subscriber_config['games'][0] if subscriber_config['games'] else 'cash3'
+                kit = subscriber_config['kit']
+                
+                logger.info(f"Generating prediction for {subscriber_config['name']} on {target_date}")
+                
+                result = run_prediction_engine(subscriber_config, game, kit)
+                
+                if result['success']:
+                    results['success'].append({
+                        'subscriber_id': sub['id'],
+                        'name': subscriber_config['name'],
+                        'game': game,
+                        'kit': kit
+                    })
+                else:
+                    results['failed'].append({
+                        'subscriber_id': sub['id'],
+                        'name': subscriber_config['name'],
+                        'error': result.get('error', 'Unknown error')
+                    })
+                    
+            except Exception as e:
+                logger.error(f"Failed to process subscriber {sub.get('id', 'unknown')}: {e}")
+                results['failed'].append({
+                    'subscriber_id': sub.get('id', 'unknown'),
+                    'error': str(e)
+                })
+        
+        logger.info(f"Generation complete: {len(results['success'])} success, {len(results['failed'])} failed")
+        
+        return jsonify({
+            'status': 'success',
+            'date': target_date,
+            'total_subscribers': len(subscribers),
+            'successful': len(results['success']),
+            'failed': len(results['failed']),
+            'results': results
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Batch generation error: {e}")
+        return jsonify({
+            'status': 'error',
+            'error': str(e)
+        }), 500
+
+@app.route('/api/predictions/<subscriber_id>/<target_date>', methods=['GET'])
+def get_subscriber_prediction(subscriber_id, target_date):
+    ""\"Get prediction for specific subscriber and date""\"
+    import logging
+    logger = logging.getLogger('api_server')
+    
+    logger.info(f"Fetching prediction for {subscriber_id} on {target_date}")
+    
+    try:
+        # Import Base44 integration
+        sys.path.insert(0, PROJECT_ROOT)
+        from base44_integration import get_subscriber_from_base44
+        
+        # Get subscriber from Base44
+        subscriber = get_subscriber_from_base44(subscriber_id)
+        
+        if not subscriber:
+            return jsonify({
+                'error': 'Subscriber not found',
+                'subscriber_id': subscriber_id
+            }), 404
+        
+        # Build subscriber config
+        subscriber_config = {
+            'name': subscriber.get('name', f"sub_{subscriber_id}"),
+            'dob': subscriber.get('date_of_birth', '1980-01-01'),
+            'kit': subscriber.get('kit', 'BOOK3'),
+            'games': subscriber.get('games', ['cash3']),
+            'active': True,
+            'prediction_date': target_date
+        }
+        
+        game = subscriber_config['games'][0] if subscriber_config['games'] else 'cash3'
+        kit = subscriber_config['kit']
+        
+        # Generate prediction
+        result = run_prediction_engine(subscriber_config, game, kit)
+        
+        if result['success']:
+            return jsonify({
+                'status': 'success',
+                'subscriber_id': subscriber_id,
+                'subscriber_name': subscriber_config['name'],
+                'date': target_date,
+                'game': game,
+                'kit': kit,
+                'prediction': result['output']
+            }), 200
+        else:
+            return jsonify({
+                'status': 'error',
+                'subscriber_id': subscriber_id,
+                'error': result.get('error', 'Prediction failed')
+            }), 500
+            
+    except Exception as e:
+        logger.error(f"Error fetching prediction: {e}")
+        return jsonify({
+            'status': 'error',
+            'error': str(e)
+        }), 500
+
+
 @app.errorhandler(404)
 def not_found(error):
     """Custom 404 handler"""
@@ -269,3 +427,4 @@ def internal_error(error):
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
+
