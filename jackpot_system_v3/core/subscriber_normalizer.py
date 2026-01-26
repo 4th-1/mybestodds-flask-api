@@ -61,3 +61,5 @@ def normalize_subscriber_files():
             print(f"[NORMALIZER] Renamed {file.name} → {new_filename}")
         except Exception as e:
             print(f"[NORMALIZER ERROR] Could not rename {file.name}: {e}")
+
+# Force rebuild: 2026-01-26-09-36-26
