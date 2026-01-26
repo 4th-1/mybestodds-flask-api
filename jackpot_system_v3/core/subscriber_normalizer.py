@@ -24,6 +24,11 @@ def normalize_subscriber_files():
     root = Path(__file__).resolve().parents[1]
     sub_dir = root / "data" / "subscribers"
 
+    # Skip if directory doesn't exist (e.g., on Railway with no subscribers yet)
+    if not sub_dir.exists():
+        print(f"[NORMALIZER] Subscribers directory not found: {sub_dir}. Skipping normalization.")
+        return
+
     for file in sub_dir.iterdir():
         if not file.name.lower().endswith(".json"):
             continue
