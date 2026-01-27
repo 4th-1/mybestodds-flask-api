@@ -11,7 +11,12 @@ if PROJECT_ROOT not in sys.path:
 from core.subscriber_normalizer import normalize_subscriber_files
 
 # Run auto normalization BEFORE anything else
-normalize_subscriber_files()
+try:
+    normalize_subscriber_files()
+except FileNotFoundError as e:
+    print(f"[NORMALIZER] Skipped: {e}")
+except Exception as e:
+    print(f"[NORMALIZER] Warning: {e}")
 
 import argparse
 from kits.kit_runner import run_30_day_kit
