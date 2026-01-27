@@ -37,3 +37,6 @@ collect_*.py
 # Keep only essential files for API
 !requirements.txt
 !README.md
+
+jackpot_system_v3/core/v3_6/
+jackpot_system_v3/core/v3_7/
