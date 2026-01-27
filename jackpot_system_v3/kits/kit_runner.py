@@ -9,7 +9,7 @@ from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
-def run_30_day_kit(subscriber_config, kit_type, output_dir=".", start_date=None, end_date=None):
+def run_30_day_kit(subscriber_file, kit_name, output_dir=".", **kwargs):
     """
     Stub function for Railway - generates minimal prediction response
     
@@ -18,18 +18,28 @@ def run_30_day_kit(subscriber_config, kit_type, output_dir=".", start_date=None,
     requires 4.7GB of historical data.
     """
     logger.warning("Running stub kit_runner - full prediction engine not available on Railway")
+    logger.info(f"Stub prediction called with: subscriber_file={subscriber_file}, kit_name={kit_name}, output_dir={output_dir}")
     
-    subscriber_name = subscriber_config.get("name", "Unknown")
-    subscriber_id = subscriber_config.get("subscriber_id", "unknown")
-    dob = subscriber_config.get("dob", "1970-01-01")
+    # Try to load subscriber info if file exists
+    subscriber_id = "unknown"
+    subscriber_name = "Unknown"
+    if os.path.exists(subscriber_file):
+        try:
+            import json
+            with open(subscriber_file) as f:
+                config = json.load(f)
+                subscriber_name = config.get("name", "Unknown")
+                subscriber_id = config.get("subscriber_id", "unknown")
+        except Exception as e:
+            logger.warning(f"Could not load subscriber file: {e}")
     
-    logger.info(f"Stub prediction for: {subscriber_name} (ID: {subscriber_id}), DOB: {dob}, Kit: {kit_type}")
+    logger.info(f"Stub prediction for: {subscriber_name} (ID: {subscriber_id}), Kit: {kit_name}")
     
     # Return minimal success response
     return {
         "success": True,
         "message": "Prediction stub executed successfully",
         "subscriber_id": subscriber_id,
-        "kit_type": kit_type,
+        "kit_type": kit_name,
         "warning": "Full prediction engine requires historical data not available on Railway"
     }
