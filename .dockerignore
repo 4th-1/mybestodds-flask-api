@@ -1,0 +1,39 @@
+﻿# Exclude large data directories
+shared_history/
+DELIVERY/
+shared_overlays/
+book_overlays/
+
+# Exclude local configs
+jackpot_system_v3/data/subscribers/BOOK3/
+jackpot_system_v3/data/subscribers/BOOK/
+jackpot_system_v3/data/subscribers/BOSK/
+
+# Exclude development files
+*.pyc
+__pycache__/
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Exclude batch scripts and audit tools
+*.bat
+audit_*.py
+check_*.py
+analyze_*.py
+add_*.py
+build_*.py
+collect_*.py
+
+# Exclude markdown and text files
+*.md
+*.txt
+
+# Exclude backups and exports
+*.backup
+*_export.csv
+*_export.json
+
+# Keep only essential files for API
+!requirements.txt
+!README.md
