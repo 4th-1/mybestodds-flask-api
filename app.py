@@ -254,7 +254,7 @@ def api_status():
 # Base44 Integration Endpoints
 @app.route('/api/predictions/generate', methods=['POST'])
 def generate_batch_predictions():
-    ""\"Batch generate predictions for all active subscribers (Base44 webhook)""\"
+    """Batch generate predictions for all active subscribers (Base44 webhook)"""
     import logging
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger('api_server')
@@ -348,7 +348,7 @@ def generate_batch_predictions():
 
 @app.route('/api/predictions/generate/<subscriber_id>', methods=['POST'])
 def generate_single_prediction(subscriber_id):
-    ""\"Generate prediction for a specific subscriber (Base44 UI trigger)""\"
+    """Generate prediction for a specific subscriber (Base44 UI trigger)"""
     import logging
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger('api_server')
@@ -425,7 +425,7 @@ def generate_single_prediction(subscriber_id):
 
 @app.route('/api/predictions/<subscriber_id>/<target_date>', methods=['GET'])
 def get_subscriber_prediction(subscriber_id, target_date):
-    ""\"Get prediction for specific subscriber and date""\"
+    """Get prediction for specific subscriber and date"""
     import logging
     logger = logging.getLogger('api_server')
     
