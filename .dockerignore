@@ -38,5 +38,6 @@ collect_*.py
 !requirements.txt
 !README.md
 
+# Include historical data for full prediction engine (Railway Pro required)
 jackpot_system_v3/core/v3_6/
-jackpot_system_v3/core/v3_7/
+# jackpot_system_v3/core/v3_7/  # ENABLED: Deploy with historical data for predictions
