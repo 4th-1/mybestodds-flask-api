@@ -1,0 +1,51 @@
+{
+  "version": "3.0.0",
+  "timezone": "America/New_York",
+
+  "ga_results": {
+    "cash3_midday": "data/ga_results/cash3_midday.json",
+    "cash3_evening": "data/ga_results/cash3_evening.json",
+    "cash4_night": "data/ga_results/cash4_night.json"
+  },
+
+  "astro": {
+    "house_system": "placidus",
+    "use_whole_sign_overlay": true,
+    "ephemeris_path": "ephe",
+    "orb_degrees": 3.0
+  },
+
+  "vedic": {
+    "enable": true,
+    "use_nakshatras": true,
+    "use_dasha_weighting": true
+  },
+
+  "planetary_hours": {
+    "enable": true,
+    "boost_planets": ["Jupiter", "Moon", "Sun", "Mercury"],
+    "penalize_planets": ["Saturn", "Mars"]
+  },
+
+  "mmfsn": {
+    "mode": "v3",
+    "cash3_weight": 0.6,
+    "cash4_weight": 0.4
+  },
+
+  "score_weights": {
+    "astro": 0.4,
+    "stats": 0.3,
+    "planetary_hours": 0.1,
+    "mmfsn": 0.1,
+    "numerology": 0.1
+  },
+
+  "pdf": {
+    "style_module": "pdf.pdf_style_v3",
+    "title": "Your Best Odds — Powered by My Best Odds Smart Logic System",
+    "use_emojis": true,
+    "color_bars": true,
+    "max_quick_reference_pages": 2
+  }
+}
