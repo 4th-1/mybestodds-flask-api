@@ -1,4 +1,4 @@
-﻿# Exclude large data directories
+# Exclude large data directories
 shared_history/
 DELIVERY/
 shared_overlays/
@@ -8,6 +8,10 @@ book_overlays/
 jackpot_system_v3/data/subscribers/BOOK3/
 jackpot_system_v3/data/subscribers/BOOK/
 jackpot_system_v3/data/subscribers/BOSK/
+
+# Exclude output and processing directories (4.7GB bloat)
+jackpot_system_v3/core/v3_6/
+jackpot_system_v3/core/v3_7/
 
 # Exclude development files
 *.pyc
@@ -38,6 +42,5 @@ collect_*.py
 !requirements.txt
 !README.md
 
-# Include historical data for full prediction engine (Railway Pro required)
-jackpot_system_v3/core/v3_6/
-# jackpot_system_v3/core/v3_7/  # ENABLED: Deploy with historical data for predictions
+# ESSENTIAL SOURCE DATA - KEEP THESE
+!jackpot_system_v3/data/ga_results/*.csv
