@@ -188,6 +188,15 @@ def predict():
             }), 400
         
         # Build subscriber configuration
+        # Extract coverage_start from request, default to today
+        from datetime import timedelta
+        coverage_start = data.get('coverage_start', datetime.utcnow().strftime('%Y-%m-%d'))
+        
+        # Calculate coverage_end (30 days from coverage_start)
+        start_dt = datetime.strptime(coverage_start, '%Y-%m-%d')
+        end_dt = start_dt + timedelta(days=30)
+        coverage_end = end_dt.strftime('%Y-%m-%d')
+        
         subscriber_config = {
             'name': subscriber_name,
             'dob': dob,
@@ -196,7 +205,9 @@ def predict():
             'active': True,
             'preferences': data.get('preferences', {}),
             'play_types': data.get('play_types', ['STRAIGHT', 'BOX', 'COMBO']),
-            'prediction_date': data.get('prediction_date', datetime.utcnow().strftime('%Y-%m-%d'))
+            'prediction_date': data.get('prediction_date', datetime.utcnow().strftime('%Y-%m-%d')),
+            'coverage_start': coverage_start,
+            'coverage_end': coverage_end
         }
         
         # Run the actual prediction engine
@@ -290,13 +301,24 @@ def generate_batch_predictions():
         
         for sub in subscribers:
             try:
+                # Extract coverage_start from subscriber data, default to today
+                coverage_start = sub.get('coverage_start', datetime.utcnow().strftime('%Y-%m-%d'))
+                
+                # Calculate coverage_end (30 days from coverage_start)
+                from datetime import timedelta
+                start_dt = datetime.strptime(coverage_start, '%Y-%m-%d')
+                end_dt = start_dt + timedelta(days=30)
+                coverage_end = end_dt.strftime('%Y-%m-%d')
+                
                 subscriber_config = {
                     'name': sub.get('name', f"sub_{sub['id']}"),
                     'dob': sub.get('date_of_birth', '1980-01-01'),
                     'kit': sub.get('kit', 'BOOK3'),
                     'games': sub.get('games', ['cash3']),
                     'active': True,
-                    'prediction_date': target_date
+                    'prediction_date': target_date,
+                    'coverage_start': coverage_start,
+                    'coverage_end': coverage_end
                 }
                 
                 game = subscriber_config['games'][0] if subscriber_config['games'] else 'cash3'
@@ -368,6 +390,15 @@ def generate_single_prediction(subscriber_id):
         # Try to get subscriber from Base44
         subscriber = get_subscriber_from_base44(subscriber_id)
         
+        # Extract coverage_start from request, default to today
+        coverage_start = data.get('coverage_start', datetime.utcnow().strftime('%Y-%m-%d'))
+        
+        # Calculate coverage_end (30 days from coverage_start)
+        from datetime import timedelta
+        start_dt = datetime.strptime(coverage_start, '%Y-%m-%d')
+        end_dt = start_dt + timedelta(days=30)
+        coverage_end = end_dt.strftime('%Y-%m-%d')
+        
         if not subscriber:
             # If not in Base44, use inline data from request
             subscriber_config = {
@@ -376,9 +407,11 @@ def generate_single_prediction(subscriber_id):
                 'kit': data.get('kit', 'BOOK3'),
                 'games': data.get('games', ['cash3']),
                 'active': True,
-                'prediction_date': target_date
+                'prediction_date': target_date,
+                'coverage_start': coverage_start,
+                'coverage_end': coverage_end
             }
-            logger.info(f"Generating predictions from inline data: {subscriber_config['name']}, DOB: {subscriber_config['dob']}, Kit: {subscriber_config['kit']}")
+            logger.info(f"Generating predictions from inline data: {subscriber_config['name']}, DOB: {subscriber_config['dob']}, Kit: {subscriber_config['kit']}, Coverage: {coverage_start} to {coverage_end}")
         else:
             subscriber_config = {
                 'name': subscriber.get('name', subscriber_id),
@@ -386,7 +419,9 @@ def generate_single_prediction(subscriber_id):
                 'kit': subscriber.get('kit', 'BOOK3'),
                 'games': subscriber.get('games', ['cash3']),
                 'active': True,
-                'prediction_date': target_date
+                'prediction_date': target_date,
+                'coverage_start': coverage_start,
+                'coverage_end': coverage_end
             }
         
         game = subscriber_config['games'][0] if subscriber_config['games'] else 'cash3'
