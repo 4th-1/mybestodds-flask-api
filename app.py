@@ -22,17 +22,27 @@ app = Flask(__name__)
 # Helper function to run prediction engine
 def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
     """
-    Run the actual v3.7 prediction engine
+    Run the v3.7 prediction engine and parse the generated JSON output files
     """
     try:
         # Create temporary subscriber config file
         with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
             json.dump(subscriber_data, f, indent=2)
             temp_config = f.name
+
+        # Extract initials for output folder name
+        name = subscriber_data.get('name', 'Unknown')
+        initials = ''.join([part[0].upper() for part in name.split() if part])
+        coverage_start = subscriber_data.get('coverage_start', '2026-01-31')
+        coverage_end = subscriber_data.get('coverage_end', '2026-02-28')
         
+        # Expected output directory path
+        output_folder = f"{kit}_{initials}_{coverage_start}_to_{coverage_end}"
+        output_path = os.path.join(JACKPOT_SYSTEM, "outputs", output_folder)
+
         # Path to run_kit_v3.py
         run_kit_script = os.path.join(JACKPOT_SYSTEM, 'run_kit_v3.py')
-        
+
         # Run the prediction engine
         result = subprocess.run(
             ['python', run_kit_script, temp_config, kit],
@@ -41,27 +51,77 @@ def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
             cwd=JACKPOT_SYSTEM,
             timeout=300  # 5 minute timeout
         )
-        
+
         # Clean up temp file
         try:
             os.unlink(temp_config)
         except:
             pass
-        
+
         if result.returncode == 0:
-            return {
-                'success': True,
-                'output': result.stdout,
-                'game': game,
-                'kit': kit
-            }
+            # Try to read the generated summary.json file
+            summary_file = os.path.join(output_path, "summary.json")
+            
+            predictions = []
+            if os.path.exists(summary_file):
+                try:
+                    with open(summary_file, 'r') as f:
+                        summary_data = json.load(f)
+                    
+                    # Extract predictions from summary
+                    days = summary_data.get('days', [])
+                    for day in days:
+                        date = day.get('date')
+                        picks = day.get('picks', [])
+                        
+                        for pick in picks:
+                            predictions.append({
+                                'date': date,
+                                'game': pick.get('game', game),
+                                'session': pick.get('session', ''),
+                                'numbers': pick.get('combo', ''),
+                                'confidence': pick.get('confidence', 0.0),
+                                'band': pick.get('band', 'UNKNOWN'),
+                                'odds': pick.get('odds', 'N/A'),
+                                'play_type': pick.get('play_type', 'STRAIGHT')
+                            })
+                    
+                    return {
+                        'success': True,
+                        'predictions': predictions,
+                        'summary_path': summary_file,
+                        'output_folder': output_path,
+                        'logs': result.stdout[-500:] if len(result.stdout) > 500 else result.stdout,  # Last 500 chars
+                        'game': game,
+                        'kit': kit
+                    }
+                except Exception as e:
+                    # If JSON parsing fails, fall back to logs
+                    return {
+                        'success': True,
+                        'output': result.stdout,
+                        'predictions': [],
+                        'warning': f'Could not parse summary.json: {str(e)}',
+                        'game': game,
+                        'kit': kit
+                    }
+            else:
+                # summary.json doesn't exist, return logs
+                return {
+                    'success': True,
+                    'output': result.stdout,
+                    'predictions': [],
+                    'warning': f'summary.json not found at {summary_file}',
+                    'game': game,
+                    'kit': kit
+                }
         else:
             return {
                 'success': False,
                 'error': result.stderr,
                 'returncode': result.returncode
             }
-            
+
     except subprocess.TimeoutExpired:
         return {
             'success': False,
