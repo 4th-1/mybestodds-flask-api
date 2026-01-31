@@ -17,51 +17,51 @@ from core.cash_pattern_model_v1 import (
 # ================================================================
 def load_ga_results(root: Path) -> Dict[str, Any]:
     """
-    Load GA Cash3/Cash4 results from the NEW CSV files:
-
-        Cash3_Midday_Evening_Night.csv
-        Cash4_Midday_Evening_Night.csv
-
+    Load GA Cash3/Cash4 results from GA_All_Games CSV format.
+    
     Expected CSV structure:
-        draw_date, winning_numbers, session
-
-    Session values:
-        "Midday", "Evening", "Night"
-
-    Returns dict:
-        {
-          "cash3_mid": [...],
-          "cash3_eve": [...],
-          "cash3_night": [...],
-          "cash4_mid": [...],
-          "cash4_eve": [...],
-          "cash4_night": [...],
-        }
+        date, game, session, winning_numbers
+    
+    Where game = "Cash3" or "Cash4"
+    And session = "MIDDAY", "EVENING", or "NIGHT"
+    
+    Returns dict with keys: cash3_mid, cash3_eve, cash3_night, cash4_mid, cash4_eve, cash4_night
     """
-
     results_dir = root / "data" / "ga_results"
-
-    def load_csv(name: str) -> List[Dict[str, Any]]:
-        path = results_dir / name
-        if not path.exists():
-            return []
-        rows = []
-        with path.open("r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for r in reader:
-                clean_row = {
-                    "draw_date": r.get("draw_date") or r.get("Draw Date"),
-                    "winning_numbers": r.get("winning_numbers") or r.get("Winning Numbers"),
-                    "session": r.get("session") or r.get("Session"),
-                }
-                rows.append(clean_row)
-        return rows
-
-    # Load new CSVs
-    cash3_rows = load_csv("Cash3_Midday_Evening_Night.csv")
-    cash4_rows = load_csv("Cash4_Midday_Evening_Night.csv")
-
-    # Split by session
+    
+    # Try multiple possible filenames
+    possible_files = [
+        "GA_All_Games_2025.csv",
+        "OFFICIALGA_Lottery_All_Games_2025_MASTER.csv",
+        "Cash3_Cash4_2025.csv"
+    ]
+    
+    all_rows = []
+    loaded_from = None
+    for filename in possible_files:
+        path = results_dir / filename
+        if path.exists():
+            loaded_from = filename
+            print(f"[GA_RESULTS] Loading from {filename}")
+            with path.open("r", encoding="utf-8") as f:
+                reader = csv.DictReader(f)
+                for r in reader:
+                    clean_row = {
+                        "draw_date": r.get("date") or r.get("draw_date") or r.get("Draw Date"),
+                        "winning_numbers": r.get("winning_numbers") or r.get("Winning Numbers"),
+                        "session": (r.get("session") or r.get("Session") or "").strip().upper(),
+                        "game": (r.get("game") or r.get("Game") or "").strip().upper()
+                    }
+                    all_rows.append(clean_row)
+            break
+    
+    if not all_rows:
+        print(f"[GA_RESULTS WARNING] No data files found in {results_dir}")
+        print(f"[GA_RESULTS WARNING] Looked for: {possible_files}")
+    else:
+        print(f"[GA_RESULTS] Loaded {len(all_rows)} total draws from {loaded_from}")
+    
+    # Split by game and session
     out = {
         "cash3_mid":   [],
         "cash3_eve":   [],
@@ -70,27 +70,39 @@ def load_ga_results(root: Path) -> Dict[str, Any]:
         "cash4_eve":   [],
         "cash4_night": [],
     }
-
-    for row in cash3_rows:
-        sess = (row.get("session") or "").strip().lower()
-        if sess == "midday":
-            out["cash3_mid"].append(row)
-        elif sess == "evening":
-            out["cash3_eve"].append(row)
-        elif sess == "night":
-            out["cash3_night"].append(row)
-
-    for row in cash4_rows:
-        sess = (row.get("session") or "").strip().lower()
-        if sess == "midday":
-            out["cash4_mid"].append(row)
-        elif sess == "evening":
-            out["cash4_eve"].append(row)
-        elif sess == "night":
-            out["cash4_night"].append(row)
-
+    
+    for row in all_rows:
+        game = row.get("game", "").upper()
+        sess = row.get("session", "").upper()
+        
+        if "CASH3" in game or game == "CASH 3":
+            if "MIDDAY" in sess:
+                out["cash3_mid"].append(row)
+            elif "EVENING" in sess:
+                out["cash3_eve"].append(row)
+            elif "NIGHT" in sess:
+                out["cash3_night"].append(row)
+        
+        elif "CASH4" in game or game == "CASH 4":
+            if "MIDDAY" in sess:
+                out["cash4_mid"].append(row)
+            elif "EVENING" in sess:
+                out["cash4_eve"].append(row)
+            elif "NIGHT" in sess:
+                out["cash4_night"].append(row)
+    
+    # Log what we loaded
+    total_loaded = 0
+    for key, rows in out.items():
+        count = len(rows)
+        total_loaded += count
+        if count > 0:
+            print(f"[GA_RESULTS] {key}: {count} draws")
+    
+    if total_loaded == 0:
+        print(f"[GA_RESULTS ERROR] No Cash3/Cash4 data extracted! Check file format.")
+    
     return out
-
 
 # ================================================================
 #  HISTORY EXTRACTION / FREQUENCY + RECENCY MODEL
