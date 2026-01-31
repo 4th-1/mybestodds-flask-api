@@ -29,18 +29,18 @@ add_*.py
 build_*.py
 collect_*.py
 
-# Exclude markdown and text files
+# Exclude markdown and text files (except essential ones)
 *.md
 *.txt
+!requirements.txt
+!README.md
 
-# Exclude backups and exports
+# Exclude backups and exports (but NOT our historical data CSVs)
 *.backup
 *_export.csv
 *_export.json
 
-# Keep only essential files for API
-!requirements.txt
-!README.md
-
-# ESSENTIAL SOURCE DATA - KEEP THESE
+# CRITICAL: Historical data CSVs MUST be included
+# This must come AFTER the *.csv exclusion to override it
 !jackpot_system_v3/data/ga_results/*.csv
+!jackpot_system_v3/data/ga_results/
