@@ -62,6 +62,29 @@ def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
             # Try to read the generated summary.json file
             summary_file = os.path.join(output_path, "summary.json")
             
+            # DEBUG: Log paths and directory contents
+            print(f"[DEBUG] Expected output folder: {output_folder}")
+            print(f"[DEBUG] Expected output path: {output_path}")
+            print(f"[DEBUG] Looking for summary.json at: {summary_file}")
+            print(f"[DEBUG] Output path exists: {os.path.exists(output_path)}")
+            if os.path.exists(output_path):
+                try:
+                    files = os.listdir(output_path)
+                    print(f"[DEBUG] Files in output_path: {files}")
+                except Exception as e:
+                    print(f"[DEBUG] Error listing output_path: {e}")
+            else:
+                # Check if outputs directory exists
+                outputs_dir = os.path.join(JACKPOT_SYSTEM, "outputs")
+                print(f"[DEBUG] Outputs dir exists: {os.path.exists(outputs_dir)}")
+                if os.path.exists(outputs_dir):
+                    try:
+                        subdirs = os.listdir(outputs_dir)
+                        print(f"[DEBUG] Subdirs in outputs/: {subdirs}")
+                    except Exception as e:
+                        print(f"[DEBUG] Error listing outputs/: {e}")
+            print(f"[DEBUG] summary.json exists: {os.path.exists(summary_file)}")
+            
             predictions = []
             if os.path.exists(summary_file):
                 try:
