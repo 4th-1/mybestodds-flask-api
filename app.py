@@ -11,6 +11,11 @@ import sys
 import json
 import subprocess
 import tempfile
+import logging
+
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Setup paths
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
