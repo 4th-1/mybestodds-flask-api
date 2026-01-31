@@ -39,6 +39,20 @@ def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
         # Expected output directory path
         output_folder = f"{kit}_{initials}_{coverage_start}_to_{coverage_end}"
         output_path = os.path.join(JACKPOT_SYSTEM, "outputs", output_folder)
+        
+        # If calculated path doesn't exist, scan for actual folder created by engine
+        # (engine might use different initials based on subscriber config)
+        outputs_dir = os.path.join(JACKPOT_SYSTEM, "outputs")
+        if not os.path.exists(output_path) and os.path.exists(outputs_dir):
+            # Look for folders matching pattern: {kit}_*_{coverage_start}_to_{coverage_end}
+            pattern_prefix = f"{kit}_"
+            pattern_suffix = f"_{coverage_start}_to_{coverage_end}"
+            for folder in os.listdir(outputs_dir):
+                if folder.startswith(pattern_prefix) and folder.endswith(pattern_suffix):
+                    output_path = os.path.join(outputs_dir, folder)
+                    output_folder = folder
+                    logger.info(f"Found actual output folder: {folder} (calculated was {kit}_{initials}_...)")
+                    break
 
         # Path to run_kit_v3.py
         run_kit_script = os.path.join(JACKPOT_SYSTEM, 'run_kit_v3.py')
@@ -508,8 +522,10 @@ def generate_single_prediction(subscriber_id):
         
         if not subscriber:
             # If not in Base44, use inline data from request
+            # Use a generic name format for folder naming instead of subscriber_id
+            fallback_name = data.get('name', f"Test Subscriber")
             subscriber_config = {
-                'name': data.get('name', subscriber_id),
+                'name': fallback_name,
                 'dob': data.get('date_of_birth', data.get('dob', '1980-01-01')),
                 'kit': data.get('kit', 'BOOK3'),
                 'games': data.get('games', ['cash3']),
@@ -521,7 +537,7 @@ def generate_single_prediction(subscriber_id):
             logger.info(f"Generating predictions from inline data: {subscriber_config['name']}, DOB: {subscriber_config['dob']}, Kit: {subscriber_config['kit']}, Coverage: {coverage_start} to {coverage_end}")
         else:
             subscriber_config = {
-                'name': subscriber.get('name', subscriber_id),
+                'name': subscriber.get('name', 'Test Subscriber'),
                 'dob': subscriber.get('date_of_birth', '1980-01-01'),
                 'kit': subscriber.get('kit', 'BOOK3'),
                 'games': subscriber.get('games', ['cash3']),
