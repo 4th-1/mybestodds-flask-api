@@ -520,12 +520,20 @@ def generate_single_prediction(subscriber_id):
         end_dt = start_dt + timedelta(days=30)
         coverage_end = end_dt.strftime('%Y-%m-%d')
         
+        # Extract subscriber name consistently - check all possible fields
+        subscriber_name = (
+            data.get('full_name') or 
+            (subscriber.get('full_name') if subscriber else None) or
+            data.get('name') or
+            (subscriber.get('name') if subscriber else None) or
+            'Test Subscriber'
+        )
+        logger.info(f"Using subscriber name: {subscriber_name}")
+        
         if not subscriber:
             # If not in Base44, use inline data from request
-            # Use a generic name format for folder naming instead of subscriber_id
-            fallback_name = data.get('name', f"Test Subscriber")
             subscriber_config = {
-                'name': fallback_name,
+                'name': subscriber_name,
                 'dob': data.get('date_of_birth', data.get('dob', '1980-01-01')),
                 'kit': data.get('kit', 'BOOK3'),
                 'games': data.get('games', ['cash3']),
@@ -537,7 +545,7 @@ def generate_single_prediction(subscriber_id):
             logger.info(f"Generating predictions from inline data: {subscriber_config['name']}, DOB: {subscriber_config['dob']}, Kit: {subscriber_config['kit']}, Coverage: {coverage_start} to {coverage_end}")
         else:
             subscriber_config = {
-                'name': subscriber.get('name', 'Test Subscriber'),
+                'name': subscriber_name,
                 'dob': subscriber.get('date_of_birth', '1980-01-01'),
                 'kit': subscriber.get('kit', 'BOOK3'),
                 'games': subscriber.get('games', ['cash3']),
