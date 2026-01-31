@@ -129,12 +129,35 @@ def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
                         'kit': kit
                     }
             else:
-                # summary.json doesn't exist, return logs
+                # summary.json doesn't exist, return logs with debug info
+                debug_info = {
+                    'output_folder': output_folder,
+                    'output_path': output_path,
+                    'summary_file_path': summary_file,
+                    'output_path_exists': os.path.exists(output_path),
+                    'outputs_dir_exists': os.path.exists(os.path.join(JACKPOT_SYSTEM, "outputs"))
+                }
+                
+                # Add directory listings if they exist
+                if os.path.exists(output_path):
+                    try:
+                        debug_info['files_in_output_path'] = os.listdir(output_path)
+                    except:
+                        debug_info['files_in_output_path'] = 'ERROR listing files'
+                
+                outputs_dir = os.path.join(JACKPOT_SYSTEM, "outputs")
+                if os.path.exists(outputs_dir):
+                    try:
+                        debug_info['subdirs_in_outputs'] = os.listdir(outputs_dir)
+                    except:
+                        debug_info['subdirs_in_outputs'] = 'ERROR listing subdirs'
+                
                 return {
                     'success': True,
-                    'output': result.stdout,
+                    'output': result.stdout[-1000:] if len(result.stdout) > 1000 else result.stdout,  # Last 1000 chars
                     'predictions': [],
                     'warning': f'summary.json not found at {summary_file}',
+                    'debug': debug_info,
                     'game': game,
                     'kit': kit
                 }
