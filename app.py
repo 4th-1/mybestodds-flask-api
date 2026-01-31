@@ -535,20 +535,33 @@ def generate_single_prediction(subscriber_id):
         kit = subscriber_config['kit']
         
         logger.info(f"Running: /app/.venv/bin/python /app/jackpot_system_v3/run_kit_v3.py tmp{subscriber_id}.json {kit}")
-        
+
         # Generate prediction
         result = run_prediction_engine(subscriber_config, game, kit)
-        
+
         if result['success']:
-            return jsonify({
+            response = {
                 'status': 'success',
                 'subscriber_id': subscriber_id,
                 'subscriber_name': subscriber_config['name'],
                 'date': target_date,
                 'game': game,
-                'kit': kit,
-                'prediction': result['output']
-            }), 200
+                'kit': kit
+            }
+            
+            # Pass through all fields from run_prediction_engine
+            if 'predictions' in result:
+                response['predictions'] = result['predictions']
+            if 'output' in result:
+                response['logs'] = result['output']  # Rename to 'logs' for clarity
+            if 'warning' in result:
+                response['warning'] = result['warning']
+            if 'debug' in result:
+                response['debug'] = result['debug']
+            if 'summary_path' in result:
+                response['summary_path'] = result['summary_path']
+                
+            return jsonify(response), 200
         else:
             logger.error(f"Prediction failed: {result.get('error', 'Unknown error')}")
             return jsonify({
