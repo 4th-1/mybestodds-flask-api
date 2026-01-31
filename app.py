@@ -114,19 +114,35 @@ def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
                     days = summary_data.get('days', [])
                     for day in days:
                         date = day.get('date')
-                        picks = day.get('picks', [])
+                        picks_dict = day.get('picks', {})
                         
-                        for pick in picks:
-                            predictions.append({
-                                'date': date,
-                                'game': pick.get('game', game),
-                                'session': pick.get('session', ''),
-                                'numbers': pick.get('combo', ''),
-                                'confidence': pick.get('confidence', 0.0),
-                                'band': pick.get('band', 'UNKNOWN'),
-                                'odds': pick.get('odds', 'N/A'),
-                                'play_type': pick.get('play_type', 'STRAIGHT')
-                            })
+                        # Handle new v3.7 structure: picks is a dict with game types as keys
+                        # Each game has lanes (mmfsn, system) with arrays of combos
+                        for game_name, lanes in picks_dict.items():
+                            if not isinstance(lanes, dict):
+                                continue
+                            
+                            # Extract combos from all lanes
+                            all_combos = []
+                            for lane_name, combos in lanes.items():
+                                if isinstance(combos, list):
+                                    all_combos.extend(combos)
+                            
+                            # Create prediction entry for each combo
+                            for combo in all_combos:
+                                if isinstance(combo, str) and combo:  # Valid combo string
+                                    predictions.append({
+                                        'date': date,
+                                        'game': game_name.lower(),
+                                        'session': '',  # v3.7 doesn't specify session in picks
+                                        'numbers': combo,
+                                        'confidence': day.get('score', 0.0) / 100.0,  # Normalize score to 0-1
+                                        'band': 'GREEN' if day.get('score', 0) > 70 else 'YELLOW' if day.get('score', 0) > 50 else 'RED',
+                                        'odds': 'N/A',
+                                        'play_type': 'STRAIGHT'
+                                    })
+                    
+                    logger.info(f"Parsed {len(predictions)} predictions from summary.json")
                     
                     return {
                         'success': True,
