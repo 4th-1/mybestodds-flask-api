@@ -39,20 +39,6 @@ def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
         # Expected output directory path
         output_folder = f"{kit}_{initials}_{coverage_start}_to_{coverage_end}"
         output_path = os.path.join(JACKPOT_SYSTEM, "outputs", output_folder)
-        
-        # If calculated path doesn't exist, scan for actual folder created by engine
-        # (engine might use different initials based on subscriber config)
-        outputs_dir = os.path.join(JACKPOT_SYSTEM, "outputs")
-        if not os.path.exists(output_path) and os.path.exists(outputs_dir):
-            # Look for folders matching pattern: {kit}_*_{coverage_start}_to_{coverage_end}
-            pattern_prefix = f"{kit}_"
-            pattern_suffix = f"_{coverage_start}_to_{coverage_end}"
-            for folder in os.listdir(outputs_dir):
-                if folder.startswith(pattern_prefix) and folder.endswith(pattern_suffix):
-                    output_path = os.path.join(outputs_dir, folder)
-                    output_folder = folder
-                    logger.info(f"Found actual output folder: {folder} (calculated was {kit}_{initials}_...)")
-                    break
 
         # Path to run_kit_v3.py
         run_kit_script = os.path.join(JACKPOT_SYSTEM, 'run_kit_v3.py')
@@ -73,6 +59,20 @@ def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
             pass
 
         if result.returncode == 0:
+            # After engine runs, scan for actual folder if calculated path doesn't exist
+            outputs_dir = os.path.join(JACKPOT_SYSTEM, "outputs")
+            if not os.path.exists(output_path) and os.path.exists(outputs_dir):
+                # Look for folders matching pattern: {kit}_*_{coverage_start}_to_{coverage_end}
+                pattern_prefix = f"{kit}_"
+                pattern_suffix = f"_{coverage_start}_to_{coverage_end}"
+                logger.info(f"Calculated path doesn't exist, scanning for match: {pattern_prefix}*{pattern_suffix}")
+                for folder in os.listdir(outputs_dir):
+                    if folder.startswith(pattern_prefix) and folder.endswith(pattern_suffix):
+                        output_path = os.path.join(outputs_dir, folder)
+                        output_folder = folder
+                        logger.info(f"Found actual output folder: {folder} (calculated was {kit}_{initials}_...)")
+                        break
+            
             # Try to read the generated summary.json file
             summary_file = os.path.join(output_path, "summary.json")
             
