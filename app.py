@@ -138,7 +138,8 @@ def index():
     """Root endpoint - API information"""
     return jsonify({
         'name': 'My Best Odds Prediction API',
-        'version': '3.7',
+        'version': '3.7.1-JSON-PARSER',
+        'code_version': 'aaeb35cd1',
         'status': 'active',
         'endpoints': {
             'health': '/health',
