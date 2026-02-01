@@ -131,12 +131,26 @@ def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
                             # Create prediction entry for each combo
                             for combo in all_combos:
                                 if isinstance(combo, str) and combo:  # Valid combo string
-                                    # Properly capitalize game name: cash3 → Cash3, cash4 → Cash4
-                                    game_display = game_name.capitalize()
-                                    
-                                    # Determine session based on time or default to all sessions
-                                    # For daily games (Cash3/Cash4), generate for MIDDAY, EVENING, NIGHT
-                                    sessions = ['MIDDAY', 'EVENING', 'NIGHT'] if 'cash' in game_name.lower() else ['EVENING']
+                                    # Properly format game names
+                                    game_lower = game_name.lower()
+                                    if game_lower == 'cash3':
+                                        game_display = 'Cash3'
+                                        sessions = ['MIDDAY', 'EVENING', 'NIGHT']
+                                    elif game_lower == 'cash4':
+                                        game_display = 'Cash4'
+                                        sessions = ['MIDDAY', 'EVENING', 'NIGHT']
+                                    elif 'mega' in game_lower:
+                                        game_display = 'MegaMillions'
+                                        sessions = ['EVENING']
+                                    elif 'power' in game_lower:
+                                        game_display = 'Powerball'
+                                        sessions = ['EVENING']
+                                    elif 'cash4life' in game_lower or 'c4l' in game_lower:
+                                        game_display = 'Cash4Life'
+                                        sessions = ['EVENING']
+                                    else:
+                                        game_display = game_name.capitalize()
+                                        sessions = ['EVENING']
                                     
                                     for session in sessions:
                                         predictions.append({
