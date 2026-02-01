@@ -131,16 +131,24 @@ def run_prediction_engine(subscriber_data, game, kit='BOOK3'):
                             # Create prediction entry for each combo
                             for combo in all_combos:
                                 if isinstance(combo, str) and combo:  # Valid combo string
-                                    predictions.append({
-                                        'date': date,
-                                        'game': game_name.lower(),
-                                        'session': '',  # v3.7 doesn't specify session in picks
-                                        'numbers': combo,
-                                        'confidence': day.get('score', 0.0) / 100.0,  # Normalize score to 0-1
-                                        'band': 'GREEN' if day.get('score', 0) > 70 else 'YELLOW' if day.get('score', 0) > 50 else 'RED',
-                                        'odds': 'N/A',
-                                        'play_type': 'STRAIGHT'
-                                    })
+                                    # Properly capitalize game name: cash3 → Cash3, cash4 → Cash4
+                                    game_display = game_name.capitalize()
+                                    
+                                    # Determine session based on time or default to all sessions
+                                    # For daily games (Cash3/Cash4), generate for MIDDAY, EVENING, NIGHT
+                                    sessions = ['MIDDAY', 'EVENING', 'NIGHT'] if 'cash' in game_name.lower() else ['EVENING']
+                                    
+                                    for session in sessions:
+                                        predictions.append({
+                                            'date': date,
+                                            'game': game_display,  # Capitalized: Cash3, Cash4
+                                            'session': session,  # MIDDAY, EVENING, NIGHT
+                                            'numbers': combo,
+                                            'confidence': day.get('score', 0.0),  # Keep as percentage (53.2, not 0.532)
+                                            'band': 'GREEN' if day.get('score', 0) > 70 else 'YELLOW' if day.get('score', 0) > 50 else 'RED',
+                                            'odds': 'N/A',
+                                            'play_type': 'STRAIGHT'
+                                        })
                     
                     logger.info(f"Parsed {len(predictions)} predictions from summary.json")
                     
