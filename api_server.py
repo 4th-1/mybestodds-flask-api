@@ -1122,7 +1122,9 @@ def generate_single_prediction(subscriber_id: str):
             "date_of_birth": "1985-08-26",  // If subscriber not in local configs
             "kit": "BOOK3",                  // Required for inline generation
             "email": "user@example.com",
-            "full_name": "User Name"
+            "full_name": "User Name",
+            "current_time_est": "01/14/2026, 14:30:00",  // NEW: Current time in EST
+            "skip_past_sessions": true       // NEW: Filter out past sessions
         }
     
     Returns:
@@ -1141,7 +1143,12 @@ def generate_single_prediction(subscriber_id: str):
         
         target_date = data.get('date') or request.args.get('date') or datetime.now().strftime("%Y-%m-%d")
         
+        # NEW: Extract time-awareness parameters
+        current_time_est = data.get('current_time_est') or request.args.get('current_time_est')
+        skip_past_sessions = data.get('skip_past_sessions', False) or request.args.get('skip_past_sessions', 'false').lower() == 'true'
+        
         logger.info(f"Generating prediction for {subscriber_id} on {target_date}")
+        logger.info(f"Time-aware parameters: current_time_est={current_time_est}, skip_past_sessions={skip_past_sessions}")
         
         # Find subscriber config in local files
         all_subscribers = get_all_subscribers()
@@ -1187,6 +1194,81 @@ def generate_single_prediction(subscriber_id: str):
                 "error": prediction_result.get('error')
             }), 500
         
+        # Get predictions data
+        predictions_data = prediction_result.get('predictions')
+        
+        # NEW: Filter past sessions if requested
+        if skip_past_sessions and current_time_est and predictions_data:
+            try:
+                # Parse current time
+                current_dt = datetime.strptime(current_time_est, "%m/%d/%Y, %H:%M:%S")
+                current_hour = current_dt.hour
+                
+                # Define session cutoff times (EST)
+                session_cutoffs = {
+                    "MIDDAY": 12,    # 12:00 PM
+                    "EVENING": 18,   # 6:00 PM
+                    "NIGHT": 22      # 10:00 PM
+                }
+                
+                # Filter predictions for each game
+                for game_key in list(predictions_data.keys()):
+                    if game_key in ['rare_patterns', 'overlay_conditions', 'overlay_interpretation']:
+                        continue  # Skip metadata
+                    
+                    game_preds = predictions_data[game_key]
+                    if isinstance(game_preds, list):
+                        filtered_preds = []
+                        for pred in game_preds:
+                            session = pred.get('session', '').upper()
+                            cutoff_hour = session_cutoffs.get(session, 0)
+                            
+                            # Keep prediction if session hasn't passed yet
+                            if current_hour < cutoff_hour:
+                                filtered_preds.append(pred)
+                            else:
+                                logger.info(f"Filtered out {game_key} {session} prediction (past cutoff)")
+                        
+                        predictions_data[game_key] = filtered_preds
+                
+                logger.info(f"Filtered predictions based on current time: {current_time_est}")
+            except Exception as filter_error:
+                logger.error(f"Error filtering past sessions: {filter_error}")
+                # Continue without filtering on error
+        
+        # Push to Base44
+        push_result = base44.create_prediction(
+            subscriber_id=subscriber_id,
+            date=target_date,
+            predictions=predictions_data
+        )
+        
+        if not push_result.get('success'):
+            return jsonify({
+                "success": False,
+                "error": f"Failed to push to Base44: {push_result.get('error')}"
+            }), 500
+        
+        return jsonify({
+            "success": True,
+            "subscriber_id": subscriber_id,
+            "prediction_id": push_result.get('prediction_id'),
+            "date": target_date,
+            "games": list(predictions_data.keys())
+        })
+        
+    except Exception as e:
+        logger.error(f"Error generating single prediction: {e}")
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500        
+        if not prediction_result.get('success'):
+            return jsonify({
+                "success": False,
+                "error": prediction_result.get('error')
+            }), 500
+        
         # Push to Base44
         predictions_data = prediction_result.get('predictions')
         push_result = base44.create_prediction(
@@ -1226,3 +1308,4 @@ if __name__ == '__main__':
     logger.info(f"Twilio connected: {twilio.is_connected()}")
     
     app.run(host='0.0.0.0', port=port, debug=debug)
+
