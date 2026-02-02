@@ -1263,49 +1263,4 @@ def generate_single_prediction(subscriber_id: str):
             "success": False,
             "error": str(e)
         }), 500        
-        if not prediction_result.get('success'):
-            return jsonify({
-                "success": False,
-                "error": prediction_result.get('error')
-            }), 500
         
-        # Push to Base44
-        predictions_data = prediction_result.get('predictions')
-        push_result = base44.create_prediction(
-            subscriber_id=subscriber_id,
-            date=target_date,
-            predictions=predictions_data
-        )
-        
-        if not push_result.get('success'):
-            return jsonify({
-                "success": False,
-                "error": f"Failed to push to Base44: {push_result.get('error')}"
-            }), 500
-        
-        return jsonify({
-            "success": True,
-            "subscriber_id": subscriber_id,
-            "prediction_id": push_result.get('prediction_id'),
-            "date": target_date,
-            "games": list(predictions_data.keys())
-        })
-        
-    except Exception as e:
-        logger.error(f"Error generating single prediction: {e}")
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
-
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    debug = os.environ.get('FLASK_ENV') == 'development'
-    
-    logger.info(f"Starting My Best Odds API Server on port {port}")
-    logger.info(f"Base44 connected: {base44.is_connected()}")
-    logger.info(f"Twilio connected: {twilio.is_connected()}")
-    
-    app.run(host='0.0.0.0', port=port, debug=debug)
-
