@@ -1262,5 +1262,15 @@ def generate_single_prediction(subscriber_id: str):
         return jsonify({
             "success": False,
             "error": str(e)
-        }), 500        
-        
+        }), 500
+
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_ENV') == 'development'
+    
+    logger.info(f"Starting My Best Odds API Server on port {port}")
+    logger.info(f"Base44 connected: {base44.is_connected()}")
+    logger.info(f"Twilio connected: {twilio.is_connected()}")
+    
+    app.run(host='0.0.0.0', port=port, debug=debug)
