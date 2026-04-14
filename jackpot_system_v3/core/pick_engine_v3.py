@@ -137,19 +137,12 @@ def _build_combo_stats(combos: List[str], *, min_occurrences: int = 1) -> Dict[s
         recency_penalty = 0.4 if gap <= 2 else 0.0
         recency_bonus = 0.4 if 5 <= gap <= 15 else 0.0
 
-        # Base score: deterministic
-        base_score = float(f) + recency_bonus - recency_penalty
-        
-        # ADD RANDOMNESS: noise injection to break determinism
-        # Random noise between -0.5 and +0.5 ensures variety without overwhelming quality
-        noise = random.uniform(-0.5, 0.5)
-        score = base_score + noise
+        # Base score: deterministic, noise applied later in _pick_top_combos()
+        score = float(f) + recency_bonus - recency_penalty
 
         stats[combo] = {
             "freq": float(f), 
             "gap": float(gap), 
-            "base_score": base_score,
-            "noise": noise,
             "score": score
         }
 
@@ -157,16 +150,31 @@ def _build_combo_stats(combos: List[str], *, min_occurrences: int = 1) -> Dict[s
 
 
 def _pick_top_combos(stats: Dict[str, Dict[str, float]], k: int) -> List[str]:
-    """Pick k combos with randomization, not pure determinism"""
+    """Pick k combos by score with proportional noise injection for variety."""
     if not stats:
         return []
-    sorted_items = sorted(stats.items(), key=lambda kv: kv[1]["score"], reverse=True)
-    # Build pool from top combos (larger than k for variation)
-    pool_size = max(k * 3, 10)  # Get at least 10 or 3x requested
-    top_combos = [combo for combo, _ in sorted_items[:pool_size]]
-    # Shuffle pool and pick k random selections
-    random.shuffle(top_combos)
-    return top_combos[:k]
+
+    # Extract combos and original scores
+    scored_combos = [(combo, data["score"]) for combo, data in stats.items()]
+    
+    if not scored_combos:
+        return []
+
+    # Find the max score to scale noise proportionally
+    max_score = max(s for _, s in scored_combos)
+    noise_factor = 0.15  # 15% noise — good balance between variety and quality
+    
+    # Inject proportional noise into each score before ranking
+    noisy_combos = [
+        (combo, score + random.uniform(0, max_score * noise_factor))
+        for combo, score in scored_combos
+    ]
+
+    # Sort by noisy score (different top combos each call due to random noise)
+    noisy_combos.sort(key=lambda x: x[1], reverse=True)
+    
+    # Return top k combo names only
+    return [combo for combo, _ in noisy_combos[:k]]
 
 
 # ================================================================
