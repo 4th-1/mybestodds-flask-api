@@ -124,8 +124,10 @@ def health():
     """Health check endpoint"""
     return jsonify({
         "status": "healthy",
+        "api_version": "v3.0-CLEAN",
         "frontend": "Lovable",
         "engine": "jackpot_system_v3",
+        "randomization": "enabled",
         "timestamp": datetime.now().isoformat()
     }), 200
 
