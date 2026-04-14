@@ -145,10 +145,16 @@ def _build_combo_stats(combos: List[str], *, min_occurrences: int = 1) -> Dict[s
 
 
 def _pick_top_combos(stats: Dict[str, Dict[str, float]], k: int) -> List[str]:
+    """Pick k combos with randomization, not pure determinism"""
     if not stats:
         return []
     sorted_items = sorted(stats.items(), key=lambda kv: kv[1]["score"], reverse=True)
-    return [combo for combo, _ in sorted_items[:k]]
+    # Build pool from top combos (larger than k for variation)
+    pool_size = max(k * 3, 10)  # Get at least 10 or 3x requested
+    top_combos = [combo for combo, _ in sorted_items[:pool_size]]
+    # Shuffle pool and pick k random selections
+    random.shuffle(top_combos)
+    return top_combos[:k]
 
 
 # ================================================================
