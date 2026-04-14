@@ -35,6 +35,10 @@ sys.path.insert(0, PROJECT_ROOT)
 JACKPOT_SYSTEM_DIR = os.path.join(PROJECT_ROOT, "jackpot_system_v3")
 SUBSCRIBERS_DIR = os.path.join(JACKPOT_SYSTEM_DIR, "subscribers")
 
+# Add jackpot_system_v3 to path so core modules can be imported directly
+if JACKPOT_SYSTEM_DIR not in sys.path:
+    sys.path.insert(0, JACKPOT_SYSTEM_DIR)
+
 # Detect OS and use correct Python path
 if platform.system() == "Windows":
     PYTHON_EXE = os.path.join(PROJECT_ROOT, ".venv", "Scripts", "python.exe")
@@ -50,83 +54,72 @@ else:  # Linux/Unix (Railway uses /opt/venv)
 RUN_KIT_SCRIPT = os.path.join(JACKPOT_SYSTEM_DIR, "run_kit_v3.py")
 
 
-def run_prediction_engine(subscriber_file: str, kit: str, start_date: str = None, num_days: int = 1) -> Dict:
-    """Execute the prediction engine via run_kit_v3.py and parse results"""
-    try:
-        output_dir = "/tmp/mbo_predictions" if platform.system() != "Windows" else "C:\\temp\\mbo_predictions"
-        os.makedirs(output_dir, exist_ok=True)
-        
-        cmd = [
-            PYTHON_EXE,
-            RUN_KIT_SCRIPT,
-            "--subscriber", subscriber_file,
-            "--kit", kit,
-            "--output", output_dir,
-            "--days", str(num_days)
-        ]
-        
-        if start_date:
-            cmd.extend(["--start-date", start_date])
-        
-        logger.info(f"Running: {' '.join(cmd)}")
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
-        
-        if result.returncode != 0:
-            logger.error(f"Engine error: {result.stderr}")
-            return {"error": result.stderr}
-        
-        # Find and parse summary.json
-        for root, dirs, files in os.walk(output_dir):
-            for f in files:
-                if f == "summary.json":
-                    with open(os.path.join(root, f)) as fh:
-                        return json.load(fh)
-        
-        return {"error": "No results generated"}
-        
-    except Exception as e:
-        logger.error(f"Prediction error: {e}")
-        return {"error": str(e)}
+def _load_ga_data_from_json() -> Dict:
+    """Load GA historical draw data from JSON files in data/ga_results/"""
+    results = {
+        "cash3_mid": [], "cash3_eve": [], "cash3_night": [],
+        "cash4_mid": [], "cash4_eve": [], "cash4_night": [],
+    }
+    ga_dir = os.path.join(JACKPOT_SYSTEM_DIR, "data", "ga_results")
+    if not os.path.exists(ga_dir):
+        logger.warning("GA results dir not found — using empty data (fallback random picks)")
+        return results
+
+    file_map = {
+        "cash3_midday.json":  "cash3_mid",
+        "cash3_evening.json": "cash3_eve",
+        "cash3_night.json":   "cash3_night",
+        "cash4_midday.json":  "cash4_mid",
+        "cash4_evening.json": "cash4_eve",
+        "cash4_night.json":   "cash4_night",
+    }
+    for filename, key in file_map.items():
+        filepath = os.path.join(ga_dir, filename)
+        if not os.path.exists(filepath):
+            continue
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            for item in data:
+                # Normalize field name: JSON uses 'winning_number' (singular)
+                num = item.get("winning_number") or item.get("winning_numbers", "")
+                results[key].append({
+                    "draw_date":       item.get("date", ""),
+                    "winning_numbers": str(num),
+                    "session":         item.get("session", ""),
+                })
+        except Exception as e:
+            logger.warning(f"Could not load {filename}: {e}")
+    return results
 
 
 def get_predictions_for_date(date_str: str, kit: str) -> List[Dict]:
-    """Get predictions for a specific date and kit"""
+    """Get predictions by calling pick_engine_v3 directly (no subprocess)."""
     try:
-        # Map kit names to actual JSON config files
-        kit_file_map = {
-            "BOOK3": os.path.join(JACKPOT_SYSTEM_DIR, "kits", "3Base44ReadyBOOK3.json"),
-            "BOOK":  os.path.join(JACKPOT_SYSTEM_DIR, "kits", "Base44ReadyBOOK.json"),
-            "BOSK":  os.path.join(JACKPOT_SYSTEM_DIR, "kits", "BASE44_BOSK_ready_.json"),
-        }
-        subscriber_file = kit_file_map.get(kit, os.path.join(SUBSCRIBERS_DIR, kit, "subscriber_1.json"))
-        if not os.path.exists(subscriber_file):
-            logger.warning(f"Subscriber file not found: {subscriber_file}")
-            return []
-        
-        # Run engine
-        results = run_prediction_engine(subscriber_file, kit, date_str, 1)
-        
-        if "error" in results:
-            logger.error(f"Engine failed: {results['error']}")
-            return []
-        
-        # Extract predictions for requested date
+        from core.pick_engine_v3 import generate_picks_v3
+        from pathlib import Path
+
+        ga_data   = _load_ga_data_from_json()
+        subscriber = {"initials": "MBO", "games": ["Cash3", "Cash4"]}
+        root       = Path(JACKPOT_SYSTEM_DIR)
+
+        picks = generate_picks_v3(subscriber, None, ga_data, root)
+
         predictions = []
-        for day in results.get("days", []):
-            if day.get("date") == date_str:
-                picks = day.get("picks", {})
-                for game, picks_list in picks.items():
-                    for pick in picks_list:
+        for game, lane_data in picks.items():
+            for lane, numbers in lane_data.items():
+                for number in (numbers or []):
+                    if number:
                         predictions.append({
-                            "game": game,
-                            "number": pick,
-                            "date": date_str
+                            "game":   game,
+                            "number": str(number),
+                            "date":   date_str,
+                            "lane":   lane,
                         })
-        
         return predictions
-        
+
     except Exception as e:
-        logger.error(f"Get predictions error: {e}")
+        logger.error(f"get_predictions_for_date error: {e}", exc_info=True)
         return []
 
 
