@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-04-14",
+  "date_range": "2026-01-01 to 2026-04-01",
+  "subscriber_count": 999,
+  "cash3": {
+    "picks": 485303,
+    "straight_hits": 1936,
+    "box_hits": 8721,
+    "near_misses": 38462,
+    "straight_rate": 0.398926,
+    "box_rate": 1.797022
+  },
+  "cash4": {
+    "picks": 363909,
+    "straight_hits": 43,
+    "box_hits": 1497,
+    "near_misses": 3727,
+    "straight_rate": 0.011816,
+    "box_rate": 0.411367
+  },
+  "jackpot": {
+    "mm": {
+      "picks": 43956,
+      "prize_wins": 2025,
+      "win_rate": 4.60688,
+      "total_prize": 7478,
+      "tiers": {
+        "0+MB": 1404,
+        "1+MB": 515,
+        "2+MB": 51,
+        "3+0": 50,
+        "3+MB": 3,
+        "4+0": 2
+      }
+    },
+    "pb": {
+      "picks": 63936,
+      "prize_wins": 2705,
+      "win_rate": 4.230793,
+      "total_prize": 12260,
+      "tiers": {
+        "0+PB": 1717,
+        "1+PB": 756,
+        "2+PB": 115,
+        "3+0": 109,
+        "3+PB": 5,
+        "4+0": 3
+      }
+    },
+    "mfl": {
+      "picks": 181818,
+      "prize_wins": 41953,
+      "win_rate": 23.074173,
+      "total_prize": 84127,
+      "tiers": {
+        "1+MB": 13462,
+        "0+MB": 25703,
+        "2+MB": 2180,
+        "3+MB": 164,
+        "3+0": 440,
+        "4+MB": 3,
+        "4+0": 1
+      }
+    }
+  }
+}
