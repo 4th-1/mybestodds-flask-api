@@ -137,9 +137,21 @@ def _build_combo_stats(combos: List[str], *, min_occurrences: int = 1) -> Dict[s
         recency_penalty = 0.4 if gap <= 2 else 0.0
         recency_bonus = 0.4 if 5 <= gap <= 15 else 0.0
 
-        score = float(f) + recency_bonus - recency_penalty
+        # Base score: deterministic
+        base_score = float(f) + recency_bonus - recency_penalty
+        
+        # ADD RANDOMNESS: noise injection to break determinism
+        # Random noise between -0.5 and +0.5 ensures variety without overwhelming quality
+        noise = random.uniform(-0.5, 0.5)
+        score = base_score + noise
 
-        stats[combo] = {"freq": float(f), "gap": float(gap), "score": score}
+        stats[combo] = {
+            "freq": float(f), 
+            "gap": float(gap), 
+            "base_score": base_score,
+            "noise": noise,
+            "score": score
+        }
 
     return stats
 
