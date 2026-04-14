@@ -16,12 +16,26 @@ Run after simulate_historical.py completes:
     python full_report.py
 """
 
+import argparse
 import csv
+import json
 import sqlite3
+import sys
 from collections import defaultdict, Counter
+from datetime import date
 from pathlib import Path
 
-CSV_PATH = Path(__file__).parent / "simulation_report.csv"
+# ── CLI ───────────────────────────────────────────────────────────────────────
+_parser = argparse.ArgumentParser(add_help=True)
+_parser.add_argument(
+    "--save-baseline",
+    action="store_true",
+    help="Save current run metrics as performance baseline (report_baseline.json)",
+)
+ARGS = _parser.parse_args()
+
+CSV_PATH    = Path(__file__).parent / "simulation_report.csv"
+BASELINE_PATH = Path(__file__).parent / "report_baseline.json"
 
 # ── Baselines (per-pick probability) ─────────────────────────────────────────
 BASELINES = {
@@ -64,6 +78,18 @@ rows = list(csv.DictReader(open(CSV_PATH, encoding="utf-8")))
 total_rows = len(rows)
 print(f"Loaded {total_rows:,} prediction rows\n")
 
+# ── Metrics accumulator (filled as report runs) ───────────────────────────────
+_metrics: dict = {
+    "run_date": date.today().isoformat(),
+    "date_range": "",
+    "subscriber_count": 0,
+    "cash3": {"picks": 0, "straight_hits": 0, "box_hits": 0, "near_misses": 0,
+              "straight_rate": 0.0, "box_rate": 0.0},
+    "cash4": {"picks": 0, "straight_hits": 0, "box_hits": 0, "near_misses": 0,
+              "straight_rate": 0.0, "box_rate": 0.0},
+    "jackpot": {"mm": {}, "pb": {}, "mfl": {}},
+}
+
 SESSIONS = [("Midday", "mid"), ("Evening", "eve"), ("Night", "night")]
 WIN_FIELDS = {
     "mid":   ("mid_straight",   "mid_box"),
@@ -83,6 +109,8 @@ by_kit  = Counter(r["kit"]  for r in rows)
 by_lane = Counter(r["lane"] for r in rows)
 dates   = sorted(set(r["date"] for r in rows))
 subs    = sorted(set(r["subscriber"] for r in rows))
+_metrics["date_range"] = f"{dates[0]} to {dates[-1]}" if dates else ""
+_metrics["subscriber_count"] = len(subs)
 print(f"  Days simulated  : {len(dates)}")
 print(f"  Subscribers     : {len(subs)}")
 print(f"  Total pick rows : {total_rows:,}")
@@ -134,6 +162,15 @@ for game in ["Cash3", "Cash4"]:
     bp    = pct(box, total)
     pp    = pct(partial, total)
     np_   = pct(near, total)
+
+    # Accumulate into metrics fingerprint
+    _key = game.lower()  # "cash3" or "cash4"
+    _metrics[_key]["picks"]         = total
+    _metrics[_key]["straight_hits"] = straight
+    _metrics[_key]["box_hits"]      = box
+    _metrics[_key]["near_misses"]   = near
+    _metrics[_key]["straight_rate"] = round(straight / total * 100, 6) if total else 0.0
+    _metrics[_key]["box_rate"]      = round(box      / total * 100, 6) if total else 0.0
 
     print(f"\n  [{game}]  {total:,} picks over {len(dates)} days")
     print(f"  {'Outcome':<20} {'Count':>8}  {'Rate':>10}  {'vs Random':>14}")
@@ -245,7 +282,7 @@ for game in ["Cash3", "Cash4"]:
             win_counts[r["pick"]] += 1
     print(f"\n  [{game}]")
     for pick, cnt in win_counts.most_common(10):
-        print(f"    {pick}  →  {cnt:,} wins")
+        print(f"    {pick}  ->  {cnt:,} wins")
 
 print(f"\n{SEP}")
 print("  Report complete.")
@@ -333,6 +370,88 @@ else:
                     tp = sum(r["prize"] for r in kr if r["tier"] == tier)
                     print(f"  {kit:<10} {tier:<16} {cnt:>6,}  ${tp:>9,}")
 
+        # ── Accumulate jackpot metrics ────────────────────────────────────────
+        _game_key_map = {
+            "MegaMillions": "mm",
+            "Powerball": "pb",
+            "Millionaire For Life": "mfl",
+        }
+        for game, jkey in _game_key_map.items():
+            gr = [r for r in jp_rows if r["game"] == game]
+            total = len(gr)
+            wins  = sum(1 for r in gr if r["tier"])
+            prize = sum(r["prize"] for r in gr)
+            tiers = dict(Counter(r["tier"] for r in gr if r["tier"]))
+            _metrics["jackpot"][jkey] = {
+                "picks":       total,
+                "prize_wins":  wins,
+                "win_rate":    round(wins / total * 100, 6) if total else 0.0,
+                "total_prize": prize,
+                "tiers":       tiers,
+            }
+
     print(f"\n{SEP}")
     print("  Full report complete (Cash + Jackpot).")
     print(SEP)
+
+# ── BASELINE: SAVE or COMPARE ─────────────────────────────────────────────────
+_DIFF_FIELDS_CASH = [
+    ("picks",         "Picks",         False),
+    ("straight_hits", "Straight hits",  True),
+    ("box_hits",      "Box hits",       True),
+    ("near_misses",   "Near misses",    True),
+    ("straight_rate", "Straight rate%", True),
+    ("box_rate",      "Box rate%",      True),
+]
+_DIFF_FIELDS_JP = [
+    ("picks",       "Picks",      False),
+    ("prize_wins",  "Prize wins", True),
+    ("win_rate",    "Win rate%",  True),
+    ("total_prize", "Total prize",True),
+]
+
+def _arrow(new, old, higher_is_better):
+    if old == 0:
+        return "  (new)"
+    delta = new - old
+    pct_d = delta / abs(old) * 100
+    symbol = ("^" if delta > 0 else "v") if higher_is_better else (
+             "^" if delta < 0 else "v")
+    return f"  {symbol} {pct_d:+.2f}%"
+
+def _print_diff(label, new_d, old_d, fields):
+    print(f"\n  [{label}]")
+    for fkey, fname, hib in fields:
+        nv = new_d.get(fkey, 0)
+        ov = old_d.get(fkey, 0)
+        note = _arrow(nv, ov, hib)
+        print(f"    {fname:<18}: {ov!s:>12}  ->  {nv!s:<12}{note}")
+
+if ARGS.save_baseline:
+    with open(BASELINE_PATH, "w", encoding="utf-8") as _bf:
+        json.dump(_metrics, _bf, indent=2)
+    print(f"\n{'='*70}")
+    print(f"  BASELINE SAVED -> {BASELINE_PATH.name}")
+    print(f"  Run date   : {_metrics['run_date']}")
+    print(f"  Date range : {_metrics['date_range']}")
+    print(f"  Subs       : {_metrics['subscriber_count']}")
+    print(f"  (Next run will auto-compare against this snapshot.)")
+    print(f"{'='*70}")
+elif BASELINE_PATH.exists():
+    with open(BASELINE_PATH, encoding="utf-8") as _bf:
+        _base = json.load(_bf)
+    print(f"\n{'='*70}")
+    print(f"  PERFORMANCE DELTA — vs baseline from {_base.get('run_date','?')}")
+    print(f"  Baseline range : {_base.get('date_range','?')}  |  subs: {_base.get('subscriber_count','?')}")
+    print(f"  Current  range : {_metrics['date_range']}  |  subs: {_metrics['subscriber_count']}")
+    print(f"{'='*70}")
+    _print_diff("Cash3", _metrics["cash3"], _base.get("cash3", {}), _DIFF_FIELDS_CASH)
+    _print_diff("Cash4", _metrics["cash4"], _base.get("cash4", {}), _DIFF_FIELDS_CASH)
+    for _jk, _jlabel in [("mm","MegaMillions"),("pb","Powerball"),("mfl","MFL")]:
+        _print_diff(_jlabel, _metrics["jackpot"].get(_jk, {}),
+                    _base.get("jackpot", {}).get(_jk, {}), _DIFF_FIELDS_JP)
+    print(f"\n  Run with --save-baseline to promote current results as new baseline.")
+    print(f"{'='*70}")
+else:
+    print(f"\n  (No baseline on file. Run with --save-baseline to create one.)")
+
