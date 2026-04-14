@@ -9,6 +9,25 @@ from typing import Dict, Any, List
 from pathlib import Path
 from datetime import datetime
 
+# ================================================================
+#  EXPERIMENT TUNING KNOBS
+#  Change ONE value, re-run simulate_historical.py + full_report.py,
+#  then use full_report.py to measure the delta vs baseline.
+# ================================================================
+
+# Cash3 Evening session weight in frequency pool.
+# 1  = equal (33% eve / 33% mid / 33% night)  — baseline 2026-04-14
+# 3  = 60/40 Evening-heavy (60% eve / 20% mid / 20% night) — exp-01
+# Reset to 1 after experiment and --save-baseline if it improves results.
+CASH3_EVENING_WEIGHT: int = 1  # baseline: equal session weighting
+
+# Cash4 system-lane variant depth: number of distinct picks per subscriber per day.
+# 2  = baseline 2026-04-14 (181,818 system picks / 999 subs / 91 days)
+# 3  = exp-03: +50% system coverage per subscriber (272,727 system picks)
+# Increase cautiously — more variants improve coverage but may dilute precision.
+# Run --save-baseline to lock in improvements.
+CASH4_VARIANT_DEPTH: int = 2  # baseline: 2 variants/sub/day
+
 from core.cash_pattern_model_v1 import (
     build_cash_history,
     pick_top_cash_combos_for_day
@@ -474,9 +493,11 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         mmfsn_cash4 = []
 
     # ------------------ CASH 3 SYSTEM LANE (All Sessions) ------------------
+    # CASH3_EVENING_WEIGHT controls session emphasis in the frequency pool.
+    # 3 = 60% Evening / 20% Midday / 20% Night (exp-01)
     cash3_history = (
         ga_data.get("cash3_mid", [])
-        + ga_data.get("cash3_eve", [])
+        + ga_data.get("cash3_eve", []) * CASH3_EVENING_WEIGHT
         + ga_data.get("cash3_night", [])
     )
 
@@ -503,11 +524,11 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     stats4 = _build_combo_stats(c4_combos)
 
     if stats4:
-        system_cash4 = _pick_top_combos(stats4, k=2, subscriber_seed=subscriber_seed)
+        system_cash4 = _pick_top_combos(stats4, k=CASH4_VARIANT_DEPTH, subscriber_seed=subscriber_seed)
     else:
         freq4 = build_digit_frequency(last_digits_from_results(cash4_history, 30), 4)
         rng4 = random.Random(subscriber_seed + 1)
-        system_cash4 = [_fallback_generate_cash4(freq4) for _ in range(2)]
+        system_cash4 = [_fallback_generate_cash4(freq4) for _ in range(CASH4_VARIANT_DEPTH)]
         rng4.shuffle(system_cash4)
 
     # ------------------ JACKPOT ------------------

@@ -4,62 +4,65 @@
   "subscriber_count": 999,
   "cash3": {
     "picks": 485303,
-    "straight_hits": 1936,
-    "box_hits": 8721,
-    "near_misses": 38462,
-    "straight_rate": 0.398926,
-    "box_rate": 1.797022
+    "straight_hits": 1934,
+    "box_hits": 8710,
+    "near_misses": 38474,
+    "straight_rate": 0.398514,
+    "box_rate": 1.794755,
+    "straight_daily_stddev": 27.5627,
+    "box_daily_stddev": 86.3595
   },
   "cash4": {
     "picks": 363909,
-    "straight_hits": 43,
-    "box_hits": 1497,
-    "near_misses": 3727,
-    "straight_rate": 0.011816,
-    "box_rate": 0.411367
+    "straight_hits": 41,
+    "box_hits": 1498,
+    "near_misses": 3734,
+    "straight_rate": 0.011267,
+    "box_rate": 0.411641,
+    "straight_daily_stddev": 0.6012,
+    "box_daily_stddev": 20.9169
   },
   "jackpot": {
     "mm": {
       "picks": 43956,
-      "prize_wins": 2025,
-      "win_rate": 4.60688,
-      "total_prize": 7478,
+      "prize_wins": 1980,
+      "win_rate": 4.504505,
+      "total_prize": 6122,
       "tiers": {
-        "0+MB": 1404,
-        "1+MB": 515,
-        "2+MB": 51,
-        "3+0": 50,
-        "3+MB": 3,
-        "4+0": 2
+        "1+MB": 499,
+        "0+MB": 1383,
+        "2+MB": 50,
+        "3+0": 46,
+        "3+MB": 2
       }
     },
     "pb": {
       "picks": 63936,
-      "prize_wins": 2705,
-      "win_rate": 4.230793,
-      "total_prize": 12260,
+      "prize_wins": 2829,
+      "win_rate": 4.424737,
+      "total_prize": 12504,
       "tiers": {
-        "0+PB": 1717,
-        "1+PB": 756,
-        "2+PB": 115,
-        "3+0": 109,
-        "3+PB": 5,
-        "4+0": 3
+        "0+PB": 1845,
+        "1+PB": 774,
+        "3+0": 113,
+        "2+PB": 91,
+        "3+PB": 4,
+        "4+0": 2
       }
     },
     "mfl": {
       "picks": 181818,
-      "prize_wins": 41953,
-      "win_rate": 23.074173,
-      "total_prize": 84127,
+      "prize_wins": 41939,
+      "win_rate": 23.066473,
+      "total_prize": 89106,
       "tiers": {
-        "1+MB": 13462,
-        "0+MB": 25703,
-        "2+MB": 2180,
-        "3+MB": 164,
-        "3+0": 440,
-        "4+MB": 3,
-        "4+0": 1
+        "0+MB": 25764,
+        "1+MB": 13401,
+        "2+MB": 2166,
+        "3+MB": 156,
+        "3+0": 441,
+        "4+0": 7,
+        "4+MB": 4
       }
     }
   }

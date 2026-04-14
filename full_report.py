@@ -84,9 +84,11 @@ _metrics: dict = {
     "date_range": "",
     "subscriber_count": 0,
     "cash3": {"picks": 0, "straight_hits": 0, "box_hits": 0, "near_misses": 0,
-              "straight_rate": 0.0, "box_rate": 0.0},
+              "straight_rate": 0.0, "box_rate": 0.0,
+              "straight_daily_stddev": 0.0, "box_daily_stddev": 0.0},
     "cash4": {"picks": 0, "straight_hits": 0, "box_hits": 0, "near_misses": 0,
-              "straight_rate": 0.0, "box_rate": 0.0},
+              "straight_rate": 0.0, "box_rate": 0.0,
+              "straight_daily_stddev": 0.0, "box_daily_stddev": 0.0},
     "jackpot": {"mm": {}, "pb": {}, "mfl": {}},
 }
 
@@ -171,6 +173,26 @@ for game in ["Cash3", "Cash4"]:
     _metrics[_key]["near_misses"]   = near
     _metrics[_key]["straight_rate"] = round(straight / total * 100, 6) if total else 0.0
     _metrics[_key]["box_rate"]      = round(box      / total * 100, 6) if total else 0.0
+
+    # Stability: daily hit counts -> stddev (measures consistency, not just totals)
+    _daily_s: dict = defaultdict(int)
+    _daily_b: dict = defaultdict(int)
+    for r in game_rows:
+        d_ = r["date"]
+        if any(r[f"{s}_straight"] == "1" for _, s in SESSIONS):
+            _daily_s[d_] += 1
+        if any(r[f"{s}_box"] == "1" for _, s in SESSIONS):
+            _daily_b[d_] += 1
+    all_dates = sorted(set(r["date"] for r in game_rows))
+    _s_counts = [_daily_s.get(d_, 0) for d_ in all_dates]
+    _b_counts = [_daily_b.get(d_, 0) for d_ in all_dates]
+    def _stddev(vals):
+        if len(vals) < 2:
+            return 0.0
+        m = sum(vals) / len(vals)
+        return round((sum((v - m) ** 2 for v in vals) / (len(vals) - 1)) ** 0.5, 4)
+    _metrics[_key]["straight_daily_stddev"] = _stddev(_s_counts)
+    _metrics[_key]["box_daily_stddev"]      = _stddev(_b_counts)
 
     print(f"\n  [{game}]  {total:,} picks over {len(dates)} days")
     print(f"  {'Outcome':<20} {'Count':>8}  {'Rate':>10}  {'vs Random':>14}")
@@ -396,12 +418,14 @@ else:
 
 # ── BASELINE: SAVE or COMPARE ─────────────────────────────────────────────────
 _DIFF_FIELDS_CASH = [
-    ("picks",         "Picks",         False),
-    ("straight_hits", "Straight hits",  True),
-    ("box_hits",      "Box hits",       True),
-    ("near_misses",   "Near misses",    True),
-    ("straight_rate", "Straight rate%", True),
-    ("box_rate",      "Box rate%",      True),
+    ("picks",                 "Picks",              False),
+    ("straight_hits",         "Straight hits",       True),
+    ("box_hits",              "Box hits",            True),
+    ("near_misses",           "Near misses",        False),
+    ("straight_rate",         "Straight rate%",      True),
+    ("box_rate",              "Box rate%",           True),
+    ("straight_daily_stddev", "Straight stddev/day",False),
+    ("box_daily_stddev",      "Box stddev/day",     False),
 ]
 _DIFF_FIELDS_JP = [
     ("picks",       "Picks",      False),
@@ -450,6 +474,24 @@ elif BASELINE_PATH.exists():
     for _jk, _jlabel in [("mm","MegaMillions"),("pb","Powerball"),("mfl","MFL")]:
         _print_diff(_jlabel, _metrics["jackpot"].get(_jk, {}),
                     _base.get("jackpot", {}).get(_jk, {}), _DIFF_FIELDS_JP)
+
+    # ── PROMOTION VERDICT: all-three-conditions check ─────────────────────────
+    _c4n = _metrics["cash4"]
+    _c4b = _base.get("cash4", {})
+    _s_ok  = _c4n.get("straight_hits", 0) >= _c4b.get("straight_hits", 0)
+    _bx_ok = _c4n.get("box_hits", 0)     >= _c4b.get("box_hits", 0)
+    _sdev_new = _c4n.get("straight_daily_stddev", 0)
+    _sdev_old = _c4b.get("straight_daily_stddev", 0)
+    # Stability: new stddev within 10% of baseline = stable; >10% above = volatile
+    _var_ok = (_sdev_old == 0) or (_sdev_new <= _sdev_old * 1.10)
+    _var_label = "STABLE" if _var_ok else f"INCREASED (stddev {_sdev_new} vs {_sdev_old})"
+    print(f"\n  PROMOTION CHECK (Cash4) — straight >= bl AND box >= bl AND variance stable")
+    print(f"    Straight {'>=' if _s_ok else '< '}baseline : {'PASS' if _s_ok else 'FAIL'}")
+    print(f"    Box      {'>=' if _bx_ok else '< '}baseline : {'PASS' if _bx_ok else 'FAIL'}")
+    print(f"    Variance            : {_var_label}")
+    _verdict = "PROMOTE" if (_s_ok and _bx_ok and _var_ok) else "HOLD BASELINE"
+    print(f"    VERDICT             : {_verdict}")
+
     print(f"\n  Run with --save-baseline to promote current results as new baseline.")
     print(f"{'='*70}")
 else:
