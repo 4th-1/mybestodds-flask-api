@@ -86,8 +86,13 @@ def run_prediction_engine(subscriber_file: str, kit: str, start_date: str = None
 def get_predictions_for_date(date_str: str, kit: str) -> List[Dict]:
     """Get predictions for a specific date and kit"""
     try:
-        # Load subscriber config
-        subscriber_file = os.path.join(SUBSCRIBERS_DIR, kit, "subscriber_1.json")
+        # Map kit names to actual JSON config files
+        kit_file_map = {
+            "BOOK3": os.path.join(JACKPOT_SYSTEM_DIR, "kits", "3Base44ReadyBOOK3.json"),
+            "BOOK":  os.path.join(JACKPOT_SYSTEM_DIR, "kits", "Base44ReadyBOOK.json"),
+            "BOSK":  os.path.join(JACKPOT_SYSTEM_DIR, "kits", "BASE44_BOSK_ready_.json"),
+        }
+        subscriber_file = kit_file_map.get(kit, os.path.join(SUBSCRIBERS_DIR, kit, "subscriber_1.json"))
         if not os.path.exists(subscriber_file):
             logger.warning(f"Subscriber file not found: {subscriber_file}")
             return []
