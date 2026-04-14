@@ -269,6 +269,51 @@ def predict_millionaire():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+@app.route('/api/predictions/generate/<subscriber_id>', methods=['GET', 'POST'])
+def generate_predictions(subscriber_id: str):
+    """
+    Unified prediction endpoint called by the Lovable edge function.
+    POST /api/predictions/generate/<subscriberId>
+    Body (optional JSON): { "date": "YYYY-MM-DD", "games": ["Cash3", "Cash4", ...] }
+    Returns all picks for the requested date grouped by game.
+    """
+    try:
+        body = {}
+        if request.is_json:
+            body = request.get_json(silent=True) or {}
+
+        date_str = (
+            body.get("date")
+            or request.args.get("date")
+            or datetime.now().strftime("%Y-%m-%d")
+        )
+        requested_games = body.get("games") or request.args.getlist("games") or []
+
+        all_predictions = get_predictions_for_date(date_str, "BOOK3")
+
+        # Group by game
+        grouped: Dict[str, List] = {}
+        for p in all_predictions:
+            game = p.get("game", "Unknown")
+            grouped.setdefault(game, []).append(p.get("number"))
+
+        # Filter if caller asked for specific games
+        if requested_games:
+            grouped = {g: v for g, v in grouped.items() if g in requested_games}
+
+        return jsonify({
+            "success": True,
+            "subscriber_id": subscriber_id,
+            "date": date_str,
+            "predictions": grouped,
+            "total_picks": sum(len(v) for v in grouped.values()),
+        }), 200
+
+    except Exception as e:
+        logger.error(f"generate_predictions error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
