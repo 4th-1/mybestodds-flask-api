@@ -1,87 +1,512 @@
 [
   {
-    "date": "2026-02-13",
-    "winning_number": "133",
-    "session": "evening"
+    "date": "1/1/2026",
+    "winning_number": "739",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-12",
-    "winning_number": "606",
-    "session": "evening"
+    "date": "1/2/2026",
+    "winning_number": "546",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-11",
-    "winning_number": "176",
-    "session": "evening"
+    "date": "1/3/2026",
+    "winning_number": "280",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-10",
-    "winning_number": "871",
-    "session": "evening"
+    "date": "1/4/2026",
+    "winning_number": "620",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-09",
-    "winning_number": "973",
-    "session": "evening"
+    "date": "1/5/2026",
+    "winning_number": "120",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-08",
+    "date": "1/6/2026",
+    "winning_number": "756",
+    "session": "Evening"
+  },
+  {
+    "date": "1/7/2026",
+    "winning_number": "267",
+    "session": "Evening"
+  },
+  {
+    "date": "1/8/2026",
+    "winning_number": "076",
+    "session": "Evening"
+  },
+  {
+    "date": "1/9/2026",
+    "winning_number": "002",
+    "session": "Evening"
+  },
+  {
+    "date": "1/10/2026",
+    "winning_number": "365",
+    "session": "Evening"
+  },
+  {
+    "date": "1/11/2026",
+    "winning_number": "218",
+    "session": "Evening"
+  },
+  {
+    "date": "1/12/2026",
+    "winning_number": "075",
+    "session": "Evening"
+  },
+  {
+    "date": "1/13/2026",
+    "winning_number": "184",
+    "session": "Evening"
+  },
+  {
+    "date": "1/14/2026",
+    "winning_number": "978",
+    "session": "Evening"
+  },
+  {
+    "date": "1/15/2026",
+    "winning_number": "801",
+    "session": "Evening"
+  },
+  {
+    "date": "1/16/2026",
+    "winning_number": "420",
+    "session": "Evening"
+  },
+  {
+    "date": "1/17/2026",
+    "winning_number": "958",
+    "session": "Evening"
+  },
+  {
+    "date": "1/18/2026",
+    "winning_number": "246",
+    "session": "Evening"
+  },
+  {
+    "date": "1/19/2026",
+    "winning_number": "618",
+    "session": "Evening"
+  },
+  {
+    "date": "1/20/2026",
+    "winning_number": "373",
+    "session": "Evening"
+  },
+  {
+    "date": "1/21/2026",
+    "winning_number": "352",
+    "session": "Evening"
+  },
+  {
+    "date": "1/22/2026",
+    "winning_number": "663",
+    "session": "Evening"
+  },
+  {
+    "date": "1/23/2026",
+    "winning_number": "649",
+    "session": "Evening"
+  },
+  {
+    "date": "1/24/2026",
+    "winning_number": "786",
+    "session": "Evening"
+  },
+  {
+    "date": "1/25/2026",
+    "winning_number": "673",
+    "session": "Evening"
+  },
+  {
+    "date": "1/26/2026",
+    "winning_number": "281",
+    "session": "Evening"
+  },
+  {
+    "date": "1/27/2026",
+    "winning_number": "022",
+    "session": "Evening"
+  },
+  {
+    "date": "1/28/2026",
+    "winning_number": "254",
+    "session": "Evening"
+  },
+  {
+    "date": "1/29/2026",
+    "winning_number": "091",
+    "session": "Evening"
+  },
+  {
+    "date": "1/30/2026",
+    "winning_number": "149",
+    "session": "Evening"
+  },
+  {
+    "date": "1/31/2026",
+    "winning_number": "721",
+    "session": "Evening"
+  },
+  {
+    "date": "2/1/2026",
+    "winning_number": "295",
+    "session": "Evening"
+  },
+  {
+    "date": "2/2/2026",
+    "winning_number": "847",
+    "session": "Evening"
+  },
+  {
+    "date": "2/3/2026",
+    "winning_number": "73",
+    "session": "Evening"
+  },
+  {
+    "date": "2/4/2026",
+    "winning_number": "648",
+    "session": "Evening"
+  },
+  {
+    "date": "2/5/2026",
+    "winning_number": "562",
+    "session": "Evening"
+  },
+  {
+    "date": "2/6/2026",
+    "winning_number": "389",
+    "session": "Evening"
+  },
+  {
+    "date": "2/7/2026",
+    "winning_number": "279",
+    "session": "Evening"
+  },
+  {
+    "date": "2/8/2026",
     "winning_number": "371",
-    "session": "evening"
+    "session": "Evening"
   },
   {
-    "date": "2026-02-07",
-    "winning_number": "156",
-    "session": "evening"
+    "date": "2/9/2026",
+    "winning_number": "973",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-06",
-    "winning_number": "928",
-    "session": "evening"
+    "date": "2/10/2026",
+    "winning_number": "871",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-05",
-    "winning_number": "732",
-    "session": "evening"
+    "date": "2/11/2026",
+    "winning_number": "176",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-04",
-    "winning_number": "496",
-    "session": "evening"
+    "date": "2/12/2026",
+    "winning_number": "606",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-03",
-    "winning_number": "565",
-    "session": "evening"
+    "date": "2/13/2026",
+    "winning_number": "133",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-02",
-    "winning_number": "032",
-    "session": "evening"
+    "date": "2/14/2026",
+    "winning_number": "861",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-01",
-    "winning_number": "776",
-    "session": "evening"
+    "date": "2/15/2026",
+    "winning_number": "185",
+    "session": "Evening"
   },
   {
-    "date": "2026-02-07",
-    "winning_number": "215",
-    "session": "evening"
+    "date": "2/16/2026",
+    "winning_number": "329",
+    "session": "Evening"
   },
   {
-    "date": "2025-12-20",
-    "winning_number": "321",
-    "session": "evening"
+    "date": "2/17/2026",
+    "winning_number": "015",
+    "session": "Evening"
   },
   {
-    "date": "2025-12-19",
-    "winning_number": "654",
-    "session": "evening"
+    "date": "2/18/2026",
+    "winning_number": "943",
+    "session": "Evening"
   },
   {
-    "date": "2025-12-18",
-    "winning_number": "987",
-    "session": "evening"
+    "date": "2/19/2026",
+    "winning_number": "195",
+    "session": "Evening"
+  },
+  {
+    "date": "2/20/2026",
+    "winning_number": "608",
+    "session": "Evening"
+  },
+  {
+    "date": "2/21/2026",
+    "winning_number": "129",
+    "session": "Evening"
+  },
+  {
+    "date": "2/22/2026",
+    "winning_number": "356",
+    "session": "Evening"
+  },
+  {
+    "date": "2/23/2026",
+    "winning_number": "500",
+    "session": "Evening"
+  },
+  {
+    "date": "2/24/2026",
+    "winning_number": "979",
+    "session": "Evening"
+  },
+  {
+    "date": "2/25/2026",
+    "winning_number": "213",
+    "session": "Evening"
+  },
+  {
+    "date": "2/26/2026",
+    "winning_number": "886",
+    "session": "Evening"
+  },
+  {
+    "date": "2/27/2026",
+    "winning_number": "561",
+    "session": "Evening"
+  },
+  {
+    "date": "2/28/2026",
+    "winning_number": "502",
+    "session": "Evening"
+  },
+  {
+    "date": "3/1/2026",
+    "winning_number": "568",
+    "session": "Evening"
+  },
+  {
+    "date": "3/2/2026",
+    "winning_number": "433",
+    "session": "Evening"
+  },
+  {
+    "date": "3/3/2026",
+    "winning_number": "465",
+    "session": "Evening"
+  },
+  {
+    "date": "3/4/2026",
+    "winning_number": "263",
+    "session": "Evening"
+  },
+  {
+    "date": "3/5/2026",
+    "winning_number": "595",
+    "session": "Evening"
+  },
+  {
+    "date": "3/6/2026",
+    "winning_number": "027",
+    "session": "Evening"
+  },
+  {
+    "date": "3/7/2026",
+    "winning_number": "075",
+    "session": "Evening"
+  },
+  {
+    "date": "3/8/2026",
+    "winning_number": "059",
+    "session": "Evening"
+  },
+  {
+    "date": "3/9/2026",
+    "winning_number": "619",
+    "session": "Evening"
+  },
+  {
+    "date": "3/10/2026",
+    "winning_number": "630",
+    "session": "Evening"
+  },
+  {
+    "date": "3/11/2026",
+    "winning_number": "234",
+    "session": "Evening"
+  },
+  {
+    "date": "3/12/2026",
+    "winning_number": "786",
+    "session": "Evening"
+  },
+  {
+    "date": "3/13/2026",
+    "winning_number": "367",
+    "session": "Evening"
+  },
+  {
+    "date": "3/14/2026",
+    "winning_number": "767",
+    "session": "Evening"
+  },
+  {
+    "date": "3/15/2026",
+    "winning_number": "487",
+    "session": "Evening"
+  },
+  {
+    "date": "3/16/2026",
+    "winning_number": "075",
+    "session": "Evening"
+  },
+  {
+    "date": "3/17/2026",
+    "winning_number": "284",
+    "session": "Evening"
+  },
+  {
+    "date": "3/18/2026",
+    "winning_number": "669",
+    "session": "Evening"
+  },
+  {
+    "date": "3/19/2026",
+    "winning_number": "613",
+    "session": "Evening"
+  },
+  {
+    "date": "3/20/2026",
+    "winning_number": "973",
+    "session": "Evening"
+  },
+  {
+    "date": "3/21/2026",
+    "winning_number": "056",
+    "session": "Evening"
+  },
+  {
+    "date": "3/22/2026",
+    "winning_number": "127",
+    "session": "Evening"
+  },
+  {
+    "date": "3/23/2026",
+    "winning_number": "050",
+    "session": "Evening"
+  },
+  {
+    "date": "3/24/2026",
+    "winning_number": "049",
+    "session": "Evening"
+  },
+  {
+    "date": "3/25/2026",
+    "winning_number": "957",
+    "session": "Evening"
+  },
+  {
+    "date": "3/26/2026",
+    "winning_number": "107",
+    "session": "Evening"
+  },
+  {
+    "date": "3/27/2026",
+    "winning_number": "115",
+    "session": "Evening"
+  },
+  {
+    "date": "3/28/2026",
+    "winning_number": "183",
+    "session": "Evening"
+  },
+  {
+    "date": "3/29/2026",
+    "winning_number": "351",
+    "session": "Evening"
+  },
+  {
+    "date": "3/30/2026",
+    "winning_number": "936",
+    "session": "Evening"
+  },
+  {
+    "date": "3/31/2026",
+    "winning_number": "283",
+    "session": "Evening"
+  },
+  {
+    "date": "4/1/2026",
+    "winning_number": "564",
+    "session": "Evening"
+  },
+  {
+    "date": "4/2/2026",
+    "winning_number": "395",
+    "session": "Evening"
+  },
+  {
+    "date": "4/3/2026",
+    "winning_number": "821",
+    "session": "Evening"
+  },
+  {
+    "date": "4/4/2026",
+    "winning_number": "666",
+    "session": "Evening"
+  },
+  {
+    "date": "4/5/2026",
+    "winning_number": "67",
+    "session": "Evening"
+  },
+  {
+    "date": "4/6/2026",
+    "winning_number": "363",
+    "session": "Evening"
+  },
+  {
+    "date": "4/7/2026",
+    "winning_number": "567",
+    "session": "Evening"
+  },
+  {
+    "date": "4/8/2026",
+    "winning_number": "241",
+    "session": "Evening"
+  },
+  {
+    "date": "4/9/2026",
+    "winning_number": "726",
+    "session": "Evening"
+  },
+  {
+    "date": "4/10/2026",
+    "winning_number": "586",
+    "session": "Evening"
+  },
+  {
+    "date": "4/11/2026",
+    "winning_number": "533",
+    "session": "Evening"
+  },
+  {
+    "date": "4/12/2026",
+    "winning_number": "209",
+    "session": "Evening"
   }
 ]

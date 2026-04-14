@@ -1,67 +1,507 @@
 [
   {
-    "date": "2026-02-13",
-    "winning_number": "1062",
-    "session": "midday"
+    "date": "1/1/2026",
+    "winning_number": "9078",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-12",
-    "winning_number": "1026",
-    "session": "midday"
+    "date": "1/2/2026",
+    "winning_number": "0638",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-11",
-    "winning_number": "7036",
-    "session": "midday"
+    "date": "1/3/2026",
+    "winning_number": "4959",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-10",
-    "winning_number": "2104",
-    "session": "midday"
+    "date": "1/4/2026",
+    "winning_number": "3158",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-09",
-    "winning_number": "0709",
-    "session": "midday"
+    "date": "1/5/2026",
+    "winning_number": "0061",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-08",
-    "winning_number": "5096",
-    "session": "midday"
+    "date": "1/6/2026",
+    "winning_number": "1483",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-07",
-    "winning_number": "0923",
-    "session": "midday"
+    "date": "1/7/2026",
+    "winning_number": "3940",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-06",
-    "winning_number": "8979",
-    "session": "midday"
+    "date": "1/8/2026",
+    "winning_number": "7271",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-05",
-    "winning_number": "3889",
-    "session": "midday"
+    "date": "1/9/2026",
+    "winning_number": "9632",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-04",
-    "winning_number": "7424",
-    "session": "midday"
+    "date": "1/10/2026",
+    "winning_number": "0146",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-03",
-    "winning_number": "9497",
-    "session": "midday"
+    "date": "1/11/2026",
+    "winning_number": "0116",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-02",
-    "winning_number": "4246",
-    "session": "midday"
+    "date": "1/12/2026",
+    "winning_number": "8463",
+    "session": "Midday"
   },
   {
-    "date": "2026-02-01",
+    "date": "1/13/2026",
+    "winning_number": "6478",
+    "session": "Midday"
+  },
+  {
+    "date": "1/14/2026",
+    "winning_number": "2137",
+    "session": "Midday"
+  },
+  {
+    "date": "1/15/2026",
+    "winning_number": "5928",
+    "session": "Midday"
+  },
+  {
+    "date": "1/16/2026",
+    "winning_number": "8984",
+    "session": "Midday"
+  },
+  {
+    "date": "1/17/2026",
+    "winning_number": "7151",
+    "session": "Midday"
+  },
+  {
+    "date": "1/18/2026",
+    "winning_number": "8762",
+    "session": "Midday"
+  },
+  {
+    "date": "1/19/2026",
+    "winning_number": "1843",
+    "session": "Midday"
+  },
+  {
+    "date": "1/20/2026",
+    "winning_number": "9713",
+    "session": "Midday"
+  },
+  {
+    "date": "1/21/2026",
+    "winning_number": "1886",
+    "session": "Midday"
+  },
+  {
+    "date": "1/22/2026",
+    "winning_number": "9749",
+    "session": "Midday"
+  },
+  {
+    "date": "1/23/2026",
+    "winning_number": "7240",
+    "session": "Midday"
+  },
+  {
+    "date": "1/24/2026",
+    "winning_number": "1656",
+    "session": "Midday"
+  },
+  {
+    "date": "1/25/2026",
+    "winning_number": "0352",
+    "session": "Midday"
+  },
+  {
+    "date": "1/26/2026",
+    "winning_number": "7898",
+    "session": "Midday"
+  },
+  {
+    "date": "1/27/2026",
+    "winning_number": "1628",
+    "session": "Midday"
+  },
+  {
+    "date": "1/28/2026",
+    "winning_number": "7219",
+    "session": "Midday"
+  },
+  {
+    "date": "1/29/2026",
+    "winning_number": "5464",
+    "session": "Midday"
+  },
+  {
+    "date": "1/30/2026",
+    "winning_number": "2763",
+    "session": "Midday"
+  },
+  {
+    "date": "1/31/2026",
+    "winning_number": "3279",
+    "session": "Midday"
+  },
+  {
+    "date": "2/1/2026",
     "winning_number": "9352",
-    "session": "midday"
+    "session": "Midday"
+  },
+  {
+    "date": "2/2/2026",
+    "winning_number": "4246",
+    "session": "Midday"
+  },
+  {
+    "date": "2/3/2026",
+    "winning_number": "9497",
+    "session": "Midday"
+  },
+  {
+    "date": "2/4/2026",
+    "winning_number": "7424",
+    "session": "Midday"
+  },
+  {
+    "date": "2/5/2026",
+    "winning_number": "3889",
+    "session": "Midday"
+  },
+  {
+    "date": "2/6/2026",
+    "winning_number": "8979",
+    "session": "Midday"
+  },
+  {
+    "date": "2/7/2026",
+    "winning_number": "923",
+    "session": "Midday"
+  },
+  {
+    "date": "2/8/2026",
+    "winning_number": "5096",
+    "session": "Midday"
+  },
+  {
+    "date": "2/9/2026",
+    "winning_number": "0709",
+    "session": "Midday"
+  },
+  {
+    "date": "2/10/2026",
+    "winning_number": "2104",
+    "session": "Midday"
+  },
+  {
+    "date": "2/11/2026",
+    "winning_number": "7036",
+    "session": "Midday"
+  },
+  {
+    "date": "2/12/2026",
+    "winning_number": "1026",
+    "session": "Midday"
+  },
+  {
+    "date": "2/13/2026",
+    "winning_number": "1062",
+    "session": "Midday"
+  },
+  {
+    "date": "2/14/2026",
+    "winning_number": "5596",
+    "session": "Midday"
+  },
+  {
+    "date": "2/15/2026",
+    "winning_number": "1160",
+    "session": "Midday"
+  },
+  {
+    "date": "2/16/2026",
+    "winning_number": "6903",
+    "session": "Midday"
+  },
+  {
+    "date": "2/17/2026",
+    "winning_number": "8908",
+    "session": "Midday"
+  },
+  {
+    "date": "2/18/2026",
+    "winning_number": "3499",
+    "session": "Midday"
+  },
+  {
+    "date": "2/19/2026",
+    "winning_number": "3849",
+    "session": "Midday"
+  },
+  {
+    "date": "2/20/2026",
+    "winning_number": "7104",
+    "session": "Midday"
+  },
+  {
+    "date": "2/21/2026",
+    "winning_number": "7687",
+    "session": "Midday"
+  },
+  {
+    "date": "2/22/2026",
+    "winning_number": "4882",
+    "session": "Midday"
+  },
+  {
+    "date": "2/23/2026",
+    "winning_number": "0777",
+    "session": "Midday"
+  },
+  {
+    "date": "2/24/2026",
+    "winning_number": "4136",
+    "session": "Midday"
+  },
+  {
+    "date": "2/25/2026",
+    "winning_number": "0653",
+    "session": "Midday"
+  },
+  {
+    "date": "2/26/2026",
+    "winning_number": "3886",
+    "session": "Midday"
+  },
+  {
+    "date": "2/27/2026",
+    "winning_number": "2219",
+    "session": "Midday"
+  },
+  {
+    "date": "2/28/2026",
+    "winning_number": "5194",
+    "session": "Midday"
+  },
+  {
+    "date": "3/1/2026",
+    "winning_number": "7099",
+    "session": "Midday"
+  },
+  {
+    "date": "3/2/2026",
+    "winning_number": "9683",
+    "session": "Midday"
+  },
+  {
+    "date": "3/3/2026",
+    "winning_number": "0271",
+    "session": "Midday"
+  },
+  {
+    "date": "3/4/2026",
+    "winning_number": "0420",
+    "session": "Midday"
+  },
+  {
+    "date": "3/5/2026",
+    "winning_number": "7839",
+    "session": "Midday"
+  },
+  {
+    "date": "3/6/2026",
+    "winning_number": "6344",
+    "session": "Midday"
+  },
+  {
+    "date": "3/7/2026",
+    "winning_number": "3054",
+    "session": "Midday"
+  },
+  {
+    "date": "3/8/2026",
+    "winning_number": "5605",
+    "session": "Midday"
+  },
+  {
+    "date": "3/9/2026",
+    "winning_number": "6730",
+    "session": "Midday"
+  },
+  {
+    "date": "3/10/2026",
+    "winning_number": "0472",
+    "session": "Midday"
+  },
+  {
+    "date": "3/11/2026",
+    "winning_number": "7223",
+    "session": "Midday"
+  },
+  {
+    "date": "3/12/2026",
+    "winning_number": "6015",
+    "session": "Midday"
+  },
+  {
+    "date": "3/13/2026",
+    "winning_number": "0098",
+    "session": "Midday"
+  },
+  {
+    "date": "3/14/2026",
+    "winning_number": "9274",
+    "session": "Midday"
+  },
+  {
+    "date": "3/15/2026",
+    "winning_number": "6459",
+    "session": "Midday"
+  },
+  {
+    "date": "3/16/2026",
+    "winning_number": "3145",
+    "session": "Midday"
+  },
+  {
+    "date": "3/17/2026",
+    "winning_number": "3725",
+    "session": "Midday"
+  },
+  {
+    "date": "3/18/2026",
+    "winning_number": "7706",
+    "session": "Midday"
+  },
+  {
+    "date": "3/19/2026",
+    "winning_number": "0347",
+    "session": "Midday"
+  },
+  {
+    "date": "3/20/2026",
+    "winning_number": "6255",
+    "session": "Midday"
+  },
+  {
+    "date": "3/21/2026",
+    "winning_number": "9849",
+    "session": "Midday"
+  },
+  {
+    "date": "3/22/2026",
+    "winning_number": "7604",
+    "session": "Midday"
+  },
+  {
+    "date": "3/23/2026",
+    "winning_number": "2750",
+    "session": "Midday"
+  },
+  {
+    "date": "3/24/2026",
+    "winning_number": "8002",
+    "session": "Midday"
+  },
+  {
+    "date": "3/25/2026",
+    "winning_number": "8316",
+    "session": "Midday"
+  },
+  {
+    "date": "3/26/2026",
+    "winning_number": "5775",
+    "session": "Midday"
+  },
+  {
+    "date": "3/27/2026",
+    "winning_number": "4354",
+    "session": "Midday"
+  },
+  {
+    "date": "3/28/2026",
+    "winning_number": "1453",
+    "session": "Midday"
+  },
+  {
+    "date": "3/29/2026",
+    "winning_number": "2135",
+    "session": "Midday"
+  },
+  {
+    "date": "3/30/2026",
+    "winning_number": "8713",
+    "session": "Midday"
+  },
+  {
+    "date": "3/31/2026",
+    "winning_number": "4220",
+    "session": "Midday"
+  },
+  {
+    "date": "4/2/2026",
+    "winning_number": "8904",
+    "session": "Midday"
+  },
+  {
+    "date": "4/3/2026",
+    "winning_number": "1292",
+    "session": "Midday"
+  },
+  {
+    "date": "4/4/2026",
+    "winning_number": "8009",
+    "session": "Midday"
+  },
+  {
+    "date": "4/5/2026",
+    "winning_number": "3752",
+    "session": "Midday"
+  },
+  {
+    "date": "4/6/2026",
+    "winning_number": "2323",
+    "session": "Midday"
+  },
+  {
+    "date": "4/7/2026",
+    "winning_number": "8278",
+    "session": "Midday"
+  },
+  {
+    "date": "4/8/2026",
+    "winning_number": "5745",
+    "session": "Midday"
+  },
+  {
+    "date": "4/9/2026",
+    "winning_number": "2318",
+    "session": "Midday"
+  },
+  {
+    "date": "4/10/2026",
+    "winning_number": "3689",
+    "session": "Midday"
+  },
+  {
+    "date": "4/11/2026",
+    "winning_number": "7275",
+    "session": "Midday"
+  },
+  {
+    "date": "4/12/2026",
+    "winning_number": "8153",
+    "session": "Midday"
   }
 ]

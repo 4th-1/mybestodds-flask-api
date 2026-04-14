@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-02-13",
+    "winning_numbers": [34, 40, 49, 59, 68],
+    "mega_ball": 1,
+    "megaplier": null
+  },
+  {
+    "date": "2026-02-10",
+    "winning_numbers": [5, 25, 30, 36, 68],
+    "mega_ball": 6,
+    "megaplier": null
+  },
+  {
+    "date": "2026-02-06",
+    "winning_numbers": [13, 21, 25, 52, 62],
+    "mega_ball": 19,
+    "megaplier": null
+  },
+  {
+    "date": "2026-02-03",
+    "winning_numbers": [5, 11, 22, 25, 69],
+    "mega_ball": 21,
+    "megaplier": null
+  }
+]

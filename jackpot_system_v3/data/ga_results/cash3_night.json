@@ -1,67 +1,512 @@
 [
   {
-    "date": "2026-02-13",
-    "winning_number": "451",
-    "session": "night"
+    "date": "1/1/2026",
+    "winning_number": "425",
+    "session": "Night"
   },
   {
-    "date": "2026-02-12",
-    "winning_number": "517",
-    "session": "night"
+    "date": "1/2/2026",
+    "winning_number": "172",
+    "session": "Night"
   },
   {
-    "date": "2026-02-11",
-    "winning_number": "870",
-    "session": "night"
+    "date": "1/3/2026",
+    "winning_number": "118",
+    "session": "Night"
   },
   {
-    "date": "2026-02-10",
-    "winning_number": "517",
-    "session": "night"
+    "date": "1/4/2026",
+    "winning_number": "362",
+    "session": "Night"
   },
   {
-    "date": "2026-02-09",
-    "winning_number": "261",
-    "session": "night"
+    "date": "1/5/2026",
+    "winning_number": "856",
+    "session": "Night"
   },
   {
-    "date": "2026-02-08",
+    "date": "1/6/2026",
+    "winning_number": "660",
+    "session": "Night"
+  },
+  {
+    "date": "1/7/2026",
+    "winning_number": "139",
+    "session": "Night"
+  },
+  {
+    "date": "1/8/2026",
+    "winning_number": "331",
+    "session": "Night"
+  },
+  {
+    "date": "1/9/2026",
+    "winning_number": "012",
+    "session": "Night"
+  },
+  {
+    "date": "1/10/2026",
+    "winning_number": "070",
+    "session": "Night"
+  },
+  {
+    "date": "1/11/2026",
+    "winning_number": "932",
+    "session": "Night"
+  },
+  {
+    "date": "1/12/2026",
+    "winning_number": "884",
+    "session": "Night"
+  },
+  {
+    "date": "1/13/2026",
+    "winning_number": "997",
+    "session": "Night"
+  },
+  {
+    "date": "1/14/2026",
+    "winning_number": "590",
+    "session": "Night"
+  },
+  {
+    "date": "1/15/2026",
+    "winning_number": "709",
+    "session": "Night"
+  },
+  {
+    "date": "1/16/2026",
+    "winning_number": "170",
+    "session": "Night"
+  },
+  {
+    "date": "1/17/2026",
+    "winning_number": "760",
+    "session": "Night"
+  },
+  {
+    "date": "1/18/2026",
+    "winning_number": "776",
+    "session": "Night"
+  },
+  {
+    "date": "1/19/2026",
+    "winning_number": "364",
+    "session": "Night"
+  },
+  {
+    "date": "1/20/2026",
+    "winning_number": "080",
+    "session": "Night"
+  },
+  {
+    "date": "1/21/2026",
+    "winning_number": "541",
+    "session": "Night"
+  },
+  {
+    "date": "1/22/2026",
+    "winning_number": "284",
+    "session": "Night"
+  },
+  {
+    "date": "1/23/2026",
+    "winning_number": "487",
+    "session": "Night"
+  },
+  {
+    "date": "1/24/2026",
+    "winning_number": "552",
+    "session": "Night"
+  },
+  {
+    "date": "1/25/2026",
+    "winning_number": "884",
+    "session": "Night"
+  },
+  {
+    "date": "1/26/2026",
+    "winning_number": "816",
+    "session": "Night"
+  },
+  {
+    "date": "1/27/2026",
     "winning_number": "203",
-    "session": "night"
+    "session": "Night"
   },
   {
-    "date": "2026-02-07",
+    "date": "1/28/2026",
+    "winning_number": "203",
+    "session": "Night"
+  },
+  {
+    "date": "1/29/2026",
+    "winning_number": "397",
+    "session": "Night"
+  },
+  {
+    "date": "1/30/2026",
+    "winning_number": "712",
+    "session": "Night"
+  },
+  {
+    "date": "1/31/2026",
+    "winning_number": "673",
+    "session": "Night"
+  },
+  {
+    "date": "2/1/2026",
+    "winning_number": "663",
+    "session": "Night"
+  },
+  {
+    "date": "2/2/2026",
+    "winning_number": "195",
+    "session": "Night"
+  },
+  {
+    "date": "2/3/2026",
+    "winning_number": "841",
+    "session": "Night"
+  },
+  {
+    "date": "2/4/2026",
+    "winning_number": "725",
+    "session": "Night"
+  },
+  {
+    "date": "2/5/2026",
+    "winning_number": "314",
+    "session": "Night"
+  },
+  {
+    "date": "2/6/2026",
+    "winning_number": "867",
+    "session": "Night"
+  },
+  {
+    "date": "2/7/2026",
     "winning_number": "918",
-    "session": "night"
+    "session": "Night"
   },
   {
-    "date": "2026-02-06",
-    "winning_number": "365",
-    "session": "night"
+    "date": "2/8/2026",
+    "winning_number": "203",
+    "session": "Night"
   },
   {
-    "date": "2026-02-05",
-    "winning_number": "832",
-    "session": "night"
+    "date": "2/9/2026",
+    "winning_number": "261",
+    "session": "Night"
   },
   {
-    "date": "2026-02-04",
-    "winning_number": "368",
-    "session": "night"
+    "date": "2/10/2026",
+    "winning_number": "517",
+    "session": "Night"
   },
   {
-    "date": "2026-02-03",
-    "winning_number": "426",
-    "session": "night"
+    "date": "2/11/2026",
+    "winning_number": "870",
+    "session": "Night"
   },
   {
-    "date": "2026-02-02",
-    "winning_number": "623",
-    "session": "night"
+    "date": "2/12/2026",
+    "winning_number": "517",
+    "session": "Night"
   },
   {
-    "date": "2026-02-01",
-    "winning_number": "002",
-    "session": "night"
+    "date": "2/13/2026",
+    "winning_number": "451",
+    "session": "Night"
+  },
+  {
+    "date": "2/14/2026",
+    "winning_number": "547",
+    "session": "Night"
+  },
+  {
+    "date": "2/15/2026",
+    "winning_number": "632",
+    "session": "Night"
+  },
+  {
+    "date": "2/16/2026",
+    "winning_number": "990",
+    "session": "Night"
+  },
+  {
+    "date": "2/17/2026",
+    "winning_number": "610",
+    "session": "Night"
+  },
+  {
+    "date": "2/18/2026",
+    "winning_number": "378",
+    "session": "Night"
+  },
+  {
+    "date": "2/19/2026",
+    "winning_number": "155",
+    "session": "Night"
+  },
+  {
+    "date": "2/20/2026",
+    "winning_number": "722",
+    "session": "Night"
+  },
+  {
+    "date": "2/21/2026",
+    "winning_number": "484",
+    "session": "Night"
+  },
+  {
+    "date": "2/22/2026",
+    "winning_number": "089",
+    "session": "Night"
+  },
+  {
+    "date": "2/23/2026",
+    "winning_number": "329",
+    "session": "Night"
+  },
+  {
+    "date": "2/24/2026",
+    "winning_number": "558",
+    "session": "Night"
+  },
+  {
+    "date": "2/25/2026",
+    "winning_number": "401",
+    "session": "Night"
+  },
+  {
+    "date": "2/26/2026",
+    "winning_number": "553",
+    "session": "Night"
+  },
+  {
+    "date": "2/27/2026",
+    "winning_number": "272",
+    "session": "Night"
+  },
+  {
+    "date": "2/28/2026",
+    "winning_number": "115",
+    "session": "Night"
+  },
+  {
+    "date": "3/1/2026",
+    "winning_number": "556",
+    "session": "Night"
+  },
+  {
+    "date": "3/2/2026",
+    "winning_number": "075",
+    "session": "Night"
+  },
+  {
+    "date": "3/3/2026",
+    "winning_number": "081",
+    "session": "Night"
+  },
+  {
+    "date": "3/4/2026",
+    "winning_number": "855",
+    "session": "Night"
+  },
+  {
+    "date": "3/5/2026",
+    "winning_number": "550",
+    "session": "Night"
+  },
+  {
+    "date": "3/6/2026",
+    "winning_number": "335",
+    "session": "Night"
+  },
+  {
+    "date": "3/7/2026",
+    "winning_number": "556",
+    "session": "Night"
+  },
+  {
+    "date": "3/8/2026",
+    "winning_number": "191",
+    "session": "Night"
+  },
+  {
+    "date": "3/9/2026",
+    "winning_number": "167",
+    "session": "Night"
+  },
+  {
+    "date": "3/10/2026",
+    "winning_number": "267",
+    "session": "Night"
+  },
+  {
+    "date": "3/11/2026",
+    "winning_number": "963",
+    "session": "Night"
+  },
+  {
+    "date": "3/12/2026",
+    "winning_number": "502",
+    "session": "Night"
+  },
+  {
+    "date": "3/13/2026",
+    "winning_number": "266",
+    "session": "Night"
+  },
+  {
+    "date": "3/14/2026",
+    "winning_number": "760",
+    "session": "Night"
+  },
+  {
+    "date": "3/15/2026",
+    "winning_number": "054",
+    "session": "Night"
+  },
+  {
+    "date": "3/16/2026",
+    "winning_number": "889",
+    "session": "Night"
+  },
+  {
+    "date": "3/17/2026",
+    "winning_number": "093",
+    "session": "Night"
+  },
+  {
+    "date": "3/18/2026",
+    "winning_number": "898",
+    "session": "Night"
+  },
+  {
+    "date": "3/19/2026",
+    "winning_number": "465",
+    "session": "Night"
+  },
+  {
+    "date": "3/20/2026",
+    "winning_number": "643",
+    "session": "Night"
+  },
+  {
+    "date": "3/21/2026",
+    "winning_number": "824",
+    "session": "Night"
+  },
+  {
+    "date": "3/22/2026",
+    "winning_number": "551",
+    "session": "Night"
+  },
+  {
+    "date": "3/23/2026",
+    "winning_number": "898",
+    "session": "Night"
+  },
+  {
+    "date": "3/24/2026",
+    "winning_number": "857",
+    "session": "Night"
+  },
+  {
+    "date": "3/25/2026",
+    "winning_number": "985",
+    "session": "Night"
+  },
+  {
+    "date": "3/26/2026",
+    "winning_number": "455",
+    "session": "Night"
+  },
+  {
+    "date": "3/27/2026",
+    "winning_number": "992",
+    "session": "Night"
+  },
+  {
+    "date": "3/28/2026",
+    "winning_number": "586",
+    "session": "Night"
+  },
+  {
+    "date": "3/29/2026",
+    "winning_number": "683",
+    "session": "Night"
+  },
+  {
+    "date": "3/30/2026",
+    "winning_number": "325",
+    "session": "Night"
+  },
+  {
+    "date": "3/31/2026",
+    "winning_number": "839",
+    "session": "Night"
+  },
+  {
+    "date": "4/1/2026",
+    "winning_number": "80",
+    "session": "Night"
+  },
+  {
+    "date": "4/2/2026",
+    "winning_number": "62",
+    "session": "Night"
+  },
+  {
+    "date": "4/3/2026",
+    "winning_number": "193",
+    "session": "Night"
+  },
+  {
+    "date": "4/4/2026",
+    "winning_number": "958",
+    "session": "Night"
+  },
+  {
+    "date": "4/5/2026",
+    "winning_number": "821",
+    "session": "Night"
+  },
+  {
+    "date": "4/6/2026",
+    "winning_number": "414",
+    "session": "Night"
+  },
+  {
+    "date": "4/7/2026",
+    "winning_number": "443",
+    "session": "Night"
+  },
+  {
+    "date": "4/8/2026",
+    "winning_number": "89",
+    "session": "Night"
+  },
+  {
+    "date": "4/9/2026",
+    "winning_number": "567",
+    "session": "Night"
+  },
+  {
+    "date": "4/10/2026",
+    "winning_number": "176",
+    "session": "Night"
+  },
+  {
+    "date": "4/11/2026",
+    "winning_number": "516",
+    "session": "Night"
+  },
+  {
+    "date": "4/12/2026",
+    "winning_number": "246",
+    "session": "Night"
   }
 ]
