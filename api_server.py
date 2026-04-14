@@ -38,8 +38,14 @@ SUBSCRIBERS_DIR = os.path.join(JACKPOT_SYSTEM_DIR, "subscribers")
 # Detect OS and use correct Python path
 if platform.system() == "Windows":
     PYTHON_EXE = os.path.join(PROJECT_ROOT, ".venv", "Scripts", "python.exe")
-else:  # Linux/Unix (Railway)
-    PYTHON_EXE = os.path.join(PROJECT_ROOT, ".venv", "bin", "python")
+else:  # Linux/Unix (Railway uses /opt/venv)
+    # Try Railway's Nixpacks venv first, fall back to local .venv
+    if os.path.exists("/opt/venv/bin/python"):
+        PYTHON_EXE = "/opt/venv/bin/python"
+    elif os.path.exists("/app/.venv/bin/python"):
+        PYTHON_EXE = "/app/.venv/bin/python"
+    else:
+        PYTHON_EXE = "python3"  # system fallback
 
 RUN_KIT_SCRIPT = os.path.join(JACKPOT_SYSTEM_DIR, "run_kit_v3.py")
 
@@ -133,8 +139,39 @@ def health():
         "frontend": "Lovable",
         "engine": "jackpot_system_v3",
         "randomization": "enabled",
+        "python_exe": PYTHON_EXE,
+        "run_kit_exists": os.path.exists(RUN_KIT_SCRIPT),
         "timestamp": datetime.now().isoformat()
     }), 200
+
+
+@app.route('/api/debug', methods=['GET'])
+def debug_info():
+    """Debug endpoint to diagnose engine issues"""
+    import subprocess
+    kit = request.args.get('kit', 'BOOK3')
+    kit_file_map = {
+        "BOOK3": os.path.join(JACKPOT_SYSTEM_DIR, "kits", "3Base44ReadyBOOK3.json"),
+        "BOOK":  os.path.join(JACKPOT_SYSTEM_DIR, "kits", "Base44ReadyBOOK.json"),
+    }
+    subscriber_file = kit_file_map.get(kit, '')
+    # Quick test run
+    cmd = [PYTHON_EXE, RUN_KIT_SCRIPT, '--subscriber', subscriber_file, '--kit', kit, '--output', '/tmp/debug_test', '--days', '1']
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        return jsonify({
+            "python_exe": PYTHON_EXE,
+            "python_exists": os.path.exists(PYTHON_EXE),
+            "run_kit_script": RUN_KIT_SCRIPT,
+            "run_kit_exists": os.path.exists(RUN_KIT_SCRIPT),
+            "subscriber_file": subscriber_file,
+            "subscriber_exists": os.path.exists(subscriber_file),
+            "returncode": result.returncode,
+            "stdout": result.stdout[:500],
+            "stderr": result.stderr[:500]
+        })
+    except Exception as e:
+        return jsonify({"error": str(e), "python_exe": PYTHON_EXE, "python_exists": os.path.exists(PYTHON_EXE)})
 
 
 @app.route('/api/triples/predict', methods=['GET'])
