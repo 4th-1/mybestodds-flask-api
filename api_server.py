@@ -341,20 +341,42 @@ def subscription_gate(subscriber_id: str):
     """
     Lightweight gate-check endpoint called by the Lovable route guard.
     GET /api/subscription/gate/<subscriberId>
-    Header: X-Prediction-Secret: <secret>
+         ?tier=book3   (optional — passed by edge function from Supabase profile)
+         ?is_admin=true (optional — passed for admin bypass)
 
-    Returns { "access": true } if the secret is valid, { "access": false } otherwise.
-    The Lovable route guard should:
-      1. Call this endpoint with the secret (retrieved server-side, never exposed to browser).
-      2. If access=false, redirect to /dashboard/subscription.
-      3. If access=true, render /dashboard/predictions.
+    NO secret required on this endpoint (it reveals nothing sensitive).
+    Subscription status (active/cancelled) is Supabase's responsibility — the
+    edge function should have already checked that before calling here.
 
-    Note: subscription STATUS (active vs cancelled) is Supabase's job.
-    This endpoint only verifies that the caller is the authorised edge function.
+    This endpoint tells the frontend:
+      - whether Layer 1 (/api/predictions/generate) will accept its calls
+        (i.e. is PREDICTIONS_API_SECRET configured and valid?)
+      - the normalised tier string for the UI
+      - whether the user is admin
+
+    Response shape:
+        {
+          "access": true,
+          "subscriber_id": "<uuid>",
+          "tier": "book3" | "book" | "bosk" | null,
+          "is_admin": false,
+          "layer1_armed": true   <- false means secret not configured (dev mode)
+        }
+
+    If secret IS configured and the caller doesn't supply X-Prediction-Secret,
+    access is still true here (gate is open) — Layer 1 is the hard boundary.
     """
-    if _check_prediction_secret():
-        return jsonify({"access": True, "subscriber_id": subscriber_id}), 200
-    return jsonify({"access": False, "reason": "unauthorised"}), 403
+    tier = (request.args.get("tier") or "").lower() or None
+    is_admin = request.args.get("is_admin", "false").lower() == "true"
+    layer1_armed = bool(_PREDICTION_SECRET)
+
+    return jsonify({
+        "access":        True,
+        "subscriber_id": subscriber_id,
+        "tier":          tier,
+        "is_admin":      is_admin,
+        "layer1_armed":  layer1_armed,
+    }), 200
 
 
 @app.route('/api/predictions/generate/<subscriber_id>', methods=['GET', 'POST'])
