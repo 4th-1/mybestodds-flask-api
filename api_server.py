@@ -7,7 +7,9 @@ Fixed entry point with proper prediction routing
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import hashlib
+import hmac
 import os
+import secrets
 import sys
 import json
 import subprocess
@@ -53,6 +55,26 @@ else:  # Linux/Unix (Railway uses /opt/venv)
         PYTHON_EXE = "python3"  # system fallback
 
 RUN_KIT_SCRIPT = os.path.join(JACKPOT_SYSTEM_DIR, "run_kit_v3.py")
+
+# ── Subscription gate ────────────────────────────────────────────────────────
+# PREDICTIONS_API_SECRET must be set in Railway env vars.
+# The Lovable edge function must send this as the X-Prediction-Secret header
+# AFTER verifying the user has an active Supabase subscription.
+# Without the header, /api/predictions/generate returns 403.
+_PREDICTION_SECRET = os.getenv("PREDICTIONS_API_SECRET", "")
+
+
+def _check_prediction_secret() -> bool:
+    """Returns True if the request carries a valid prediction secret header."""
+    if not _PREDICTION_SECRET:
+        # Secret not configured — allow through (dev/local mode)
+        return True
+    provided = request.headers.get("X-Prediction-Secret", "")
+    # Constant-time comparison to prevent timing attacks
+    return hmac.compare_digest(
+        provided.encode("utf-8"),
+        _PREDICTION_SECRET.encode("utf-8"),
+    )
 
 
 def _load_ga_data_from_json() -> Dict:
@@ -314,14 +336,40 @@ def _inject_mmfsn_picks(
             })
 
 
+@app.route('/api/subscription/gate/<subscriber_id>', methods=['GET'])
+def subscription_gate(subscriber_id: str):
+    """
+    Lightweight gate-check endpoint called by the Lovable route guard.
+    GET /api/subscription/gate/<subscriberId>
+    Header: X-Prediction-Secret: <secret>
+
+    Returns { "access": true } if the secret is valid, { "access": false } otherwise.
+    The Lovable route guard should:
+      1. Call this endpoint with the secret (retrieved server-side, never exposed to browser).
+      2. If access=false, redirect to /dashboard/subscription.
+      3. If access=true, render /dashboard/predictions.
+
+    Note: subscription STATUS (active vs cancelled) is Supabase's job.
+    This endpoint only verifies that the caller is the authorised edge function.
+    """
+    if _check_prediction_secret():
+        return jsonify({"access": True, "subscriber_id": subscriber_id}), 200
+    return jsonify({"access": False, "reason": "unauthorised"}), 403
+
+
 @app.route('/api/predictions/generate/<subscriber_id>', methods=['GET', 'POST'])
 def generate_predictions(subscriber_id: str):
     """
     Unified prediction endpoint called by the Lovable edge function.
     POST /api/predictions/generate/<subscriberId>
+    Header: X-Prediction-Secret: <secret>   ← required when PREDICTIONS_API_SECRET is set
     Body (optional JSON): { "date": "YYYY-MM-DD", "games": ["Cash3", "Cash4", ...] }
     Returns all picks for the requested date grouped by game, plus near-miss advice.
     """
+    if not _check_prediction_secret():
+        logger.warning(f"Blocked unauthorised predictions request for subscriber {subscriber_id}")
+        return jsonify({"success": False, "error": "Subscription required"}), 403
+
     try:
         body = {}
         if request.is_json:
