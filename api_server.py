@@ -289,14 +289,23 @@ def generate_predictions(subscriber_id: str):
             or datetime.now().strftime("%Y-%m-%d")
         )
         requested_games = body.get("games") or request.args.getlist("games") or []
+        kit = (
+            body.get("kit")
+            or request.args.get("kit")
+            or "BOOK3"
+        )
 
-        all_predictions = get_predictions_for_date(date_str, "BOOK3")
+        all_predictions = get_predictions_for_date(date_str, kit)
 
-        # Group by game
+        # Group by game, preserving per-pick metadata
         grouped: Dict[str, List] = {}
         for p in all_predictions:
             game = p.get("game", "Unknown")
-            grouped.setdefault(game, []).append(p.get("number"))
+            grouped.setdefault(game, []).append({
+                "number": p.get("number"),
+                "kit":    p.get("kit"),
+                "lane":   p.get("lane"),
+            })
 
         # Filter if caller asked for specific games
         if requested_games:
@@ -304,14 +313,15 @@ def generate_predictions(subscriber_id: str):
 
         # Near-miss advice — compare current picks against recent actual draws
         near_miss_advice = _compute_near_miss_advice(
-            cash3_picks=grouped.get("Cash3", []),
-            cash4_picks=grouped.get("Cash4", []),
+            cash3_picks=[p["number"] for p in grouped.get("Cash3", [])],
+            cash4_picks=[p["number"] for p in grouped.get("Cash4", [])],
         )
 
         return jsonify({
             "success": True,
             "subscriber_id": subscriber_id,
             "date": date_str,
+            "kit": kit,
             "predictions": grouped,
             "total_picks": sum(len(v) for v in grouped.values()),
             "near_miss_advice": near_miss_advice,
