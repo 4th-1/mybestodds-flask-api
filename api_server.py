@@ -115,6 +115,7 @@ def get_predictions_for_date(date_str: str, kit: str) -> List[Dict]:
                             "number": str(number),
                             "date":   date_str,
                             "lane":   lane,
+                            "kit":    kit,
                         })
         return predictions
 
@@ -255,12 +256,12 @@ def predict_millionaire():
     try:
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK3")
-        mfl_preds = [p for p in predictions if p.get("game") == "Millionaire_For_Life"]
+        mfl_preds = [p for p in predictions if p.get("game") == "Millionaire For Life"]
         
         return jsonify({
             "success": True,
             "date": date_str,
-            "game": "Millionaire_For_Life",
+            "game": "Millionaire For Life",
             "predictions": mfl_preds[:1] if mfl_preds else [],
             "total_predictions": len(mfl_preds)
         }), 200
@@ -275,7 +276,7 @@ def generate_predictions(subscriber_id: str):
     Unified prediction endpoint called by the Lovable edge function.
     POST /api/predictions/generate/<subscriberId>
     Body (optional JSON): { "date": "YYYY-MM-DD", "games": ["Cash3", "Cash4", ...] }
-    Returns all picks for the requested date grouped by game.
+    Returns all picks for the requested date grouped by game, plus near-miss advice.
     """
     try:
         body = {}
@@ -301,17 +302,100 @@ def generate_predictions(subscriber_id: str):
         if requested_games:
             grouped = {g: v for g, v in grouped.items() if g in requested_games}
 
+        # Near-miss advice — compare current picks against recent actual draws
+        near_miss_advice = _compute_near_miss_advice(
+            cash3_picks=grouped.get("Cash3", []),
+            cash4_picks=grouped.get("Cash4", []),
+        )
+
         return jsonify({
             "success": True,
             "subscriber_id": subscriber_id,
             "date": date_str,
             "predictions": grouped,
             "total_picks": sum(len(v) for v in grouped.values()),
+            "near_miss_advice": near_miss_advice,
         }), 200
 
     except Exception as e:
         logger.error(f"generate_predictions error: {e}", exc_info=True)
         return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/api/near-miss-advice/<subscriber_id>', methods=['GET'])
+def near_miss_advice_endpoint(subscriber_id: str):
+    """
+    Dedicated near-miss correction endpoint.
+    GET /api/near-miss-advice/<subscriberId>?games=Cash3,Cash4
+
+    Returns subscriber-facing guidance: which digit was off, what to play next.
+    Compares the subscriber's current picks against the most recent actual draws
+    (up to 7 draws per session across Midday / Evening / Night).
+
+    Response shape:
+        {
+          "success": true,
+          "subscriber_id": "...",
+          "near_miss_advice": {
+            "cash3": [ { "pick", "actual", "position_label", "suggested_pick",
+                         "message", "confidence_signal", ... }, ... ],
+            "cash4": [ ... ],
+            "summary": "Cash 3: 1 near-miss detected. ...",
+            "has_near_misses": true
+          }
+        }
+    """
+    try:
+        date_str = request.args.get("date", datetime.now().strftime("%Y-%m-%d"))
+
+        all_predictions = get_predictions_for_date(date_str, "BOOK3")
+        grouped: Dict[str, List] = {}
+        for p in all_predictions:
+            game = p.get("game", "Unknown")
+            grouped.setdefault(game, []).append(p.get("number"))
+
+        advice = _compute_near_miss_advice(
+            cash3_picks=grouped.get("Cash3", []),
+            cash4_picks=grouped.get("Cash4", []),
+        )
+
+        return jsonify({
+            "success": True,
+            "subscriber_id": subscriber_id,
+            "date": date_str,
+            "near_miss_advice": advice,
+        }), 200
+
+    except Exception as e:
+        logger.error(f"near_miss_advice error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+def _compute_near_miss_advice(
+    cash3_picks: List[str],
+    cash4_picks: List[str],
+) -> Dict:
+    """
+    Helper: load GA draw data and run near-miss analysis.
+    Returns the full report dict from build_near_miss_report().
+    Falls back to an empty report on import or data errors.
+    """
+    try:
+        from core.near_miss_advisor import build_near_miss_report
+        ga_data = _load_ga_data_from_json()
+        return build_near_miss_report(
+            cash3_picks=cash3_picks,
+            cash4_picks=cash4_picks,
+            ga_data=ga_data,
+        )
+    except Exception as e:
+        logger.warning(f"Near-miss advice skipped: {e}")
+        return {
+            "cash3": [],
+            "cash4": [],
+            "summary": "Near-miss analysis unavailable.",
+            "has_near_misses": False,
+        }
 
 
 if __name__ == "__main__":
