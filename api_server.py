@@ -6,6 +6,7 @@ Fixed entry point with proper prediction routing
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import hashlib
 import os
 import sys
 import json
@@ -270,6 +271,49 @@ def predict_millionaire():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+def _inject_mmfsn_picks(
+    grouped: Dict[str, List],
+    mmfsn: dict,
+    subscriber_id: str,
+    date_str: str,
+) -> None:
+    """
+    Append MMFSN picks sent by the edge function into the grouped predictions dict.
+
+    - Normalises game keys sent by the edge function ("Cash 3" → "Cash3", etc.)
+    - Applies a per-day rotation so the subset surfaced varies daily without
+      changing the master list.  Rotation seed = MD5(subscriber_id + date_str).
+    - Each injected pick carries lane="lane_mmfsn" and source="mmfsn" so the
+      frontend can distinguish system picks from personal-number picks.
+    """
+    # Edge function may send "Cash 3" / "Cash 4"; normalise to engine key names
+    _key_map = {
+        "Cash 3": "Cash3",
+        "Cash3":  "Cash3",
+        "Cash 4": "Cash4",
+        "Cash4":  "Cash4",
+    }
+    _MAX_PER_GAME = 3  # max MMFSN picks surfaced per game per day
+
+    seed_hex = hashlib.md5(f"{subscriber_id}{date_str}".encode()).hexdigest()
+    seed_int = int(seed_hex, 16)
+
+    for raw_game, numbers in mmfsn.items():
+        game_key = _key_map.get(raw_game)
+        if not game_key or not numbers:
+            continue
+        # Rotate: deterministic daily selection without repeating consecutively
+        rotated = [numbers[(seed_int + i) % len(numbers)] for i in range(min(_MAX_PER_GAME, len(numbers)))]
+        grouped.setdefault(game_key, [])
+        for num in rotated:
+            grouped[game_key].append({
+                "number": str(num),
+                "kit":    "BOOK3",
+                "lane":   "lane_mmfsn",
+                "source": "mmfsn",
+            })
+
+
 @app.route('/api/predictions/generate/<subscriber_id>', methods=['GET', 'POST'])
 def generate_predictions(subscriber_id: str):
     """
@@ -291,9 +335,11 @@ def generate_predictions(subscriber_id: str):
         requested_games = body.get("games") or request.args.getlist("games") or []
         kit = (
             body.get("kit")
+            or body.get("kit_type")
             or request.args.get("kit")
             or "BOOK3"
-        )
+        ).upper()
+        mmfsn = body.get("mmfsn") or {}
 
         all_predictions = get_predictions_for_date(date_str, kit)
 
@@ -306,6 +352,10 @@ def generate_predictions(subscriber_id: str):
                 "kit":    p.get("kit"),
                 "lane":   p.get("lane"),
             })
+
+        # Inject MMFSN picks sent by the edge function (BOOK3 personal-number lane)
+        if mmfsn and kit == "BOOK3":
+            _inject_mmfsn_picks(grouped, mmfsn, subscriber_id, date_str)
 
         # Filter if caller asked for specific games
         if requested_games:
