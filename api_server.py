@@ -379,6 +379,60 @@ def subscription_gate(subscriber_id: str):
     }), 200
 
 
+@app.route('/api/subscribers/sync', methods=['POST'])
+def subscribers_sync():
+    """
+    Called by the Lovable check-subscription edge function whenever it confirms
+    a paid tier.  Registers (or refreshes) the subscriber in Flask so that
+    subsequent calls to /api/predictions/generate are unlocked.
+
+    POST /api/subscribers/sync
+    Header: X-Prediction-Secret: <secret>
+    Body: { "id": "<uuid>", "tier": "book3"|"book"|"bosk", "birth_profile": {...} }
+
+    Response:
+        { "success": true, "subscriber_id": "<uuid>", "tier": "book3" }
+    """
+    if not _check_prediction_secret():
+        return jsonify({"success": False, "error": "Unauthorized"}), 403
+
+    try:
+        body = request.get_json(silent=True) or {}
+        subscriber_id = body.get("id") or body.get("subscriber_id", "")
+        tier = (body.get("tier") or "").lower()
+        birth_profile = body.get("birth_profile") or {}
+
+        if not subscriber_id:
+            return jsonify({"success": False, "error": "id is required"}), 400
+
+        valid_tiers = {"book3", "book", "bosk"}
+        if tier not in valid_tiers:
+            tier = "bosk"  # safe default
+
+        # Persist subscriber record so predictions work per-user
+        os.makedirs(SUBSCRIBERS_DIR, exist_ok=True)
+        record_path = os.path.join(SUBSCRIBERS_DIR, f"{subscriber_id}.json")
+        record = {
+            "subscriber_id": subscriber_id,
+            "tier":          tier,
+            "birth_profile": birth_profile,
+            "synced_at":     datetime.utcnow().isoformat() + "Z",
+        }
+        with open(record_path, "w", encoding="utf-8") as f:
+            json.dump(record, f, indent=2)
+
+        logger.info(f"Subscriber synced: {subscriber_id} tier={tier}")
+        return jsonify({
+            "success":       True,
+            "subscriber_id": subscriber_id,
+            "tier":          tier,
+        }), 200
+
+    except Exception as e:
+        logger.error(f"subscribers_sync error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 @app.route('/api/predictions/generate/<subscriber_id>', methods=['GET', 'POST'])
 def generate_predictions(subscriber_id: str):
     """
