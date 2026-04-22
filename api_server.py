@@ -63,6 +63,13 @@ RUN_KIT_SCRIPT = os.path.join(JACKPOT_SYSTEM_DIR, "run_kit_v3.py")
 # Without the header, /api/predictions/generate returns 403.
 _PREDICTION_SECRET = os.getenv("PREDICTIONS_API_SECRET", "")
 
+# Runtime-injected draw results (survive until next redeploy).
+# Key: e.g. "cash3_eve" — Value: list of normalized draw dicts
+_ga_extra_entries: Dict[str, List] = {
+    "cash3_mid": [], "cash3_eve": [], "cash3_night": [],
+    "cash4_mid": [], "cash4_eve": [], "cash4_night": [],
+}
+
 
 def _check_prediction_secret() -> bool:
     """Returns True if the request carries a valid prediction secret header."""
@@ -113,6 +120,13 @@ def _load_ga_data_from_json() -> Dict:
                 })
         except Exception as e:
             logger.warning(f"Could not load {filename}: {e}")
+
+    # Merge any runtime-injected entries (from /api/results/ingest)
+    for key, extras in _ga_extra_entries.items():
+        for entry in extras:
+            if entry not in results[key]:
+                results[key].append(entry)
+
     return results
 
 
@@ -580,6 +594,144 @@ def _compute_near_miss_advice(
             "summary": "Near-miss analysis unavailable.",
             "has_near_misses": False,
         }
+
+
+@app.route('/api/results/ingest', methods=['POST'])
+def results_ingest():
+    """
+    Called by the Lovable scraper edge function after each draw is published.
+    Appends the result to the in-memory ga_data cache so near-miss advice and
+    predictions use it immediately, and also persists it to the JSON file on disk
+    (best-effort — a Railway redeploy will reload from the last committed JSON).
+
+    POST /api/results/ingest
+    Header: X-Prediction-Secret: <secret>
+    Body:
+        {
+          "game":           "Cash3" | "Cash4",
+          "session":        "midday" | "evening" | "night",
+          "date":           "2026-04-22",   // YYYY-MM-DD
+          "winning_number": "507"
+        }
+
+    Response:
+        { "success": true, "game": "Cash3", "session": "evening",
+          "date": "2026-04-22", "winning_number": "507" }
+    """
+    if not _check_prediction_secret():
+        return jsonify({"success": False, "error": "Unauthorized"}), 403
+
+    try:
+        body = request.get_json(silent=True) or {}
+        game           = (body.get("game") or "").strip()
+        session_raw    = (body.get("session") or "").strip().lower()
+        date_str       = (body.get("date") or "").strip()
+        winning_number = str(body.get("winning_number") or "").strip()
+
+        # --- Validate inputs ---------------------------------------------------
+        valid_games    = {"Cash3", "Cash4"}
+        session_map    = {"midday": "mid", "evening": "eve", "night": "night"}
+        file_map_rev   = {
+            "cash3_mid":   "cash3_midday.json",
+            "cash3_eve":   "cash3_evening.json",
+            "cash3_night": "cash3_night.json",
+            "cash4_mid":   "cash4_midday.json",
+            "cash4_eve":   "cash4_evening.json",
+            "cash4_night": "cash4_night.json",
+        }
+
+        if game not in valid_games:
+            return jsonify({"success": False,
+                            "error": f"game must be one of {sorted(valid_games)}"}), 400
+        if session_raw not in session_map:
+            return jsonify({"success": False,
+                            "error": f"session must be one of {sorted(session_map)}"}), 400
+        if not date_str:
+            return jsonify({"success": False, "error": "date is required (YYYY-MM-DD)"}), 400
+        if not winning_number:
+            return jsonify({"success": False, "error": "winning_number is required"}), 400
+
+        # Validate date format
+        try:
+            datetime.strptime(date_str, "%Y-%m-%d")
+        except ValueError:
+            return jsonify({"success": False,
+                            "error": "date must be in YYYY-MM-DD format"}), 400
+
+        # Validate winning_number is digits only
+        if not winning_number.isdigit():
+            return jsonify({"success": False,
+                            "error": "winning_number must be numeric digits"}), 400
+
+        # Expected digit length
+        expected_len = 3 if game == "Cash3" else 4
+        if len(winning_number) != expected_len:
+            return jsonify({"success": False,
+                            "error": f"{game} winning_number must be {expected_len} digits"}), 400
+
+        # --- Build cache key ---------------------------------------------------
+        sess_key = session_map[session_raw]
+        cache_key = f"{game.lower()}_{sess_key}"   # e.g. "cash3_eve"
+
+        entry = {
+            "draw_date":       date_str,
+            "winning_numbers": winning_number,
+            "session":         session_raw.capitalize(),
+        }
+
+        # --- Update in-memory buffer (idempotent) ------------------------------
+        existing_dates = {e["draw_date"] for e in _ga_extra_entries[cache_key]}
+        if date_str not in existing_dates:
+            _ga_extra_entries[cache_key].append(entry)
+            logger.info(f"[ingest] in-memory: {cache_key} {date_str} → {winning_number}")
+        else:
+            logger.info(f"[ingest] duplicate skipped (already in memory): {cache_key} {date_str}")
+
+        # --- Persist to JSON file (best-effort) --------------------------------
+        ga_dir   = os.path.join(JACKPOT_SYSTEM_DIR, "data", "ga_results")
+        filename = file_map_rev[cache_key]
+        filepath = os.path.join(ga_dir, filename)
+        try:
+            if os.path.exists(filepath):
+                with open(filepath, "r", encoding="utf-8") as f:
+                    disk_data = json.load(f)
+            else:
+                disk_data = []
+
+            # Idempotent: only append if this date is not already on disk
+            disk_dates = {
+                r.get("draw_date") or r.get("date", "") for r in disk_data
+            }
+            if date_str not in disk_dates:
+                # Store in the same format as the existing JSON entries
+                disk_entry = {
+                    "date":           date_str,
+                    "winning_number": winning_number,
+                    "session":        session_raw.capitalize(),
+                    "draw_date":      date_str,
+                }
+                disk_data.append(disk_entry)
+                os.makedirs(ga_dir, exist_ok=True)
+                with open(filepath, "w", encoding="utf-8") as f:
+                    json.dump(disk_data, f, indent=2)
+                logger.info(f"[ingest] disk write OK: {filename}")
+            else:
+                logger.info(f"[ingest] disk already has {date_str} in {filename}, skipped")
+        except Exception as disk_err:
+            # Non-fatal — in-memory update already succeeded
+            logger.warning(f"[ingest] disk write failed (non-fatal): {disk_err}")
+
+        return jsonify({
+            "success":        True,
+            "game":           game,
+            "session":        session_raw,
+            "date":           date_str,
+            "winning_number": winning_number,
+        }), 200
+
+    except Exception as e:
+        logger.error(f"results_ingest error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 if __name__ == "__main__":
