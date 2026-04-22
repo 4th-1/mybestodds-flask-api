@@ -1,507 +1,2612 @@
 [
   {
+    "date": "1/1/2025",
+    "winning_number": "843",
+    "session": "Midday",
+    "draw_date": "2025-01-01"
+  },
+  {
+    "date": "1/2/2025",
+    "winning_number": "692",
+    "session": "Midday",
+    "draw_date": "2025-01-02"
+  },
+  {
+    "date": "1/3/2025",
+    "winning_number": "047",
+    "session": "Midday",
+    "draw_date": "2025-01-03"
+  },
+  {
+    "date": "1/4/2025",
+    "winning_number": "369",
+    "session": "Midday",
+    "draw_date": "2025-01-04"
+  },
+  {
+    "date": "1/5/2025",
+    "winning_number": "668",
+    "session": "Midday",
+    "draw_date": "2025-01-05"
+  },
+  {
+    "date": "1/6/2025",
+    "winning_number": "569",
+    "session": "Midday",
+    "draw_date": "2025-01-06"
+  },
+  {
+    "date": "1/7/2025",
+    "winning_number": "198",
+    "session": "Midday",
+    "draw_date": "2025-01-07"
+  },
+  {
+    "date": "1/8/2025",
+    "winning_number": "925",
+    "session": "Midday",
+    "draw_date": "2025-01-08"
+  },
+  {
+    "date": "1/9/2025",
+    "winning_number": "71",
+    "session": "Midday",
+    "draw_date": "2025-01-09"
+  },
+  {
+    "date": "1/10/2025",
+    "winning_number": "825",
+    "session": "Midday",
+    "draw_date": "2025-01-10"
+  },
+  {
+    "date": "1/11/2025",
+    "winning_number": "755",
+    "session": "Midday",
+    "draw_date": "2025-01-11"
+  },
+  {
+    "date": "1/12/2025",
+    "winning_number": "106",
+    "session": "Midday",
+    "draw_date": "2025-01-12"
+  },
+  {
+    "date": "1/13/2025",
+    "winning_number": "111",
+    "session": "Midday",
+    "draw_date": "2025-01-13"
+  },
+  {
+    "date": "1/14/2025",
+    "winning_number": "769",
+    "session": "Midday",
+    "draw_date": "2025-01-14"
+  },
+  {
+    "date": "1/15/2025",
+    "winning_number": "978",
+    "session": "Midday",
+    "draw_date": "2025-01-15"
+  },
+  {
+    "date": "1/16/2025",
+    "winning_number": "492",
+    "session": "Midday",
+    "draw_date": "2025-01-16"
+  },
+  {
+    "date": "1/17/2025",
+    "winning_number": "258",
+    "session": "Midday",
+    "draw_date": "2025-01-17"
+  },
+  {
+    "date": "1/18/2025",
+    "winning_number": "397",
+    "session": "Midday",
+    "draw_date": "2025-01-18"
+  },
+  {
+    "date": "1/19/2025",
+    "winning_number": "887",
+    "session": "Midday",
+    "draw_date": "2025-01-19"
+  },
+  {
+    "date": "1/20/2025",
+    "winning_number": "721",
+    "session": "Midday",
+    "draw_date": "2025-01-20"
+  },
+  {
+    "date": "1/21/2025",
+    "winning_number": "679",
+    "session": "Midday",
+    "draw_date": "2025-01-21"
+  },
+  {
+    "date": "1/22/2025",
+    "winning_number": "5",
+    "session": "Midday",
+    "draw_date": "2025-01-22"
+  },
+  {
+    "date": "1/23/2025",
+    "winning_number": "320",
+    "session": "Midday",
+    "draw_date": "2025-01-23"
+  },
+  {
+    "date": "1/24/2025",
+    "winning_number": "281",
+    "session": "Midday",
+    "draw_date": "2025-01-24"
+  },
+  {
+    "date": "1/25/2025",
+    "winning_number": "694",
+    "session": "Midday",
+    "draw_date": "2025-01-25"
+  },
+  {
+    "date": "1/26/2025",
+    "winning_number": "983",
+    "session": "Midday",
+    "draw_date": "2025-01-26"
+  },
+  {
+    "date": "1/27/2025",
+    "winning_number": "114",
+    "session": "Midday",
+    "draw_date": "2025-01-27"
+  },
+  {
+    "date": "1/28/2025",
+    "winning_number": "778",
+    "session": "Midday",
+    "draw_date": "2025-01-28"
+  },
+  {
+    "date": "1/29/2025",
+    "winning_number": "698",
+    "session": "Midday",
+    "draw_date": "2025-01-29"
+  },
+  {
+    "date": "1/30/2025",
+    "winning_number": "278",
+    "session": "Midday",
+    "draw_date": "2025-01-30"
+  },
+  {
+    "date": "1/31/2025",
+    "winning_number": "116",
+    "session": "Midday",
+    "draw_date": "2025-01-31"
+  },
+  {
+    "date": "2/1/2025",
+    "winning_number": "49",
+    "session": "Midday",
+    "draw_date": "2025-02-01"
+  },
+  {
+    "date": "2/2/2025",
+    "winning_number": "950",
+    "session": "Midday",
+    "draw_date": "2025-02-02"
+  },
+  {
+    "date": "2/3/2025",
+    "winning_number": "551",
+    "session": "Midday",
+    "draw_date": "2025-02-03"
+  },
+  {
+    "date": "2/4/2025",
+    "winning_number": "254",
+    "session": "Midday",
+    "draw_date": "2025-02-04"
+  },
+  {
+    "date": "2/5/2025",
+    "winning_number": "896",
+    "session": "Midday",
+    "draw_date": "2025-02-05"
+  },
+  {
+    "date": "2/6/2025",
+    "winning_number": "533",
+    "session": "Midday",
+    "draw_date": "2025-02-06"
+  },
+  {
+    "date": "2/7/2025",
+    "winning_number": "742",
+    "session": "Midday",
+    "draw_date": "2025-02-07"
+  },
+  {
+    "date": "2/8/2025",
+    "winning_number": "314",
+    "session": "Midday",
+    "draw_date": "2025-02-08"
+  },
+  {
+    "date": "2/9/2025",
+    "winning_number": "508",
+    "session": "Midday",
+    "draw_date": "2025-02-09"
+  },
+  {
+    "date": "2/10/2025",
+    "winning_number": "322",
+    "session": "Midday",
+    "draw_date": "2025-02-10"
+  },
+  {
+    "date": "2/11/2025",
+    "winning_number": "964",
+    "session": "Midday",
+    "draw_date": "2025-02-11"
+  },
+  {
+    "date": "2/12/2025",
+    "winning_number": "624",
+    "session": "Midday",
+    "draw_date": "2025-02-12"
+  },
+  {
+    "date": "2/13/2025",
+    "winning_number": "136",
+    "session": "Midday",
+    "draw_date": "2025-02-13"
+  },
+  {
+    "date": "2/14/2025",
+    "winning_number": "863",
+    "session": "Midday",
+    "draw_date": "2025-02-14"
+  },
+  {
+    "date": "2/15/2025",
+    "winning_number": "717",
+    "session": "Midday",
+    "draw_date": "2025-02-15"
+  },
+  {
+    "date": "2/16/2025",
+    "winning_number": "047",
+    "session": "Midday",
+    "draw_date": "2025-02-16"
+  },
+  {
+    "date": "2/17/2025",
+    "winning_number": "395",
+    "session": "Midday",
+    "draw_date": "2025-02-17"
+  },
+  {
+    "date": "2/18/2025",
+    "winning_number": "4",
+    "session": "Midday",
+    "draw_date": "2025-02-18"
+  },
+  {
+    "date": "2/19/2025",
+    "winning_number": "625",
+    "session": "Midday",
+    "draw_date": "2025-02-19"
+  },
+  {
+    "date": "2/20/2025",
+    "winning_number": "573",
+    "session": "Midday",
+    "draw_date": "2025-02-20"
+  },
+  {
+    "date": "2/21/2025",
+    "winning_number": "438",
+    "session": "Midday",
+    "draw_date": "2025-02-21"
+  },
+  {
+    "date": "2/22/2025",
+    "winning_number": "395",
+    "session": "Midday",
+    "draw_date": "2025-02-22"
+  },
+  {
+    "date": "2/23/2025",
+    "winning_number": "118",
+    "session": "Midday",
+    "draw_date": "2025-02-23"
+  },
+  {
+    "date": "2/24/2025",
+    "winning_number": "906",
+    "session": "Midday",
+    "draw_date": "2025-02-24"
+  },
+  {
+    "date": "2/25/2025",
+    "winning_number": "261",
+    "session": "Midday",
+    "draw_date": "2025-02-25"
+  },
+  {
+    "date": "2/26/2025",
+    "winning_number": "698",
+    "session": "Midday",
+    "draw_date": "2025-02-26"
+  },
+  {
+    "date": "2/27/2025",
+    "winning_number": "319",
+    "session": "Midday",
+    "draw_date": "2025-02-27"
+  },
+  {
+    "date": "2/28/2025",
+    "winning_number": "664",
+    "session": "Midday",
+    "draw_date": "2025-02-28"
+  },
+  {
+    "date": "3/1/2025",
+    "winning_number": "835",
+    "session": "Midday",
+    "draw_date": "2025-03-01"
+  },
+  {
+    "date": "3/2/2025",
+    "winning_number": "245",
+    "session": "Midday",
+    "draw_date": "2025-03-02"
+  },
+  {
+    "date": "3/3/2025",
+    "winning_number": "110",
+    "session": "Midday",
+    "draw_date": "2025-03-03"
+  },
+  {
+    "date": "3/4/2025",
+    "winning_number": "406",
+    "session": "Midday",
+    "draw_date": "2025-03-04"
+  },
+  {
+    "date": "3/5/2025",
+    "winning_number": "209",
+    "session": "Midday",
+    "draw_date": "2025-03-05"
+  },
+  {
+    "date": "3/6/2025",
+    "winning_number": "904",
+    "session": "Midday",
+    "draw_date": "2025-03-06"
+  },
+  {
+    "date": "3/7/2025",
+    "winning_number": "9",
+    "session": "Midday",
+    "draw_date": "2025-03-07"
+  },
+  {
+    "date": "3/8/2025",
+    "winning_number": "772",
+    "session": "Midday",
+    "draw_date": "2025-03-08"
+  },
+  {
+    "date": "3/9/2025",
+    "winning_number": "32",
+    "session": "Midday",
+    "draw_date": "2025-03-09"
+  },
+  {
+    "date": "3/10/2025",
+    "winning_number": "915",
+    "session": "Midday",
+    "draw_date": "2025-03-10"
+  },
+  {
+    "date": "3/11/2025",
+    "winning_number": "602",
+    "session": "Midday",
+    "draw_date": "2025-03-11"
+  },
+  {
+    "date": "3/12/2025",
+    "winning_number": "505",
+    "session": "Midday",
+    "draw_date": "2025-03-12"
+  },
+  {
+    "date": "3/13/2025",
+    "winning_number": "515",
+    "session": "Midday",
+    "draw_date": "2025-03-13"
+  },
+  {
+    "date": "3/14/2025",
+    "winning_number": "980",
+    "session": "Midday",
+    "draw_date": "2025-03-14"
+  },
+  {
+    "date": "3/15/2025",
+    "winning_number": "149",
+    "session": "Midday",
+    "draw_date": "2025-03-15"
+  },
+  {
+    "date": "3/16/2025",
+    "winning_number": "695",
+    "session": "Midday",
+    "draw_date": "2025-03-16"
+  },
+  {
+    "date": "3/17/2025",
+    "winning_number": "476",
+    "session": "Midday",
+    "draw_date": "2025-03-17"
+  },
+  {
+    "date": "3/18/2025",
+    "winning_number": "79",
+    "session": "Midday",
+    "draw_date": "2025-03-18"
+  },
+  {
+    "date": "3/19/2025",
+    "winning_number": "568",
+    "session": "Midday",
+    "draw_date": "2025-03-19"
+  },
+  {
+    "date": "3/20/2025",
+    "winning_number": "292",
+    "session": "Midday",
+    "draw_date": "2025-03-20"
+  },
+  {
+    "date": "3/21/2025",
+    "winning_number": "972",
+    "session": "Midday",
+    "draw_date": "2025-03-21"
+  },
+  {
+    "date": "3/22/2025",
+    "winning_number": "878",
+    "session": "Midday",
+    "draw_date": "2025-03-22"
+  },
+  {
+    "date": "3/23/2025",
+    "winning_number": "508",
+    "session": "Midday",
+    "draw_date": "2025-03-23"
+  },
+  {
+    "date": "3/24/2025",
+    "winning_number": "238",
+    "session": "Midday",
+    "draw_date": "2025-03-24"
+  },
+  {
+    "date": "3/25/2025",
+    "winning_number": "007",
+    "session": "Midday",
+    "draw_date": "2025-03-25"
+  },
+  {
+    "date": "3/26/2025",
+    "winning_number": "796",
+    "session": "Midday",
+    "draw_date": "2025-03-26"
+  },
+  {
+    "date": "3/27/2025",
+    "winning_number": "157",
+    "session": "Midday",
+    "draw_date": "2025-03-27"
+  },
+  {
+    "date": "3/28/2025",
+    "winning_number": "938",
+    "session": "Midday",
+    "draw_date": "2025-03-28"
+  },
+  {
+    "date": "3/29/2025",
+    "winning_number": "530",
+    "session": "Midday",
+    "draw_date": "2025-03-29"
+  },
+  {
+    "date": "3/30/2025",
+    "winning_number": "691",
+    "session": "Midday",
+    "draw_date": "2025-03-30"
+  },
+  {
+    "date": "3/31/2025",
+    "winning_number": "137",
+    "session": "Midday",
+    "draw_date": "2025-03-31"
+  },
+  {
+    "date": "4/1/2025",
+    "winning_number": "869",
+    "session": "Midday",
+    "draw_date": "2025-04-01"
+  },
+  {
+    "date": "4/2/2025",
+    "winning_number": "286",
+    "session": "Midday",
+    "draw_date": "2025-04-02"
+  },
+  {
+    "date": "4/3/2025",
+    "winning_number": "634",
+    "session": "Midday",
+    "draw_date": "2025-04-03"
+  },
+  {
+    "date": "4/4/2025",
+    "winning_number": "532",
+    "session": "Midday",
+    "draw_date": "2025-04-04"
+  },
+  {
+    "date": "4/5/2025",
+    "winning_number": "810",
+    "session": "Midday",
+    "draw_date": "2025-04-05"
+  },
+  {
+    "date": "4/6/2025",
+    "winning_number": "166",
+    "session": "Midday",
+    "draw_date": "2025-04-06"
+  },
+  {
+    "date": "4/7/2025",
+    "winning_number": "174",
+    "session": "Midday",
+    "draw_date": "2025-04-07"
+  },
+  {
+    "date": "4/8/2025",
+    "winning_number": "675",
+    "session": "Midday",
+    "draw_date": "2025-04-08"
+  },
+  {
+    "date": "4/9/2025",
+    "winning_number": "095",
+    "session": "Midday",
+    "draw_date": "2025-04-09"
+  },
+  {
+    "date": "4/10/2025",
+    "winning_number": "409",
+    "session": "Midday",
+    "draw_date": "2025-04-10"
+  },
+  {
+    "date": "4/11/2025",
+    "winning_number": "308",
+    "session": "Midday",
+    "draw_date": "2025-04-11"
+  },
+  {
+    "date": "4/12/2025",
+    "winning_number": "212",
+    "session": "Midday",
+    "draw_date": "2025-04-12"
+  },
+  {
+    "date": "4/13/2025",
+    "winning_number": "666",
+    "session": "Midday",
+    "draw_date": "2025-04-13"
+  },
+  {
+    "date": "4/14/2025",
+    "winning_number": "148",
+    "session": "Midday",
+    "draw_date": "2025-04-14"
+  },
+  {
+    "date": "4/15/2025",
+    "winning_number": "279",
+    "session": "Midday",
+    "draw_date": "2025-04-15"
+  },
+  {
+    "date": "4/16/2025",
+    "winning_number": "684",
+    "session": "Midday",
+    "draw_date": "2025-04-16"
+  },
+  {
+    "date": "4/17/2025",
+    "winning_number": "274",
+    "session": "Midday",
+    "draw_date": "2025-04-17"
+  },
+  {
+    "date": "4/18/2025",
+    "winning_number": "349",
+    "session": "Midday",
+    "draw_date": "2025-04-18"
+  },
+  {
+    "date": "4/19/2025",
+    "winning_number": "747",
+    "session": "Midday",
+    "draw_date": "2025-04-19"
+  },
+  {
+    "date": "4/20/2025",
+    "winning_number": "000",
+    "session": "Midday",
+    "draw_date": "2025-04-20"
+  },
+  {
+    "date": "4/21/2025",
+    "winning_number": "339",
+    "session": "Midday",
+    "draw_date": "2025-04-21"
+  },
+  {
+    "date": "4/22/2025",
+    "winning_number": "785",
+    "session": "Midday",
+    "draw_date": "2025-04-22"
+  },
+  {
+    "date": "4/23/2025",
+    "winning_number": "729",
+    "session": "Midday",
+    "draw_date": "2025-04-23"
+  },
+  {
+    "date": "4/24/2025",
+    "winning_number": "933",
+    "session": "Midday",
+    "draw_date": "2025-04-24"
+  },
+  {
+    "date": "4/25/2025",
+    "winning_number": "847",
+    "session": "Midday",
+    "draw_date": "2025-04-25"
+  },
+  {
+    "date": "4/26/2025",
+    "winning_number": "974",
+    "session": "Midday",
+    "draw_date": "2025-04-26"
+  },
+  {
+    "date": "4/27/2025",
+    "winning_number": "913",
+    "session": "Midday",
+    "draw_date": "2025-04-27"
+  },
+  {
+    "date": "4/28/2025",
+    "winning_number": "845",
+    "session": "Midday",
+    "draw_date": "2025-04-28"
+  },
+  {
+    "date": "4/29/2025",
+    "winning_number": "414",
+    "session": "Midday",
+    "draw_date": "2025-04-29"
+  },
+  {
+    "date": "4/30/2025",
+    "winning_number": "251",
+    "session": "Midday",
+    "draw_date": "2025-04-30"
+  },
+  {
+    "date": "5/1/2025",
+    "winning_number": "040",
+    "session": "Midday",
+    "draw_date": "2025-05-01"
+  },
+  {
+    "date": "5/2/2025",
+    "winning_number": "250",
+    "session": "Midday",
+    "draw_date": "2025-05-02"
+  },
+  {
+    "date": "5/3/2025",
+    "winning_number": "407",
+    "session": "Midday",
+    "draw_date": "2025-05-03"
+  },
+  {
+    "date": "5/4/2025",
+    "winning_number": "724",
+    "session": "Midday",
+    "draw_date": "2025-05-04"
+  },
+  {
+    "date": "5/5/2025",
+    "winning_number": "862",
+    "session": "Midday",
+    "draw_date": "2025-05-05"
+  },
+  {
+    "date": "5/6/2025",
+    "winning_number": "348",
+    "session": "Midday",
+    "draw_date": "2025-05-06"
+  },
+  {
+    "date": "5/7/2025",
+    "winning_number": "779",
+    "session": "Midday",
+    "draw_date": "2025-05-07"
+  },
+  {
+    "date": "5/8/2025",
+    "winning_number": "017",
+    "session": "Midday",
+    "draw_date": "2025-05-08"
+  },
+  {
+    "date": "5/9/2025",
+    "winning_number": "656",
+    "session": "Midday",
+    "draw_date": "2025-05-09"
+  },
+  {
+    "date": "5/10/2025",
+    "winning_number": "924",
+    "session": "Midday",
+    "draw_date": "2025-05-10"
+  },
+  {
+    "date": "5/11/2025",
+    "winning_number": "395",
+    "session": "Midday",
+    "draw_date": "2025-05-11"
+  },
+  {
+    "date": "5/12/2025",
+    "winning_number": "734",
+    "session": "Midday",
+    "draw_date": "2025-05-12"
+  },
+  {
+    "date": "5/13/2025",
+    "winning_number": "548",
+    "session": "Midday",
+    "draw_date": "2025-05-13"
+  },
+  {
+    "date": "5/14/2025",
+    "winning_number": "330",
+    "session": "Midday",
+    "draw_date": "2025-05-14"
+  },
+  {
+    "date": "5/15/2025",
+    "winning_number": "316",
+    "session": "Midday",
+    "draw_date": "2025-05-15"
+  },
+  {
+    "date": "5/16/2025",
+    "winning_number": "557",
+    "session": "Midday",
+    "draw_date": "2025-05-16"
+  },
+  {
+    "date": "5/17/2025",
+    "winning_number": "439",
+    "session": "Midday",
+    "draw_date": "2025-05-17"
+  },
+  {
+    "date": "5/18/2025",
+    "winning_number": "221",
+    "session": "Midday",
+    "draw_date": "2025-05-18"
+  },
+  {
+    "date": "5/19/2025",
+    "winning_number": "611",
+    "session": "Midday",
+    "draw_date": "2025-05-19"
+  },
+  {
+    "date": "5/20/2025",
+    "winning_number": "604",
+    "session": "Midday",
+    "draw_date": "2025-05-20"
+  },
+  {
+    "date": "5/21/2025",
+    "winning_number": "714",
+    "session": "Midday",
+    "draw_date": "2025-05-21"
+  },
+  {
+    "date": "5/22/2025",
+    "winning_number": "201",
+    "session": "Midday",
+    "draw_date": "2025-05-22"
+  },
+  {
+    "date": "5/23/2025",
+    "winning_number": "655",
+    "session": "Midday",
+    "draw_date": "2025-05-23"
+  },
+  {
+    "date": "5/24/2025",
+    "winning_number": "495",
+    "session": "Midday",
+    "draw_date": "2025-05-24"
+  },
+  {
+    "date": "5/25/2025",
+    "winning_number": "973",
+    "session": "Midday",
+    "draw_date": "2025-05-25"
+  },
+  {
+    "date": "5/26/2025",
+    "winning_number": "903",
+    "session": "Midday",
+    "draw_date": "2025-05-26"
+  },
+  {
+    "date": "5/27/2025",
+    "winning_number": "240",
+    "session": "Midday",
+    "draw_date": "2025-05-27"
+  },
+  {
+    "date": "5/28/2025",
+    "winning_number": "347",
+    "session": "Midday",
+    "draw_date": "2025-05-28"
+  },
+  {
+    "date": "5/29/2025",
+    "winning_number": "850",
+    "session": "Midday",
+    "draw_date": "2025-05-29"
+  },
+  {
+    "date": "5/30/2025",
+    "winning_number": "368",
+    "session": "Midday",
+    "draw_date": "2025-05-30"
+  },
+  {
+    "date": "5/31/2025",
+    "winning_number": "135",
+    "session": "Midday",
+    "draw_date": "2025-05-31"
+  },
+  {
+    "date": "6/1/2025",
+    "winning_number": "021",
+    "session": "Midday",
+    "draw_date": "2025-06-01"
+  },
+  {
+    "date": "6/2/2025",
+    "winning_number": "607",
+    "session": "Midday",
+    "draw_date": "2025-06-02"
+  },
+  {
+    "date": "6/3/2025",
+    "winning_number": "272",
+    "session": "Midday",
+    "draw_date": "2025-06-03"
+  },
+  {
+    "date": "6/4/2025",
+    "winning_number": "537",
+    "session": "Midday",
+    "draw_date": "2025-06-04"
+  },
+  {
+    "date": "6/5/2025",
+    "winning_number": "048",
+    "session": "Midday",
+    "draw_date": "2025-06-05"
+  },
+  {
+    "date": "6/6/2025",
+    "winning_number": "444",
+    "session": "Midday",
+    "draw_date": "2025-06-06"
+  },
+  {
+    "date": "6/7/2025",
+    "winning_number": "787",
+    "session": "Midday",
+    "draw_date": "2025-06-07"
+  },
+  {
+    "date": "6/8/2025",
+    "winning_number": "837",
+    "session": "Midday",
+    "draw_date": "2025-06-08"
+  },
+  {
+    "date": "6/9/2025",
+    "winning_number": "383",
+    "session": "Midday",
+    "draw_date": "2025-06-09"
+  },
+  {
+    "date": "6/10/2025",
+    "winning_number": "230",
+    "session": "Midday",
+    "draw_date": "2025-06-10"
+  },
+  {
+    "date": "6/11/2025",
+    "winning_number": "906",
+    "session": "Midday",
+    "draw_date": "2025-06-11"
+  },
+  {
+    "date": "6/12/2025",
+    "winning_number": "290",
+    "session": "Midday",
+    "draw_date": "2025-06-12"
+  },
+  {
+    "date": "6/13/2025",
+    "winning_number": "950",
+    "session": "Midday",
+    "draw_date": "2025-06-13"
+  },
+  {
+    "date": "6/14/2025",
+    "winning_number": "101",
+    "session": "Midday",
+    "draw_date": "2025-06-14"
+  },
+  {
+    "date": "6/15/2025",
+    "winning_number": "767",
+    "session": "Midday",
+    "draw_date": "2025-06-15"
+  },
+  {
+    "date": "6/16/2025",
+    "winning_number": "116",
+    "session": "Midday",
+    "draw_date": "2025-06-16"
+  },
+  {
+    "date": "6/17/2025",
+    "winning_number": "343",
+    "session": "Midday",
+    "draw_date": "2025-06-17"
+  },
+  {
+    "date": "6/18/2025",
+    "winning_number": "214",
+    "session": "Midday",
+    "draw_date": "2025-06-18"
+  },
+  {
+    "date": "6/19/2025",
+    "winning_number": "855",
+    "session": "Midday",
+    "draw_date": "2025-06-19"
+  },
+  {
+    "date": "6/20/2025",
+    "winning_number": "021",
+    "session": "Midday",
+    "draw_date": "2025-06-20"
+  },
+  {
+    "date": "6/21/2025",
+    "winning_number": "279",
+    "session": "Midday",
+    "draw_date": "2025-06-21"
+  },
+  {
+    "date": "6/22/2025",
+    "winning_number": "541",
+    "session": "Midday",
+    "draw_date": "2025-06-22"
+  },
+  {
+    "date": "6/23/2025",
+    "winning_number": "558",
+    "session": "Midday",
+    "draw_date": "2025-06-23"
+  },
+  {
+    "date": "6/24/2025",
+    "winning_number": "008",
+    "session": "Midday",
+    "draw_date": "2025-06-24"
+  },
+  {
+    "date": "6/25/2025",
+    "winning_number": "681",
+    "session": "Midday",
+    "draw_date": "2025-06-25"
+  },
+  {
+    "date": "6/26/2025",
+    "winning_number": "527",
+    "session": "Midday",
+    "draw_date": "2025-06-26"
+  },
+  {
+    "date": "6/27/2025",
+    "winning_number": "979",
+    "session": "Midday",
+    "draw_date": "2025-06-27"
+  },
+  {
+    "date": "6/28/2025",
+    "winning_number": "273",
+    "session": "Midday",
+    "draw_date": "2025-06-28"
+  },
+  {
+    "date": "6/29/2025",
+    "winning_number": "338",
+    "session": "Midday",
+    "draw_date": "2025-06-29"
+  },
+  {
+    "date": "6/30/2025",
+    "winning_number": "004",
+    "session": "Midday",
+    "draw_date": "2025-06-30"
+  },
+  {
+    "date": "7/1/2025",
+    "winning_number": "141",
+    "session": "Midday",
+    "draw_date": "2025-07-01"
+  },
+  {
+    "date": "7/2/2025",
+    "winning_number": "025",
+    "session": "Midday",
+    "draw_date": "2025-07-02"
+  },
+  {
+    "date": "7/3/2025",
+    "winning_number": "160",
+    "session": "Midday",
+    "draw_date": "2025-07-03"
+  },
+  {
+    "date": "7/4/2025",
+    "winning_number": "708",
+    "session": "Midday",
+    "draw_date": "2025-07-04"
+  },
+  {
+    "date": "7/5/2025",
+    "winning_number": "025",
+    "session": "Midday",
+    "draw_date": "2025-07-05"
+  },
+  {
+    "date": "7/6/2025",
+    "winning_number": "407",
+    "session": "Midday",
+    "draw_date": "2025-07-06"
+  },
+  {
+    "date": "7/7/2025",
+    "winning_number": "704",
+    "session": "Midday",
+    "draw_date": "2025-07-07"
+  },
+  {
+    "date": "7/8/2025",
+    "winning_number": "281",
+    "session": "Midday",
+    "draw_date": "2025-07-08"
+  },
+  {
+    "date": "7/9/2025",
+    "winning_number": "481",
+    "session": "Midday",
+    "draw_date": "2025-07-09"
+  },
+  {
+    "date": "7/10/2025",
+    "winning_number": "769",
+    "session": "Midday",
+    "draw_date": "2025-07-10"
+  },
+  {
+    "date": "7/11/2025",
+    "winning_number": "775",
+    "session": "Midday",
+    "draw_date": "2025-07-11"
+  },
+  {
+    "date": "7/12/2025",
+    "winning_number": "092",
+    "session": "Midday",
+    "draw_date": "2025-07-12"
+  },
+  {
+    "date": "7/13/2025",
+    "winning_number": "683",
+    "session": "Midday",
+    "draw_date": "2025-07-13"
+  },
+  {
+    "date": "7/14/2025",
+    "winning_number": "399",
+    "session": "Midday",
+    "draw_date": "2025-07-14"
+  },
+  {
+    "date": "7/15/2025",
+    "winning_number": "035",
+    "session": "Midday",
+    "draw_date": "2025-07-15"
+  },
+  {
+    "date": "7/16/2025",
+    "winning_number": "848",
+    "session": "Midday",
+    "draw_date": "2025-07-16"
+  },
+  {
+    "date": "7/17/2025",
+    "winning_number": "572",
+    "session": "Midday",
+    "draw_date": "2025-07-17"
+  },
+  {
+    "date": "7/18/2025",
+    "winning_number": "876",
+    "session": "Midday",
+    "draw_date": "2025-07-18"
+  },
+  {
+    "date": "7/19/2025",
+    "winning_number": "480",
+    "session": "Midday",
+    "draw_date": "2025-07-19"
+  },
+  {
+    "date": "7/20/2025",
+    "winning_number": "668",
+    "session": "Midday",
+    "draw_date": "2025-07-20"
+  },
+  {
+    "date": "7/21/2025",
+    "winning_number": "789",
+    "session": "Midday",
+    "draw_date": "2025-07-21"
+  },
+  {
+    "date": "7/22/2025",
+    "winning_number": "596",
+    "session": "Midday",
+    "draw_date": "2025-07-22"
+  },
+  {
+    "date": "7/23/2025",
+    "winning_number": "168",
+    "session": "Midday",
+    "draw_date": "2025-07-23"
+  },
+  {
+    "date": "7/24/2025",
+    "winning_number": "771",
+    "session": "Midday",
+    "draw_date": "2025-07-24"
+  },
+  {
+    "date": "7/25/2025",
+    "winning_number": "786",
+    "session": "Midday",
+    "draw_date": "2025-07-25"
+  },
+  {
+    "date": "7/26/2025",
+    "winning_number": "489",
+    "session": "Midday",
+    "draw_date": "2025-07-26"
+  },
+  {
+    "date": "7/27/2025",
+    "winning_number": "493",
+    "session": "Midday",
+    "draw_date": "2025-07-27"
+  },
+  {
+    "date": "7/28/2025",
+    "winning_number": "944",
+    "session": "Midday",
+    "draw_date": "2025-07-28"
+  },
+  {
+    "date": "7/29/2025",
+    "winning_number": "470",
+    "session": "Midday",
+    "draw_date": "2025-07-29"
+  },
+  {
+    "date": "7/30/2025",
+    "winning_number": "561",
+    "session": "Midday",
+    "draw_date": "2025-07-30"
+  },
+  {
+    "date": "7/31/2025",
+    "winning_number": "351",
+    "session": "Midday",
+    "draw_date": "2025-07-31"
+  },
+  {
+    "date": "8/1/2025",
+    "winning_number": "763",
+    "session": "Midday",
+    "draw_date": "2025-08-01"
+  },
+  {
+    "date": "8/2/2025",
+    "winning_number": "849",
+    "session": "Midday",
+    "draw_date": "2025-08-02"
+  },
+  {
+    "date": "8/3/2025",
+    "winning_number": "749",
+    "session": "Midday",
+    "draw_date": "2025-08-03"
+  },
+  {
+    "date": "8/4/2025",
+    "winning_number": "192",
+    "session": "Midday",
+    "draw_date": "2025-08-04"
+  },
+  {
+    "date": "8/5/2025",
+    "winning_number": "256",
+    "session": "Midday",
+    "draw_date": "2025-08-05"
+  },
+  {
+    "date": "8/6/2025",
+    "winning_number": "242",
+    "session": "Midday",
+    "draw_date": "2025-08-06"
+  },
+  {
+    "date": "8/7/2025",
+    "winning_number": "672",
+    "session": "Midday",
+    "draw_date": "2025-08-07"
+  },
+  {
+    "date": "8/8/2025",
+    "winning_number": "241",
+    "session": "Midday",
+    "draw_date": "2025-08-08"
+  },
+  {
+    "date": "8/9/2025",
+    "winning_number": "194",
+    "session": "Midday",
+    "draw_date": "2025-08-09"
+  },
+  {
+    "date": "8/10/2025",
+    "winning_number": "773",
+    "session": "Midday",
+    "draw_date": "2025-08-10"
+  },
+  {
+    "date": "8/11/2025",
+    "winning_number": "185",
+    "session": "Midday",
+    "draw_date": "2025-08-11"
+  },
+  {
+    "date": "8/12/2025",
+    "winning_number": "041",
+    "session": "Midday",
+    "draw_date": "2025-08-12"
+  },
+  {
+    "date": "8/13/2025",
+    "winning_number": "367",
+    "session": "Midday",
+    "draw_date": "2025-08-13"
+  },
+  {
+    "date": "8/14/2025",
+    "winning_number": "704",
+    "session": "Midday",
+    "draw_date": "2025-08-14"
+  },
+  {
+    "date": "8/15/2025",
+    "winning_number": "670",
+    "session": "Midday",
+    "draw_date": "2025-08-15"
+  },
+  {
+    "date": "8/16/2025",
+    "winning_number": "383",
+    "session": "Midday",
+    "draw_date": "2025-08-16"
+  },
+  {
+    "date": "8/17/2025",
+    "winning_number": "903",
+    "session": "Midday",
+    "draw_date": "2025-08-17"
+  },
+  {
+    "date": "8/18/2025",
+    "winning_number": "038",
+    "session": "Midday",
+    "draw_date": "2025-08-18"
+  },
+  {
+    "date": "8/19/2025",
+    "winning_number": "150",
+    "session": "Midday",
+    "draw_date": "2025-08-19"
+  },
+  {
+    "date": "8/20/2025",
+    "winning_number": "098",
+    "session": "Midday",
+    "draw_date": "2025-08-20"
+  },
+  {
+    "date": "8/21/2025",
+    "winning_number": "263",
+    "session": "Midday",
+    "draw_date": "2025-08-21"
+  },
+  {
+    "date": "8/22/2025",
+    "winning_number": "518",
+    "session": "Midday",
+    "draw_date": "2025-08-22"
+  },
+  {
+    "date": "8/23/2025",
+    "winning_number": "033",
+    "session": "Midday",
+    "draw_date": "2025-08-23"
+  },
+  {
+    "date": "8/24/2025",
+    "winning_number": "436",
+    "session": "Midday",
+    "draw_date": "2025-08-24"
+  },
+  {
+    "date": "8/25/2025",
+    "winning_number": "322",
+    "session": "Midday",
+    "draw_date": "2025-08-25"
+  },
+  {
+    "date": "8/26/2025",
+    "winning_number": "638",
+    "session": "Midday",
+    "draw_date": "2025-08-26"
+  },
+  {
+    "date": "8/27/2025",
+    "winning_number": "091",
+    "session": "Midday",
+    "draw_date": "2025-08-27"
+  },
+  {
+    "date": "8/28/2025",
+    "winning_number": "103",
+    "session": "Midday",
+    "draw_date": "2025-08-28"
+  },
+  {
+    "date": "8/29/2025",
+    "winning_number": "313",
+    "session": "Midday",
+    "draw_date": "2025-08-29"
+  },
+  {
+    "date": "8/30/2025",
+    "winning_number": "988",
+    "session": "Midday",
+    "draw_date": "2025-08-30"
+  },
+  {
+    "date": "8/31/2025",
+    "winning_number": "615",
+    "session": "Midday",
+    "draw_date": "2025-08-31"
+  },
+  {
+    "date": "9/1/2025",
+    "winning_number": "700",
+    "session": "Midday",
+    "draw_date": "2025-09-01"
+  },
+  {
+    "date": "9/2/2025",
+    "winning_number": "987",
+    "session": "Midday",
+    "draw_date": "2025-09-02"
+  },
+  {
+    "date": "9/3/2025",
+    "winning_number": "346",
+    "session": "Midday",
+    "draw_date": "2025-09-03"
+  },
+  {
+    "date": "9/4/2025",
+    "winning_number": "209",
+    "session": "Midday",
+    "draw_date": "2025-09-04"
+  },
+  {
+    "date": "9/5/2025",
+    "winning_number": "326",
+    "session": "Midday",
+    "draw_date": "2025-09-05"
+  },
+  {
+    "date": "9/6/2025",
+    "winning_number": "57",
+    "session": "Midday",
+    "draw_date": "2025-09-06"
+  },
+  {
+    "date": "9/7/2025",
+    "winning_number": "890",
+    "session": "Midday",
+    "draw_date": "2025-09-07"
+  },
+  {
+    "date": "9/8/2025",
+    "winning_number": "781",
+    "session": "Midday",
+    "draw_date": "2025-09-08"
+  },
+  {
+    "date": "9/9/2025",
+    "winning_number": "967",
+    "session": "Midday",
+    "draw_date": "2025-09-09"
+  },
+  {
+    "date": "9/10/2025",
+    "winning_number": "348",
+    "session": "Midday",
+    "draw_date": "2025-09-10"
+  },
+  {
+    "date": "9/11/2025",
+    "winning_number": "178",
+    "session": "Midday",
+    "draw_date": "2025-09-11"
+  },
+  {
+    "date": "9/12/2025",
+    "winning_number": "912",
+    "session": "Midday",
+    "draw_date": "2025-09-12"
+  },
+  {
+    "date": "9/13/2025",
+    "winning_number": "848",
+    "session": "Midday",
+    "draw_date": "2025-09-13"
+  },
+  {
+    "date": "9/14/2025",
+    "winning_number": "472",
+    "session": "Midday",
+    "draw_date": "2025-09-14"
+  },
+  {
+    "date": "9/15/2025",
+    "winning_number": "741",
+    "session": "Midday",
+    "draw_date": "2025-09-15"
+  },
+  {
+    "date": "9/16/2025",
+    "winning_number": "97",
+    "session": "Midday",
+    "draw_date": "2025-09-16"
+  },
+  {
+    "date": "9/17/2025",
+    "winning_number": "239",
+    "session": "Midday",
+    "draw_date": "2025-09-17"
+  },
+  {
+    "date": "9/18/2025",
+    "winning_number": "239",
+    "session": "Midday",
+    "draw_date": "2025-09-18"
+  },
+  {
+    "date": "9/19/2025",
+    "winning_number": "239",
+    "session": "Midday",
+    "draw_date": "2025-09-19"
+  },
+  {
+    "date": "9/20/2025",
+    "winning_number": "293",
+    "session": "Midday",
+    "draw_date": "2025-09-20"
+  },
+  {
+    "date": "9/21/2025",
+    "winning_number": "787",
+    "session": "Midday",
+    "draw_date": "2025-09-21"
+  },
+  {
+    "date": "9/22/2025",
+    "winning_number": "537",
+    "session": "Midday",
+    "draw_date": "2025-09-22"
+  },
+  {
+    "date": "9/23/2025",
+    "winning_number": "850",
+    "session": "Midday",
+    "draw_date": "2025-09-23"
+  },
+  {
+    "date": "9/24/2025",
+    "winning_number": "661",
+    "session": "Midday",
+    "draw_date": "2025-09-24"
+  },
+  {
+    "date": "9/25/2025",
+    "winning_number": "91",
+    "session": "Midday",
+    "draw_date": "2025-09-25"
+  },
+  {
+    "date": "9/26/2025",
+    "winning_number": "402",
+    "session": "Midday",
+    "draw_date": "2025-09-26"
+  },
+  {
+    "date": "9/27/2025",
+    "winning_number": "861",
+    "session": "Midday",
+    "draw_date": "2025-09-27"
+  },
+  {
+    "date": "9/28/2025",
+    "winning_number": "505",
+    "session": "Midday",
+    "draw_date": "2025-09-28"
+  },
+  {
+    "date": "9/29/2025",
+    "winning_number": "717",
+    "session": "Midday",
+    "draw_date": "2025-09-29"
+  },
+  {
+    "date": "9/30/2025",
+    "winning_number": "390",
+    "session": "Midday",
+    "draw_date": "2025-09-30"
+  },
+  {
+    "date": "10/1/2025",
+    "winning_number": "633",
+    "session": "Midday",
+    "draw_date": "2025-10-01"
+  },
+  {
+    "date": "10/2/2025",
+    "winning_number": "937",
+    "session": "Midday",
+    "draw_date": "2025-10-02"
+  },
+  {
+    "date": "10/3/2025",
+    "winning_number": "778",
+    "session": "Midday",
+    "draw_date": "2025-10-03"
+  },
+  {
+    "date": "10/4/2025",
+    "winning_number": "391",
+    "session": "Midday",
+    "draw_date": "2025-10-04"
+  },
+  {
+    "date": "10/5/2025",
+    "winning_number": "890",
+    "session": "Midday",
+    "draw_date": "2025-10-05"
+  },
+  {
+    "date": "10/6/2025",
+    "winning_number": "863",
+    "session": "Midday",
+    "draw_date": "2025-10-06"
+  },
+  {
+    "date": "10/7/2025",
+    "winning_number": "191",
+    "session": "Midday",
+    "draw_date": "2025-10-07"
+  },
+  {
+    "date": "10/8/2025",
+    "winning_number": "605",
+    "session": "Midday",
+    "draw_date": "2025-10-08"
+  },
+  {
+    "date": "10/9/2025",
+    "winning_number": "643",
+    "session": "Midday",
+    "draw_date": "2025-10-09"
+  },
+  {
+    "date": "10/10/2025",
+    "winning_number": "510",
+    "session": "Midday",
+    "draw_date": "2025-10-10"
+  },
+  {
+    "date": "10/11/2025",
+    "winning_number": "419",
+    "session": "Midday",
+    "draw_date": "2025-10-11"
+  },
+  {
+    "date": "10/14/2025",
+    "winning_number": "475",
+    "session": "Midday",
+    "draw_date": "2025-10-14"
+  },
+  {
+    "date": "10/15/2025",
+    "winning_number": "769",
+    "session": "Midday",
+    "draw_date": "2025-10-15"
+  },
+  {
+    "date": "10/16/2025",
+    "winning_number": "736",
+    "session": "Midday",
+    "draw_date": "2025-10-16"
+  },
+  {
+    "date": "10/17/2025",
+    "winning_number": "592",
+    "session": "Midday",
+    "draw_date": "2025-10-17"
+  },
+  {
+    "date": "10/18/2025",
+    "winning_number": "581",
+    "session": "Midday",
+    "draw_date": "2025-10-18"
+  },
+  {
+    "date": "10/19/2025",
+    "winning_number": "744",
+    "session": "Midday",
+    "draw_date": "2025-10-19"
+  },
+  {
+    "date": "10/20/2025",
+    "winning_number": "922",
+    "session": "Midday",
+    "draw_date": "2025-10-20"
+  },
+  {
+    "date": "10/21/2025",
+    "winning_number": "672",
+    "session": "Midday",
+    "draw_date": "2025-10-21"
+  },
+  {
+    "date": "10/22/2025",
+    "winning_number": "989",
+    "session": "Midday",
+    "draw_date": "2025-10-22"
+  },
+  {
+    "date": "10/23/2025",
+    "winning_number": "232",
+    "session": "Midday",
+    "draw_date": "2025-10-23"
+  },
+  {
+    "date": "10/24/2025",
+    "winning_number": "94",
+    "session": "Midday",
+    "draw_date": "2025-10-24"
+  },
+  {
+    "date": "10/25/2025",
+    "winning_number": "619",
+    "session": "Midday",
+    "draw_date": "2025-10-25"
+  },
+  {
+    "date": "10/26/2025",
+    "winning_number": "573",
+    "session": "Midday",
+    "draw_date": "2025-10-26"
+  },
+  {
+    "date": "10/27/2025",
+    "winning_number": "103",
+    "session": "Midday",
+    "draw_date": "2025-10-27"
+  },
+  {
+    "date": "10/28/2025",
+    "winning_number": "412",
+    "session": "Midday",
+    "draw_date": "2025-10-28"
+  },
+  {
+    "date": "10/29/2025",
+    "winning_number": "873",
+    "session": "Midday",
+    "draw_date": "2025-10-29"
+  },
+  {
+    "date": "10/30/2025",
+    "winning_number": "210",
+    "session": "Midday",
+    "draw_date": "2025-10-30"
+  },
+  {
+    "date": "10/31/2025",
+    "winning_number": "576",
+    "session": "Midday",
+    "draw_date": "2025-10-31"
+  },
+  {
+    "date": "11/1/2025",
+    "winning_number": "151",
+    "session": "Midday",
+    "draw_date": "2025-11-01"
+  },
+  {
+    "date": "11/2/2025",
+    "winning_number": "569",
+    "session": "Midday",
+    "draw_date": "2025-11-02"
+  },
+  {
+    "date": "11/3/2025",
+    "winning_number": "244",
+    "session": "Midday",
+    "draw_date": "2025-11-03"
+  },
+  {
+    "date": "11/4/2025",
+    "winning_number": "684",
+    "session": "Midday",
+    "draw_date": "2025-11-04"
+  },
+  {
+    "date": "11/5/2025",
+    "winning_number": "981",
+    "session": "Midday",
+    "draw_date": "2025-11-05"
+  },
+  {
+    "date": "11/6/2025",
+    "winning_number": "933",
+    "session": "Midday",
+    "draw_date": "2025-11-06"
+  },
+  {
+    "date": "11/7/2025",
+    "winning_number": "986",
+    "session": "Midday",
+    "draw_date": "2025-11-07"
+  },
+  {
+    "date": "11/8/2025",
+    "winning_number": "605",
+    "session": "Midday",
+    "draw_date": "2025-11-08"
+  },
+  {
+    "date": "11/9/2025",
+    "winning_number": "971",
+    "session": "Midday",
+    "draw_date": "2025-11-09"
+  },
+  {
+    "date": "11/10/2025",
+    "winning_number": "350",
+    "session": "Midday",
+    "draw_date": "2025-11-10"
+  },
+  {
+    "date": "11/19/2025",
+    "winning_number": "629",
+    "session": "Midday",
+    "draw_date": "2025-11-19"
+  },
+  {
+    "date": "11/20/2025",
+    "winning_number": "279",
+    "session": "Midday",
+    "draw_date": "2025-11-20"
+  },
+  {
+    "date": "11/21/2025",
+    "winning_number": "865",
+    "session": "Midday",
+    "draw_date": "2025-11-21"
+  },
+  {
+    "date": "11/22/2025",
+    "winning_number": "408",
+    "session": "Midday",
+    "draw_date": "2025-11-22"
+  },
+  {
+    "date": "11/23/2025",
+    "winning_number": "978",
+    "session": "Midday",
+    "draw_date": "2025-11-23"
+  },
+  {
+    "date": "11/24/2025",
+    "winning_number": "744",
+    "session": "Midday",
+    "draw_date": "2025-11-24"
+  },
+  {
+    "date": "11/25/2025",
+    "winning_number": "378",
+    "session": "Midday",
+    "draw_date": "2025-11-25"
+  },
+  {
+    "date": "11/26/2025",
+    "winning_number": "277",
+    "session": "Midday",
+    "draw_date": "2025-11-26"
+  },
+  {
+    "date": "11/27/2025",
+    "winning_number": "308",
+    "session": "Midday",
+    "draw_date": "2025-11-27"
+  },
+  {
+    "date": "11/28/2025",
+    "winning_number": "435",
+    "session": "Midday",
+    "draw_date": "2025-11-28"
+  },
+  {
+    "date": "11/29/2025",
+    "winning_number": "522",
+    "session": "Midday",
+    "draw_date": "2025-11-29"
+  },
+  {
+    "date": "11/30/2025",
+    "winning_number": "511",
+    "session": "Midday",
+    "draw_date": "2025-11-30"
+  },
+  {
+    "date": "12/1/2025",
+    "winning_number": "799",
+    "session": "Midday",
+    "draw_date": "2025-12-01"
+  },
+  {
     "date": "1/1/2026",
     "winning_number": "982",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-01"
   },
   {
     "date": "1/2/2026",
     "winning_number": "258",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-02"
   },
   {
     "date": "1/3/2026",
     "winning_number": "285",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-03"
   },
   {
     "date": "1/4/2026",
     "winning_number": "303",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-04"
   },
   {
     "date": "1/5/2026",
     "winning_number": "800",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-05"
   },
   {
     "date": "1/6/2026",
     "winning_number": "408",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-06"
   },
   {
     "date": "1/7/2026",
     "winning_number": "381",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-07"
   },
   {
     "date": "1/8/2026",
     "winning_number": "280",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-08"
   },
   {
     "date": "1/9/2026",
     "winning_number": "177",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-09"
   },
   {
     "date": "1/10/2026",
     "winning_number": "853",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-10"
   },
   {
     "date": "1/11/2026",
     "winning_number": "499",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-11"
   },
   {
     "date": "1/12/2026",
     "winning_number": "777",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-12"
   },
   {
     "date": "1/13/2026",
     "winning_number": "259",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-13"
   },
   {
     "date": "1/14/2026",
     "winning_number": "549",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-14"
   },
   {
     "date": "1/15/2026",
     "winning_number": "874",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-15"
   },
   {
     "date": "1/16/2026",
     "winning_number": "207",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-16"
   },
   {
     "date": "1/17/2026",
     "winning_number": "225",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-17"
   },
   {
     "date": "1/18/2026",
     "winning_number": "618",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-18"
   },
   {
     "date": "1/19/2026",
     "winning_number": "598",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-19"
   },
   {
     "date": "1/20/2026",
     "winning_number": "223",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-20"
   },
   {
     "date": "1/21/2026",
     "winning_number": "470",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-21"
   },
   {
     "date": "1/22/2026",
     "winning_number": "102",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-22"
   },
   {
     "date": "1/23/2026",
     "winning_number": "486",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-23"
   },
   {
     "date": "1/24/2026",
     "winning_number": "358",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-24"
   },
   {
     "date": "1/25/2026",
     "winning_number": "005",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-25"
   },
   {
     "date": "1/26/2026",
     "winning_number": "737",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-26"
   },
   {
     "date": "1/27/2026",
     "winning_number": "797",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-27"
   },
   {
     "date": "1/28/2026",
     "winning_number": "628",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-28"
   },
   {
     "date": "1/29/2026",
     "winning_number": "966",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-29"
   },
   {
     "date": "1/30/2026",
     "winning_number": "405",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-30"
   },
   {
     "date": "1/31/2026",
     "winning_number": "492",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-01-31"
   },
   {
     "date": "2/1/2026",
     "winning_number": "758",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-01"
   },
   {
     "date": "2/2/2026",
     "winning_number": "350",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-02"
   },
   {
     "date": "2/3/2026",
     "winning_number": "426",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-03"
   },
   {
     "date": "2/4/2026",
     "winning_number": "239",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-04"
   },
   {
     "date": "2/5/2026",
     "winning_number": "142",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-05"
   },
   {
     "date": "2/6/2026",
     "winning_number": "568",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-06"
   },
   {
     "date": "2/7/2026",
     "winning_number": "618",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-07"
   },
   {
     "date": "2/8/2026",
     "winning_number": "367",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-08"
   },
   {
     "date": "2/9/2026",
     "winning_number": "285",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-09"
   },
   {
     "date": "2/10/2026",
     "winning_number": "168",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-10"
   },
   {
     "date": "2/11/2026",
     "winning_number": "379",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-11"
   },
   {
     "date": "2/12/2026",
     "winning_number": "572",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-12"
   },
   {
     "date": "2/13/2026",
     "winning_number": "334",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-13"
   },
   {
     "date": "2/14/2026",
     "winning_number": "332",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-14"
   },
   {
     "date": "2/15/2026",
     "winning_number": "548",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-15"
   },
   {
     "date": "2/16/2026",
     "winning_number": "253",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-16"
   },
   {
     "date": "2/17/2026",
     "winning_number": "464",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-17"
   },
   {
     "date": "2/18/2026",
     "winning_number": "317",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-18"
   },
   {
     "date": "2/19/2026",
     "winning_number": "513",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-19"
   },
   {
     "date": "2/20/2026",
     "winning_number": "489",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-20"
   },
   {
     "date": "2/21/2026",
     "winning_number": "884",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-21"
   },
   {
     "date": "2/22/2026",
     "winning_number": "611",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-22"
   },
   {
     "date": "2/23/2026",
     "winning_number": "659",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-23"
   },
   {
     "date": "2/24/2026",
     "winning_number": "062",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-24"
   },
   {
     "date": "2/25/2026",
     "winning_number": "800",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-25"
   },
   {
     "date": "2/26/2026",
     "winning_number": "460",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-26"
   },
   {
     "date": "2/27/2026",
     "winning_number": "629",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-27"
   },
   {
     "date": "2/28/2026",
     "winning_number": "816",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-02-28"
   },
   {
     "date": "3/1/2026",
     "winning_number": "881",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-01"
   },
   {
     "date": "3/2/2026",
     "winning_number": "609",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-02"
   },
   {
     "date": "3/3/2026",
     "winning_number": "514",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-03"
   },
   {
     "date": "3/4/2026",
     "winning_number": "990",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-04"
   },
   {
     "date": "3/5/2026",
     "winning_number": "724",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-05"
   },
   {
     "date": "3/6/2026",
     "winning_number": "690",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-06"
   },
   {
     "date": "3/7/2026",
     "winning_number": "924",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-07"
   },
   {
     "date": "3/8/2026",
     "winning_number": "056",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-08"
   },
   {
     "date": "3/9/2026",
     "winning_number": "151",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-09"
   },
   {
     "date": "3/10/2026",
     "winning_number": "975",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-10"
   },
   {
     "date": "3/11/2026",
     "winning_number": "844",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-11"
   },
   {
     "date": "3/12/2026",
     "winning_number": "991",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-12"
   },
   {
     "date": "3/13/2026",
     "winning_number": "632",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-13"
   },
   {
     "date": "3/14/2026",
     "winning_number": "528",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-14"
   },
   {
     "date": "3/15/2026",
     "winning_number": "199",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-15"
   },
   {
     "date": "3/16/2026",
     "winning_number": "909",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-16"
   },
   {
     "date": "3/17/2026",
     "winning_number": "786",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-17"
   },
   {
     "date": "3/18/2026",
     "winning_number": "427",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-18"
   },
   {
     "date": "3/19/2026",
     "winning_number": "277",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-19"
   },
   {
     "date": "3/20/2026",
     "winning_number": "583",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-20"
   },
   {
     "date": "3/21/2026",
     "winning_number": "773",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-21"
   },
   {
     "date": "3/22/2026",
     "winning_number": "168",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-22"
   },
   {
     "date": "3/23/2026",
     "winning_number": "300",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-23"
   },
   {
     "date": "3/24/2026",
     "winning_number": "285",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-24"
   },
   {
     "date": "3/25/2026",
     "winning_number": "682",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-25"
   },
   {
     "date": "3/26/2026",
     "winning_number": "331",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-26"
   },
   {
     "date": "3/27/2026",
     "winning_number": "751",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-27"
   },
   {
     "date": "3/28/2026",
     "winning_number": "844",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-28"
   },
   {
     "date": "3/29/2026",
     "winning_number": "290",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-29"
   },
   {
     "date": "3/30/2026",
     "winning_number": "293",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-30"
   },
   {
     "date": "3/31/2026",
     "winning_number": "981",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-03-31"
   },
   {
     "date": "4/2/2026",
     "winning_number": "297",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-02"
   },
   {
     "date": "4/3/2026",
     "winning_number": "24",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-03"
   },
   {
     "date": "4/4/2026",
     "winning_number": "850",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-04"
   },
   {
     "date": "4/5/2026",
     "winning_number": "126",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-05"
   },
   {
     "date": "4/6/2026",
     "winning_number": "714",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-06"
   },
   {
     "date": "4/7/2026",
     "winning_number": "902",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-07"
   },
   {
     "date": "4/8/2026",
     "winning_number": "709",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-08"
   },
   {
     "date": "4/9/2026",
     "winning_number": "186",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-09"
   },
   {
     "date": "4/10/2026",
     "winning_number": "165",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-10"
   },
   {
     "date": "4/11/2026",
     "winning_number": "215",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-11"
   },
   {
     "date": "4/12/2026",
     "winning_number": "702",
-    "session": "Midday"
+    "session": "Midday",
+    "draw_date": "2026-04-12"
+  },
+  {
+    "date": "4/13/2026",
+    "winning_number": "011",
+    "session": "Midday",
+    "draw_date": "2026-04-13"
+  },
+  {
+    "date": "4/14/2026",
+    "winning_number": "006",
+    "session": "Midday",
+    "draw_date": "2026-04-14"
+  },
+  {
+    "date": "4/15/2026",
+    "winning_number": "366",
+    "session": "Midday",
+    "draw_date": "2026-04-15"
+  },
+  {
+    "date": "4/16/2026",
+    "winning_number": "144",
+    "session": "Midday",
+    "draw_date": "2026-04-16"
+  },
+  {
+    "date": "4/17/2026",
+    "winning_number": "812",
+    "session": "Midday",
+    "draw_date": "2026-04-17"
+  },
+  {
+    "date": "4/18/2026",
+    "winning_number": "174",
+    "session": "Midday",
+    "draw_date": "2026-04-18"
+  },
+  {
+    "date": "4/19/2026",
+    "winning_number": "158",
+    "session": "Midday",
+    "draw_date": "2026-04-19"
+  },
+  {
+    "date": "4/20/2026",
+    "winning_number": "869",
+    "session": "Midday",
+    "draw_date": "2026-04-20"
+  },
+  {
+    "date": "4/21/2026",
+    "winning_number": "998",
+    "session": "Midday",
+    "draw_date": "2026-04-21"
   }
 ]
