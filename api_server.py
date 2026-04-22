@@ -611,18 +611,26 @@ def results_ingest():
           "game":           "Cash3" | "Cash4",
           "session":        "midday" | "evening" | "night",
           "date":           "2026-04-22",   // YYYY-MM-DD
-          "winning_number": "507"
+          "winning_number": "507",
+          "dryRun":         true            // optional — validate + idempotency check only, no writes
         }
 
-    Response:
+    dryRun can also be passed as a query string: ?dryRun=true
+
+    Response (normal):
         { "success": true, "game": "Cash3", "session": "evening",
           "date": "2026-04-22", "winning_number": "507" }
+
+    Response (dryRun=true):
+        { "success": true, "dryRun": true, "would_write": true,
+          "already_present": false, "entry": {...}, ... }
     """
     if not _check_prediction_secret():
         return jsonify({"success": False, "error": "Unauthorized"}), 403
 
     try:
         body = request.get_json(silent=True) or {}
+        dry_run        = bool(body.get("dryRun") or request.args.get("dryRun") == "true")
         game           = (body.get("game") or "").strip()
         session_raw    = (body.get("session") or "").strip().lower()
         date_str       = (body.get("date") or "").strip()
@@ -669,8 +677,8 @@ def results_ingest():
             return jsonify({"success": False,
                             "error": f"{game} winning_number must be {expected_len} digits"}), 400
 
-        # --- Build cache key ---------------------------------------------------
-        sess_key = session_map[session_raw]
+        # --- Build cache key and normalized entry ------------------------------
+        sess_key  = session_map[session_raw]
         cache_key = f"{game.lower()}_{sess_key}"   # e.g. "cash3_eve"
 
         entry = {
@@ -679,9 +687,27 @@ def results_ingest():
             "session":         session_raw.capitalize(),
         }
 
+        # --- Idempotency check (same logic used for real writes) ---------------
+        already_present = date_str in {e["draw_date"] for e in _ga_extra_entries[cache_key]}
+
+        # --- Dry-run: return what would happen without touching anything -------
+        if dry_run:
+            logger.info(f"[ingest:dryRun] {cache_key} {date_str} → {winning_number} "
+                        f"would_write={not already_present}")
+            return jsonify({
+                "success":         True,
+                "dryRun":          True,
+                "would_write":     not already_present,
+                "already_present": already_present,
+                "entry":           entry,
+                "game":            game,
+                "session":         session_raw,
+                "date":            date_str,
+                "winning_number":  winning_number,
+            }), 200
+
         # --- Update in-memory buffer (idempotent) ------------------------------
-        existing_dates = {e["draw_date"] for e in _ga_extra_entries[cache_key]}
-        if date_str not in existing_dates:
+        if not already_present:
             _ga_extra_entries[cache_key].append(entry)
             logger.info(f"[ingest] in-memory: {cache_key} {date_str} → {winning_number}")
         else:
