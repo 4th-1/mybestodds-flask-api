@@ -28,6 +28,54 @@ CASH3_EVENING_WEIGHT: int = 1  # baseline: equal session weighting
 # Run --save-baseline to lock in improvements.
 CASH4_VARIANT_DEPTH: int = 2  # baseline: 2 variants/sub/day
 
+# ----------------------------------------------------------------
+# Option B — Near-Miss Score Boost
+# Score bonus applied to combos that are ±1 on any digit of a recent
+# actual draw result.  These are the "correction zone" candidates that
+# sit adjacent to the number that came out.
+#   1.0 = correction variants score exactly 1.0 above their raw frequency.
+#         This lets them compete with recency combos (~1.4) while yielding
+#         to high-frequency combos (2.0+).
+# Change NEAR_MISS_BOOST_SCALE in exp-04, then re-run + compare baseline.
+NEAR_MISS_BOOST_SCALE: float = 1.0   # baseline 2026-04-14
+
+# Option A — Minimum score a recent actual must have in base stats before
+# its ±1 neighbors are generated.  Prevents one-off / noise draws from
+# seeding corrections.
+#   1.0 = any draw that appeared at least once in history triggers corrections.
+#   1.4 = only draws with a recency bonus (seen 5-15 draws ago) trigger.
+#   2.0 = only draws seen 2+ times trigger.
+# This is NOT a pool-size filter — it controls the TRIGGER, not the output.
+MIN_SCORE_FOR_CORRECTION: float = 1.4  # exp-05 2026-04-14
+
+# How many recent draws (combined across sessions) to scan for near-miss
+# neighbor generation.  Kept deliberately small to stay fresh.
+#   3 = default; scan the last 3 results per game
+NEAR_MISS_LOOKBACK: int = 3  # baseline 2026-04-14
+
+# ----------------------------------------------------------------
+# Decay Weighting — Three-Band History Model
+# Each historical draw gets a weight based on how old it is relative
+# to the most recent draw in the dataset.  Weighted frequency replaces
+# raw count so deep history informs patterns without swamping recency.
+#
+# Band definitions (days from most recent draw):
+#   DECAY_DAYS_RECENT   ≤ 90 days  → weight DECAY_WEIGHT_90D   (freshest signal)
+#   DECAY_DAYS_MID      ≤ 365 days → weight DECAY_WEIGHT_12MO  (operational)
+#   older               > 365 days → weight DECAY_WEIGHT_OLDER  (structural pattern)
+#
+# Default balance: 1.0 / 0.50 / 0.25
+#   Fresh draw counts full, 1-year-old draws count half,
+#   older draws count quarter — keeps system responsive while using full archive.
+#
+# Set all three to 1.0 to disable decay (flat weighting = pre-backfill behavior).
+# Change one value at a time and re-run simulation + full_report.py.
+DECAY_DAYS_RECENT:  int   = 90    # days threshold for "fresh" band
+DECAY_DAYS_MID:     int   = 365   # days threshold for "operational" band
+DECAY_WEIGHT_90D:   float = 1.00  # baseline 2026-04-14
+DECAY_WEIGHT_12MO:  float = 0.50  # baseline 2026-04-14
+DECAY_WEIGHT_OLDER: float = 0.25  # baseline 2026-04-14
+
 from core.cash_pattern_model_v1 import (
     build_cash_history,
     pick_top_cash_combos_for_day
@@ -122,6 +170,7 @@ def _extract_combo_history(results: List[Dict[str, Any]], length: int) -> List[s
         raw = (
             row.get("winning_numbers")
             or row.get("Winning Numbers")
+            or row.get("winning_number")
             or row.get("result")
             or row.get("Result")
         )
@@ -137,12 +186,126 @@ def _extract_combo_history(results: List[Dict[str, Any]], length: int) -> List[s
     return combos
 
 
-def _build_combo_stats(combos: List[str], *, min_occurrences: int = 1) -> Dict[str, Dict[str, float]]:
+def _extract_combo_history_dated(
+    results: List[Dict[str, Any]], length: int
+) -> "List[tuple[str, str]]":
+    """
+    Like _extract_combo_history() but returns (combo, iso_date_str) tuples.
+    iso_date_str is YYYY-MM-DD sourced from the 'draw_date' field added by
+    backfill_history.py, falling back to the 'date' field (M/D/YYYY format).
+    Rows without a parseable date get iso_date=''.
+    """
+    from datetime import datetime as _dt
+    items: "List[tuple[str, str]]" = []
+    for row in results:
+        raw = (
+            row.get("winning_numbers")
+            or row.get("Winning Numbers")
+            or row.get("winning_number")
+            or row.get("result")
+            or row.get("Result")
+        )
+        if raw is None:
+            continue
+        s = str(raw).strip().replace(" ", "")
+        if not s.isdigit():
+            continue
+        s = s.zfill(length)
+        if len(s) != length:
+            continue
+
+        # Resolve ISO date — normalize from any format to YYYY-MM-DD
+        iso = ""
+        for field in ("draw_date", "date"):
+            raw_date = str(row.get(field, "")).strip()
+            if not raw_date:
+                continue
+            for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%m/%d/%y"):
+                try:
+                    iso = _dt.strptime(raw_date, fmt).strftime("%Y-%m-%d")
+                    break
+                except ValueError:
+                    continue
+            if iso:
+                break
+
+        items.append((s, iso))
+    return items
+
+
+def _build_combo_stats(
+    combos: List[str],
+    *,
+    min_occurrences: int = 1,
+    near_miss_neighbors: "set | None" = None,
+    boost_scale: float = 1.0,
+    combo_dates: "List | None" = None,
+    decay_weights: "tuple | None" = None,
+) -> Dict[str, Dict[str, float]]:
+    """
+    Build frequency + recency stats for each combo in history.
+
+    near_miss_neighbors: optional set of combo strings (Option B correction
+    candidates).  Combos in this set receive a +boost_scale score bonus.
+    If a neighbor was never seen in history it is added to stats with
+    freq=0 and score=boost_scale (correction-only entry).
+
+    combo_dates: optional List[Tuple[str, str]] — (combo, iso_date_str) —
+    from _extract_combo_history_dated().  When provided together with
+    decay_weights=(w_90d, w_12mo, w_older), each historical occurrence is
+    weighted by its age band so deep history informs patterns without
+    swamping recency.  The 'combos' list is still used for ordering/gap
+    computation; combo_dates drives weighted frequency.
+    """
     from collections import Counter
+    from datetime import datetime as _dt
+
     if not combos:
+        if near_miss_neighbors and boost_scale > 0:
+            return {
+                nb: {"freq": 0.0, "gap": 9999.0, "score": boost_scale}
+                for nb in near_miss_neighbors
+            }
         return {}
 
-    freq = Counter(combos)
+    # ── Weighted frequency (decay model) ──────────────────────────────────
+    if combo_dates and decay_weights:
+        w_90d, w_12mo, w_older = decay_weights
+        # Reference = most recent ISO date in the dataset
+        iso_dates = [iso for _, iso in combo_dates if iso]
+        if iso_dates:
+            ref_dt = _dt.strptime(max(iso_dates), "%Y-%m-%d")
+        else:
+            ref_dt = _dt.now()
+
+        weighted_freq: dict = {}
+        for combo, iso in combo_dates:
+            if not iso:
+                w = w_older
+            else:
+                try:
+                    age_days = (ref_dt - _dt.strptime(iso, "%Y-%m-%d")).days
+                except ValueError:
+                    age_days = 9999
+                if age_days <= DECAY_DAYS_RECENT:
+                    w = w_90d
+                elif age_days <= DECAY_DAYS_MID:
+                    w = w_12mo
+                else:
+                    w = w_older
+            weighted_freq[combo] = weighted_freq.get(combo, 0.0) + w
+
+        # min_occurrences check: require raw count ≥ threshold (not weighted)
+        raw_count = Counter(combos)
+        weighted_freq = {c: v for c, v in weighted_freq.items()
+                         if raw_count[c] >= min_occurrences}
+        freq_for_score = weighted_freq  # float → used as "freq" below
+    else:
+        # ── Flat frequency (legacy / no decay) ────────────────────────────
+        freq_for_score_raw = Counter(combos)
+        freq_for_score = {c: float(v) for c, v in freq_for_score_raw.items()
+                          if v >= min_occurrences}
+
     last_index = {}
     for idx, c in enumerate(combos):
         last_index[c] = idx
@@ -150,10 +313,8 @@ def _build_combo_stats(combos: List[str], *, min_occurrences: int = 1) -> Dict[s
     total = len(combos)
     stats = {}
 
-    for combo, f in freq.items():
-        if f < min_occurrences:
-            continue
-        gap = total - 1 - last_index[combo]
+    for combo, f in freq_for_score.items():
+        gap = total - 1 - last_index.get(combo, 0)
 
         recency_penalty = 0.4 if gap <= 2 else 0.0
         recency_bonus = 0.4 if 5 <= gap <= 15 else 0.0
@@ -161,13 +322,78 @@ def _build_combo_stats(combos: List[str], *, min_occurrences: int = 1) -> Dict[s
         # Base score: deterministic, noise applied later in _pick_top_combos()
         score = float(f) + recency_bonus - recency_penalty
 
+        # Option B boost: correction candidates gain additional score weight
+        if near_miss_neighbors and combo in near_miss_neighbors:
+            score += boost_scale
+
         stats[combo] = {
-            "freq": float(f), 
-            "gap": float(gap), 
-            "score": score
+            "freq": float(f),
+            "gap": float(gap),
+            "score": score,
         }
 
+    # Inject correction candidates that never appeared in history
+    if near_miss_neighbors and boost_scale > 0:
+        for neighbor in near_miss_neighbors:
+            if neighbor not in stats:
+                stats[neighbor] = {
+                    "freq": 0.0,
+                    "gap": float(total),
+                    "score": boost_scale,
+                }
+
     return stats
+
+
+def _extract_near_miss_neighbors(
+    history: List[Dict[str, Any]],
+    combo_len: int,
+    lookback: int = 3,
+    base_stats: "Dict | None" = None,
+    min_score: float = 1.0,
+) -> "set[str]":
+    """
+    Generate ±1 digit-position neighbors of the most recent `lookback` draw
+    results (Option B source pool).
+
+    Option A gate (base_stats + min_score):
+        If base_stats is provided, a recent draw must have a score >=
+        min_score in base_stats before its neighbors are generated.
+        One-off / noise draws are silently skipped.
+        If base_stats is None the gate is disabled (all recent draws seed
+        corrections).
+
+    Returns a set of neighbor combo strings of length combo_len.
+    Only generates the ±1 variants on each individual digit position
+    (2 neighbors per position = 2*combo_len candidates per source draw).
+    """
+    # Collect last `lookback` valid draws (newest first)
+    recent: List[str] = []
+    for item in reversed(history):
+        raw = (item.get("winning_numbers") or item.get("winning_number") or "")
+        s = str(raw).strip().replace(" ", "")
+        if len(s) == combo_len and s.isdigit():
+            recent.append(s)
+            if len(recent) >= lookback:
+                break
+
+    neighbors: set = set()
+    for combo in recent:
+        # Option A gate
+        if base_stats is not None:
+            if combo not in base_stats:
+                continue  # never seen in history → low confidence, skip
+            if base_stats[combo]["score"] < min_score:
+                continue  # below confidence threshold → skip
+
+        # ±1 on every digit position independently
+        for pos in range(len(combo)):
+            for delta in (-1, 1):
+                d = (int(combo[pos]) + delta) % 10
+                neighbor = combo[:pos] + str(d) + combo[pos + 1:]
+                neighbors.add(neighbor)
+
+    return neighbors
 
 
 def _generate_signal_family(
@@ -502,7 +728,27 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     )
 
     c3_combos = _extract_combo_history(cash3_history, 3)
-    stats3 = _build_combo_stats(c3_combos)
+    c3_dated  = _extract_combo_history_dated(cash3_history, 3)
+    _decay = (DECAY_WEIGHT_90D, DECAY_WEIGHT_12MO, DECAY_WEIGHT_OLDER)
+
+    # --- Option A + B: two-pass stats build for Cash3 ---
+    # Pass 1: base stats with decay (no boost) — used as confidence gate for Option A
+    _stats3_base = _build_combo_stats(c3_combos, combo_dates=c3_dated, decay_weights=_decay)
+    # Derive ±1 neighbors of last NEAR_MISS_LOOKBACK high-confidence draws
+    _c3_neighbors = _extract_near_miss_neighbors(
+        cash3_history, 3,
+        lookback=NEAR_MISS_LOOKBACK,
+        base_stats=_stats3_base,
+        min_score=MIN_SCORE_FOR_CORRECTION,
+    )
+    # Pass 2: rebuild stats with correction candidates boosted (Option B)
+    stats3 = _build_combo_stats(
+        c3_combos,
+        combo_dates=c3_dated,
+        decay_weights=_decay,
+        near_miss_neighbors=_c3_neighbors,
+        boost_scale=NEAR_MISS_BOOST_SCALE,
+    )
 
     if stats3:
         system_cash3 = _pick_top_combos(stats3, k=2, subscriber_seed=subscriber_seed)
@@ -521,7 +767,26 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     )
 
     c4_combos = _extract_combo_history(cash4_history, 4)
-    stats4 = _build_combo_stats(c4_combos)
+    c4_dated  = _extract_combo_history_dated(cash4_history, 4)
+
+    # --- Option A + B: two-pass stats build for Cash4 ---
+    # Pass 1: base stats with decay (no boost)
+    _stats4_base = _build_combo_stats(c4_combos, combo_dates=c4_dated, decay_weights=_decay)
+    # Derive ±1 neighbors of last NEAR_MISS_LOOKBACK high-confidence draws
+    _c4_neighbors = _extract_near_miss_neighbors(
+        cash4_history, 4,
+        lookback=NEAR_MISS_LOOKBACK,
+        base_stats=_stats4_base,
+        min_score=MIN_SCORE_FOR_CORRECTION,
+    )
+    # Pass 2: rebuild stats with correction candidates boosted (Option B)
+    stats4 = _build_combo_stats(
+        c4_combos,
+        combo_dates=c4_dated,
+        decay_weights=_decay,
+        near_miss_neighbors=_c4_neighbors,
+        boost_scale=NEAR_MISS_BOOST_SCALE,
+    )
 
     if stats4:
         system_cash4 = _pick_top_combos(stats4, k=CASH4_VARIANT_DEPTH, subscriber_seed=subscriber_seed)
@@ -548,4 +813,7 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         "MegaMillions": {"lane_system": mm_lines},
         "Powerball": {"lane_system": pb_lines},
         "Millionaire For Life": {"lane_system": c4l_lines},
+        # Internal key for confidence scoring — consumed by api_server.py,
+        # stripped before returning to callers.
+        "_stats": {"cash3": stats3 if stats3 else {}, "cash4": stats4 if stats4 else {}},
     }

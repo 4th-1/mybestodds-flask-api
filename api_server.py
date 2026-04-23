@@ -142,17 +142,37 @@ def get_predictions_for_date(date_str: str, kit: str) -> List[Dict]:
 
         picks = generate_picks_v3(subscriber, None, ga_data, root)
 
+        # Extract per-game stats for confidence scoring, then remove the
+        # internal key so it doesn't leak into the predictions loop below.
+        raw_stats = picks.pop("_stats", {})
+        c3_stats  = raw_stats.get("cash3", {})
+        c4_stats  = raw_stats.get("cash4", {})
+        c3_max    = max((v["score"] for v in c3_stats.values()), default=1.0) or 1.0
+        c4_max    = max((v["score"] for v in c4_stats.values()), default=1.0) or 1.0
+
         predictions = []
         for game, lane_data in picks.items():
             for lane, numbers in lane_data.items():
                 for number in (numbers or []):
                     if number:
+                        # Normalized confidence from engine stats (0.0–1.0).
+                        # Picks not found in stats (e.g. pure permutations from
+                        # the signal family) receive a conservative default.
+                        if game == "Cash3" and c3_stats:
+                            raw_score = c3_stats.get(str(number), {}).get("score", 1.0)
+                            conf = round(min(raw_score / c3_max, 1.0), 4)
+                        elif game == "Cash4" and c4_stats:
+                            raw_score = c4_stats.get(str(number), {}).get("score", 1.0)
+                            conf = round(min(raw_score / c4_max, 1.0), 4)
+                        else:
+                            conf = None
                         predictions.append({
-                            "game":   game,
-                            "number": str(number),
-                            "date":   date_str,
-                            "lane":   lane,
-                            "kit":    kit,
+                            "game":             game,
+                            "number":           str(number),
+                            "date":             date_str,
+                            "lane":             lane,
+                            "kit":              kit,
+                            "confidence_score": conf,
                         })
         return predictions
 
@@ -486,9 +506,10 @@ def generate_predictions(subscriber_id: str):
         for p in all_predictions:
             game = p.get("game", "Unknown")
             grouped.setdefault(game, []).append({
-                "number": p.get("number"),
-                "kit":    p.get("kit"),
-                "lane":   p.get("lane"),
+                "number":           p.get("number"),
+                "kit":              p.get("kit"),
+                "lane":             p.get("lane"),
+                "confidence_score": p.get("confidence_score"),
             })
 
         # Inject MMFSN picks sent by the edge function (BOOK3 personal-number lane)
@@ -587,7 +608,7 @@ def _compute_near_miss_advice(
             ga_data=ga_data,
         )
     except Exception as e:
-        logger.warning(f"Near-miss advice skipped: {e}")
+        logger.warning(f"Near-miss advice skipped: {e}", exc_info=True)
         return {
             "cash3": [],
             "cash4": [],
