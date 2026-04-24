@@ -718,6 +718,43 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         mmfsn_cash3 = []
         mmfsn_cash4 = []
 
+    # ------------------------------------------------------------------
+    # ALIGNMENT SCORE — how strong is this subscriber's timing today?
+    #
+    # score_result may be pre-computed and passed in by the caller.
+    # If None, we compute it internally using the MMFSN profile.
+    # Score range: 0–40 (from mmfsn_v3.compute_mmfsn_score_for_day).
+    #
+    # The score drives _family_pool_size: the depth of the signal family
+    # that _pick_top_combos() samples from per subscriber.
+    #   Low alignment  (0–10)  → pool 25  (baseline — broad spread)
+    #   Mid alignment  (10–25) → pool 35  (moderate focus)
+    #   High alignment (25–40) → pool 50  (tight, subscriber-specific signal)
+    # ------------------------------------------------------------------
+    alignment_score = 0.0
+    if score_result is not None:
+        try:
+            alignment_score = float(score_result)
+        except (TypeError, ValueError):
+            alignment_score = 0.0
+    else:
+        birthdate = (
+            subscriber.get("birthdate") or subscriber.get("birth_date")
+            or subscriber.get("dob") or ""
+        )
+        if birthdate or mmfsn_path.exists():
+            try:
+                from core.mmfsn_v3 import compute_mmfsn_score_for_day
+                _score, _ = compute_mmfsn_score_for_day(
+                    subscriber, datetime.now(), config={}, root=root
+                )
+                alignment_score = _score
+            except Exception:
+                alignment_score = 0.0
+
+    # Map 0–40 → pool 25–50
+    _family_pool_size = 25 + int(min(max(alignment_score, 0.0), 40.0) / 40.0 * 25)
+
     # ------------------ CASH 3 SYSTEM LANE (All Sessions) ------------------
     # CASH3_EVENING_WEIGHT controls session emphasis in the frequency pool.
     # 3 = 60% Evening / 20% Midday / 20% Night (exp-01)
@@ -751,7 +788,7 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     )
 
     if stats3:
-        system_cash3 = _pick_top_combos(stats3, k=2, subscriber_seed=subscriber_seed)
+        system_cash3 = _pick_top_combos(stats3, k=2, subscriber_seed=subscriber_seed, max_family_pool=_family_pool_size)
     else:
         freq3 = build_digit_frequency(last_digits_from_results(cash3_history, 30), 3)
         rng3 = random.Random(subscriber_seed)
@@ -789,7 +826,7 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     )
 
     if stats4:
-        system_cash4 = _pick_top_combos(stats4, k=CASH4_VARIANT_DEPTH, subscriber_seed=subscriber_seed)
+        system_cash4 = _pick_top_combos(stats4, k=CASH4_VARIANT_DEPTH, subscriber_seed=subscriber_seed, max_family_pool=_family_pool_size)
     else:
         freq4 = build_digit_frequency(last_digits_from_results(cash4_history, 30), 4)
         rng4 = random.Random(subscriber_seed + 1)
