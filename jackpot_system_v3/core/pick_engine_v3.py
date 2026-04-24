@@ -709,7 +709,12 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     subscriber_seed = int(_h, 16)
 
     # ------------------ MMFSN ------------------
-    mmfsn_path = root / "data" / "mmfsn_profiles" / f"{initials}_mmfsn.json"
+    # Look up by subscriber UUID first (collision-proof), fall back to initials
+    _sub_id = subscriber.get("subscriber_id", "")
+    _mmfsn_dir = root / "data" / "mmfsn_profiles"
+    mmfsn_path = _mmfsn_dir / f"{_sub_id}_mmfsn.json" if _sub_id else None
+    if not mmfsn_path or not mmfsn_path.exists():
+        mmfsn_path = _mmfsn_dir / f"{initials}_mmfsn.json"
     if mmfsn_path.exists():
         mm = json.loads(mmfsn_path.read_text(encoding="utf-8"))
         mmfsn_cash3 = mm.get("mmfsn_numbers", {}).get("Cash3", []) or []
