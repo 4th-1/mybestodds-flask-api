@@ -847,6 +847,43 @@ def results_ingest():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+@app.route('/api/admin/prune-mmfsn', methods=['POST'])
+def admin_prune_mmfsn():
+    """
+    One-time admin utility: remove auto-generated dummy MMFSN profiles
+    (AAA_mmfsn.json through ZZZ_mmfsn.json) that have empty Cash3/Cash4 arrays.
+    Leaves any profile that has actual numbers stored.
+    Header: X-Prediction-Secret required.
+    """
+    if not _check_prediction_secret():
+        return jsonify({"success": False, "error": "Unauthorized"}), 403
+
+    mmfsn_dir = os.path.join(JACKPOT_SYSTEM_DIR, "data", "mmfsn_profiles")
+    if not os.path.exists(mmfsn_dir):
+        return jsonify({"success": True, "deleted": 0, "kept": 0}), 200
+
+    deleted, kept = 0, 0
+    for fname in os.listdir(mmfsn_dir):
+        if not fname.endswith("_mmfsn.json"):
+            continue
+        fpath = os.path.join(mmfsn_dir, fname)
+        try:
+            with open(fpath, encoding="utf-8") as f:
+                data = json.load(f)
+            nums = data.get("mmfsn_numbers", {})
+            has_data = bool(nums.get("Cash3") or nums.get("Cash4"))
+            if not has_data:
+                os.remove(fpath)
+                deleted += 1
+            else:
+                kept += 1
+        except Exception:
+            kept += 1  # don't delete files we can't parse
+
+    logger.info(f"MMFSN prune: deleted={deleted} kept={kept}")
+    return jsonify({"success": True, "deleted": deleted, "kept": kept}), 200
+
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
