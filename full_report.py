@@ -69,7 +69,39 @@ def _partial_match(pick: str, actual: str, min_digits: int) -> bool:
     matches = sum(1 for a, b in zip(pick, actual) if a == b)
     return matches >= min_digits
 
-# ── Load ──────────────────────────────────────────────────────────────────────
+def _is_anagram(pick: str, actual: str) -> bool:
+    """True if pick and actual contain the same digits in any order."""
+    if not actual or len(pick) != len(actual):
+        return False
+    return sorted(pick) == sorted(actual)
+
+def _one_off_tier(pick: str, actual: str):
+    """
+    Returns the 1-Off tier name if ALL digit positions are within +-1 of the
+    drawn digit (no wrap-around at 0/9). Returns None if any digit is >1 away.
+    Tier is determined by how many digits are exactly 1 away vs. exact matches.
+    """
+    if not actual or len(pick) != len(actual):
+        return None
+    diffs = []
+    for p, a in zip(pick, actual):
+        if not p.isdigit() or not a.isdigit():
+            return None
+        d = abs(int(p) - int(a))
+        if d > 1:
+            return None
+        diffs.append(d)
+    n_off = sum(1 for d in diffs if d == 1)
+    tier_map = {
+        0: "Straight Match",
+        1: "One Digit 1-Off",
+        2: "Two Digit 1-Off",
+        3: "Three Digit 1-Off",
+        4: "Four Digit 1-Off",
+    }
+    return tier_map.get(n_off, f"{n_off} Digit 1-Off")
+
+# -- Load ---------------------------------------------------------------------
 print(f"Loading {CSV_PATH.name}...")
 if not CSV_PATH.exists():
     raise SystemExit(f"ERROR: {CSV_PATH} not found. Run simulate_historical.py first.")
@@ -305,6 +337,119 @@ for game in ["Cash3", "Cash4"]:
     print(f"\n  [{game}]")
     for pick, cnt in win_counts.most_common(10):
         print(f"    {pick}  ->  {cnt:,} wins")
+
+# -- 8. STRAIGHT/BOX COMBO PLAY ANALYSIS -------------------------------------
+# Georgia Straight/Box prize amounts (per $1 play = $0.50 straight + $0.50 box)
+# Straight hit: wins BOTH straight portion AND box portion
+# Box-only hit: wins box portion only
+# Cash3 (6-way standard): straight=$290, box=$40
+# Cash4 (24-way standard): straight=$2,750, box=$100
+_SB_PRIZES = {
+    "Cash3": {"straight_hit": 330, "straight_only": 290, "box_only": 40},
+    "Cash4": {"straight_hit": 2850, "straight_only": 2750, "box_only": 100},
+}
+
+print(f"\n{SEP}")
+print("  8. STRAIGHT/BOX COMBO PLAY ANALYSIS")
+print(SEP)
+print("  Per $1 S/B play: straight hit = straight prize + box prize; box-only = box prize")
+print("  Cash3 standard (6-way): straight hit=$330 ($290+$40); box-only=$40")
+print("  Cash4 standard (24-way): straight hit=$2,850 ($2,750+$100); box-only=$100\n")
+
+for game in ["Cash3", "Cash4"]:
+    game_rows = [r for r in rows if r["game"] == game]
+    total = len(game_rows)
+    sb_straight = 0
+    sb_box_only = 0
+    for r in game_rows:
+        pick = r["pick"]
+        for _, s in SESSIONS:
+            act = r[ACTUAL_FIELDS[s]].strip()
+            if not act:
+                continue
+            if pick == act:
+                sb_straight += 1
+                break
+            elif _is_anagram(pick, act):
+                sb_box_only += 1
+                break
+    sb_total = sb_straight + sb_box_only
+    prizes = _SB_PRIZES[game]
+    est_straight_prize = sb_straight * prizes["straight_hit"]
+    est_box_prize      = sb_box_only * prizes["box_only"]
+    est_total_prize    = est_straight_prize + est_box_prize
+    num_subs = len(subs)
+    value_per_sub = round(est_total_prize / num_subs, 2) if num_subs else 0
+    print(f"  [{game}]  {total:,} picks  |  {num_subs} subscribers")
+    print(f"  {'Component':<36} {'Count':>8}  {'Rate':>10}  {'Est. Prize $':>13}")
+    print(f"  {'-'*71}")
+    print(f"  {'Straight hit (both S+B prize)':<36} {sb_straight:>8,}  {pct(sb_straight, total):>10}  ${est_straight_prize:>12,}")
+    print(f"  {'Box-only hit (box prize)':<36} {sb_box_only:>8,}  {pct(sb_box_only, total):>10}  ${est_box_prize:>12,}")
+    print(f"  {'-'*71}")
+    print(f"  {'Any S/B component won':<36} {sb_total:>8,}  {pct(sb_total, total):>10}  ${est_total_prize:>12,}")
+    print(f"  {'Avg value per subscriber':<36} {'':>8}  {'':>10}  ${value_per_sub:>12,.2f}")
+    print()
+
+# -- 9. 1-OFF PLAY ANALYSIS ---------------------------------------------------
+print(f"\n{SEP}")
+print("  9. 1-OFF PLAY ANALYSIS  (Georgia digit-proximity rule)")
+print(SEP)
+print("  All prize values reflect Georgia Lottery $1 play amounts.")
+print("  (All digit positions within +-1 of drawn digit; no wrap-around at 0/9)")
+print("  Cash3: Straight=$250, 1-off=$24, 2-off=$4, 3-off=$8")
+print("  Cash4: Straight=$2,500, 1-off=$124, 2-off=$24, 3-off=$14, 4-off=$32")
+print()
+
+_ONEOFF_PRIZE = {
+    "Cash3": {
+        "Straight Match":   250,   # GA official: $1 play
+        "One Digit 1-Off":   24,   # GA official: $1 play
+        "Two Digit 1-Off":    4,   # GA official: $1 play
+        "Three Digit 1-Off":  8,   # GA official: $1 play (harder, pays more than 2-off)
+    },
+    "Cash4": {
+        "Straight Match":  2500,   # GA official: $1 play
+        "One Digit 1-Off":  124,   # GA official: $1 play
+        "Two Digit 1-Off":   24,   # GA official: $1 play
+        "Three Digit 1-Off": 14,   # GA official: $1 play
+        "Four Digit 1-Off":  32,   # GA official: $1 play (all 4 digits 1-off)
+    },
+}
+_ONEOFF_TIERS = {
+    "Cash3": ["Straight Match", "One Digit 1-Off", "Two Digit 1-Off", "Three Digit 1-Off"],
+    "Cash4": ["Straight Match", "One Digit 1-Off", "Two Digit 1-Off",
+              "Three Digit 1-Off", "Four Digit 1-Off"],
+}
+
+for game in ["Cash3", "Cash4"]:
+    game_rows = [r for r in rows if r["game"] == game]
+    total = len(game_rows)
+    tier_counts = Counter()
+    for r in game_rows:
+        pick = r["pick"]
+        for _, s in SESSIONS:
+            act = r[ACTUAL_FIELDS[s]].strip()
+            if not act:
+                continue
+            tier = _one_off_tier(pick, act)
+            if tier:
+                tier_counts[tier] += 1
+                break
+    total_wins = sum(tier_counts.values())
+    prize_table = _ONEOFF_PRIZE[game]
+    total_prize = sum(cnt * prize_table.get(t, 0) for t, cnt in tier_counts.items())
+    value_per_sub_1off = round(total_prize / len(subs), 2) if subs else 0
+    print(f"  [{game}]  {total:,} picks  |  1-Off qualifying: {total_wins:,} ({pct(total_wins, total)})")
+    print(f"  {'Tier':<24} {'Count':>8}  {'Rate':>10}  {'Est. Prize $':>13}")
+    print(f"  {'-'*59}")
+    for t in _ONEOFF_TIERS[game]:
+        cnt = tier_counts.get(t, 0)
+        est = cnt * prize_table.get(t, 0)
+        print(f"  {t:<24} {cnt:>8,}  {pct(cnt, total):>10}  ${est:>12,}")
+    print(f"  {'-'*59}")
+    print(f"  {'TOTAL':<24} {total_wins:>8,}  {pct(total_wins, total):>10}  ${total_prize:>12,}")
+    print(f"  {'Avg value per subscriber':<24} {'':>8}  {'':>10}  ${value_per_sub_1off:>12,.2f}")
+    print()
 
 print(f"\n{SEP}")
 print("  Report complete.")

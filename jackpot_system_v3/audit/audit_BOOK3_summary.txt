@@ -4,3 +4,7 @@ hit_type
 BOX            3
 MISS        1256
 STRAIGHT       7
+
+
+
+$M!9Th8!2

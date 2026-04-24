@@ -28,10 +28,19 @@ JACKPOT_ROOT = ROOT / "jackpot_system_v3"
 sys.path.insert(0, str(JACKPOT_ROOT))
 
 from core.pick_engine_v3 import generate_picks_v3
+from core.v3_7.play_type_resolver_v3_7 import resolve_play_type
 
 # ── Config ───────────────────────────────────────────────────────────────────
-CASH3_CSV = ROOT / "historical_data" / "ga_results" / "2026" / "Cash3.csv"
-CASH4_CSV = ROOT / "historical_data" / "ga_results" / "2026" / "Cash4.csv"
+# GA actuals - ordered oldest-first; loaders merge and deduplicate
+CASH3_SOURCES = [
+    ROOT / "historical_data" / "ga_results" / "Cash3_Master_2025.csv",
+    ROOT / "historical_data" / "ga_results" / "2026" / "Cash3.csv",
+]
+CASH4_SOURCES = [
+    ROOT / "historical_data" / "ga_results" / "Cash4_Master_2025.csv",
+    ROOT / "historical_data" / "ga_results" / "2026" / "Cash4.csv",
+]
+# Keep single-path constants for jackpot (no 2025 master available)
 MM_CSV    = ROOT / "historical_data" / "jackpot_results" / "2026" / "MegaMillions.csv"
 PB_CSV    = ROOT / "historical_data" / "jackpot_results" / "2026" / "Powerball.csv"
 MFL_CSV   = ROOT / "historical_data" / "jackpot_results" / "2026" / "Millionaire_For_Life.csv"
@@ -70,35 +79,130 @@ JACKPOT_PRIZE_TABLES = {
 }
 
 # ── Load actual draw results ──────────────────────────────────────────────────
+def _norm_row(row: dict):
+    """Normalize a CSV row from either the 2025-master or 2026 format.
+    2025 master: draw_date(ISO), game, session, digits
+    2026 files : date(M/D/Y),         session, number
+    Returns (date_obj, session_upper, number_str).
+    """
+    if "draw_date" in row:
+        d = datetime.strptime(row["draw_date"], "%Y-%m-%d").date()
+        return d, row["session"].upper(), row["digits"].strip()
+    else:
+        d = datetime.strptime(row["date"], "%m/%d/%Y").date()
+        return d, row["session"].upper(), row["number"].strip()
+
+
 def load_actuals(csv_path: Path) -> dict:
-    """Returns {(date_obj, session): number_str}"""
+    """Returns {(date_obj, session): number_str} -- single file (legacy)."""
     actuals = {}
     with open(csv_path, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             try:
-                d = datetime.strptime(row["date"], "%m/%d/%Y").date()
-                actuals[(d, row["session"].upper())] = row["number"].strip()
+                d, session, number = _norm_row(row)
+                actuals[(d, session)] = number
             except (ValueError, KeyError):
                 continue
     return actuals
 
 
+def load_actuals_multi(csv_paths: list) -> dict:
+    """Returns {(date_obj, session): number_str} merged from multiple files.
+    Later files in the list win on duplicate (date, session) keys.
+    """
+    actuals = {}
+    for csv_path in csv_paths:
+        if not Path(csv_path).exists():
+            continue
+        with open(csv_path, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                try:
+                    d, session, number = _norm_row(row)
+                    actuals[(d, session)] = number
+                except (ValueError, KeyError):
+                    continue
+    return actuals
+
+
 def load_history_for_engine(csv_path: Path, before_date) -> list:
-    """Return rows with draw_date < before_date in engine format."""
+    """Return rows with draw_date < before_date in engine format -- single file (legacy)."""
     rows = []
     with open(csv_path, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             try:
-                d = datetime.strptime(row["date"], "%m/%d/%Y").date()
-            except ValueError:
+                d, session, number = _norm_row(row)
+            except (ValueError, KeyError):
                 continue
             if d < before_date:
                 rows.append({
-                    "draw_date": row["date"],
-                    "winning_numbers": row["number"].strip(),
-                    "session": row["session"].upper(),
+                    "draw_date": d.strftime("%m/%d/%Y"),
+                    "winning_numbers": number,
+                    "session": session,
                 })
     return rows
+
+
+def load_history_for_engine_multi(csv_paths: list, before_date) -> list:
+    """Return rows with draw_date < before_date in engine format, merged from
+    multiple files and deduplicated by (date, session)."""
+    seen = set()
+    rows = []
+    for csv_path in csv_paths:
+        if not Path(csv_path).exists():
+            continue
+        with open(csv_path, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                try:
+                    d, session, number = _norm_row(row)
+                except (ValueError, KeyError):
+                    continue
+                if d < before_date:
+                    key = (d, session)
+                    if key not in seen:
+                        seen.add(key)
+                        rows.append({
+                            "draw_date": d.strftime("%m/%d/%Y"),
+                            "winning_numbers": number,
+                            "session": session,
+                        })
+    return rows
+
+
+def preload_all_history(csv_paths: list) -> list:
+    """Load ALL rows from multiple sources into memory once, deduplicated.
+    Returns sorted list of engine-format dicts with an extra 'date_obj' key
+    for fast date filtering inside the walk-forward loop.
+    """
+    seen = set()
+    rows = []
+    for csv_path in csv_paths:
+        if not Path(csv_path).exists():
+            continue
+        with open(csv_path, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                try:
+                    d, session, number = _norm_row(row)
+                except (ValueError, KeyError):
+                    continue
+                key = (d, session)
+                if key not in seen:
+                    seen.add(key)
+                    rows.append({
+                        "date_obj":       d,
+                        "draw_date":      d.strftime("%m/%d/%Y"),
+                        "winning_numbers": number,
+                        "session":        session,
+                    })
+    rows.sort(key=lambda r: (r["date_obj"], r["session"]))
+    return rows
+
+
+def filter_history_before(all_rows: list, before_date) -> list:
+    """Fast in-memory filter: return engine-format rows with date < before_date."""
+    return [
+        {"draw_date": r["draw_date"], "winning_numbers": r["winning_numbers"], "session": r["session"]}
+        for r in all_rows if r["date_obj"] < before_date
+    ]
 
 
 # ── Build ga_data dict from raw rows ─────────────────────────────────────────
@@ -128,6 +232,32 @@ def is_box_win(pick: str, actual: str) -> bool:
     if len(pick) != len(actual):
         return False
     return sorted(pick) == sorted(actual)
+
+
+# ── Play-type resolver helpers ───────────────────────────────────────────────
+def build_ctx_for_sub(kit: str, lane: str) -> dict:
+    """Map subscriber kit + pick lane -> context flags for play_type_resolver."""
+    if kit == "BOSK":
+        return {"straight_core": True, "high_confidence": True}
+    if kit == "BOOK":
+        return {"straight_core": True, "box_safety": True}
+    # BOOK3 — mmfsn lane gets 1-off focus; system lane gets straight/box
+    if "mmfsn" in (lane or "").lower():
+        return {"one_off_focus": True}
+    return {"straight_core": True, "box_safety": True}
+
+
+def is_one_off_win(pick: str, actual: str) -> bool:
+    """True if ALL digit positions differ by <=1 (covers all 1-OFF prize tiers).
+    Includes exact match (Straight Match tier when playing 1-OFF)."""
+    if not actual or len(pick) != len(actual):
+        return False
+    for p, a in zip(pick, actual):
+        if not p.isdigit() or not a.isdigit():
+            return False
+        if abs(int(p) - int(a)) > 1:
+            return False
+    return True
 
 
 # ── Jackpot helpers ───────────────────────────────────────────────────────────
@@ -188,7 +318,8 @@ def init_db(conn: sqlite3.Connection):
             eve_box       INTEGER DEFAULT 0,
             night_straight INTEGER DEFAULT 0,
             night_box      INTEGER DEFAULT 0,
-            any_win       INTEGER DEFAULT 0
+            any_win       INTEGER DEFAULT 0,
+            play_type     TEXT    DEFAULT 'STRAIGHT/BOX'
         )
     """)
     conn.execute("""
@@ -288,7 +419,7 @@ def generate_subscribers(n: int) -> list:
 
     from collections import Counter
     kit_counts = Counter(s["kit"] for s in subs)
-    print(f"  Subscribers: {n} total — "
+    print(f"  Subscribers: {n} total - "
           f"BOSK={kit_counts['BOSK']} (system only), "
           f"BOOK={kit_counts['BOOK']} (system only), "
           f"BOOK3={kit_counts['BOOK3']} (MMFSN+system)")
@@ -303,9 +434,16 @@ def run_simulation(start_date: datetime, num_days: int, num_subs: int):
     print(f"  Engine : generate_picks_v3() (direct call, no HTTP)")
     print()
 
-    # Load all actual results up front
-    cash3_actuals = load_actuals(CASH3_CSV)
-    cash4_actuals = load_actuals(CASH4_CSV)
+    # Load all actual results up front (combined 2025 + 2026)
+    cash3_actuals = load_actuals_multi(CASH3_SOURCES)
+    cash4_actuals = load_actuals_multi(CASH4_SOURCES)
+    print(f"  Cash3 actuals: {len(cash3_actuals)} draw slots loaded")
+    print(f"  Cash4 actuals: {len(cash4_actuals)} draw slots loaded")
+
+    # Preload ALL history into memory once — filtered cheaply per day (no per-day file I/O)
+    all_cash3_hist = preload_all_history(CASH3_SOURCES)
+    all_cash4_hist = preload_all_history(CASH4_SOURCES)
+    print(f"  Engine history preloaded: Cash3={len(all_cash3_hist)} rows, Cash4={len(all_cash4_hist)} rows")
 
     mm_actuals  = load_jackpot_actuals(MM_CSV)
     pb_actuals  = load_jackpot_actuals(PB_CSV)
@@ -332,11 +470,12 @@ def run_simulation(start_date: datetime, num_days: int, num_subs: int):
         "date", "subscriber", "kit", "game", "lane", "pick",
         "actual_mid", "actual_eve", "actual_night",
         "mid_straight", "mid_box", "eve_straight", "eve_box",
-        "night_straight", "night_box", "any_win"
+        "night_straight", "night_box", "any_win", "play_type"
     ])
 
     # Counters for summary
-    stats = defaultdict(lambda: {"picks": 0, "straight": 0, "box": 0})
+    stats = defaultdict(lambda: {"picks": 0, "straight": 0, "box": 0, "one_off": 0})
+    pt_stats = defaultdict(int)  # play_type -> win count
     jp_stats = defaultdict(lambda: {"picks": 0, "wins": 0, "prize_total": 0, "tiers": defaultdict(int)})
 
     # Walk-forward loop
@@ -345,8 +484,9 @@ def run_simulation(start_date: datetime, num_days: int, num_subs: int):
         date_str  = sim_date.strftime("%Y-%m-%d")
 
         # Load only history BEFORE this date (no future leakage)
-        cash3_hist = load_history_for_engine(CASH3_CSV, sim_date)
-        cash4_hist = load_history_for_engine(CASH4_CSV, sim_date)
+        # Fast in-memory filter from preloaded all-history lists
+        cash3_hist = filter_history_before(all_cash3_hist, sim_date)
+        cash4_hist = filter_history_before(all_cash4_hist, sim_date)
         ga_data    = build_ga_data(cash3_hist, cash4_hist)
 
         # Actuals for this date
@@ -380,25 +520,53 @@ def run_simulation(start_date: datetime, num_days: int, num_subs: int):
                         eve_b = int(bool(actual_e) and is_box_win(pick, actual_e))
                         ngt_s = int(bool(actual_n) and is_straight_win(pick, actual_n))
                         ngt_b = int(bool(actual_n) and is_box_win(pick, actual_n))
-                        any_w = int(any([mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b]))
 
+                        # ── Play-type assignment via resolver ────────────────
                         kit = sub.get("kit", "BOOK")
+                        play_type = resolve_play_type(
+                            game,
+                            build_ctx_for_sub(kit, lane)
+                        )
+
+                        # 1-OFF wins (only computed when play type is 1-OFF)
+                        mid_1off = int(bool(actual_m) and is_one_off_win(pick, actual_m)) \
+                            if play_type == "1-OFF" else 0
+                        eve_1off = int(bool(actual_e) and is_one_off_win(pick, actual_e)) \
+                            if play_type == "1-OFF" else 0
+                        ngt_1off = int(bool(actual_n) and is_one_off_win(pick, actual_n)) \
+                            if play_type == "1-OFF" else 0
+
+                        # any_win respects the subscriber's play type
+                        if play_type == "STRAIGHT":
+                            any_w = int(any([mid_s, eve_s, ngt_s]))
+                        elif play_type == "BOX":
+                            any_w = int(any([mid_b, eve_b, ngt_b]))
+                        elif play_type == "1-OFF":
+                            any_w = int(any([mid_1off, eve_1off, ngt_1off]))
+                        else:  # STRAIGHT/BOX, COMBO, PAIR, STANDARD
+                            any_w = int(any([mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b]))
+
                         db_batch.append((
                             date_str, sub["subscriber_id"], kit, game, lane, pick,
                             actual_m, actual_e, actual_n,
-                            mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b, any_w
+                            mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b, any_w,
+                            play_type
                         ))
 
                         writer.writerow([
                             date_str, sub["subscriber_id"], kit, game, lane, pick,
                             actual_m, actual_e, actual_n,
-                            mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b, any_w
+                            mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b, any_w,
+                            play_type
                         ])
 
                         # running stats
                         stats[game]["picks"]    += 1
                         stats[game]["straight"] += (mid_s + eve_s + ngt_s)
                         stats[game]["box"]      += (mid_b + eve_b + ngt_b)
+                        stats[game]["one_off"]  += (mid_1off + eve_1off + ngt_1off)
+                        if any_w:
+                            pt_stats[f"{game}:{play_type}"] += 1
 
             # ── Jackpot games ─────────────────────────────────────────────────
             kit = sub.get("kit", "BOOK")
@@ -436,8 +604,8 @@ def run_simulation(start_date: datetime, num_days: int, num_subs: int):
                (sim_date, subscriber, kit, game, lane, pick,
                 actual_mid, actual_eve, actual_night,
                 mid_straight, mid_box, eve_straight, eve_box,
-                night_straight, night_box, any_win)
-               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                night_straight, night_box, any_win, play_type)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             db_batch
         )
         if jp_day_batch:
@@ -468,18 +636,23 @@ def run_simulation(start_date: datetime, num_days: int, num_subs: int):
     summary_rows = []
     for game in ["Cash3", "Cash4"]:
         s = stats[game]
-        total_draw_slots = s["picks"] * 3  # 3 sessions per pick
         s_pct = round(s["straight"] / s["picks"] * 100, 4) if s["picks"] else 0
         b_pct = round(s["box"]      / s["picks"] * 100, 4) if s["picks"] else 0
+        o_pct = round(s["one_off"]  / s["picks"] * 100, 4) if s["picks"] else 0
         print(
             f"  {game}: {s['picks']:,} picks | "
             f"straight hits={s['straight']:,} ({s_pct}%) | "
-            f"box hits={s['box']:,} ({b_pct}%)"
+            f"box hits={s['box']:,} ({b_pct}%) | "
+            f"1-off hits={s['one_off']:,} ({o_pct}%)"
         )
         summary_rows.append((game, s["picks"], s["straight"], s_pct, s["box"], b_pct))
 
+    print("\n  -- Wins by play type --")
+    for key in sorted(pt_stats):
+        print(f"    {key:<30}: {pt_stats[key]:,} wins")
+
     print()
-    print("  ── Jackpot Secondary Prizes ──")
+    print("  -- Jackpot Secondary Prizes --")
     for jp_game in ["MegaMillions", "Powerball", "Millionaire For Life"]:
         s = jp_stats[jp_game]
         if s["picks"] == 0:

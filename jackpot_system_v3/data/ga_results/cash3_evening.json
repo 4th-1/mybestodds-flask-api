@@ -1,5 +1,1925 @@
 [
   {
+    "date": "2/2/2022",
+    "winning_number": "136",
+    "session": "Evening",
+    "draw_date": "2022-02-02"
+  },
+  {
+    "date": "2/3/2022",
+    "winning_number": "564",
+    "session": "Evening",
+    "draw_date": "2022-02-03"
+  },
+  {
+    "date": "2/4/2022",
+    "winning_number": "371",
+    "session": "Evening",
+    "draw_date": "2022-02-04"
+  },
+  {
+    "date": "2/5/2022",
+    "winning_number": "900",
+    "session": "Evening",
+    "draw_date": "2022-02-05"
+  },
+  {
+    "date": "2/6/2022",
+    "winning_number": "228",
+    "session": "Evening",
+    "draw_date": "2022-02-06"
+  },
+  {
+    "date": "2/7/2022",
+    "winning_number": "745",
+    "session": "Evening",
+    "draw_date": "2022-02-07"
+  },
+  {
+    "date": "2/8/2022",
+    "winning_number": "479",
+    "session": "Evening",
+    "draw_date": "2022-02-08"
+  },
+  {
+    "date": "2/9/2022",
+    "winning_number": "590",
+    "session": "Evening",
+    "draw_date": "2022-02-09"
+  },
+  {
+    "date": "2/10/2022",
+    "winning_number": "201",
+    "session": "Evening",
+    "draw_date": "2022-02-10"
+  },
+  {
+    "date": "2/11/2022",
+    "winning_number": "026",
+    "session": "Evening",
+    "draw_date": "2022-02-11"
+  },
+  {
+    "date": "2/12/2022",
+    "winning_number": "177",
+    "session": "Evening",
+    "draw_date": "2022-02-12"
+  },
+  {
+    "date": "2/13/2022",
+    "winning_number": "844",
+    "session": "Evening",
+    "draw_date": "2022-02-13"
+  },
+  {
+    "date": "2/14/2022",
+    "winning_number": "280",
+    "session": "Evening",
+    "draw_date": "2022-02-14"
+  },
+  {
+    "date": "2/15/2022",
+    "winning_number": "235",
+    "session": "Evening",
+    "draw_date": "2022-02-15"
+  },
+  {
+    "date": "2/16/2022",
+    "winning_number": "685",
+    "session": "Evening",
+    "draw_date": "2022-02-16"
+  },
+  {
+    "date": "2/17/2022",
+    "winning_number": "916",
+    "session": "Evening",
+    "draw_date": "2022-02-17"
+  },
+  {
+    "date": "2/18/2022",
+    "winning_number": "866",
+    "session": "Evening",
+    "draw_date": "2022-02-18"
+  },
+  {
+    "date": "2/19/2022",
+    "winning_number": "583",
+    "session": "Evening",
+    "draw_date": "2022-02-19"
+  },
+  {
+    "date": "2/20/2022",
+    "winning_number": "726",
+    "session": "Evening",
+    "draw_date": "2022-02-20"
+  },
+  {
+    "date": "2/21/2022",
+    "winning_number": "024",
+    "session": "Evening",
+    "draw_date": "2022-02-21"
+  },
+  {
+    "date": "2/22/2022",
+    "winning_number": "920",
+    "session": "Evening",
+    "draw_date": "2022-02-22"
+  },
+  {
+    "date": "2/23/2022",
+    "winning_number": "033",
+    "session": "Evening",
+    "draw_date": "2022-02-23"
+  },
+  {
+    "date": "2/24/2022",
+    "winning_number": "163",
+    "session": "Evening",
+    "draw_date": "2022-02-24"
+  },
+  {
+    "date": "2/25/2022",
+    "winning_number": "623",
+    "session": "Evening",
+    "draw_date": "2022-02-25"
+  },
+  {
+    "date": "2/26/2022",
+    "winning_number": "934",
+    "session": "Evening",
+    "draw_date": "2022-02-26"
+  },
+  {
+    "date": "2/27/2022",
+    "winning_number": "753",
+    "session": "Evening",
+    "draw_date": "2022-02-27"
+  },
+  {
+    "date": "2/28/2022",
+    "winning_number": "794",
+    "session": "Evening",
+    "draw_date": "2022-02-28"
+  },
+  {
+    "date": "3/1/2022",
+    "winning_number": "399",
+    "session": "Evening",
+    "draw_date": "2022-03-01"
+  },
+  {
+    "date": "3/2/2022",
+    "winning_number": "103",
+    "session": "Evening",
+    "draw_date": "2022-03-02"
+  },
+  {
+    "date": "3/3/2022",
+    "winning_number": "437",
+    "session": "Evening",
+    "draw_date": "2022-03-03"
+  },
+  {
+    "date": "3/4/2022",
+    "winning_number": "212",
+    "session": "Evening",
+    "draw_date": "2022-03-04"
+  },
+  {
+    "date": "3/5/2022",
+    "winning_number": "846",
+    "session": "Evening",
+    "draw_date": "2022-03-05"
+  },
+  {
+    "date": "3/6/2022",
+    "winning_number": "223",
+    "session": "Evening",
+    "draw_date": "2022-03-06"
+  },
+  {
+    "date": "3/7/2022",
+    "winning_number": "595",
+    "session": "Evening",
+    "draw_date": "2022-03-07"
+  },
+  {
+    "date": "3/8/2022",
+    "winning_number": "736",
+    "session": "Evening",
+    "draw_date": "2022-03-08"
+  },
+  {
+    "date": "3/9/2022",
+    "winning_number": "090",
+    "session": "Evening",
+    "draw_date": "2022-03-09"
+  },
+  {
+    "date": "3/10/2022",
+    "winning_number": "341",
+    "session": "Evening",
+    "draw_date": "2022-03-10"
+  },
+  {
+    "date": "3/11/2022",
+    "winning_number": "979",
+    "session": "Evening",
+    "draw_date": "2022-03-11"
+  },
+  {
+    "date": "3/12/2022",
+    "winning_number": "978",
+    "session": "Evening",
+    "draw_date": "2022-03-12"
+  },
+  {
+    "date": "3/13/2022",
+    "winning_number": "260",
+    "session": "Evening",
+    "draw_date": "2022-03-13"
+  },
+  {
+    "date": "3/14/2022",
+    "winning_number": "036",
+    "session": "Evening",
+    "draw_date": "2022-03-14"
+  },
+  {
+    "date": "3/15/2022",
+    "winning_number": "327",
+    "session": "Evening",
+    "draw_date": "2022-03-15"
+  },
+  {
+    "date": "3/16/2022",
+    "winning_number": "614",
+    "session": "Evening",
+    "draw_date": "2022-03-16"
+  },
+  {
+    "date": "3/17/2022",
+    "winning_number": "271",
+    "session": "Evening",
+    "draw_date": "2022-03-17"
+  },
+  {
+    "date": "3/18/2022",
+    "winning_number": "989",
+    "session": "Evening",
+    "draw_date": "2022-03-18"
+  },
+  {
+    "date": "3/19/2022",
+    "winning_number": "907",
+    "session": "Evening",
+    "draw_date": "2022-03-19"
+  },
+  {
+    "date": "3/20/2022",
+    "winning_number": "411",
+    "session": "Evening",
+    "draw_date": "2022-03-20"
+  },
+  {
+    "date": "3/21/2022",
+    "winning_number": "245",
+    "session": "Evening",
+    "draw_date": "2022-03-21"
+  },
+  {
+    "date": "3/22/2022",
+    "winning_number": "714",
+    "session": "Evening",
+    "draw_date": "2022-03-22"
+  },
+  {
+    "date": "3/23/2022",
+    "winning_number": "292",
+    "session": "Evening",
+    "draw_date": "2022-03-23"
+  },
+  {
+    "date": "3/24/2022",
+    "winning_number": "650",
+    "session": "Evening",
+    "draw_date": "2022-03-24"
+  },
+  {
+    "date": "3/25/2022",
+    "winning_number": "255",
+    "session": "Evening",
+    "draw_date": "2022-03-25"
+  },
+  {
+    "date": "3/26/2022",
+    "winning_number": "293",
+    "session": "Evening",
+    "draw_date": "2022-03-26"
+  },
+  {
+    "date": "3/27/2022",
+    "winning_number": "277",
+    "session": "Evening",
+    "draw_date": "2022-03-27"
+  },
+  {
+    "date": "3/28/2022",
+    "winning_number": "039",
+    "session": "Evening",
+    "draw_date": "2022-03-28"
+  },
+  {
+    "date": "3/29/2022",
+    "winning_number": "573",
+    "session": "Evening",
+    "draw_date": "2022-03-29"
+  },
+  {
+    "date": "3/30/2022",
+    "winning_number": "979",
+    "session": "Evening",
+    "draw_date": "2022-03-30"
+  },
+  {
+    "date": "3/31/2022",
+    "winning_number": "766",
+    "session": "Evening",
+    "draw_date": "2022-03-31"
+  },
+  {
+    "date": "4/1/2022",
+    "winning_number": "065",
+    "session": "Evening",
+    "draw_date": "2022-04-01"
+  },
+  {
+    "date": "4/2/2022",
+    "winning_number": "946",
+    "session": "Evening",
+    "draw_date": "2022-04-02"
+  },
+  {
+    "date": "4/3/2022",
+    "winning_number": "312",
+    "session": "Evening",
+    "draw_date": "2022-04-03"
+  },
+  {
+    "date": "4/4/2022",
+    "winning_number": "074",
+    "session": "Evening",
+    "draw_date": "2022-04-04"
+  },
+  {
+    "date": "4/5/2022",
+    "winning_number": "829",
+    "session": "Evening",
+    "draw_date": "2022-04-05"
+  },
+  {
+    "date": "4/6/2022",
+    "winning_number": "258",
+    "session": "Evening",
+    "draw_date": "2022-04-06"
+  },
+  {
+    "date": "4/7/2022",
+    "winning_number": "770",
+    "session": "Evening",
+    "draw_date": "2022-04-07"
+  },
+  {
+    "date": "4/8/2022",
+    "winning_number": "606",
+    "session": "Evening",
+    "draw_date": "2022-04-08"
+  },
+  {
+    "date": "4/9/2022",
+    "winning_number": "355",
+    "session": "Evening",
+    "draw_date": "2022-04-09"
+  },
+  {
+    "date": "4/10/2022",
+    "winning_number": "780",
+    "session": "Evening",
+    "draw_date": "2022-04-10"
+  },
+  {
+    "date": "4/11/2022",
+    "winning_number": "628",
+    "session": "Evening",
+    "draw_date": "2022-04-11"
+  },
+  {
+    "date": "4/12/2022",
+    "winning_number": "632",
+    "session": "Evening",
+    "draw_date": "2022-04-12"
+  },
+  {
+    "date": "4/13/2022",
+    "winning_number": "980",
+    "session": "Evening",
+    "draw_date": "2022-04-13"
+  },
+  {
+    "date": "4/14/2022",
+    "winning_number": "077",
+    "session": "Evening",
+    "draw_date": "2022-04-14"
+  },
+  {
+    "date": "4/15/2022",
+    "winning_number": "000",
+    "session": "Evening",
+    "draw_date": "2022-04-15"
+  },
+  {
+    "date": "4/16/2022",
+    "winning_number": "747",
+    "session": "Evening",
+    "draw_date": "2022-04-16"
+  },
+  {
+    "date": "4/17/2022",
+    "winning_number": "246",
+    "session": "Evening",
+    "draw_date": "2022-04-17"
+  },
+  {
+    "date": "4/18/2022",
+    "winning_number": "113",
+    "session": "Evening",
+    "draw_date": "2022-04-18"
+  },
+  {
+    "date": "4/19/2022",
+    "winning_number": "833",
+    "session": "Evening",
+    "draw_date": "2022-04-19"
+  },
+  {
+    "date": "4/20/2022",
+    "winning_number": "607",
+    "session": "Evening",
+    "draw_date": "2022-04-20"
+  },
+  {
+    "date": "4/21/2022",
+    "winning_number": "199",
+    "session": "Evening",
+    "draw_date": "2022-04-21"
+  },
+  {
+    "date": "4/22/2022",
+    "winning_number": "627",
+    "session": "Evening",
+    "draw_date": "2022-04-22"
+  },
+  {
+    "date": "4/23/2022",
+    "winning_number": "232",
+    "session": "Evening",
+    "draw_date": "2022-04-23"
+  },
+  {
+    "date": "4/24/2022",
+    "winning_number": "924",
+    "session": "Evening",
+    "draw_date": "2022-04-24"
+  },
+  {
+    "date": "4/25/2022",
+    "winning_number": "983",
+    "session": "Evening",
+    "draw_date": "2022-04-25"
+  },
+  {
+    "date": "4/26/2022",
+    "winning_number": "499",
+    "session": "Evening",
+    "draw_date": "2022-04-26"
+  },
+  {
+    "date": "4/27/2022",
+    "winning_number": "220",
+    "session": "Evening",
+    "draw_date": "2022-04-27"
+  },
+  {
+    "date": "4/28/2022",
+    "winning_number": "675",
+    "session": "Evening",
+    "draw_date": "2022-04-28"
+  },
+  {
+    "date": "4/29/2022",
+    "winning_number": "084",
+    "session": "Evening",
+    "draw_date": "2022-04-29"
+  },
+  {
+    "date": "4/30/2022",
+    "winning_number": "061",
+    "session": "Evening",
+    "draw_date": "2022-04-30"
+  },
+  {
+    "date": "5/1/2022",
+    "winning_number": "412",
+    "session": "Evening",
+    "draw_date": "2022-05-01"
+  },
+  {
+    "date": "5/2/2022",
+    "winning_number": "510",
+    "session": "Evening",
+    "draw_date": "2022-05-02"
+  },
+  {
+    "date": "5/3/2022",
+    "winning_number": "450",
+    "session": "Evening",
+    "draw_date": "2022-05-03"
+  },
+  {
+    "date": "5/4/2022",
+    "winning_number": "015",
+    "session": "Evening",
+    "draw_date": "2022-05-04"
+  },
+  {
+    "date": "5/5/2022",
+    "winning_number": "512",
+    "session": "Evening",
+    "draw_date": "2022-05-05"
+  },
+  {
+    "date": "5/6/2022",
+    "winning_number": "632",
+    "session": "Evening",
+    "draw_date": "2022-05-06"
+  },
+  {
+    "date": "5/7/2022",
+    "winning_number": "010",
+    "session": "Evening",
+    "draw_date": "2022-05-07"
+  },
+  {
+    "date": "5/8/2022",
+    "winning_number": "584",
+    "session": "Evening",
+    "draw_date": "2022-05-08"
+  },
+  {
+    "date": "5/9/2022",
+    "winning_number": "748",
+    "session": "Evening",
+    "draw_date": "2022-05-09"
+  },
+  {
+    "date": "5/10/2022",
+    "winning_number": "643",
+    "session": "Evening",
+    "draw_date": "2022-05-10"
+  },
+  {
+    "date": "5/11/2022",
+    "winning_number": "602",
+    "session": "Evening",
+    "draw_date": "2022-05-11"
+  },
+  {
+    "date": "5/12/2022",
+    "winning_number": "620",
+    "session": "Evening",
+    "draw_date": "2022-05-12"
+  },
+  {
+    "date": "5/13/2022",
+    "winning_number": "552",
+    "session": "Evening",
+    "draw_date": "2022-05-13"
+  },
+  {
+    "date": "5/14/2022",
+    "winning_number": "876",
+    "session": "Evening",
+    "draw_date": "2022-05-14"
+  },
+  {
+    "date": "5/15/2022",
+    "winning_number": "556",
+    "session": "Evening",
+    "draw_date": "2022-05-15"
+  },
+  {
+    "date": "5/16/2022",
+    "winning_number": "785",
+    "session": "Evening",
+    "draw_date": "2022-05-16"
+  },
+  {
+    "date": "5/17/2022",
+    "winning_number": "888",
+    "session": "Evening",
+    "draw_date": "2022-05-17"
+  },
+  {
+    "date": "5/18/2022",
+    "winning_number": "665",
+    "session": "Evening",
+    "draw_date": "2022-05-18"
+  },
+  {
+    "date": "5/19/2022",
+    "winning_number": "189",
+    "session": "Evening",
+    "draw_date": "2022-05-19"
+  },
+  {
+    "date": "5/20/2022",
+    "winning_number": "809",
+    "session": "Evening",
+    "draw_date": "2022-05-20"
+  },
+  {
+    "date": "5/21/2022",
+    "winning_number": "194",
+    "session": "Evening",
+    "draw_date": "2022-05-21"
+  },
+  {
+    "date": "5/22/2022",
+    "winning_number": "306",
+    "session": "Evening",
+    "draw_date": "2022-05-22"
+  },
+  {
+    "date": "5/23/2022",
+    "winning_number": "130",
+    "session": "Evening",
+    "draw_date": "2022-05-23"
+  },
+  {
+    "date": "5/24/2022",
+    "winning_number": "704",
+    "session": "Evening",
+    "draw_date": "2022-05-24"
+  },
+  {
+    "date": "5/25/2022",
+    "winning_number": "618",
+    "session": "Evening",
+    "draw_date": "2022-05-25"
+  },
+  {
+    "date": "5/26/2022",
+    "winning_number": "739",
+    "session": "Evening",
+    "draw_date": "2022-05-26"
+  },
+  {
+    "date": "5/27/2022",
+    "winning_number": "693",
+    "session": "Evening",
+    "draw_date": "2022-05-27"
+  },
+  {
+    "date": "5/28/2022",
+    "winning_number": "861",
+    "session": "Evening",
+    "draw_date": "2022-05-28"
+  },
+  {
+    "date": "5/29/2022",
+    "winning_number": "118",
+    "session": "Evening",
+    "draw_date": "2022-05-29"
+  },
+  {
+    "date": "5/30/2022",
+    "winning_number": "619",
+    "session": "Evening",
+    "draw_date": "2022-05-30"
+  },
+  {
+    "date": "5/31/2022",
+    "winning_number": "649",
+    "session": "Evening",
+    "draw_date": "2022-05-31"
+  },
+  {
+    "date": "6/1/2022",
+    "winning_number": "632",
+    "session": "Evening",
+    "draw_date": "2022-06-01"
+  },
+  {
+    "date": "6/2/2022",
+    "winning_number": "607",
+    "session": "Evening",
+    "draw_date": "2022-06-02"
+  },
+  {
+    "date": "6/3/2022",
+    "winning_number": "039",
+    "session": "Evening",
+    "draw_date": "2022-06-03"
+  },
+  {
+    "date": "6/4/2022",
+    "winning_number": "605",
+    "session": "Evening",
+    "draw_date": "2022-06-04"
+  },
+  {
+    "date": "6/5/2022",
+    "winning_number": "383",
+    "session": "Evening",
+    "draw_date": "2022-06-05"
+  },
+  {
+    "date": "6/6/2022",
+    "winning_number": "837",
+    "session": "Evening",
+    "draw_date": "2022-06-06"
+  },
+  {
+    "date": "6/7/2022",
+    "winning_number": "537",
+    "session": "Evening",
+    "draw_date": "2022-06-07"
+  },
+  {
+    "date": "6/8/2022",
+    "winning_number": "141",
+    "session": "Evening",
+    "draw_date": "2022-06-08"
+  },
+  {
+    "date": "6/9/2022",
+    "winning_number": "436",
+    "session": "Evening",
+    "draw_date": "2022-06-09"
+  },
+  {
+    "date": "6/10/2022",
+    "winning_number": "695",
+    "session": "Evening",
+    "draw_date": "2022-06-10"
+  },
+  {
+    "date": "6/11/2022",
+    "winning_number": "845",
+    "session": "Evening",
+    "draw_date": "2022-06-11"
+  },
+  {
+    "date": "6/12/2022",
+    "winning_number": "264",
+    "session": "Evening",
+    "draw_date": "2022-06-12"
+  },
+  {
+    "date": "6/13/2022",
+    "winning_number": "147",
+    "session": "Evening",
+    "draw_date": "2022-06-13"
+  },
+  {
+    "date": "6/14/2022",
+    "winning_number": "489",
+    "session": "Evening",
+    "draw_date": "2022-06-14"
+  },
+  {
+    "date": "6/15/2022",
+    "winning_number": "493",
+    "session": "Evening",
+    "draw_date": "2022-06-15"
+  },
+  {
+    "date": "6/16/2022",
+    "winning_number": "062",
+    "session": "Evening",
+    "draw_date": "2022-06-16"
+  },
+  {
+    "date": "6/17/2022",
+    "winning_number": "707",
+    "session": "Evening",
+    "draw_date": "2022-06-17"
+  },
+  {
+    "date": "6/18/2022",
+    "winning_number": "483",
+    "session": "Evening",
+    "draw_date": "2022-06-18"
+  },
+  {
+    "date": "6/19/2022",
+    "winning_number": "613",
+    "session": "Evening",
+    "draw_date": "2022-06-19"
+  },
+  {
+    "date": "6/20/2022",
+    "winning_number": "796",
+    "session": "Evening",
+    "draw_date": "2022-06-20"
+  },
+  {
+    "date": "6/21/2022",
+    "winning_number": "728",
+    "session": "Evening",
+    "draw_date": "2022-06-21"
+  },
+  {
+    "date": "6/22/2022",
+    "winning_number": "927",
+    "session": "Evening",
+    "draw_date": "2022-06-22"
+  },
+  {
+    "date": "6/23/2022",
+    "winning_number": "008",
+    "session": "Evening",
+    "draw_date": "2022-06-23"
+  },
+  {
+    "date": "6/24/2022",
+    "winning_number": "414",
+    "session": "Evening",
+    "draw_date": "2022-06-24"
+  },
+  {
+    "date": "6/25/2022",
+    "winning_number": "880",
+    "session": "Evening",
+    "draw_date": "2022-06-25"
+  },
+  {
+    "date": "6/26/2022",
+    "winning_number": "411",
+    "session": "Evening",
+    "draw_date": "2022-06-26"
+  },
+  {
+    "date": "6/27/2022",
+    "winning_number": "918",
+    "session": "Evening",
+    "draw_date": "2022-06-27"
+  },
+  {
+    "date": "6/28/2022",
+    "winning_number": "816",
+    "session": "Evening",
+    "draw_date": "2022-06-28"
+  },
+  {
+    "date": "6/29/2022",
+    "winning_number": "574",
+    "session": "Evening",
+    "draw_date": "2022-06-29"
+  },
+  {
+    "date": "6/30/2022",
+    "winning_number": "880",
+    "session": "Evening",
+    "draw_date": "2022-06-30"
+  },
+  {
+    "date": "7/1/2022",
+    "winning_number": "606",
+    "session": "Evening",
+    "draw_date": "2022-07-01"
+  },
+  {
+    "date": "7/2/2022",
+    "winning_number": "571",
+    "session": "Evening",
+    "draw_date": "2022-07-02"
+  },
+  {
+    "date": "7/3/2022",
+    "winning_number": "597",
+    "session": "Evening",
+    "draw_date": "2022-07-03"
+  },
+  {
+    "date": "7/4/2022",
+    "winning_number": "836",
+    "session": "Evening",
+    "draw_date": "2022-07-04"
+  },
+  {
+    "date": "7/5/2022",
+    "winning_number": "468",
+    "session": "Evening",
+    "draw_date": "2022-07-05"
+  },
+  {
+    "date": "7/6/2022",
+    "winning_number": "228",
+    "session": "Evening",
+    "draw_date": "2022-07-06"
+  },
+  {
+    "date": "7/7/2022",
+    "winning_number": "660",
+    "session": "Evening",
+    "draw_date": "2022-07-07"
+  },
+  {
+    "date": "7/8/2022",
+    "winning_number": "256",
+    "session": "Evening",
+    "draw_date": "2022-07-08"
+  },
+  {
+    "date": "7/9/2022",
+    "winning_number": "710",
+    "session": "Evening",
+    "draw_date": "2022-07-09"
+  },
+  {
+    "date": "7/10/2022",
+    "winning_number": "823",
+    "session": "Evening",
+    "draw_date": "2022-07-10"
+  },
+  {
+    "date": "7/11/2022",
+    "winning_number": "950",
+    "session": "Evening",
+    "draw_date": "2022-07-11"
+  },
+  {
+    "date": "7/18/2022",
+    "winning_number": "090",
+    "session": "Evening",
+    "draw_date": "2022-07-18"
+  },
+  {
+    "date": "7/19/2022",
+    "winning_number": "942",
+    "session": "Evening",
+    "draw_date": "2022-07-19"
+  },
+  {
+    "date": "7/20/2022",
+    "winning_number": "859",
+    "session": "Evening",
+    "draw_date": "2022-07-20"
+  },
+  {
+    "date": "7/21/2022",
+    "winning_number": "937",
+    "session": "Evening",
+    "draw_date": "2022-07-21"
+  },
+  {
+    "date": "7/22/2022",
+    "winning_number": "108",
+    "session": "Evening",
+    "draw_date": "2022-07-22"
+  },
+  {
+    "date": "7/23/2022",
+    "winning_number": "049",
+    "session": "Evening",
+    "draw_date": "2022-07-23"
+  },
+  {
+    "date": "7/24/2022",
+    "winning_number": "535",
+    "session": "Evening",
+    "draw_date": "2022-07-24"
+  },
+  {
+    "date": "7/25/2022",
+    "winning_number": "546",
+    "session": "Evening",
+    "draw_date": "2022-07-25"
+  },
+  {
+    "date": "7/26/2022",
+    "winning_number": "092",
+    "session": "Evening",
+    "draw_date": "2022-07-26"
+  },
+  {
+    "date": "7/27/2022",
+    "winning_number": "782",
+    "session": "Evening",
+    "draw_date": "2022-07-27"
+  },
+  {
+    "date": "7/28/2022",
+    "winning_number": "506",
+    "session": "Evening",
+    "draw_date": "2022-07-28"
+  },
+  {
+    "date": "7/29/2022",
+    "winning_number": "673",
+    "session": "Evening",
+    "draw_date": "2022-07-29"
+  },
+  {
+    "date": "7/30/2022",
+    "winning_number": "291",
+    "session": "Evening",
+    "draw_date": "2022-07-30"
+  },
+  {
+    "date": "7/31/2022",
+    "winning_number": "491",
+    "session": "Evening",
+    "draw_date": "2022-07-31"
+  },
+  {
+    "date": "8/1/2022",
+    "winning_number": "072",
+    "session": "Evening",
+    "draw_date": "2022-08-01"
+  },
+  {
+    "date": "8/2/2022",
+    "winning_number": "295",
+    "session": "Evening",
+    "draw_date": "2022-08-02"
+  },
+  {
+    "date": "8/3/2022",
+    "winning_number": "830",
+    "session": "Evening",
+    "draw_date": "2022-08-03"
+  },
+  {
+    "date": "8/4/2022",
+    "winning_number": "081",
+    "session": "Evening",
+    "draw_date": "2022-08-04"
+  },
+  {
+    "date": "8/5/2022",
+    "winning_number": "679",
+    "session": "Evening",
+    "draw_date": "2022-08-05"
+  },
+  {
+    "date": "8/6/2022",
+    "winning_number": "716",
+    "session": "Evening",
+    "draw_date": "2022-08-06"
+  },
+  {
+    "date": "8/7/2022",
+    "winning_number": "745",
+    "session": "Evening",
+    "draw_date": "2022-08-07"
+  },
+  {
+    "date": "8/8/2022",
+    "winning_number": "885",
+    "session": "Evening",
+    "draw_date": "2022-08-08"
+  },
+  {
+    "date": "8/9/2022",
+    "winning_number": "910",
+    "session": "Evening",
+    "draw_date": "2022-08-09"
+  },
+  {
+    "date": "8/10/2022",
+    "winning_number": "398",
+    "session": "Evening",
+    "draw_date": "2022-08-10"
+  },
+  {
+    "date": "8/11/2022",
+    "winning_number": "806",
+    "session": "Evening",
+    "draw_date": "2022-08-11"
+  },
+  {
+    "date": "8/12/2022",
+    "winning_number": "548",
+    "session": "Evening",
+    "draw_date": "2022-08-12"
+  },
+  {
+    "date": "8/13/2022",
+    "winning_number": "093",
+    "session": "Evening",
+    "draw_date": "2022-08-13"
+  },
+  {
+    "date": "8/14/2022",
+    "winning_number": "207",
+    "session": "Evening",
+    "draw_date": "2022-08-14"
+  },
+  {
+    "date": "8/15/2022",
+    "winning_number": "105",
+    "session": "Evening",
+    "draw_date": "2022-08-15"
+  },
+  {
+    "date": "8/16/2022",
+    "winning_number": "562",
+    "session": "Evening",
+    "draw_date": "2022-08-16"
+  },
+  {
+    "date": "8/17/2022",
+    "winning_number": "372",
+    "session": "Evening",
+    "draw_date": "2022-08-17"
+  },
+  {
+    "date": "8/18/2022",
+    "winning_number": "747",
+    "session": "Evening",
+    "draw_date": "2022-08-18"
+  },
+  {
+    "date": "8/19/2022",
+    "winning_number": "525",
+    "session": "Evening",
+    "draw_date": "2022-08-19"
+  },
+  {
+    "date": "8/20/2022",
+    "winning_number": "362",
+    "session": "Evening",
+    "draw_date": "2022-08-20"
+  },
+  {
+    "date": "8/21/2022",
+    "winning_number": "879",
+    "session": "Evening",
+    "draw_date": "2022-08-21"
+  },
+  {
+    "date": "8/22/2022",
+    "winning_number": "297",
+    "session": "Evening",
+    "draw_date": "2022-08-22"
+  },
+  {
+    "date": "8/23/2022",
+    "winning_number": "590",
+    "session": "Evening",
+    "draw_date": "2022-08-23"
+  },
+  {
+    "date": "8/24/2022",
+    "winning_number": "890",
+    "session": "Evening",
+    "draw_date": "2022-08-24"
+  },
+  {
+    "date": "8/25/2022",
+    "winning_number": "809",
+    "session": "Evening",
+    "draw_date": "2022-08-25"
+  },
+  {
+    "date": "8/26/2022",
+    "winning_number": "315",
+    "session": "Evening",
+    "draw_date": "2022-08-26"
+  },
+  {
+    "date": "8/27/2022",
+    "winning_number": "561",
+    "session": "Evening",
+    "draw_date": "2022-08-27"
+  },
+  {
+    "date": "8/28/2022",
+    "winning_number": "599",
+    "session": "Evening",
+    "draw_date": "2022-08-28"
+  },
+  {
+    "date": "8/29/2022",
+    "winning_number": "793",
+    "session": "Evening",
+    "draw_date": "2022-08-29"
+  },
+  {
+    "date": "8/30/2022",
+    "winning_number": "627",
+    "session": "Evening",
+    "draw_date": "2022-08-30"
+  },
+  {
+    "date": "8/31/2022",
+    "winning_number": "097",
+    "session": "Evening",
+    "draw_date": "2022-08-31"
+  },
+  {
+    "date": "9/1/2022",
+    "winning_number": "500",
+    "session": "Evening",
+    "draw_date": "2022-09-01"
+  },
+  {
+    "date": "9/2/2022",
+    "winning_number": "101",
+    "session": "Evening",
+    "draw_date": "2022-09-02"
+  },
+  {
+    "date": "9/3/2022",
+    "winning_number": "824",
+    "session": "Evening",
+    "draw_date": "2022-09-03"
+  },
+  {
+    "date": "9/4/2022",
+    "winning_number": "404",
+    "session": "Evening",
+    "draw_date": "2022-09-04"
+  },
+  {
+    "date": "9/5/2022",
+    "winning_number": "811",
+    "session": "Evening",
+    "draw_date": "2022-09-05"
+  },
+  {
+    "date": "9/6/2022",
+    "winning_number": "847",
+    "session": "Evening",
+    "draw_date": "2022-09-06"
+  },
+  {
+    "date": "9/7/2022",
+    "winning_number": "902",
+    "session": "Evening",
+    "draw_date": "2022-09-07"
+  },
+  {
+    "date": "9/8/2022",
+    "winning_number": "043",
+    "session": "Evening",
+    "draw_date": "2022-09-08"
+  },
+  {
+    "date": "9/9/2022",
+    "winning_number": "157",
+    "session": "Evening",
+    "draw_date": "2022-09-09"
+  },
+  {
+    "date": "9/10/2022",
+    "winning_number": "702",
+    "session": "Evening",
+    "draw_date": "2022-09-10"
+  },
+  {
+    "date": "9/11/2022",
+    "winning_number": "193",
+    "session": "Evening",
+    "draw_date": "2022-09-11"
+  },
+  {
+    "date": "9/12/2022",
+    "winning_number": "357",
+    "session": "Evening",
+    "draw_date": "2022-09-12"
+  },
+  {
+    "date": "9/13/2022",
+    "winning_number": "628",
+    "session": "Evening",
+    "draw_date": "2022-09-13"
+  },
+  {
+    "date": "9/14/2022",
+    "winning_number": "063",
+    "session": "Evening",
+    "draw_date": "2022-09-14"
+  },
+  {
+    "date": "9/15/2022",
+    "winning_number": "117",
+    "session": "Evening",
+    "draw_date": "2022-09-15"
+  },
+  {
+    "date": "9/16/2022",
+    "winning_number": "636",
+    "session": "Evening",
+    "draw_date": "2022-09-16"
+  },
+  {
+    "date": "9/17/2022",
+    "winning_number": "901",
+    "session": "Evening",
+    "draw_date": "2022-09-17"
+  },
+  {
+    "date": "9/18/2022",
+    "winning_number": "186",
+    "session": "Evening",
+    "draw_date": "2022-09-18"
+  },
+  {
+    "date": "9/19/2022",
+    "winning_number": "268",
+    "session": "Evening",
+    "draw_date": "2022-09-19"
+  },
+  {
+    "date": "9/20/2022",
+    "winning_number": "308",
+    "session": "Evening",
+    "draw_date": "2022-09-20"
+  },
+  {
+    "date": "9/21/2022",
+    "winning_number": "847",
+    "session": "Evening",
+    "draw_date": "2022-09-21"
+  },
+  {
+    "date": "9/22/2022",
+    "winning_number": "663",
+    "session": "Evening",
+    "draw_date": "2022-09-22"
+  },
+  {
+    "date": "9/23/2022",
+    "winning_number": "708",
+    "session": "Evening",
+    "draw_date": "2022-09-23"
+  },
+  {
+    "date": "9/24/2022",
+    "winning_number": "134",
+    "session": "Evening",
+    "draw_date": "2022-09-24"
+  },
+  {
+    "date": "9/25/2022",
+    "winning_number": "158",
+    "session": "Evening",
+    "draw_date": "2022-09-25"
+  },
+  {
+    "date": "9/26/2022",
+    "winning_number": "436",
+    "session": "Evening",
+    "draw_date": "2022-09-26"
+  },
+  {
+    "date": "9/27/2022",
+    "winning_number": "594",
+    "session": "Evening",
+    "draw_date": "2022-09-27"
+  },
+  {
+    "date": "9/28/2022",
+    "winning_number": "503",
+    "session": "Evening",
+    "draw_date": "2022-09-28"
+  },
+  {
+    "date": "9/29/2022",
+    "winning_number": "040",
+    "session": "Evening",
+    "draw_date": "2022-09-29"
+  },
+  {
+    "date": "9/30/2022",
+    "winning_number": "427",
+    "session": "Evening",
+    "draw_date": "2022-09-30"
+  },
+  {
+    "date": "10/1/2022",
+    "winning_number": "553",
+    "session": "Evening",
+    "draw_date": "2022-10-01"
+  },
+  {
+    "date": "10/2/2022",
+    "winning_number": "811",
+    "session": "Evening",
+    "draw_date": "2022-10-02"
+  },
+  {
+    "date": "10/3/2022",
+    "winning_number": "301",
+    "session": "Evening",
+    "draw_date": "2022-10-03"
+  },
+  {
+    "date": "10/4/2022",
+    "winning_number": "846",
+    "session": "Evening",
+    "draw_date": "2022-10-04"
+  },
+  {
+    "date": "10/5/2022",
+    "winning_number": "572",
+    "session": "Evening",
+    "draw_date": "2022-10-05"
+  },
+  {
+    "date": "10/6/2022",
+    "winning_number": "995",
+    "session": "Evening",
+    "draw_date": "2022-10-06"
+  },
+  {
+    "date": "10/7/2022",
+    "winning_number": "212",
+    "session": "Evening",
+    "draw_date": "2022-10-07"
+  },
+  {
+    "date": "10/8/2022",
+    "winning_number": "663",
+    "session": "Evening",
+    "draw_date": "2022-10-08"
+  },
+  {
+    "date": "10/9/2022",
+    "winning_number": "174",
+    "session": "Evening",
+    "draw_date": "2022-10-09"
+  },
+  {
+    "date": "10/10/2022",
+    "winning_number": "111",
+    "session": "Evening",
+    "draw_date": "2022-10-10"
+  },
+  {
+    "date": "10/11/2022",
+    "winning_number": "129",
+    "session": "Evening",
+    "draw_date": "2022-10-11"
+  },
+  {
+    "date": "10/12/2022",
+    "winning_number": "052",
+    "session": "Evening",
+    "draw_date": "2022-10-12"
+  },
+  {
+    "date": "10/13/2022",
+    "winning_number": "151",
+    "session": "Evening",
+    "draw_date": "2022-10-13"
+  },
+  {
+    "date": "10/14/2022",
+    "winning_number": "356",
+    "session": "Evening",
+    "draw_date": "2022-10-14"
+  },
+  {
+    "date": "10/15/2022",
+    "winning_number": "600",
+    "session": "Evening",
+    "draw_date": "2022-10-15"
+  },
+  {
+    "date": "10/16/2022",
+    "winning_number": "531",
+    "session": "Evening",
+    "draw_date": "2022-10-16"
+  },
+  {
+    "date": "10/17/2022",
+    "winning_number": "410",
+    "session": "Evening",
+    "draw_date": "2022-10-17"
+  },
+  {
+    "date": "10/18/2022",
+    "winning_number": "925",
+    "session": "Evening",
+    "draw_date": "2022-10-18"
+  },
+  {
+    "date": "10/19/2022",
+    "winning_number": "604",
+    "session": "Evening",
+    "draw_date": "2022-10-19"
+  },
+  {
+    "date": "10/20/2022",
+    "winning_number": "336",
+    "session": "Evening",
+    "draw_date": "2022-10-20"
+  },
+  {
+    "date": "10/21/2022",
+    "winning_number": "435",
+    "session": "Evening",
+    "draw_date": "2022-10-21"
+  },
+  {
+    "date": "10/22/2022",
+    "winning_number": "015",
+    "session": "Evening",
+    "draw_date": "2022-10-22"
+  },
+  {
+    "date": "10/23/2022",
+    "winning_number": "752",
+    "session": "Evening",
+    "draw_date": "2022-10-23"
+  },
+  {
+    "date": "10/24/2022",
+    "winning_number": "493",
+    "session": "Evening",
+    "draw_date": "2022-10-24"
+  },
+  {
+    "date": "10/25/2022",
+    "winning_number": "965",
+    "session": "Evening",
+    "draw_date": "2022-10-25"
+  },
+  {
+    "date": "10/26/2022",
+    "winning_number": "373",
+    "session": "Evening",
+    "draw_date": "2022-10-26"
+  },
+  {
+    "date": "10/27/2022",
+    "winning_number": "844",
+    "session": "Evening",
+    "draw_date": "2022-10-27"
+  },
+  {
+    "date": "10/28/2022",
+    "winning_number": "413",
+    "session": "Evening",
+    "draw_date": "2022-10-28"
+  },
+  {
+    "date": "10/29/2022",
+    "winning_number": "577",
+    "session": "Evening",
+    "draw_date": "2022-10-29"
+  },
+  {
+    "date": "10/30/2022",
+    "winning_number": "464",
+    "session": "Evening",
+    "draw_date": "2022-10-30"
+  },
+  {
+    "date": "10/31/2022",
+    "winning_number": "794",
+    "session": "Evening",
+    "draw_date": "2022-10-31"
+  },
+  {
+    "date": "11/1/2022",
+    "winning_number": "678",
+    "session": "Evening",
+    "draw_date": "2022-11-01"
+  },
+  {
+    "date": "11/2/2022",
+    "winning_number": "030",
+    "session": "Evening",
+    "draw_date": "2022-11-02"
+  },
+  {
+    "date": "11/3/2022",
+    "winning_number": "069",
+    "session": "Evening",
+    "draw_date": "2022-11-03"
+  },
+  {
+    "date": "11/4/2022",
+    "winning_number": "135",
+    "session": "Evening",
+    "draw_date": "2022-11-04"
+  },
+  {
+    "date": "11/5/2022",
+    "winning_number": "650",
+    "session": "Evening",
+    "draw_date": "2022-11-05"
+  },
+  {
+    "date": "11/6/2022",
+    "winning_number": "312",
+    "session": "Evening",
+    "draw_date": "2022-11-06"
+  },
+  {
+    "date": "11/7/2022",
+    "winning_number": "859",
+    "session": "Evening",
+    "draw_date": "2022-11-07"
+  },
+  {
+    "date": "11/8/2022",
+    "winning_number": "777",
+    "session": "Evening",
+    "draw_date": "2022-11-08"
+  },
+  {
+    "date": "11/9/2022",
+    "winning_number": "527",
+    "session": "Evening",
+    "draw_date": "2022-11-09"
+  },
+  {
+    "date": "11/10/2022",
+    "winning_number": "702",
+    "session": "Evening",
+    "draw_date": "2022-11-10"
+  },
+  {
+    "date": "11/11/2022",
+    "winning_number": "050",
+    "session": "Evening",
+    "draw_date": "2022-11-11"
+  },
+  {
+    "date": "11/12/2022",
+    "winning_number": "917",
+    "session": "Evening",
+    "draw_date": "2022-11-12"
+  },
+  {
+    "date": "11/13/2022",
+    "winning_number": "992",
+    "session": "Evening",
+    "draw_date": "2022-11-13"
+  },
+  {
+    "date": "11/14/2022",
+    "winning_number": "414",
+    "session": "Evening",
+    "draw_date": "2022-11-14"
+  },
+  {
+    "date": "11/15/2022",
+    "winning_number": "134",
+    "session": "Evening",
+    "draw_date": "2022-11-15"
+  },
+  {
+    "date": "11/16/2022",
+    "winning_number": "545",
+    "session": "Evening",
+    "draw_date": "2022-11-16"
+  },
+  {
+    "date": "11/17/2022",
+    "winning_number": "274",
+    "session": "Evening",
+    "draw_date": "2022-11-17"
+  },
+  {
+    "date": "11/18/2022",
+    "winning_number": "071",
+    "session": "Evening",
+    "draw_date": "2022-11-18"
+  },
+  {
+    "date": "11/19/2022",
+    "winning_number": "269",
+    "session": "Evening",
+    "draw_date": "2022-11-19"
+  },
+  {
+    "date": "11/20/2022",
+    "winning_number": "887",
+    "session": "Evening",
+    "draw_date": "2022-11-20"
+  },
+  {
+    "date": "11/21/2022",
+    "winning_number": "783",
+    "session": "Evening",
+    "draw_date": "2022-11-21"
+  },
+  {
+    "date": "11/29/2022",
+    "winning_number": "607",
+    "session": "Evening",
+    "draw_date": "2022-11-29"
+  },
+  {
+    "date": "11/30/2022",
+    "winning_number": "448",
+    "session": "Evening",
+    "draw_date": "2022-11-30"
+  },
+  {
+    "date": "12/1/2022",
+    "winning_number": "561",
+    "session": "Evening",
+    "draw_date": "2022-12-01"
+  },
+  {
+    "date": "12/2/2022",
+    "winning_number": "191",
+    "session": "Evening",
+    "draw_date": "2022-12-02"
+  },
+  {
+    "date": "12/3/2022",
+    "winning_number": "119",
+    "session": "Evening",
+    "draw_date": "2022-12-03"
+  },
+  {
+    "date": "12/4/2022",
+    "winning_number": "427",
+    "session": "Evening",
+    "draw_date": "2022-12-04"
+  },
+  {
+    "date": "12/5/2022",
+    "winning_number": "383",
+    "session": "Evening",
+    "draw_date": "2022-12-05"
+  },
+  {
+    "date": "12/6/2022",
+    "winning_number": "665",
+    "session": "Evening",
+    "draw_date": "2022-12-06"
+  },
+  {
+    "date": "12/7/2022",
+    "winning_number": "322",
+    "session": "Evening",
+    "draw_date": "2022-12-07"
+  },
+  {
+    "date": "12/8/2022",
+    "winning_number": "929",
+    "session": "Evening",
+    "draw_date": "2022-12-08"
+  },
+  {
+    "date": "12/9/2022",
+    "winning_number": "154",
+    "session": "Evening",
+    "draw_date": "2022-12-09"
+  },
+  {
+    "date": "12/10/2022",
+    "winning_number": "280",
+    "session": "Evening",
+    "draw_date": "2022-12-10"
+  },
+  {
+    "date": "12/11/2022",
+    "winning_number": "649",
+    "session": "Evening",
+    "draw_date": "2022-12-11"
+  },
+  {
+    "date": "12/12/2022",
+    "winning_number": "850",
+    "session": "Evening",
+    "draw_date": "2022-12-12"
+  },
+  {
+    "date": "12/13/2022",
+    "winning_number": "549",
+    "session": "Evening",
+    "draw_date": "2022-12-13"
+  },
+  {
+    "date": "12/14/2022",
+    "winning_number": "198",
+    "session": "Evening",
+    "draw_date": "2022-12-14"
+  },
+  {
+    "date": "12/15/2022",
+    "winning_number": "238",
+    "session": "Evening",
+    "draw_date": "2022-12-15"
+  },
+  {
+    "date": "12/16/2022",
+    "winning_number": "706",
+    "session": "Evening",
+    "draw_date": "2022-12-16"
+  },
+  {
+    "date": "12/17/2022",
+    "winning_number": "183",
+    "session": "Evening",
+    "draw_date": "2022-12-17"
+  },
+  {
+    "date": "12/18/2022",
+    "winning_number": "462",
+    "session": "Evening",
+    "draw_date": "2022-12-18"
+  },
+  {
+    "date": "12/19/2022",
+    "winning_number": "419",
+    "session": "Evening",
+    "draw_date": "2022-12-19"
+  },
+  {
+    "date": "12/20/2022",
+    "winning_number": "720",
+    "session": "Evening",
+    "draw_date": "2022-12-20"
+  },
+  {
+    "date": "12/21/2022",
+    "winning_number": "499",
+    "session": "Evening",
+    "draw_date": "2022-12-21"
+  },
+  {
+    "date": "12/22/2022",
+    "winning_number": "467",
+    "session": "Evening",
+    "draw_date": "2022-12-22"
+  },
+  {
+    "date": "12/23/2022",
+    "winning_number": "485",
+    "session": "Evening",
+    "draw_date": "2022-12-23"
+  },
+  {
+    "date": "12/24/2022",
+    "winning_number": "689",
+    "session": "Evening",
+    "draw_date": "2022-12-24"
+  },
+  {
+    "date": "12/25/2022",
+    "winning_number": "228",
+    "session": "Evening",
+    "draw_date": "2022-12-25"
+  },
+  {
+    "date": "12/26/2022",
+    "winning_number": "257",
+    "session": "Evening",
+    "draw_date": "2022-12-26"
+  },
+  {
+    "date": "12/27/2022",
+    "winning_number": "191",
+    "session": "Evening",
+    "draw_date": "2022-12-27"
+  },
+  {
+    "date": "12/28/2022",
+    "winning_number": "211",
+    "session": "Evening",
+    "draw_date": "2022-12-28"
+  },
+  {
+    "date": "12/29/2022",
+    "winning_number": "588",
+    "session": "Evening",
+    "draw_date": "2022-12-29"
+  },
+  {
+    "date": "12/30/2022",
+    "winning_number": "115",
+    "session": "Evening",
+    "draw_date": "2022-12-30"
+  },
+  {
+    "date": "12/31/2022",
+    "winning_number": "031",
+    "session": "Evening",
+    "draw_date": "2022-12-31"
+  },
+  {
     "date": "1/1/2025",
     "winning_number": "288",
     "session": "Evening",
@@ -1452,6 +3372,114 @@
     "draw_date": "2025-08-31"
   },
   {
+    "date": "11/1/2025",
+    "winning_number": "129",
+    "session": "Evening",
+    "draw_date": "2025-11-01"
+  },
+  {
+    "date": "11/2/2025",
+    "winning_number": "282",
+    "session": "Evening",
+    "draw_date": "2025-11-02"
+  },
+  {
+    "date": "11/3/2025",
+    "winning_number": "788",
+    "session": "Evening",
+    "draw_date": "2025-11-03"
+  },
+  {
+    "date": "11/4/2025",
+    "winning_number": "161",
+    "session": "Evening",
+    "draw_date": "2025-11-04"
+  },
+  {
+    "date": "11/5/2025",
+    "winning_number": "514",
+    "session": "Evening",
+    "draw_date": "2025-11-05"
+  },
+  {
+    "date": "11/6/2025",
+    "winning_number": "003",
+    "session": "Evening",
+    "draw_date": "2025-11-06"
+  },
+  {
+    "date": "11/7/2025",
+    "winning_number": "639",
+    "session": "Evening",
+    "draw_date": "2025-11-07"
+  },
+  {
+    "date": "11/8/2025",
+    "winning_number": "000",
+    "session": "Evening",
+    "draw_date": "2025-11-08"
+  },
+  {
+    "date": "11/9/2025",
+    "winning_number": "639",
+    "session": "Evening",
+    "draw_date": "2025-11-09"
+  },
+  {
+    "date": "11/10/2025",
+    "winning_number": "239",
+    "session": "Evening",
+    "draw_date": "2025-11-10"
+  },
+  {
+    "date": "11/11/2025",
+    "winning_number": "334",
+    "session": "Evening",
+    "draw_date": "2025-11-11"
+  },
+  {
+    "date": "11/12/2025",
+    "winning_number": "583",
+    "session": "Evening",
+    "draw_date": "2025-11-12"
+  },
+  {
+    "date": "11/13/2025",
+    "winning_number": "964",
+    "session": "Evening",
+    "draw_date": "2025-11-13"
+  },
+  {
+    "date": "11/14/2025",
+    "winning_number": "056",
+    "session": "Evening",
+    "draw_date": "2025-11-14"
+  },
+  {
+    "date": "11/15/2025",
+    "winning_number": "600",
+    "session": "Evening",
+    "draw_date": "2025-11-15"
+  },
+  {
+    "date": "11/16/2025",
+    "winning_number": "457",
+    "session": "Evening",
+    "draw_date": "2025-11-16"
+  },
+  {
+    "date": "11/17/2025",
+    "winning_number": "066",
+    "session": "Evening",
+    "draw_date": "2025-11-17"
+  },
+  {
+    "date": "11/18/2025",
+    "winning_number": "816",
+    "session": "Evening",
+    "draw_date": "2025-11-18"
+  },
+  {
     "date": "11/19/2025",
     "winning_number": "122",
     "session": "Evening",
@@ -1528,6 +3556,186 @@
     "winning_number": "858",
     "session": "Evening",
     "draw_date": "2025-12-01"
+  },
+  {
+    "date": "12/2/2025",
+    "winning_number": "646",
+    "session": "Evening",
+    "draw_date": "2025-12-02"
+  },
+  {
+    "date": "12/3/2025",
+    "winning_number": "047",
+    "session": "Evening",
+    "draw_date": "2025-12-03"
+  },
+  {
+    "date": "12/4/2025",
+    "winning_number": "189",
+    "session": "Evening",
+    "draw_date": "2025-12-04"
+  },
+  {
+    "date": "12/5/2025",
+    "winning_number": "041",
+    "session": "Evening",
+    "draw_date": "2025-12-05"
+  },
+  {
+    "date": "12/6/2025",
+    "winning_number": "168",
+    "session": "Evening",
+    "draw_date": "2025-12-06"
+  },
+  {
+    "date": "12/7/2025",
+    "winning_number": "283",
+    "session": "Evening",
+    "draw_date": "2025-12-07"
+  },
+  {
+    "date": "12/8/2025",
+    "winning_number": "493",
+    "session": "Evening",
+    "draw_date": "2025-12-08"
+  },
+  {
+    "date": "12/9/2025",
+    "winning_number": "336",
+    "session": "Evening",
+    "draw_date": "2025-12-09"
+  },
+  {
+    "date": "12/10/2025",
+    "winning_number": "994",
+    "session": "Evening",
+    "draw_date": "2025-12-10"
+  },
+  {
+    "date": "12/11/2025",
+    "winning_number": "478",
+    "session": "Evening",
+    "draw_date": "2025-12-11"
+  },
+  {
+    "date": "12/12/2025",
+    "winning_number": "284",
+    "session": "Evening",
+    "draw_date": "2025-12-12"
+  },
+  {
+    "date": "12/13/2025",
+    "winning_number": "688",
+    "session": "Evening",
+    "draw_date": "2025-12-13"
+  },
+  {
+    "date": "12/14/2025",
+    "winning_number": "589",
+    "session": "Evening",
+    "draw_date": "2025-12-14"
+  },
+  {
+    "date": "12/15/2025",
+    "winning_number": "169",
+    "session": "Evening",
+    "draw_date": "2025-12-15"
+  },
+  {
+    "date": "12/16/2025",
+    "winning_number": "881",
+    "session": "Evening",
+    "draw_date": "2025-12-16"
+  },
+  {
+    "date": "12/17/2025",
+    "winning_number": "065",
+    "session": "Evening",
+    "draw_date": "2025-12-17"
+  },
+  {
+    "date": "12/18/2025",
+    "winning_number": "552",
+    "session": "Evening",
+    "draw_date": "2025-12-18"
+  },
+  {
+    "date": "12/19/2025",
+    "winning_number": "824",
+    "session": "Evening",
+    "draw_date": "2025-12-19"
+  },
+  {
+    "date": "12/20/2025",
+    "winning_number": "994",
+    "session": "Evening",
+    "draw_date": "2025-12-20"
+  },
+  {
+    "date": "12/21/2025",
+    "winning_number": "762",
+    "session": "Evening",
+    "draw_date": "2025-12-21"
+  },
+  {
+    "date": "12/22/2025",
+    "winning_number": "018",
+    "session": "Evening",
+    "draw_date": "2025-12-22"
+  },
+  {
+    "date": "12/23/2025",
+    "winning_number": "834",
+    "session": "Evening",
+    "draw_date": "2025-12-23"
+  },
+  {
+    "date": "12/24/2025",
+    "winning_number": "761",
+    "session": "Evening",
+    "draw_date": "2025-12-24"
+  },
+  {
+    "date": "12/25/2025",
+    "winning_number": "015",
+    "session": "Evening",
+    "draw_date": "2025-12-25"
+  },
+  {
+    "date": "12/26/2025",
+    "winning_number": "849",
+    "session": "Evening",
+    "draw_date": "2025-12-26"
+  },
+  {
+    "date": "12/27/2025",
+    "winning_number": "886",
+    "session": "Evening",
+    "draw_date": "2025-12-27"
+  },
+  {
+    "date": "12/28/2025",
+    "winning_number": "722",
+    "session": "Evening",
+    "draw_date": "2025-12-28"
+  },
+  {
+    "date": "12/29/2025",
+    "winning_number": "061",
+    "session": "Evening",
+    "draw_date": "2025-12-29"
+  },
+  {
+    "date": "12/30/2025",
+    "winning_number": "788",
+    "session": "Evening",
+    "draw_date": "2025-12-30"
+  },
+  {
+    "date": "12/31/2025",
+    "winning_number": "050",
+    "session": "Evening",
+    "draw_date": "2025-12-31"
   },
   {
     "date": "1/1/2026",
