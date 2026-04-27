@@ -873,6 +873,40 @@ def results_ingest():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+@app.route('/api/results/fetch-latest', methods=['GET', 'POST'])
+def fetch_latest_results():
+    """
+    Fetch today's GA Lottery results from galottery.com and auto-ingest them.
+
+    Designed to be called by a free cron service (e.g. cron-job.org) 3× daily:
+        12:45 PM ET  (after Midday draw at 12:29 PM)
+         7:15 PM ET  (after Evening draw at  6:59 PM)
+        11:50 PM ET  (after Night draw   at 11:34 PM)
+
+    Auth: X-Prediction-Secret header (same secret as other protected endpoints).
+    Optional: ?dryRun=true to validate without writing.
+
+    Response:
+        { "success": true, "fetched": 6, "ingested": 3,
+          "cash3_count": 3, "cash4_count": 3, "dry_run": false }
+    """
+    if not _check_prediction_secret():
+        return jsonify({"success": False, "error": "Unauthorized"}), 403
+
+    dry_run = request.args.get("dryRun", "false").lower() == "true"
+
+    try:
+        from fetch_ga_results import fetch_and_ingest
+        secret    = os.environ.get("PREDICTION_SECRET", "")
+        self_url  = request.host_url.rstrip("/") + "/api/results/ingest"
+        result    = fetch_and_ingest(self_url, secret, dry_run=dry_run)
+        result["success"] = True
+        return jsonify(result), 200
+    except Exception as e:
+        logger.error(f"fetch-latest error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 @app.route('/api/admin/prune-mmfsn', methods=['POST'])
 def admin_prune_mmfsn():
     """
