@@ -1,0 +1,36 @@
+{
+  "first_name": "",
+  "last_name": "",
+
+  "dob": "",
+  "birth_time": "",
+
+  "birth_city": "",
+  "birth_state": "",
+
+  "phone": "",
+  "email": "",
+
+  "games": [
+    "Cash3",
+    "Cash4"
+  ],
+
+  "tier": "BOSK",
+
+  "rules": {
+    "required_fields": [
+      "first_name",
+      "last_name",
+      "dob",
+      "birth_time",
+      "birth_city",
+      "birth_state",
+      "phone",
+      "email"
+    ],
+    "mmfsn_allowed": false,
+    "mmfsn_required": false,
+    "requires_all_games": false
+  }
+}

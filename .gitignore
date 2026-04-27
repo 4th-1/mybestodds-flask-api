@@ -52,6 +52,8 @@ data/subscribers/**/
 !package.json
 # Allow GA historical data needed for Railway predictions
 !jackpot_system_v3/data/ga_results/*.json
+# Allow subscriber kit files needed for Railway predictions
+!jackpot_system_v3/kits/*.json
 
 # Logs
 *.log
