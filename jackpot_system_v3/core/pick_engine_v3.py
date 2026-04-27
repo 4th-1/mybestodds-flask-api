@@ -585,6 +585,21 @@ def _recommended_play(confidence_score: float, number: str = "", history: "List[
     if confidence_score >= PLAY_TYPE_BOX_MAX:
         return "STRAIGHT_BOX"
 
+    # Near-miss proximity check — if this pick is exactly 1 digit off from any
+    # recent actual draw, recommend STRAIGHT+1OFF so the subscriber is covered
+    # for a repeat alignment hit.  BOX does NOT pay on 1-off results; this
+    # closes the product integrity gap where the engine surfaces a near-miss
+    # candidate but the play type leaves the subscriber unprotected.
+    if number and history and len(number) in (3, 4):
+        recent = history[:14]  # check roughly the last 7 draw-days
+        for draw in recent:
+            draw = str(draw).strip()
+            if len(draw) != len(number) or not draw.isdigit() or not number.isdigit():
+                continue
+            diffs = sum(1 for a, b in zip(number, draw) if a != b)
+            if diffs == 1:
+                return "STRAIGHT+1OFF"
+
     # Below BOX threshold — check for pair signal if we have number + history
     if number and history and len(number) >= 3:
         front = number[:2]
