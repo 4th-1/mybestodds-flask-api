@@ -750,7 +750,9 @@ def results_ingest():
         winning_number = str(body.get("winning_number") or "").strip()
 
         # --- Validate inputs ---------------------------------------------------
-        valid_games    = {"Cash3", "Cash4"}
+        valid_cash_games   = {"Cash3", "Cash4"}
+        valid_jackpot_games = {"Powerball", "MegaMillions", "MillionaireForLife", "Cash4Life"}
+        valid_games        = valid_cash_games | valid_jackpot_games
         session_map    = {"midday": "mid", "evening": "eve", "night": "night"}
         file_map_rev   = {
             "cash3_mid":   "cash3_midday.json",
@@ -764,6 +766,26 @@ def results_ingest():
         if game not in valid_games:
             return jsonify({"success": False,
                             "error": f"game must be one of {sorted(valid_games)}"}), 400
+
+        # Jackpot games: store in a separate in-memory log — no session JSON files
+        if game in valid_jackpot_games:
+            entry = {
+                "draw_date":       date_str,
+                "winning_numbers": winning_number,
+                "session":         session_raw.capitalize() if session_raw else "Evening",
+                "game":            game,
+            }
+            if dry_run:
+                return jsonify({"success": True, "dryRun": True, "would_write": True,
+                                "game": game, "date": date_str,
+                                "winning_number": winning_number}), 200
+            cache_key = f"jackpot_{game.lower()}"
+            already = date_str in {e["draw_date"] for e in _ga_extra_entries.get(cache_key, [])}
+            if not already:
+                _ga_extra_entries.setdefault(cache_key, []).append(entry)
+                logger.info(f"[ingest:jackpot] {game} {date_str} → {winning_number}")
+            return jsonify({"success": True, "game": game, "date": date_str,
+                            "winning_number": winning_number}), 200
         if session_raw not in session_map:
             return jsonify({"success": False,
                             "error": f"session must be one of {sorted(session_map)}"}), 400
@@ -897,7 +919,7 @@ def fetch_latest_results():
 
     try:
         from fetch_ga_results import fetch_and_ingest
-        secret    = os.environ.get("PREDICTION_SECRET", "")
+        secret    = os.environ.get("PREDICTIONS_API_SECRET", "")
         self_url  = request.host_url.rstrip("/") + "/api/results/ingest"
         result    = fetch_and_ingest(self_url, secret, dry_run=dry_run)
         result["success"] = True
