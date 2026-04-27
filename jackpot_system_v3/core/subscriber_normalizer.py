@@ -24,6 +24,9 @@ def normalize_subscriber_files():
     root = Path(__file__).resolve().parents[1]
     sub_dir = root / "data" / "subscribers"
 
+    if not sub_dir.exists():
+        return
+
     for file in sub_dir.iterdir():
         if not file.name.lower().endswith(".json"):
             continue
