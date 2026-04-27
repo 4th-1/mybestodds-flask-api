@@ -62,6 +62,9 @@ RUN_KIT_SCRIPT = os.path.join(JACKPOT_SYSTEM_DIR, "run_kit_v3.py")
 # AFTER verifying the user has an active Supabase subscription.
 # Without the header, /api/predictions/generate returns 403.
 _PREDICTION_SECRET = os.getenv("PREDICTIONS_API_SECRET", "")
+_PREDICTION_GATE_DISABLED = os.getenv("DISABLE_PREDICTION_GATE", "").strip().lower() in {
+    "1", "true", "yes", "on"
+}
 
 # Runtime-injected draw results (survive until next redeploy).
 # Key: e.g. "cash3_eve" — Value: list of normalized draw dicts
@@ -73,6 +76,9 @@ _ga_extra_entries: Dict[str, List] = {
 
 def _check_prediction_secret() -> bool:
     """Returns True if the request carries a valid prediction secret header."""
+    if _PREDICTION_GATE_DISABLED:
+        # Explicit maintenance/open-mode override.
+        return True
     if not _PREDICTION_SECRET:
         # Secret not configured — allow through (dev/local mode)
         return True
@@ -405,7 +411,7 @@ def subscription_gate(subscriber_id: str):
     """
     tier = (request.args.get("tier") or "").lower() or None
     is_admin = request.args.get("is_admin", "false").lower() == "true"
-    layer1_armed = bool(_PREDICTION_SECRET)
+    layer1_armed = bool(_PREDICTION_SECRET) and not _PREDICTION_GATE_DISABLED
 
     return jsonify({
         "access":        True,
@@ -532,16 +538,15 @@ def generate_predictions(subscriber_id: str):
             or datetime.now().strftime("%Y-%m-%d")
         )
         requested_games = body.get("games") or request.args.getlist("games") or []
-        kit = (
+        requested_kit = (
             body.get("kit")
             or body.get("kit_type")
             or request.args.get("kit")
-            or "BOOK3"
-        ).upper()
+        )
         mmfsn = body.get("mmfsn") or {}
 
         # Load persisted subscriber record (written by /api/subscribers/sync)
-        subscriber_record = {"initials": "MBO", "games": ["Cash3", "Cash4"]}
+        subscriber_record = {"initials": "MBO", "games": ["Cash3", "Cash4"], "tier": "book3"}
         record_path = os.path.join(SUBSCRIBERS_DIR, f"{subscriber_id}.json")
         if os.path.exists(record_path):
             try:
@@ -557,6 +562,7 @@ def generate_predictions(subscriber_id: str):
                 subscriber_record = {
                     "initials":     initials,
                     "subscriber_id": subscriber_id,
+                    "tier":         (_rec.get("tier") or "bosk").lower(),
                     "games":        ["Cash3", "Cash4"],
                     "birthdate":    birth.get("dob") or birth.get("birth_date") or "",
                     "birthtime":    birth.get("tob") or birth.get("birth_time") or "",
@@ -564,6 +570,9 @@ def generate_predictions(subscriber_id: str):
                 }
             except Exception as _e:
                 logger.warning(f"Could not load subscriber record for {subscriber_id}: {_e}")
+
+        tier_to_kit = {"book3": "BOOK3", "book": "BOOK", "bosk": "BOSK"}
+        kit = (requested_kit or tier_to_kit.get(subscriber_record.get("tier"), "BOSK")).upper()
 
         all_predictions = get_predictions_for_date(date_str, kit, subscriber=subscriber_record)
 

@@ -28,6 +28,27 @@ CASH3_EVENING_WEIGHT: int = 1  # baseline: equal session weighting
 # Run --save-baseline to lock in improvements.
 CASH4_VARIANT_DEPTH: int = 2  # baseline: 2 variants/sub/day
 
+# Cash3 system-lane variant depth baseline.
+CASH3_VARIANT_DEPTH: int = 2
+
+# Alignment unlock: expand surfaced variants on strong timing days.
+# Score range is 0-40; unlock starts at ALIGNMENT_UNLOCK_START and scales
+# linearly to full extra variants by ALIGNMENT_UNLOCK_MAX_SCORE.
+ALIGNMENT_UNLOCK_START: float = 20.0
+ALIGNMENT_UNLOCK_MAX_SCORE: float = 40.0
+ALIGNMENT_UNLOCK_CASH3_EXTRA_MAX: int = 2
+ALIGNMENT_UNLOCK_CASH4_EXTRA_MAX: int = 2
+
+# Jackpot system-lane baselines.
+MEGAMILLIONS_VARIANT_DEPTH: int = 2
+POWERBALL_VARIANT_DEPTH: int = 2
+MFL_VARIANT_DEPTH: int = 2
+
+# Alignment unlock for jackpot games.
+ALIGNMENT_UNLOCK_MM_EXTRA_MAX: int = 2
+ALIGNMENT_UNLOCK_PB_EXTRA_MAX: int = 2
+ALIGNMENT_UNLOCK_MFL_EXTRA_MAX: int = 2
+
 # ----------------------------------------------------------------
 # Option B — Near-Miss Score Boost
 # Score bonus applied to combos that are ±1 on any digit of a recent
@@ -521,6 +542,18 @@ def _fallback_generate_cash4(freq: List[int]) -> str:
     return "".join(str(_weighted_digit(freq)) for _ in range(4))
 
 
+def _alignment_extra_variants(alignment_score: float, max_extra: int) -> int:
+    """Map alignment score into extra surfaced variants."""
+    if max_extra <= 0:
+        return 0
+    if alignment_score <= ALIGNMENT_UNLOCK_START:
+        return 0
+
+    span = max(ALIGNMENT_UNLOCK_MAX_SCORE - ALIGNMENT_UNLOCK_START, 1.0)
+    ratio = min(max((alignment_score - ALIGNMENT_UNLOCK_START) / span, 0.0), 1.0)
+    return int(round(ratio * max_extra))
+
+
 # ================================================================
 #  JACKPOT FREQUENCY ENGINE
 # ================================================================
@@ -792,12 +825,21 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         boost_scale=NEAR_MISS_BOOST_SCALE,
     )
 
+    cash3_k = CASH3_VARIANT_DEPTH + _alignment_extra_variants(
+        alignment_score,
+        ALIGNMENT_UNLOCK_CASH3_EXTRA_MAX,
+    )
     if stats3:
-        system_cash3 = _pick_top_combos(stats3, k=2, subscriber_seed=subscriber_seed, max_family_pool=_family_pool_size)
+        system_cash3 = _pick_top_combos(
+            stats3,
+            k=cash3_k,
+            subscriber_seed=subscriber_seed,
+            max_family_pool=_family_pool_size,
+        )
     else:
         freq3 = build_digit_frequency(last_digits_from_results(cash3_history, 30), 3)
         rng3 = random.Random(subscriber_seed)
-        system_cash3 = [_fallback_generate_cash3(freq3) for _ in range(2)]
+        system_cash3 = [_fallback_generate_cash3(freq3) for _ in range(cash3_k)]
         # Shuffle the fallback list so different subs get different orderings
         rng3.shuffle(system_cash3)
 
@@ -830,18 +872,40 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         boost_scale=NEAR_MISS_BOOST_SCALE,
     )
 
+    cash4_k = CASH4_VARIANT_DEPTH + _alignment_extra_variants(
+        alignment_score,
+        ALIGNMENT_UNLOCK_CASH4_EXTRA_MAX,
+    )
     if stats4:
-        system_cash4 = _pick_top_combos(stats4, k=CASH4_VARIANT_DEPTH, subscriber_seed=subscriber_seed, max_family_pool=_family_pool_size)
+        system_cash4 = _pick_top_combos(
+            stats4,
+            k=cash4_k,
+            subscriber_seed=subscriber_seed,
+            max_family_pool=_family_pool_size,
+        )
     else:
         freq4 = build_digit_frequency(last_digits_from_results(cash4_history, 30), 4)
         rng4 = random.Random(subscriber_seed + 1)
-        system_cash4 = [_fallback_generate_cash4(freq4) for _ in range(CASH4_VARIANT_DEPTH)]
+        system_cash4 = [_fallback_generate_cash4(freq4) for _ in range(cash4_k)]
         rng4.shuffle(system_cash4)
 
     # ------------------ JACKPOT ------------------
-    mm_lines = generate_megamillions_picks(2, root=root)
-    pb_lines = generate_powerball_picks(2, root=root)
-    c4l_lines = generate_millionaire_for_life_picks(2, root=root)
+    mm_k = MEGAMILLIONS_VARIANT_DEPTH + _alignment_extra_variants(
+        alignment_score,
+        ALIGNMENT_UNLOCK_MM_EXTRA_MAX,
+    )
+    pb_k = POWERBALL_VARIANT_DEPTH + _alignment_extra_variants(
+        alignment_score,
+        ALIGNMENT_UNLOCK_PB_EXTRA_MAX,
+    )
+    mfl_k = MFL_VARIANT_DEPTH + _alignment_extra_variants(
+        alignment_score,
+        ALIGNMENT_UNLOCK_MFL_EXTRA_MAX,
+    )
+
+    mm_lines = generate_megamillions_picks(mm_k, root=root)
+    pb_lines = generate_powerball_picks(pb_k, root=root)
+    c4l_lines = generate_millionaire_for_life_picks(mfl_k, root=root)
 
     return {
         "Cash3": {
