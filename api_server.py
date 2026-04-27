@@ -238,10 +238,12 @@ def debug_info():
 def predict_triples():
     """Get Cash3 (triple) predictions"""
     try:
+        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK3")
         triple_preds = [p for p in predictions if p.get("game") in ["Cash3", "Triples"]]
-        
+        for p in triple_preds:
+            p["recommended_play"] = _recommended_play(p.get("confidence_score") or 0.0)
         return jsonify({
             "success": True,
             "date": date_str,
@@ -259,10 +261,12 @@ def predict_triples():
 def predict_quads():
     """Get Cash4 (quad) predictions"""
     try:
+        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK")
         quad_preds = [p for p in predictions if p.get("game") in ["Cash4", "Quads"]]
-        
+        for p in quad_preds:
+            p["recommended_play"] = _recommended_play(p.get("confidence_score") or 0.0)
         return jsonify({
             "success": True,
             "date": date_str,
@@ -580,11 +584,14 @@ def generate_predictions(subscriber_id: str):
         grouped: Dict[str, List] = {}
         for p in all_predictions:
             game = p.get("game", "Unknown")
+            conf = p.get("confidence_score") or 0.0
+            from jackpot_system_v3.core.pick_engine_v3 import _recommended_play
             grouped.setdefault(game, []).append({
                 "number":           p.get("number"),
                 "kit":              p.get("kit"),
                 "lane":             p.get("lane"),
-                "confidence_score": p.get("confidence_score"),
+                "confidence_score": conf,
+                "recommended_play": _recommended_play(conf),
             })
 
         # Inject MMFSN picks sent by the edge function (BOOK3 personal-number lane)

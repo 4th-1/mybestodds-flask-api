@@ -49,6 +49,16 @@ ALIGNMENT_UNLOCK_MM_EXTRA_MAX: int = 2
 ALIGNMENT_UNLOCK_PB_EXTRA_MAX: int = 2
 ALIGNMENT_UNLOCK_MFL_EXTRA_MAX: int = 2
 
+# ================================================================
+#  PLAY TYPE THRESHOLDS
+#  Determines recommended_play field returned in API responses.
+#  Confidence is 0.0–1.0 (normalised from stats score).
+# ================================================================
+PLAY_TYPE_BOX_MAX: float = 0.40          # < 40% → BOX only
+PLAY_TYPE_STRAIGHT_BOX_MAX: float = 0.60 # 40–60% → STRAIGHT_BOX
+PLAY_TYPE_STRAIGHT_MAX: float = 0.75     # 60–75% → STRAIGHT
+                                         # ≥ 75%   → STRAIGHT+1OFF
+
 # ----------------------------------------------------------------
 # Option B — Near-Miss Score Boost
 # Score bonus applied to combos that are ±1 on any digit of a recent
@@ -552,6 +562,24 @@ def _alignment_extra_variants(alignment_score: float, max_extra: int) -> int:
     span = max(ALIGNMENT_UNLOCK_MAX_SCORE - ALIGNMENT_UNLOCK_START, 1.0)
     ratio = min(max((alignment_score - ALIGNMENT_UNLOCK_START) / span, 0.0), 1.0)
     return int(round(ratio * max_extra))
+
+
+def _recommended_play(confidence_score: float) -> str:
+    """Map a normalised confidence score (0.0–1.0) to a play type recommendation.
+
+    Tiers align with the PLAY_TYPE_* thresholds defined in constants above:
+      < 0.40  → "BOX"             (low confidence — cover permutations)
+      0.40–0.60 → "STRAIGHT_BOX" (moderate — hedge with box insurance)
+      0.60–0.75 → "STRAIGHT"     (high — engine is convicted on order)
+      ≥ 0.75  → "STRAIGHT+1OFF"  (very high — also cover adjacent digits)
+    """
+    if confidence_score < PLAY_TYPE_BOX_MAX:
+        return "BOX"
+    if confidence_score < PLAY_TYPE_STRAIGHT_BOX_MAX:
+        return "STRAIGHT_BOX"
+    if confidence_score < PLAY_TYPE_STRAIGHT_MAX:
+        return "STRAIGHT"
+    return "STRAIGHT+1OFF"
 
 
 # ================================================================
