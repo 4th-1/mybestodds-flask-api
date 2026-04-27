@@ -564,22 +564,44 @@ def _alignment_extra_variants(alignment_score: float, max_extra: int) -> int:
     return int(round(ratio * max_extra))
 
 
-def _recommended_play(confidence_score: float) -> str:
+def _recommended_play(confidence_score: float, number: str = "", history: "List[str] | None" = None) -> str:
     """Map a normalised confidence score (0.0–1.0) to a play type recommendation.
 
     Tiers align with the PLAY_TYPE_* thresholds defined in constants above:
       < 0.40  → "BOX"             (low confidence — cover permutations)
+                or "FRONT_PAIR"/"BACK_PAIR" when pair digit signal is strong
       0.40–0.60 → "STRAIGHT_BOX" (moderate — hedge with box insurance)
       0.60–0.75 → "STRAIGHT"     (high — engine is convicted on order)
       ≥ 0.75  → "STRAIGHT+1OFF"  (very high — also cover adjacent digits)
+
+    When confidence is below BOX threshold and history is provided, digit-position
+    frequency is used to detect front/back pair dominance and surface FRONT_PAIR
+    or BACK_PAIR instead of plain BOX.
     """
-    if confidence_score < PLAY_TYPE_BOX_MAX:
-        return "BOX"
-    if confidence_score < PLAY_TYPE_STRAIGHT_BOX_MAX:
-        return "STRAIGHT_BOX"
-    if confidence_score < PLAY_TYPE_STRAIGHT_MAX:
+    if confidence_score >= PLAY_TYPE_STRAIGHT_MAX:
+        return "STRAIGHT+1OFF"
+    if confidence_score >= PLAY_TYPE_STRAIGHT_BOX_MAX:
         return "STRAIGHT"
-    return "STRAIGHT+1OFF"
+    if confidence_score >= PLAY_TYPE_BOX_MAX:
+        return "STRAIGHT_BOX"
+
+    # Below BOX threshold — check for pair signal if we have number + history
+    if number and history and len(number) >= 3:
+        front = number[:2]
+        back  = number[-2:]
+        front_count = sum(1 for h in history if len(h) >= 2 and h[:2] == front)
+        back_count  = sum(1 for h in history if len(h) >= 2 and h[-2:] == back)
+        n = max(len(history), 1)
+        front_rate = front_count / n
+        back_rate  = back_count  / n
+        # Pair is "strong" when it appears ≥ 3× the random expectation (1/100 = 1%)
+        PAIR_SIGNAL_THRESHOLD = 0.03
+        if front_rate >= PAIR_SIGNAL_THRESHOLD and front_rate >= back_rate:
+            return "FRONT_PAIR"
+        if back_rate >= PAIR_SIGNAL_THRESHOLD:
+            return "BACK_PAIR"
+
+    return "BOX"
 
 
 # ================================================================
