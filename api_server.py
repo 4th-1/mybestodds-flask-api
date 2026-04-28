@@ -288,6 +288,41 @@ def predict_quads():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+@app.route('/api/cash4/straight-rank', methods=['GET'])
+def cash4_straight_rank():
+    """
+    Rank all straight orderings of a Cash4 box combination by session-specific
+    positional frequency.  Percentages normalized to 100% across all orderings.
+
+    Query parameters
+    ----------------
+    digits  : str — required. 4-digit box combo, e.g. '3618' or '1188'.
+    session : str — required. midday | evening | night
+
+    Available to BOOK, BOOK3, and BOSK tiers (all Cash4 subscribers).
+
+    Response includes:
+    - rankings : list of {rank, number, pct, label} — all unique orderings
+    - session_context : per-position top digit + alignment flag for each input digit
+    - aligned_positions : how many of the 4 input digit positions match session-top digits
+    """
+    try:
+        from jackpot_system_v3.core.pick_engine_v3 import rank_cash4_straight_orderings
+        digits = request.args.get('digits', '').strip()
+        session = request.args.get('session', '').strip().lower()
+        if not digits:
+            return jsonify({'success': False, 'error': 'Missing required parameter: ?digits=3618'}), 400
+        if not session:
+            return jsonify({'success': False, 'error': 'Missing required parameter: ?session=midday|evening|night'}), 400
+        result = rank_cash4_straight_orderings(digits, session)
+        if not result.get('valid', True):
+            return jsonify({'success': False, **result}), 400
+        return jsonify({'success': True, **result}), 200
+    except Exception as e:
+        logger.error(f"Cash4 straight rank error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
 @app.route('/api/triples/due-signal', methods=['GET'])
 def triples_due_signal():
     """

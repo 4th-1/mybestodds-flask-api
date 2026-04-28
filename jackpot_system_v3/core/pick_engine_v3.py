@@ -104,6 +104,24 @@ MMFSN_MIN_FREQUENCY_SCORE: float = 1.0
 #   3 = default; scan the last 3 results per game
 NEAR_MISS_LOOKBACK: int = 3  # baseline 2026-04-14
 
+# ================================================================
+#  EXP-07 — Cash4 Digit Sum Filter
+#  61% of all Cash4 draws have a digit sum between 13–22.
+#  When ENABLED, system picks whose digits sum outside this window
+#  are filtered out before reaching the subscriber.
+#  Fewer low-probability picks → better concentration on real candidates.
+#
+#  True  = filter active (exp-07)
+#  False = no filter (baseline)
+#
+#  After running simulate_historical.py + full_report.py:
+#    If Cash4 straight > 41 → promote and --save-baseline
+#    If Cash4 straight <= 41 → revert to False
+# ================================================================
+CASH4_DIGIT_SUM_FILTER: bool = False  # exp-07 FAILED 2026-04-28 — no straight improvement at day 37/91
+CASH4_DIGIT_SUM_MIN: int = 13         # inclusive lower bound
+CASH4_DIGIT_SUM_MAX: int = 22         # inclusive upper bound
+
 # ----------------------------------------------------------------
 # Decay Weighting — Three-Band History Model
 # Each historical draw gets a weight based on how old it is relative
@@ -499,6 +517,111 @@ def _positional_score(combo: str, pos_freq: List[List[float]]) -> float:
         p = pos_freq[pos][int(ch)]
         log_score += math.log(p + 1e-9)  # 1e-9 prevents log(0)
     return log_score
+
+
+def rank_cash4_straight_orderings(digits: str, session: str) -> dict:
+    """
+    Given 4 Cash4 box digits and a session, rank all unique straight orderings
+    by session-specific positional frequency.  Percentages are normalized so
+    all orderings sum to 100% — giving subscribers a clear probability view
+    of which straight arrangement is most historically aligned for that session.
+
+    Args:
+        digits  : str — 4-digit string, e.g. '3618' or '1188' (repeats OK).
+        session : str — 'midday', 'evening', or 'night' (case-insensitive).
+
+    Returns dict with:
+        rankings        — list of {rank, number, pct, label (top only)}
+        session_context — top digit per position + its historical % for session
+        total_orderings — unique permutations (≤24; fewer when digits repeat)
+    """
+    from itertools import permutations as _perms
+
+    digits = digits.strip().replace(' ', '')
+    if len(digits) != 4 or not digits.isdigit():
+        return {'valid': False, 'error': 'digits must be exactly 4 numeric characters'}
+
+    session_lower = session.strip().lower()
+    _sess_files = {
+        'midday':  'cash4_midday.json',
+        'evening': 'cash4_evening.json',
+        'night':   'cash4_night.json',
+    }
+    if session_lower not in _sess_files:
+        return {'valid': False, 'error': 'session must be midday, evening, or night'}
+
+    # Load session-specific history
+    _data_dir = Path(__file__).parent.parent / 'data' / 'ga_results'
+    _fpath = _data_dir / _sess_files[session_lower]
+    try:
+        with open(_fpath) as _f:
+            _data = json.load(_f)
+    except FileNotFoundError:
+        return {'valid': False, 'error': f'History file not found: {_fpath.name}'}
+
+    combos_sess = []
+    for row in _data:
+        raw = row.get('winning_number') or row.get('winning_numbers', '')
+        s = str(raw).strip().replace(' ', '')
+        if len(s) == 4 and s.isdigit():
+            combos_sess.append(s)
+
+    if not combos_sess:
+        return {'valid': False, 'error': f'No history data for {session_lower}'}
+
+    # Build session-specific positional frequency (already normalized 0-1)
+    pos_freq = _build_positional_freq(combos_sess, 4)
+
+    # Generate all unique orderings (handles repeated digits — e.g. 1188 → 12 perms not 24)
+    unique_perms = list({''.join(p) for p in _perms(digits)})
+
+    # Score each ordering: product of positional probabilities (no log — we need raw prob for normalization)
+    def _prob_score(combo: str) -> float:
+        score = 1.0
+        for pos, ch in enumerate(combo):
+            score *= (pos_freq[pos][int(ch)] + 1e-9)
+        return score
+
+    raw_scores = [(perm, _prob_score(perm)) for perm in unique_perms]
+    total = sum(s for _, s in raw_scores) or 1.0
+
+    ranked = sorted(
+        [{'number': p, '_raw': s, 'pct': round(s / total * 100, 1)} for p, s in raw_scores],
+        key=lambda x: x['_raw'],
+        reverse=True,
+    )
+    for i, item in enumerate(ranked):
+        item['rank'] = i + 1
+        del item['_raw']
+    ranked[0]['label'] = 'System top pick'
+
+    # Session context — which digit dominates each position and by how much
+    session_context = []
+    for pos in range(4):
+        top_d = max(range(10), key=lambda d: pos_freq[pos][d])
+        top_pct = round(pos_freq[pos][top_d] * 100, 1)
+        contains_top = str(top_d) in digits
+        session_context.append({
+            'position': pos,
+            'favors_digit': top_d,
+            'historical_pct': top_pct,
+            'your_digit_here': int(digits[pos]),
+            'aligned': int(digits[pos]) == top_d,
+        })
+
+    # How many of the 4 positions are aligned to session-top digits
+    aligned_count = sum(1 for c in session_context if c['aligned'])
+
+    return {
+        'valid': True,
+        'digits': digits,
+        'session': session_lower,
+        'session_label': session_lower.capitalize(),
+        'total_orderings': len(ranked),
+        'aligned_positions': aligned_count,
+        'rankings': ranked,
+        'session_context': session_context,
+    }
 
 
 def _generate_signal_family(
@@ -1218,6 +1341,13 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         rng4 = random.Random(subscriber_seed + 1)
         system_cash4 = [_fallback_generate_cash4(freq4) for _ in range(cash4_k)]
         rng4.shuffle(system_cash4)
+
+    # EXP-07: Digit sum filter — remove Cash4 picks outside the 13–22 band
+    if CASH4_DIGIT_SUM_FILTER and system_cash4:
+        system_cash4 = [
+            p for p in system_cash4
+            if p.isdigit() and CASH4_DIGIT_SUM_MIN <= sum(int(d) for d in p) <= CASH4_DIGIT_SUM_MAX
+        ] or system_cash4  # fallback: keep originals if filter wipes everything
 
     # ------------------ JACKPOT ------------------
     mm_k = MEGAMILLIONS_VARIANT_DEPTH + _alignment_extra_variants(
