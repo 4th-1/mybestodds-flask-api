@@ -247,7 +247,7 @@ def predict_triples():
         for p in triple_preds:
             _rp = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c3_history)
             p["recommended_play"] = _rp
-            p.update(_confidence_ui(_rp))
+            p.update(_confidence_ui(_rp, p.get("lane", "")))
         return jsonify({
             "success": True,
             "date": date_str,
@@ -274,7 +274,7 @@ def predict_quads():
         for p in quad_preds:
             _rp = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c4_history)
             p["recommended_play"] = _rp
-            p.update(_confidence_ui(_rp))
+            p.update(_confidence_ui(_rp, p.get("lane", "")))
         return jsonify({
             "success": True,
             "date": date_str,
@@ -601,11 +601,12 @@ def generate_predictions(subscriber_id: str):
             conf = p.get("confidence_score") or 0.0
             hist = _c3_hist if game in ("Cash3", "Triples") else (_c4_hist if game in ("Cash4", "Quads") else None)
             _rp = _recommended_play(conf, p.get("number", ""), hist)
-            _ui = _confidence_ui(_rp)
+            _lane = p.get("lane", "")
+            _ui = _confidence_ui(_rp, _lane)
             grouped.setdefault(game, []).append({
                 "number":           p.get("number"),
                 "kit":              p.get("kit"),
-                "lane":             p.get("lane"),
+                "lane":             _lane,
                 "confidence_score": conf,
                 "recommended_play": _rp,
                 "confidence_label": _ui["label"],

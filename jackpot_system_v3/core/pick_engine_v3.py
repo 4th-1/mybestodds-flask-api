@@ -687,6 +687,15 @@ _CONFIDENCE_UI_MAP = {
         "tier":        1,
         "description": "Coverage pick — wins in any digit order",
     },
+    # Special entry for lane_mmfsn personal-number picks.
+    # These always score conf=0.0 (not in frequency pool) but win at 3.5x
+    # random in simulation — they carry their own validated signal.
+    "PERSONAL_NUMBER": {
+        "label":       "PERSONAL NUMBER",
+        "color":       "purple",
+        "tier":        3,
+        "description": "Your personal number — validated strong signal in simulation",
+    },
 }
 _CONFIDENCE_UI_DEFAULT = {
     "label":       "COVER PLAY",
@@ -696,19 +705,26 @@ _CONFIDENCE_UI_DEFAULT = {
 }
 
 
-def _confidence_ui(recommended_play: str) -> dict:
+def _confidence_ui(recommended_play: str, lane: str = "") -> dict:
     """Return subscriber-facing confidence label, color, and tier for a pick.
 
     Args:
         recommended_play: Value returned by _recommended_play().
+        lane: Pick lane from the engine (e.g. 'lane_mmfsn', 'lane_system').
+              When lane is 'lane_mmfsn', overrides to PERSONAL_NUMBER tier
+              regardless of recommended_play, because mmfsn picks always score
+              conf=0.0 (not in the frequency pool) but are validated at 3.5x
+              above random in the 91-day simulation.
 
     Returns:
         dict with keys: label, color, tier, description
-        - label:       Human-readable signal strength (e.g. "HOT SIGNAL")
-        - color:       CSS color name for frontend badge/chip
+        - label:       Human-readable signal strength
+        - color:       CSS color name for frontend badge/chip (purple for personal)
         - tier:        Integer 1–4 (4 = strongest) for progress bars / heat maps
         - description: One-line explanation shown on pick detail card
     """
+    if lane and "mmfsn" in lane.lower():
+        return _CONFIDENCE_UI_MAP["PERSONAL_NUMBER"].copy()
     return _CONFIDENCE_UI_MAP.get(recommended_play, _CONFIDENCE_UI_DEFAULT).copy()
 
 
