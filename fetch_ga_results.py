@@ -2,7 +2,11 @@
 fetch_ga_results.py
 ===================
 Fetches the latest Georgia Lottery Cash3 and Cash4 draw results from
-galottery.com and ingests them via the local /api/results/ingest endpoint.
+lotterypost.com and ingests them via the local /api/results/ingest endpoint.
+
+galottery.com was fully migrated to a JS-rendered SPA (as of early 2026) and
+is no longer scraped. lotterypost.com returns server-rendered HTML with all GA
+results on a single page.
 
 Usage (standalone):
     python fetch_ga_results.py [--dry-run] [--ingest-url URL]
@@ -30,8 +34,6 @@ import requests
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
-# Headers that mimic a real browser so galottery.com returns HTML instead of
-# redirecting to an ad-sync pixel.
 _BROWSER_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -46,22 +48,24 @@ _BROWSER_HEADERS = {
     "Pragma": "no-cache",
 }
 
-_GA_LOTTERY_BASE = "https://www.galottery.com"
+_LP_URL = "https://www.lotterypost.com/results/ga"
 
-# Maps session label text → ingest API session value
-_SESSION_LABELS = {
-    "midday":  "midday",
-    "mid":     "midday",
-    "evening": "evening",
-    "eve":     "evening",
-    "night":   "night",
-}
+# lotterypost.com assigns stable data-id values to each GA draw session.
+# Confirmed 2026-04-28 by parsing /results/ga HTML.
+_DRAW_SESSIONS = [
+    {"data_id": "42",  "game": "Cash3", "session": "midday"},
+    {"data_id": "38",  "game": "Cash3", "session": "evening"},
+    {"data_id": "510", "game": "Cash3", "session": "night"},
+    {"data_id": "43",  "game": "Cash4", "session": "midday"},
+    {"data_id": "511", "game": "Cash4", "session": "evening"},
+    {"data_id": "39",  "game": "Cash4", "session": "night"},
+]
 
-# Eastern Time offset (UTC-5, no DST handling needed for cron accuracy)
+# Eastern Time offset (UTC-5; DST not required for cron-fire accuracy)
 _ET = timezone(timedelta(hours=-5))
 
 
-# ── GA Lottery HTML Fetcher ───────────────────────────────────────────────────
+# ── Fetcher ───────────────────────────────────────────────────────────────────
 
 def _fetch_page(url: str, timeout: int = 15) -> Optional[str]:
     """Fetch a page with browser headers. Returns HTML or None on failure."""
@@ -76,182 +80,87 @@ def _fetch_page(url: str, timeout: int = 15) -> Optional[str]:
         return None
 
 
-def _extract_digits_from_span(html_block: str) -> str:
-    """Extract individual digit <span> values from a result block and join them."""
-    # GA Lottery renders each digit in its own element, e.g.:
-    # <span class="winningNumber">4</span>
-    # <li class="ball">7</li>
-    # Various class names across page versions — capture all single-digit elements
-    digits = re.findall(
-        r'<(?:span|li|div)[^>]*class=["\'][^"\']*(?:winning.?number|ball|digit|number)[^"\']*["\'][^>]*>\s*(\d)\s*</(?:span|li|div)>',
-        html_block,
-        re.IGNORECASE,
-    )
-    return "".join(digits)
+# ── Parser ────────────────────────────────────────────────────────────────────
 
-
-def _parse_galottery_page(html: str, game: str) -> List[Dict]:
+def _parse_lotterypost(html: str) -> List[Dict]:
     """
-    Parse galottery.com winning-numbers page for a specific game.
+    Parse lotterypost.com/results/ga HTML and return one dict per draw session.
 
-    Returns list of dicts:
-        {"game": "Cash3", "session": "midday", "date": "2026-04-27", "winning_number": "184"}
+    HTML structure (confirmed 2026-04-28):
+        <h2 data-id="42">Cash 3 Midday</h2>
+        <time datetime="2026-04-28T12:29-05:00">...</time>
+        <ul class="resultsnums"><li>1</li><li>0</li><li>1</li></ul>
+
+    Returns list of:
+        {"game": "Cash3", "session": "midday", "date": "2026-04-28", "winning_number": "101"}
     """
-    game_key = game.lower().replace(" ", "")  # "cash3" or "cash4"
     results = []
 
-    # --- Strategy 1: structured JSON-LD or data attributes ------------------
-    # GA Lottery sometimes embeds draw data in JSON-LD scripts
-    json_blocks = re.findall(r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', html, re.DOTALL | re.IGNORECASE)
-    # (Parse attempts omitted — JSON-LD on galottery.com doesn't include draw numbers)
+    for draw in _DRAW_SESSIONS:
+        did = draw["data_id"]
 
-    # --- Strategy 2: HTML section parsing -----------------------------------
-    # Look for game sections: find blocks containing the game name heading
-    # then pull date, session, and digit elements from within each block.
+        # Locate the <section> block that starts with the known data-id heading.
+        # Use a non-greedy match to stay within the section for this draw only.
+        section_m = re.search(
+            r'<h2\s+data-id="' + re.escape(did) + r'">[^<]+</h2>'
+            r'(.*?)'
+            r'(?:<h2\s+data-id="|</div>\s*</div>\s*</div>\s*<div\s+class="resultsdrawing">|<div\s+class="resultsbuttonrow">)',
+            html,
+            re.DOTALL,
+        )
+        if not section_m:
+            print(f"[parse] data-id={did} ({draw['game']} {draw['session']}) not found", file=sys.stderr)
+            continue
 
-    # Normalize game name for matching
-    game_display = "Cash 3" if game_key == "cash3" else "Cash 4"
-    alt_display  = game_key.replace("cash", "Cash ").strip()  # fallback
+        block = section_m.group(1)
 
-    # Split page into candidate result rows by known section patterns.
-    # GA Lottery uses divs/li items per draw; we look for date + session context.
-    draw_pattern = re.compile(
-        r'(\d{1,2}/\d{1,2}/\d{4}|\w+ \d{1,2},?\s*\d{4})'   # date
-        r'.*?'
-        r'(midday|evening|night|mid)'                          # session
-        r'.*?'
-        r'(?:'
-            r'(?:<[^>]+class=["\'][^"\']*(?:winning.?number|ball|digit)[^"\']*["\'][^>]*>\s*(\d)\s*</[^>]+>\s*){3,4}'  # digit spans
-        r')',
-        re.IGNORECASE | re.DOTALL,
-    )
+        # Extract draw date from <time datetime="YYYY-MM-DDThh:mm±hh:mm">
+        date_m = re.search(r'<time\s+datetime="(\d{4}-\d{2}-\d{2})T[^"]*"', block)
+        if not date_m:
+            print(f"[parse] No <time> for data-id={did}", file=sys.stderr)
+            continue
+        draw_date = date_m.group(1)
 
-    # --- Strategy 3: Line-by-line reconstruction (most robust) --------------
-    # Walk through all text nodes: collect (date, session, number) triples
-    # by tracking context across lines.
+        # Extract digits from <ul class="resultsnums"><li>D</li>...</ul>
+        nums_m = re.search(r'<ul\s+class="resultsnums">(.*?)</ul>', block, re.DOTALL)
+        if not nums_m:
+            print(f"[parse] No resultsnums for data-id={did}", file=sys.stderr)
+            continue
+        digits = re.findall(r'<li>(\d)</li>', nums_m.group(1))
 
-    lines = html.split("\n")
-    current_date  = None
-    current_session = None
-    digit_buffer: List[str] = []
-    date_pattern = re.compile(
-        r'(\d{4}-\d{2}-\d{2})'                          # YYYY-MM-DD
-        r'|(\w+,?\s+\w+\s+\d{1,2},?\s*\d{4})'          # "Sunday, April 26, 2026"
-        r'|(\d{1,2}/\d{1,2}/\d{4})'                     # M/D/YYYY
-    )
-    session_pattern = re.compile(r'\b(midday|mid|evening|eve|night)\b', re.IGNORECASE)
-    single_digit    = re.compile(r'^\s*(\d)\s*$')
+        expected = 4 if draw["game"] == "Cash4" else 3
+        if len(digits) != expected:
+            print(f"[parse] data-id={did}: expected {expected} digits, got {digits}", file=sys.stderr)
+            continue
 
-    # Also parse the page for game-section boundaries so we only collect digits
-    # inside the right game section.
-    inside_game_section = False
-    # Simple check: if the page is a single-game page (URL contained game name), always inside
-    inside_game_section = True  # We fetch per-game URL, so all results are for this game
-
-    def _normalise_date(raw: str) -> Optional[str]:
-        raw = raw.strip().rstrip(",")
-        for fmt in (
-            "%Y-%m-%d",
-            "%m/%d/%Y",
-            "%B %d %Y",   # "April 26 2026"
-            "%B %d, %Y",  # "April 26, 2026"
-            "%A, %B %d, %Y",  # "Sunday, April 26, 2026"
-            "%A %B %d %Y",
-        ):
-            try:
-                return datetime.strptime(raw, fmt).strftime("%Y-%m-%d")
-            except ValueError:
-                continue
-        return None
-
-    prev_line = ""
-    for line in lines:
-        stripped = line.strip()
-
-        # Date detection
-        dm = date_pattern.search(stripped)
-        if dm:
-            raw = dm.group(1) or dm.group(2) or dm.group(3) or ""
-            # Clean up "Sunday, April 26, 2026" style
-            raw = re.sub(r'^[A-Za-z]+,?\s*', '', raw).strip()
-            nd = _normalise_date(raw) or _normalise_date(stripped)
-            if nd:
-                # Flush any pending record before moving to new date
-                if current_date and current_session and len(digit_buffer) >= 3:
-                    num = "".join(digit_buffer[:4 if game_key == "cash4" else 3])
-                    if len(num) in (3, 4):
-                        results.append({
-                            "game":           game_display.replace(" ", ""),
-                            "session":        _SESSION_LABELS.get(current_session.lower(), current_session.lower()),
-                            "date":           current_date,
-                            "winning_number": num,
-                        })
-                current_date = nd
-                current_session = None
-                digit_buffer = []
-
-        # Session detection
-        sm = session_pattern.search(stripped)
-        if sm and current_date:
-            sess = sm.group(1).lower()
-            if sess != current_session:
-                # Flush pending
-                if current_session and len(digit_buffer) >= 3:
-                    num = "".join(digit_buffer[:4 if game_key == "cash4" else 3])
-                    if len(num) in (3, 4):
-                        results.append({
-                            "game":           game_display.replace(" ", ""),
-                            "session":        _SESSION_LABELS.get(current_session.lower(), current_session.lower()),
-                            "date":           current_date,
-                            "winning_number": num,
-                        })
-                current_session = sess
-                digit_buffer = []
-
-        # Digit detection — raw text content of digit elements
-        dm2 = single_digit.match(stripped)
-        if dm2 and current_date and current_session:
-            digit_buffer.append(dm2.group(1))
-            expected = 4 if game_key == "cash4" else 3
-            if len(digit_buffer) == expected:
-                num = "".join(digit_buffer)
-                results.append({
-                    "game":           game_display.replace(" ", ""),
-                    "session":        _SESSION_LABELS.get(current_session.lower(), current_session.lower()),
-                    "date":           current_date,
-                    "winning_number": num,
-                })
-                digit_buffer = []
-                current_session = None  # consumed — wait for next session marker
-
-        prev_line = stripped
+        results.append({
+            "game":           draw["game"],
+            "session":        draw["session"],
+            "date":           draw_date,
+            "winning_number": "".join(digits),
+        })
+        print(f"[parse] {draw['game']} {draw['session']} {draw_date} → {''.join(digits)}")
 
     return results
 
 
 def fetch_latest_results() -> Dict[str, List[Dict]]:
     """
-    Fetch today's (and yesterday's) Cash3 and Cash4 results from galottery.com.
+    Fetch today's (and most-recent) Cash3 and Cash4 results from lotterypost.com.
     Returns {"cash3": [...], "cash4": [...]}
     """
-    urls = {
-        "cash3": f"{_GA_LOTTERY_BASE}/en-us/results/winning-numbers/cash-3.html",
-        "cash4": f"{_GA_LOTTERY_BASE}/en-us/results/winning-numbers/cash-4.html",
-    }
+    print(f"[fetch] Fetching {_LP_URL}")
+    html = _fetch_page(_LP_URL)
+    if not html:
+        print("[fetch] No HTML returned", file=sys.stderr)
+        return {"cash3": [], "cash4": []}
 
-    all_results: Dict[str, List[Dict]] = {"cash3": [], "cash4": []}
+    all_rows = _parse_lotterypost(html)
 
-    for game_key, url in urls.items():
-        print(f"[fetch] Fetching {url}")
-        html = _fetch_page(url)
-        if not html:
-            print(f"[fetch] No HTML returned for {game_key}", file=sys.stderr)
-            continue
-        parsed = _parse_galottery_page(html, game_key)
-        all_results[game_key] = parsed
-        print(f"[fetch] Parsed {len(parsed)} {game_key} results")
-
-    return all_results
+    cash3 = [r for r in all_rows if r["game"] == "Cash3"]
+    cash4 = [r for r in all_rows if r["game"] == "Cash4"]
+    print(f"[fetch] Parsed {len(cash3)} Cash3, {len(cash4)} Cash4 results")
+    return {"cash3": cash3, "cash4": cash4}
 
 
 # ── Ingest ────────────────────────────────────────────────────────────────────
