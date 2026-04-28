@@ -1221,12 +1221,12 @@ def engine_status():
 @app.route('/api/results/fetch-latest', methods=['GET', 'POST'])
 def fetch_latest_results():
     """
-    Fetch today's GA Lottery results from galottery.com and auto-ingest them.
+    Fetch today's GA Lottery results from lotterypost.com and auto-ingest them.
 
     Designed to be called by a free cron service (e.g. cron-job.org) 3× daily:
-        12:45 PM ET  (after Midday draw at 12:29 PM)
-         7:15 PM ET  (after Evening draw at  6:59 PM)
-        11:50 PM ET  (after Night draw   at 11:34 PM)
+        12:45 PM ET  (17:45 UTC)  — after Midday draw at 12:29 PM
+         7:15 PM ET  (00:15 UTC)  — after Evening draw at  6:59 PM
+        11:50 PM ET  (04:50 UTC)  — after Night draw   at 11:34 PM
 
     Auth: X-Prediction-Secret header (same secret as other protected endpoints).
     Optional: ?dryRun=true to validate without writing.
