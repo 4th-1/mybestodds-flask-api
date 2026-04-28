@@ -238,14 +238,16 @@ def debug_info():
 def predict_triples():
     """Get Cash3 (triple) predictions"""
     try:
-        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play
+        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK3")
         triple_preds = [p for p in predictions if p.get("game") in ["Cash3", "Triples"]]
         _gad = _load_ga_data_from_json()
         c3_history = [d["winning_numbers"] for d in _gad.get("cash3_mid", []) + _gad.get("cash3_eve", []) + _gad.get("cash3_night", [])]
         for p in triple_preds:
-            p["recommended_play"] = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c3_history)
+            _rp = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c3_history)
+            p["recommended_play"] = _rp
+            p.update(_confidence_ui(_rp))
         return jsonify({
             "success": True,
             "date": date_str,
@@ -263,14 +265,16 @@ def predict_triples():
 def predict_quads():
     """Get Cash4 (quad) predictions"""
     try:
-        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play
+        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK")
         quad_preds = [p for p in predictions if p.get("game") in ["Cash4", "Quads"]]
         _gad = _load_ga_data_from_json()
         c4_history = [d["winning_numbers"] for d in _gad.get("cash4_mid", []) + _gad.get("cash4_eve", []) + _gad.get("cash4_night", [])]
         for p in quad_preds:
-            p["recommended_play"] = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c4_history)
+            _rp = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c4_history)
+            p["recommended_play"] = _rp
+            p.update(_confidence_ui(_rp))
         return jsonify({
             "success": True,
             "date": date_str,
@@ -591,17 +595,23 @@ def generate_predictions(subscriber_id: str):
 
         # Group by game, preserving per-pick metadata
         grouped: Dict[str, List] = {}
-        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play
+        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui
         for p in all_predictions:
             game = p.get("game", "Unknown")
             conf = p.get("confidence_score") or 0.0
             hist = _c3_hist if game in ("Cash3", "Triples") else (_c4_hist if game in ("Cash4", "Quads") else None)
+            _rp = _recommended_play(conf, p.get("number", ""), hist)
+            _ui = _confidence_ui(_rp)
             grouped.setdefault(game, []).append({
                 "number":           p.get("number"),
                 "kit":              p.get("kit"),
                 "lane":             p.get("lane"),
                 "confidence_score": conf,
-                "recommended_play": _recommended_play(conf, p.get("number", ""), hist),
+                "recommended_play": _rp,
+                "confidence_label": _ui["label"],
+                "confidence_color": _ui["color"],
+                "confidence_tier":  _ui["tier"],
+                "confidence_description": _ui["description"],
             })
 
         # Inject MMFSN picks sent by the edge function (BOOK3 personal-number lane)
