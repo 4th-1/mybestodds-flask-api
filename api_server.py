@@ -73,6 +73,45 @@ _ga_extra_entries: Dict[str, List] = {
     "cash4_mid": [], "cash4_eve": [], "cash4_night": [],
 }
 
+# ── Ingest audit log ────────────────────────────────────────────────────────
+# Persisted to disk at data/ingest_audit.json on every successful ingest.
+# In-memory mirror for fast /api/engine/status reads without a disk round-trip.
+_ingest_audit_log: List[Dict] = []
+
+def _load_audit_log() -> None:
+    """Load persisted audit log from disk into _ingest_audit_log at startup."""
+    global _ingest_audit_log
+    audit_path = os.path.join(JACKPOT_SYSTEM_DIR, "data", "ingest_audit.json")
+    try:
+        if os.path.exists(audit_path):
+            with open(audit_path, "r", encoding="utf-8") as f:
+                _ingest_audit_log = json.load(f)
+    except Exception as e:
+        logger.warning(f"[audit] could not load ingest_audit.json: {e}")
+
+def _append_audit_log(game: str, session: str, date_str: str,
+                     winning_number: str, source: str = "ingest") -> None:
+    """Append one entry to the in-memory audit log and persist to disk (best-effort)."""
+    entry = {
+        "ingested_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "game":           game,
+        "session":        session,
+        "date":           date_str,
+        "winning_number": winning_number,
+        "source":         source,
+    }
+    _ingest_audit_log.append(entry)
+    audit_path = os.path.join(JACKPOT_SYSTEM_DIR, "data", "ingest_audit.json")
+    try:
+        os.makedirs(os.path.dirname(audit_path), exist_ok=True)
+        with open(audit_path, "w", encoding="utf-8") as f:
+            json.dump(_ingest_audit_log, f, indent=2)
+    except Exception as e:
+        logger.warning(f"[audit] disk write failed (non-fatal): {e}")
+
+# Load persisted audit log at startup
+_load_audit_log()
+
 
 def _check_prediction_secret() -> bool:
     """Returns True if the request carries a valid prediction secret header."""
@@ -982,6 +1021,7 @@ def results_ingest():
         if not already_present:
             _ga_extra_entries[cache_key].append(entry)
             logger.info(f"[ingest] in-memory: {cache_key} {date_str} → {winning_number}")
+            _append_audit_log(game, session_raw, date_str, winning_number, source="ingest")
         else:
             logger.info(f"[ingest] duplicate skipped (already in memory): {cache_key} {date_str}")
 
@@ -1029,6 +1069,152 @@ def results_ingest():
 
     except Exception as e:
         logger.error(f"results_ingest error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/api/engine/status', methods=['GET'])
+def engine_status():
+    """
+    GET /api/engine/status
+
+    Returns a live snapshot of the course-correction engine state:
+      - Last ingest per session with how many minutes/hours ago it occurred
+      - Total draws loaded per session (JSON file + in-memory injected)
+      - Current near-miss neighbor pool for Cash3 and Cash4
+      - Ingest audit log (last 30 entries, newest first)
+      - Whether any session is overdue (> 26 h since last ingest)
+
+    No auth required — read-only diagnostic endpoint.
+    """
+    try:
+        from jackpot_system_v3.core.pick_engine_v3 import _extract_near_miss_neighbors
+
+        gad = _load_ga_data_from_json()
+
+        # ── Draw counts per session ──────────────────────────────────────────
+        session_counts = {
+            k: len(v) for k, v in gad.items()
+            if k.startswith("cash")
+        }
+
+        # ── Last ingest per session from audit log ───────────────────────────
+        now_utc = datetime.utcnow()
+        _sess_abbr = {"midday": "mid", "evening": "eve", "night": "night"}
+        last_ingest: Dict[str, Dict] = {}
+        for entry in reversed(_ingest_audit_log):
+            abbr = _sess_abbr.get(entry.get("session", ""), "?")
+            key = f"{entry['game'].lower()}_{abbr}"
+            if key not in last_ingest:
+                try:
+                    ingested_dt = datetime.strptime(entry["ingested_at"], "%Y-%m-%dT%H:%M:%SZ")
+                    minutes_ago = int((now_utc - ingested_dt).total_seconds() / 60)
+                    last_ingest[key] = {
+                        "draw_date":      entry["date"],
+                        "winning_number": entry["winning_number"],
+                        "ingested_at":    entry["ingested_at"],
+                        "minutes_ago":    minutes_ago,
+                        "overdue":        minutes_ago > 26 * 60,  # > 26 h
+                    }
+                except Exception:
+                    pass
+
+        # ── Near-miss neighbor pools ─────────────────────────────────────────
+        cash3_history = (
+            gad.get("cash3_mid", []) + gad.get("cash3_eve", []) + gad.get("cash3_night", [])
+        )
+        cash4_history = (
+            gad.get("cash4_mid", []) + gad.get("cash4_eve", []) + gad.get("cash4_night", [])
+        )
+        try:
+            from jackpot_system_v3.core.pick_engine_v3 import (
+                _extract_near_miss_neighbors, _extract_combo_history,
+                _extract_combo_history_dated, _build_combo_stats,
+                NEAR_MISS_LOOKBACK, MIN_SCORE_FOR_CORRECTION,
+                NEAR_MISS_BOOST_SCALE, DECAY_WEIGHT_90D, DECAY_WEIGHT_12MO,
+                DECAY_WEIGHT_OLDER,
+            )
+            _decay = (DECAY_WEIGHT_90D, DECAY_WEIGHT_12MO, DECAY_WEIGHT_OLDER)
+
+            c3_combos = _extract_combo_history(cash3_history, 3)
+            c3_dated  = _extract_combo_history_dated(cash3_history, 3)
+            c3_base   = _build_combo_stats(c3_combos, combo_dates=c3_dated, decay_weights=_decay)
+            c3_neighbors = sorted(_extract_near_miss_neighbors(
+                cash3_history, 3,
+                lookback=NEAR_MISS_LOOKBACK,
+                base_stats=c3_base,
+                min_score=MIN_SCORE_FOR_CORRECTION,
+            ))
+
+            c4_combos = _extract_combo_history(cash4_history, 4)
+            c4_dated  = _extract_combo_history_dated(cash4_history, 4)
+            c4_base   = _build_combo_stats(c4_combos, combo_dates=c4_dated, decay_weights=_decay)
+            c4_neighbors = sorted(_extract_near_miss_neighbors(
+                cash4_history, 4,
+                lookback=NEAR_MISS_LOOKBACK,
+                base_stats=c4_base,
+                min_score=MIN_SCORE_FOR_CORRECTION,
+            ))
+
+            # Last N source draws that seeded the neighbors
+            c3_recent_source = []
+            for item in reversed(cash3_history[-NEAR_MISS_LOOKBACK*3:]):
+                raw = str(item.get("winning_numbers") or item.get("winning_number") or "").strip()
+                if len(raw) == 3 and raw.isdigit() and raw not in c3_recent_source:
+                    c3_recent_source.append(raw)
+                    if len(c3_recent_source) >= NEAR_MISS_LOOKBACK:
+                        break
+            c4_recent_source = []
+            for item in reversed(cash4_history[-NEAR_MISS_LOOKBACK*3:]):
+                raw = str(item.get("winning_numbers") or item.get("winning_number") or "").strip()
+                if len(raw) == 4 and raw.isdigit() and raw not in c4_recent_source:
+                    c4_recent_source.append(raw)
+                    if len(c4_recent_source) >= NEAR_MISS_LOOKBACK:
+                        break
+        except Exception as ne:
+            logger.warning(f"[engine/status] neighbor pool error: {ne}")
+            c3_neighbors, c4_neighbors = [], []
+            c3_recent_source, c4_recent_source = [], []
+
+        # ── Audit log tail (last 30, newest first) ───────────────────────────
+        audit_tail = list(reversed(_ingest_audit_log[-30:]))
+
+        # ── Overdue sessions ─────────────────────────────────────────────────
+        overdue_sessions = [
+            k for k, v in last_ingest.items() if v.get("overdue")
+        ]
+
+        return jsonify({
+            "success":         True,
+            "as_of":           now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "draw_counts":     session_counts,
+            "last_ingest":     last_ingest,
+            "overdue_sessions": overdue_sessions,
+            "near_miss": {
+                "lookback":          NEAR_MISS_LOOKBACK,
+                "min_score_trigger": MIN_SCORE_FOR_CORRECTION,
+                "boost_scale":       NEAR_MISS_BOOST_SCALE,
+                "cash3": {
+                    "source_draws":  c3_recent_source,
+                    "neighbor_pool": c3_neighbors,
+                    "neighbor_count": len(c3_neighbors),
+                },
+                "cash4": {
+                    "source_draws":  c4_recent_source,
+                    "neighbor_pool": c4_neighbors,
+                    "neighbor_count": len(c4_neighbors),
+                },
+            },
+            "decay_weights": {
+                "90d":   DECAY_WEIGHT_90D,
+                "12mo":  DECAY_WEIGHT_12MO,
+                "older": DECAY_WEIGHT_OLDER,
+            },
+            "audit_log":       audit_tail,
+            "total_ingests":   len(_ingest_audit_log),
+        }), 200
+
+    except Exception as e:
+        logger.error(f"engine_status error: {e}", exc_info=True)
         return jsonify({"success": False, "error": str(e)}), 500
 
 
