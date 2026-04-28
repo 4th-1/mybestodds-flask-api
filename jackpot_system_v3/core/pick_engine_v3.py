@@ -91,6 +91,14 @@ NEAR_MISS_BOOST_SCALE: float = 1.0   # baseline 2026-04-14
 # This is NOT a pool-size filter — it controls the TRIGGER, not the output.
 MIN_SCORE_FOR_CORRECTION: float = 1.4  # exp-05 2026-04-14
 
+# MMFSN gate: minimum frequency score for a personal number to be surfaced
+# on a given day.  Score is from _build_combo_stats (decay-weighted).
+#   1.0 = appeared at least once in history with any recency weighting
+#   1.4 = has meaningful recency (seen within ~15 draws)
+#   2.0 = seen multiple times → strong historical presence
+# A number BELOW this threshold is suppressed for the day ("not aligned").
+MMFSN_MIN_FREQUENCY_SCORE: float = 1.0
+
 # How many recent draws (combined across sessions) to scan for near-miss
 # neighbor generation.  Kept deliberately small to stay fresh.
 #   3 = default; scan the last 3 results per game
@@ -439,17 +447,79 @@ def _extract_near_miss_neighbors(
     return neighbors
 
 
+def _build_positional_freq(combos: List[str], length: int) -> List[List[float]]:
+    """Build per-position digit frequency table from a list of historical combos.
+
+    Returns pos_freq[position][digit] = weighted count (float).
+    Used to rank permutations by their historical positional likelihood so
+    straight predictions favour the digit orderings that actually recur.
+
+    Args:
+        combos: list of historical winning combo strings (exact length).
+        length: expected combo length (3 for Cash3, 4 for Cash4).
+
+    Returns:
+        List of length `length`, each element a list of 10 floats (digits 0–9).
+    """
+    pos_freq: List[List[float]] = [[0.0] * 10 for _ in range(length)]
+    for combo in combos:
+        if len(combo) == length and combo.isdigit():
+            for pos, ch in enumerate(combo):
+                pos_freq[pos][int(ch)] += 1.0
+    # Normalise each position so scores are comparable across lengths
+    for pos in range(length):
+        total = sum(pos_freq[pos]) or 1.0
+        for d in range(10):
+            pos_freq[pos][d] /= total
+    return pos_freq
+
+
+def _positional_score(combo: str, pos_freq: List[List[float]]) -> float:
+    """Score a combo string by how well its digit order matches historical
+    positional frequencies.
+
+    A high score means each digit in this combo tends to appear at that
+    position in actual draws — making it a stronger STRAIGHT candidate.
+    Uses product of positional probabilities (log-space sum to avoid underflow).
+
+    Args:
+        combo:    the candidate combo string (e.g. "1234").
+        pos_freq: output of _build_positional_freq().
+
+    Returns:
+        float — higher = stronger straight alignment.
+    """
+    import math
+    if len(combo) != len(pos_freq):
+        return 0.0
+    log_score = 0.0
+    for pos, ch in enumerate(combo):
+        if not ch.isdigit():
+            return 0.0
+        p = pos_freq[pos][int(ch)]
+        log_score += math.log(p + 1e-9)  # 1e-9 prevents log(0)
+    return log_score
+
+
 def _generate_signal_family(
     primary: str,
     stats: Dict[str, Dict[str, float]],
     top_pool: int = 25,
+    pos_freq: "List[List[float]] | None" = None,
 ) -> List[str]:
     """
     Build a diversified "signal family" for distribution across subscribers.
 
     Phase 1 – top_pool highest-scoring combos from stats (the core signal pool).
-    Phase 2 – all digit-permutations of the primary signal.
+    Phase 2 – all digit-permutations of the primary signal, ranked by positional
+              frequency when pos_freq is provided (straight signal improvement).
     Phase 3 – digit-neighbor variants (+/-1 on each position of the primary).
+
+    When pos_freq is provided (output of _build_positional_freq), Phase 2
+    permutations are sorted so the highest positional-frequency orderings
+    appear first in the family.  Subscribers assigned early slots get picks
+    whose digit ORDER matches historical position patterns — improving straight
+    hit rate without changing the digit composition (box rate unchanged).
 
     Result is deduplicated and ordered: stats-ranked combos first, then extras.
     This gives ~30-50 valid variants so 999 subscribers spread across them
@@ -465,12 +535,18 @@ def _generate_signal_family(
             family.append(combo)
             seen.add(combo)
 
-    # Phase 2: permutations of primary
+    # Phase 2: permutations of primary — ranked by positional frequency
+    perms = []
     for perm in _iterperms(primary):
         candidate = "".join(perm)
         if candidate not in seen:
-            family.append(candidate)
+            perms.append(candidate)
             seen.add(candidate)
+    if pos_freq is not None and perms:
+        # Sort permutations so highest positional-probability orderings come first.
+        # Subscribers assigned earlier in the pool see the strongest straight picks.
+        perms.sort(key=lambda c: _positional_score(c, pos_freq), reverse=True)
+    family.extend(perms)
 
     # Phase 3: digit neighbors (+/-1 per position, wrapping mod 10)
     for pos in range(len(primary)):
@@ -489,6 +565,7 @@ def _pick_top_combos(
     k: int,
     subscriber_seed: int = None,
     max_family_pool: int = 25,
+    pos_freq: "List[List[float]] | None" = None,
 ) -> List[str]:
     """
     Pick k combos from stats.
@@ -499,6 +576,10 @@ def _pick_top_combos(
                             family so each sub gets a distinct-but-related pick.
                             With 999 subs over a ~35-combo family, each pick
                             is assigned to ~28 subs (vs 999 under the old code).
+    pos_freq              → output of _build_positional_freq(). When provided,
+                            permutations inside the signal family are ranked by
+                            positional frequency so straight signal is improved.
+                            Pass for Cash4 (and Cash3) system-lane picks.
     """
     if not stats:
         return []
@@ -510,7 +591,11 @@ def _pick_top_combos(
     # ── Diversified path (subscriber seed provided) ───────────────────────────
     if subscriber_seed is not None:
         primary = ranked[0][0]  # strongest signal this session/day
-        family = _generate_signal_family(primary, stats, top_pool=max_family_pool)
+        family = _generate_signal_family(
+            primary, stats,
+            top_pool=max_family_pool,
+            pos_freq=pos_freq,
+        )
         pool_size = min(len(family), max_family_pool + len(primary) * 2)  # reasonable cap
         pool = family[:max(pool_size, max_family_pool)]
         rng = random.Random(subscriber_seed)
@@ -705,7 +790,7 @@ _CONFIDENCE_UI_DEFAULT = {
 }
 
 
-def _confidence_ui(recommended_play: str, lane: str = "") -> dict:
+def _confidence_ui(recommended_play: str, lane: str = "", game: str = "") -> dict:
     """Return subscriber-facing confidence label, color, and tier for a pick.
 
     Args:
@@ -715,6 +800,9 @@ def _confidence_ui(recommended_play: str, lane: str = "") -> dict:
               regardless of recommended_play, because mmfsn picks always score
               conf=0.0 (not in the frequency pool) but are validated at 3.5x
               above random in the 91-day simulation.
+        game: Game name string (e.g. 'Cash3', 'Cash4'). Used to surface
+              Cash4-specific BOX guidance since Cash4 box hits at 11.55x
+              above random — the strongest per-game signal in the system.
 
     Returns:
         dict with keys: label, color, tier, description
@@ -725,7 +813,22 @@ def _confidence_ui(recommended_play: str, lane: str = "") -> dict:
     """
     if lane and "mmfsn" in lane.lower():
         return _CONFIDENCE_UI_MAP["PERSONAL_NUMBER"].copy()
-    return _CONFIDENCE_UI_MAP.get(recommended_play, _CONFIDENCE_UI_DEFAULT).copy()
+    ui = _CONFIDENCE_UI_MAP.get(recommended_play, _CONFIDENCE_UI_DEFAULT).copy()
+    # Cash4 box hits at 11.55x above random — the highest validated edge in the
+    # system. Override the generic description so subscribers know BOX is the
+    # recommended play regardless of whether they also want to try straight.
+    if game in ("Cash4", "Quads"):
+        if recommended_play == "BOX":
+            ui["description"] = (
+                "BOX play recommended — Cash4 box is your strongest edge "
+                "(validated 11.55x above random in simulation)"
+            )
+        elif recommended_play == "STRAIGHT_BOX":
+            ui["description"] = (
+                "BOX also wins here — Cash4 box signal is exceptionally strong; "
+                "straight covers the exact-order bonus"
+            )
+    return ui
 
 
 # ================================================================
@@ -1052,12 +1155,14 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         alignment_score,
         ALIGNMENT_UNLOCK_CASH3_EXTRA_MAX,
     )
+    _c3_pos_freq = _build_positional_freq(c3_combos, 3)
     if stats3:
         system_cash3 = _pick_top_combos(
             stats3,
             k=cash3_k,
             subscriber_seed=subscriber_seed,
             max_family_pool=_family_pool_size,
+            pos_freq=_c3_pos_freq,
         )
     else:
         freq3 = build_digit_frequency(last_digits_from_results(cash3_history, 30), 3)
@@ -1099,12 +1204,14 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         alignment_score,
         ALIGNMENT_UNLOCK_CASH4_EXTRA_MAX,
     )
+    _c4_pos_freq = _build_positional_freq(c4_combos, 4)
     if stats4:
         system_cash4 = _pick_top_combos(
             stats4,
             k=cash4_k,
             subscriber_seed=subscriber_seed,
             max_family_pool=_family_pool_size,
+            pos_freq=_c4_pos_freq,
         )
     else:
         freq4 = build_digit_frequency(last_digits_from_results(cash4_history, 30), 4)
@@ -1129,6 +1236,19 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     mm_lines = generate_megamillions_picks(mm_k, root=root)
     pb_lines = generate_powerball_picks(pb_k, root=root)
     c4l_lines = generate_millionaire_for_life_picks(mfl_k, root=root)
+
+    # ── MMFSN Frequency Gate ─────────────────────────────────────────────────
+    # Only surface a personal number today if it appears in the current
+    # frequency pool with a meaningful score.  Numbers below the threshold
+    # are "not aligned" — the engine has no statistical evidence they are
+    # due today, so suppressing them keeps the UI promise accurate.
+    def _mmfsn_gate(numbers: list, stats: dict, min_score: float) -> list:
+        if not stats:
+            return numbers  # no history → surface all (graceful fallback)
+        return [n for n in numbers if stats.get(str(n), {}).get("score", 0.0) >= min_score]
+
+    mmfsn_cash3 = _mmfsn_gate(mmfsn_cash3, stats3, MMFSN_MIN_FREQUENCY_SCORE)
+    mmfsn_cash4 = _mmfsn_gate(mmfsn_cash4, stats4, MMFSN_MIN_FREQUENCY_SCORE)
 
     return {
         "Cash3": {

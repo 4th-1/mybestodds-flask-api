@@ -1,23 +1,20 @@
 {
   "first_name": "",
   "last_name": "",
-
   "dob": "",
   "birth_time": "",
-
   "birth_city": "",
   "birth_state": "",
-
   "phone": "",
   "email": "",
-
   "games": [
     "Cash3",
-    "Cash4"
+    "Cash4",
+    "Powerball",
+    "Mega Millions",
+    "Millionaire For Life"
   ],
-
-  "tier": "BOSK",
-
+  "tier": "BOOK3",
   "rules": {
     "required_fields": [
       "first_name",
@@ -29,7 +26,7 @@
       "phone",
       "email"
     ],
-    "mmfsn_allowed": false,
+    "mmfsn_allowed": true,
     "mmfsn_required": false,
     "requires_all_games": false
   }

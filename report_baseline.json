@@ -1,68 +1,119 @@
 {
-  "run_date": "2026-04-14",
-  "date_range": "2026-01-01 to 2026-03-28",
-  "subscriber_count": 999,
+  "run_date": "2026-04-28",
+  "date_range": "0.666667 to fsn",
+  "subscriber_count": 1000,
   "cash3": {
-    "picks": 459394,
-    "straight_hits": 1698,
-    "box_hits": 7640,
-    "near_misses": 36508,
-    "straight_rate": 0.369617,
-    "box_rate": 1.66306,
-    "straight_daily_stddev": 24.9053,
-    "box_daily_stddev": 79.985
+    "picks": 545996,
+    "straight_hits": 1838,
+    "box_hits": 8837,
+    "near_misses": 43671,
+    "straight_rate": 0.336633,
+    "box_rate": 1.61851,
+    "straight_daily_stddev": 24.7553,
+    "box_daily_stddev": 81.4286
   },
   "cash4": {
-    "picks": 344451,
-    "straight_hits": 38,
-    "box_hits": 1287,
-    "near_misses": 3732,
-    "straight_rate": 0.011032,
-    "box_rate": 0.373638,
-    "straight_daily_stddev": 0.5847,
-    "box_daily_stddev": 18.2726
+    "picks": 424603,
+    "straight_hits": 41,
+    "box_hits": 1766,
+    "near_misses": 4411,
+    "straight_rate": 0.009656,
+    "box_rate": 0.415918,
+    "straight_daily_stddev": 0.6012,
+    "box_daily_stddev": 23.0733
   },
   "jackpot": {
     "mm": {
-      "picks": 41958,
-      "prize_wins": 2029,
-      "win_rate": 4.835788,
-      "total_prize": 6474,
+      "picks": 170620,
+      "prize_wins": 7950,
+      "win_rate": 4.659477,
+      "total_prize": 25110,
       "tiers": {
-        "0+MB": 1408,
-        "1+MB": 507,
-        "3+0": 55,
-        "2+MB": 58,
-        "4+0": 1
+        "1+MB": 1949,
+        "3+0": 176,
+        "0+MB": 5622,
+        "2+MB": 191,
+        "3+MB": 12
       }
     },
     "pb": {
-      "picks": 57942,
-      "prize_wins": 2442,
-      "win_rate": 4.214559,
-      "total_prize": 10818,
+      "picks": 245270,
+      "prize_wins": 10591,
+      "win_rate": 4.318098,
+      "total_prize": 246848,
       "tiers": {
-        "1+PB": 678,
-        "0+PB": 1569,
-        "2+PB": 92,
-        "3+0": 98,
-        "3+PB": 4,
-        "4+0": 1
+        "1+PB": 3008,
+        "0+PB": 6730,
+        "2+PB": 419,
+        "3+0": 409,
+        "3+PB": 16,
+        "4+PB": 4,
+        "4+0": 5
       }
     },
     "mfl": {
-      "picks": 171828,
-      "prize_wins": 39654,
-      "win_rate": 23.077729,
-      "total_prize": 83545,
+      "picks": 709115,
+      "prize_wins": 162160,
+      "win_rate": 22.867941,
+      "total_prize": 329613,
       "tiers": {
-        "0+MB": 24205,
-        "1+MB": 12830,
-        "2+MB": 2060,
-        "3+MB": 109,
-        "3+0": 443,
-        "4+0": 2,
-        "4+MB": 5
+        "1+MB": 51952,
+        "0+MB": 99464,
+        "2+MB": 8489,
+        "3+0": 1720,
+        "3+MB": 482,
+        "4+0": 45,
+        "4+MB": 8
+      }
+    }
+  },
+  "confidence": {
+    "Cash3": {
+      "tiers": {
+        "LOW": {
+          "picks": 304196,
+          "wins": 10679,
+          "win_rate_pct": 3.510566
+        },
+        "MODERATE": {
+          "picks": 99105,
+          "wins": 1745,
+          "win_rate_pct": 1.760759
+        },
+        "HIGH": {
+          "picks": 97346,
+          "wins": 1300,
+          "win_rate_pct": 1.335443
+        },
+        "VERY HIGH": {
+          "picks": 45349,
+          "wins": 745,
+          "win_rate_pct": 1.642815
+        }
+      }
+    },
+    "Cash4": {
+      "tiers": {
+        "LOW": {
+          "picks": 221744,
+          "wins": 1822,
+          "win_rate_pct": 0.821668
+        },
+        "MODERATE": {
+          "picks": 101819,
+          "wins": 354,
+          "win_rate_pct": 0.347676
+        },
+        "HIGH": {
+          "picks": 55714,
+          "wins": 158,
+          "win_rate_pct": 0.283591
+        },
+        "VERY HIGH": {
+          "picks": 45326,
+          "wins": 130,
+          "win_rate_pct": 0.286811
+        }
       }
     }
   }

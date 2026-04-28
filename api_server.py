@@ -247,7 +247,7 @@ def predict_triples():
         for p in triple_preds:
             _rp = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c3_history)
             p["recommended_play"] = _rp
-            p.update(_confidence_ui(_rp, p.get("lane", "")))
+            p.update(_confidence_ui(_rp, p.get("lane", ""), game="Cash3"))
         return jsonify({
             "success": True,
             "date": date_str,
@@ -274,7 +274,7 @@ def predict_quads():
         for p in quad_preds:
             _rp = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c4_history)
             p["recommended_play"] = _rp
-            p.update(_confidence_ui(_rp, p.get("lane", "")))
+            p.update(_confidence_ui(_rp, p.get("lane", ""), game="Cash4"))
         return jsonify({
             "success": True,
             "date": date_str,
@@ -285,6 +285,75 @@ def predict_quads():
         
     except Exception as e:
         logger.error(f"Quads error: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/api/triples/due-signal', methods=['GET'])
+def triples_due_signal():
+    """
+    Cash3 triple due-signal — predicts which same-digit numbers (000–999)
+    are statistically overdue based on historical gap analysis.
+    Five-factor model: overdue ratio, gap percentile, digit heat,
+    frequency trend, max-gap breach.
+    """
+    try:
+        from jackpot_system_v3.core.triple_due_signal import compute_due_signal
+        result = compute_due_signal('Cash3')
+        return jsonify({"success": True, **result}), 200
+    except Exception as e:
+        logger.error(f"Triples due-signal error: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/api/quads/due-signal', methods=['GET'])
+def quads_due_signal():
+    """
+    Cash4 quad due-signal — predicts which same-digit numbers (0000–9999)
+    are statistically overdue based on historical gap analysis.
+    Five-factor model: overdue ratio, gap percentile, digit heat,
+    frequency trend, max-gap breach.
+    """
+    try:
+        from jackpot_system_v3.core.triple_due_signal import compute_due_signal
+        result = compute_due_signal('Cash4')
+        return jsonify({"success": True, **result}), 200
+    except Exception as e:
+        logger.error(f"Quads due-signal error: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/api/due-signal/check', methods=['GET'])
+def due_signal_check():
+    """
+    Subscriber query: check whether a specific triple or quad is due to fall.
+
+    Query parameters
+    ----------------
+    number : str  — required. e.g. '555' (Cash3 triple) or '3333' (Cash4 quad).
+
+    Response includes:
+    - Gap analysis (overdue ratio, gap percentile, max-gap breach)
+    - Historical condition fingerprint (moon phase, zodiac, numerology,
+      day-of-week, month, session affinity at every historical hit)
+    - Today's celestial conditions vs. historical fingerprint (side-by-side)
+    - Condition alignment score and verdict
+    - Play advice (session, wager guide, play type)
+    - Plain-English narrative
+    """
+    try:
+        from jackpot_system_v3.core.triple_due_signal import check_number
+        number = request.args.get('number', '').strip()
+        if not number:
+            return jsonify({
+                "success": False,
+                "error": "Missing required parameter: ?number=555 (Cash3 triple) or ?number=3333 (Cash4 quad)"
+            }), 400
+        result = check_number(number)
+        if not result.get('valid', True):
+            return jsonify({"success": False, **result}), 400
+        return jsonify({"success": True, **result}), 200
+    except Exception as e:
+        logger.error(f"Due-signal check error: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
 
 
@@ -619,7 +688,7 @@ def generate_predictions(subscriber_id: str):
             else:
                 hist = _c3_hist if game in ("Cash3", "Triples") else (_c4_hist if game in ("Cash4", "Quads") else None)
                 _rp = _recommended_play(conf, p.get("number", ""), hist)
-                _ui = _confidence_ui(_rp, _lane)
+                _ui = _confidence_ui(_rp, _lane, game=game)
             grouped.setdefault(game, []).append({
                 "number":           p.get("number"),
                 "kit":              p.get("kit"),
@@ -635,6 +704,11 @@ def generate_predictions(subscriber_id: str):
         # Inject MMFSN picks sent by the edge function (BOOK3 personal-number lane)
         if mmfsn and kit == "BOOK3":
             _inject_mmfsn_picks(grouped, mmfsn, subscriber_id, date_str)
+
+        # BOSK tier — Cash3 and Cash4 only, no jackpot games
+        _BOSK_GAMES = {"Cash3", "Cash4", "Triples", "Quads"}
+        if kit == "BOSK":
+            grouped = {g: v for g, v in grouped.items() if g in _BOSK_GAMES}
 
         # Filter if caller asked for specific games
         if requested_games:
