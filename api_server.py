@@ -292,9 +292,13 @@ def predict_quads():
 def predict_powerball():
     """Get Powerball predictions"""
     try:
+        from jackpot_system_v3.core.pick_engine_v3 import _jackpot_confidence_ui
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK3")
         pb_preds = [p for p in predictions if p.get("game") == "Powerball"]
+        _ui = _jackpot_confidence_ui("Powerball")
+        for p in pb_preds:
+            p.update(_ui)
         
         return jsonify({
             "success": True,
@@ -312,9 +316,13 @@ def predict_powerball():
 def predict_megamillions():
     """Get Mega Millions predictions"""
     try:
+        from jackpot_system_v3.core.pick_engine_v3 import _jackpot_confidence_ui
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK3")
         mm_preds = [p for p in predictions if p.get("game") == "Mega Millions"]
+        _ui = _jackpot_confidence_ui("Mega Millions")
+        for p in mm_preds:
+            p.update(_ui)
         
         return jsonify({
             "success": True,
@@ -332,9 +340,13 @@ def predict_megamillions():
 def predict_millionaire():
     """Get Millionaire For Life predictions"""
     try:
+        from jackpot_system_v3.core.pick_engine_v3 import _jackpot_confidence_ui
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK3")
         mfl_preds = [p for p in predictions if p.get("game") == "Millionaire For Life"]
+        _ui = _jackpot_confidence_ui("Millionaire For Life")
+        for p in mfl_preds:
+            p.update(_ui)
         
         return jsonify({
             "success": True,
@@ -595,14 +607,19 @@ def generate_predictions(subscriber_id: str):
 
         # Group by game, preserving per-pick metadata
         grouped: Dict[str, List] = {}
-        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui
+        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui, _jackpot_confidence_ui
+        _JACKPOT_GAMES = {"Powerball", "Mega Millions", "Millionaire For Life"}
         for p in all_predictions:
             game = p.get("game", "Unknown")
             conf = p.get("confidence_score") or 0.0
-            hist = _c3_hist if game in ("Cash3", "Triples") else (_c4_hist if game in ("Cash4", "Quads") else None)
-            _rp = _recommended_play(conf, p.get("number", ""), hist)
             _lane = p.get("lane", "")
-            _ui = _confidence_ui(_rp, _lane)
+            if game in _JACKPOT_GAMES:
+                _rp = game
+                _ui = _jackpot_confidence_ui(game)
+            else:
+                hist = _c3_hist if game in ("Cash3", "Triples") else (_c4_hist if game in ("Cash4", "Quads") else None)
+                _rp = _recommended_play(conf, p.get("number", ""), hist)
+                _ui = _confidence_ui(_rp, _lane)
             grouped.setdefault(game, []).append({
                 "number":           p.get("number"),
                 "kit":              p.get("kit"),

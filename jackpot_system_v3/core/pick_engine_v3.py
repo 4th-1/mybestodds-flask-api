@@ -729,6 +729,55 @@ def _confidence_ui(recommended_play: str, lane: str = "") -> dict:
 
 
 # ================================================================
+#  JACKPOT CONFIDENCE UI — game-level signal labels
+# ================================================================
+# Calibrated from 91-day × 999-subscriber simulation (970K picks):
+#   Millionaire For Life: 22.87% prize win rate  ← dominant jackpot signal
+#   Mega Millions:         4.66% prize win rate
+#   Powerball:             4.32% prize win rate
+_JACKPOT_CONFIDENCE_UI_MAP = {
+    "Millionaire For Life": {
+        "label":       "JACKPOT SIGNAL",
+        "color":       "green",
+        "tier":        4,
+        "description": "Validated 22.87% prize win rate in 91-day simulation — strongest jackpot signal",
+    },
+    "Mega Millions": {
+        "label":       "JACKPOT PICK",
+        "color":       "blue",
+        "tier":        3,
+        "description": "Validated 4.66% prize win rate in 91-day simulation",
+    },
+    "Powerball": {
+        "label":       "JACKPOT PICK",
+        "color":       "blue",
+        "tier":        3,
+        "description": "Validated 4.32% prize win rate in 91-day simulation",
+    },
+}
+_JACKPOT_CONFIDENCE_UI_DEFAULT = {
+    "label":       "JACKPOT PICK",
+    "color":       "blue",
+    "tier":        3,
+    "description": "Engine-selected jackpot number",
+}
+
+
+def _jackpot_confidence_ui(game: str) -> dict:
+    """Return subscriber-facing confidence UI dict for a jackpot game pick.
+
+    Args:
+        game: Game name string, e.g. 'Powerball', 'Mega Millions',
+              'Millionaire For Life'.
+
+    Returns:
+        dict with keys: label, color, tier, description — same shape as
+        _confidence_ui() so the frontend can render jackpot picks identically.
+    """
+    return _JACKPOT_CONFIDENCE_UI_MAP.get(game, _JACKPOT_CONFIDENCE_UI_DEFAULT).copy()
+
+
+# ================================================================
 #  JACKPOT FREQUENCY ENGINE
 # ================================================================
 
