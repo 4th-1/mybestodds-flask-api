@@ -346,6 +346,8 @@ def cash4_straight_rank():
     - aligned_positions : how many of the 4 input digit positions match session-top digits
     """
     try:
+        if not _verify_secret():
+            return jsonify({'success': False, 'error': 'Unauthorized'}), 403
         from jackpot_system_v3.core.pick_engine_v3 import rank_cash4_straight_orderings
         digits = request.args.get('digits', '').strip()
         session = request.args.get('session', '').strip().lower()
@@ -763,7 +765,8 @@ def generate_predictions(subscriber_id: str):
                 hist = _c3_hist if game in ("Cash3", "Triples") else (_c4_hist if game in ("Cash4", "Quads") else None)
                 _rp = _recommended_play(conf, p.get("number", ""), hist)
                 _ui = _confidence_ui(_rp, _lane, game=game)
-            grouped.setdefault(game, []).append({
+
+            pick_entry = {
                 "number":           p.get("number"),
                 "kit":              p.get("kit"),
                 "lane":             _lane,
@@ -773,7 +776,36 @@ def generate_predictions(subscriber_id: str):
                 "confidence_color": _ui["color"],
                 "confidence_tier":  _ui["tier"],
                 "confidence_description": _ui["description"],
-            })
+            }
+
+            # Option 1 — inject suggested_1off + full straight_rankings for STRAIGHT+1OFF Cash4 picks
+            if _rp == "STRAIGHT+1OFF" and game in ("Cash4", "Quads"):
+                try:
+                    from jackpot_system_v3.core.pick_engine_v3 import rank_cash4_straight_orderings as _rank_ord
+                    from datetime import datetime as _dt_now
+                    # Derive session from current ET hour (approximate)
+                    _et_hour = (_dt_now.utcnow().hour - 4) % 24  # rough ET offset
+                    if _et_hour < 13:
+                        _sess = "midday"
+                    elif _et_hour < 20:
+                        _sess = "evening"
+                    else:
+                        _sess = "night"
+                    _ord_result = _rank_ord(p.get("number", ""), _sess)
+                    if _ord_result.get("valid", True) and _ord_result.get("rankings"):
+                        _rankings = _ord_result["rankings"]
+                        # suggested_1off = highest-ranked ordering that differs from the main pick
+                        _main_num = p.get("number", "")
+                        _alt = next((r for r in _rankings if r["number"] != _main_num), None)
+                        pick_entry["suggested_1off"] = _alt["number"] if _alt else None
+                        pick_entry["suggested_1off_pct"] = _alt["pct"] if _alt else None
+                        pick_entry["straight_rankings"] = _rankings
+                        pick_entry["straight_session"] = _sess
+                        pick_entry["aligned_positions"] = _ord_result.get("aligned_positions")
+                except Exception as _e1off:
+                    logger.warning(f"1off ranking failed for {p.get('number')}: {_e1off}")
+
+            grouped.setdefault(game, []).append(pick_entry)
 
         # Inject MMFSN picks sent by the edge function (BOOK3 personal-number lane)
         if mmfsn and kit == "BOOK3":

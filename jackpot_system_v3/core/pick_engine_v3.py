@@ -119,6 +119,32 @@ NEAR_MISS_LOOKBACK: int = 3  # baseline 2026-04-14
 #    If Cash4 straight <= 41 → revert to False
 # ================================================================
 CASH4_DIGIT_SUM_FILTER: bool = False  # exp-07 FAILED 2026-04-28 — no straight improvement at day 37/91
+
+# ================================================================
+#  EXP-08 — Session-Split Positional Frequency for Cash4
+#  When True, _build_positional_freq() is called separately on each
+#  session's history (mid/eve/night) and the results are blended by
+#  session weight rather than using a single pooled freq table.
+#  Hypothesis: positional digit distributions differ meaningfully by
+#  session → per-session pos_freq sharpens straight-pick placement.
+#
+#  True  = session-split positional (exp-08)
+#  False = pooled positional (baseline)
+# ================================================================
+CASH4_SESSION_SPLIT_POS: bool = False  # exp-08 reverted
+
+# ================================================================
+#  EXP-09 — Recency-Weighted Positional Frequency for Cash4
+#  When True, _build_positional_freq() for Cash4 uses per-draw age
+#  weights (same three-band decay as _build_combo_stats) instead of
+#  flat +1.0 counts.  Hypothesis: recent draws better reflect current
+#  positional digit patterns → sharper straight-pick alignment.
+#
+#  True  = recency-weighted positional freq (exp-09)
+#  False = flat positional freq (baseline)
+# ================================================================
+CASH4_RECENCY_POS_WEIGHT: bool = True  # exp-09
+
 CASH4_DIGIT_SUM_MIN: int = 13         # inclusive lower bound
 CASH4_DIGIT_SUM_MAX: int = 22         # inclusive upper bound
 
@@ -465,7 +491,11 @@ def _extract_near_miss_neighbors(
     return neighbors
 
 
-def _build_positional_freq(combos: List[str], length: int) -> List[List[float]]:
+def _build_positional_freq(
+    combos: List[str],
+    length: int,
+    weights: "List[float] | None" = None,
+) -> List[List[float]]:
     """Build per-position digit frequency table from a list of historical combos.
 
     Returns pos_freq[position][digit] = weighted count (float).
@@ -473,17 +503,21 @@ def _build_positional_freq(combos: List[str], length: int) -> List[List[float]]:
     straight predictions favour the digit orderings that actually recur.
 
     Args:
-        combos: list of historical winning combo strings (exact length).
-        length: expected combo length (3 for Cash3, 4 for Cash4).
+        combos:  list of historical winning combo strings (exact length).
+        length:  expected combo length (3 for Cash3, 4 for Cash4).
+        weights: optional per-draw float weights, parallel to combos.
+                 When provided each draw contributes its weight instead of 1.0.
+                 Used by Exp-09 to apply recency decay to positional counts.
 
     Returns:
         List of length `length`, each element a list of 10 floats (digits 0–9).
     """
     pos_freq: List[List[float]] = [[0.0] * 10 for _ in range(length)]
-    for combo in combos:
+    for i, combo in enumerate(combos):
         if len(combo) == length and combo.isdigit():
+            w = weights[i] if (weights is not None and i < len(weights)) else 1.0
             for pos, ch in enumerate(combo):
-                pos_freq[pos][int(ch)] += 1.0
+                pos_freq[pos][int(ch)] += w
     # Normalise each position so scores are comparable across lengths
     for pos in range(length):
         total = sum(pos_freq[pos]) or 1.0
@@ -1327,7 +1361,54 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         alignment_score,
         ALIGNMENT_UNLOCK_CASH4_EXTRA_MAX,
     )
-    _c4_pos_freq = _build_positional_freq(c4_combos, 4)
+    if CASH4_SESSION_SPLIT_POS:
+        # EXP-08: blend per-session positional freqs weighted by session size
+        _c4h_mid   = ga_data.get("cash4_mid", [])
+        _c4h_eve   = ga_data.get("cash4_eve", [])
+        _c4h_night = ga_data.get("cash4_night", [])
+        _c4_pf_mid   = _build_positional_freq(_extract_combo_history(_c4h_mid,   4), 4)
+        _c4_pf_eve   = _build_positional_freq(_extract_combo_history(_c4h_eve,   4), 4)
+        _c4_pf_night = _build_positional_freq(_extract_combo_history(_c4h_night, 4), 4)
+        _w_mid   = len(_c4h_mid)   or 1
+        _w_eve   = len(_c4h_eve)   or 1
+        _w_night = len(_c4h_night) or 1
+        _w_total = _w_mid + _w_eve + _w_night
+        # Weighted average per position
+        _c4_pos_freq = [
+            [
+                (_c4_pf_mid[pos][d]   * _w_mid
+                 + _c4_pf_eve[pos][d]   * _w_eve
+                 + _c4_pf_night[pos][d] * _w_night) / _w_total
+                for d in range(10)
+            ]
+            for pos in range(4)
+        ]
+    else:
+        if CASH4_RECENCY_POS_WEIGHT and c4_dated:
+            # EXP-09: compute per-draw age weights using the same decay bands
+            # as _build_combo_stats so positional freq favours recent patterns.
+            from datetime import datetime as _dt09
+            _iso09 = [iso for _, iso in c4_dated if iso]
+            _ref09 = _dt09.strptime(max(_iso09), "%Y-%m-%d") if _iso09 else _dt09.now()
+            _w09d, _w09m, _w09o = _decay
+            _c4_pf_weights: List[float] = []
+            for _combo09, _iso09d in c4_dated:
+                if not _iso09d:
+                    _c4_pf_weights.append(_w09o)
+                    continue
+                try:
+                    _age09 = (_ref09 - _dt09.strptime(_iso09d, "%Y-%m-%d")).days
+                except ValueError:
+                    _age09 = 9999
+                if _age09 <= DECAY_DAYS_RECENT:
+                    _c4_pf_weights.append(_w09d)
+                elif _age09 <= DECAY_DAYS_MID:
+                    _c4_pf_weights.append(_w09m)
+                else:
+                    _c4_pf_weights.append(_w09o)
+            _c4_pos_freq = _build_positional_freq(c4_combos, 4, weights=_c4_pf_weights)
+        else:
+            _c4_pos_freq = _build_positional_freq(c4_combos, 4)
     if stats4:
         system_cash4 = _pick_top_combos(
             stats4,
