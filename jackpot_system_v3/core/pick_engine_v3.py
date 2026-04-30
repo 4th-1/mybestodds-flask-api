@@ -145,7 +145,20 @@ CASH4_SESSION_SPLIT_POS: bool = False  # exp-08 reverted
 # ================================================================
 CASH4_RECENCY_POS_WEIGHT: bool = False  # exp-09 REJECTED (day 50: Cash4 straight=0, baseline=41)
 
-CASH4_DIGIT_SUM_MIN: int = 13         # inclusive lower bound
+# ================================================================
+#  EXP-10 — Disable Near-Miss Correction for Cash4
+#  Hypothesis: near-miss ±1 neighbor combos flood the Cash4 candidate
+#  pool with close-but-wrong ordered combinations.  Being "one digit off"
+#  in a 4-digit game does not preserve exact-order value, so the boost
+#  improves box coverage while collapsing straight precision.
+#
+#  True  = near-miss neighbors included (baseline behavior)
+#  False = near-miss disabled for Cash4 only; Cash3 unaffected (exp-10)
+#
+#  Success: Cash4 straight recovers toward baseline pace (≥41 at day 91)
+#  Failure: straight remains near-random → near-miss is not the culprit
+# ================================================================
+CASH4_NEAR_MISS: bool = False  # exp-10
 CASH4_DIGIT_SUM_MAX: int = 22         # inclusive upper bound
 
 # ----------------------------------------------------------------
@@ -1441,12 +1454,16 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     # Pass 1: base stats with decay (no boost)
     _stats4_base = _build_combo_stats(c4_combos, combo_dates=c4_dated, decay_weights=_decay)
     # Derive ±1 neighbors of last NEAR_MISS_LOOKBACK high-confidence draws
-    _c4_neighbors = _extract_near_miss_neighbors(
-        cash4_history, 4,
-        lookback=NEAR_MISS_LOOKBACK,
-        base_stats=_stats4_base,
-        min_score=MIN_SCORE_FOR_CORRECTION,
-    )
+    # EXP-10: skip neighbor generation for Cash4 when CASH4_NEAR_MISS=False
+    if CASH4_NEAR_MISS:
+        _c4_neighbors = _extract_near_miss_neighbors(
+            cash4_history, 4,
+            lookback=NEAR_MISS_LOOKBACK,
+            base_stats=_stats4_base,
+            min_score=MIN_SCORE_FOR_CORRECTION,
+        )
+    else:
+        _c4_neighbors = None
     # Pass 2: rebuild stats with correction candidates boosted (Option B)
     stats4 = _build_combo_stats(
         c4_combos,
