@@ -818,6 +818,67 @@ def _alignment_extra_variants(alignment_score: float, max_extra: int) -> int:
     return int(round(ratio * max_extra))
 
 
+def _box_type(number: str) -> str:
+    """Return the specific GA Lottery box play type based on digit pattern.
+
+    Cash4 box types (by unique digit count):
+      4 unique digits  (e.g. 1234) → 24-Way Box
+      3 unique digits  (e.g. 1123) → 12-Way Box
+      2 unique digits, 2+2 (e.g. 1122) → 6-Way Box
+      2 unique digits, 3+1 (e.g. 1112) → 4-Way Box
+
+    Cash3 box types:
+      3 unique digits (e.g. 123) → 6-Way Box
+      2 unique digits (e.g. 112) → 3-Way Box
+    """
+    from collections import Counter
+    if not number or not number.isdigit():
+        return "BOX"
+    counts = Counter(number)
+    unique = len(counts)
+    n = len(number)
+
+    if n == 4:
+        if unique == 4:
+            return "24-WAY BOX"
+        if unique == 3:
+            return "12-WAY BOX"
+        if unique == 2:
+            most_common = counts.most_common(1)[0][1]
+            if most_common == 3:
+                return "4-WAY BOX"
+            return "6-WAY BOX"
+        return "BOX"  # all same digit — not a valid box play
+    if n == 3:
+        if unique == 3:
+            return "6-WAY BOX"
+        if unique == 2:
+            return "3-WAY BOX"
+        return "BOX"  # triple — not a valid box play
+    return "BOX"
+
+
+# Cash4 payout table for $1 play
+_C4_BOX_PAYOUT = {
+    "24-WAY BOX": 200,
+    "12-WAY BOX": 400,
+    "6-WAY BOX":  800,
+    "4-WAY BOX":  1200,
+}
+# Cash3 payout table for $1 play
+_C3_BOX_PAYOUT = {
+    "6-WAY BOX": 80,
+    "3-WAY BOX": 160,
+}
+# Straight/Box combo payout (straight portion, $1 play)
+_C4_STRAIGHT_BOX_STRAIGHT_PAYOUT = {
+    "24-WAY BOX": 2600,
+    "12-WAY BOX": 2700,
+    "6-WAY BOX":  2900,
+    "4-WAY BOX":  3100,
+}
+
+
 def _recommended_play(confidence_score: float, number: str = "", history: "List[str] | None" = None) -> str:
     """Map a normalised confidence score (0.0–1.0) to a play type recommendation.
 

@@ -752,7 +752,7 @@ def generate_predictions(subscriber_id: str):
 
         # Group by game, preserving per-pick metadata
         grouped: Dict[str, List] = {}
-        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui, _jackpot_confidence_ui
+        from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui, _jackpot_confidence_ui, _box_type, _C4_BOX_PAYOUT, _C3_BOX_PAYOUT, _C4_STRAIGHT_BOX_STRAIGHT_PAYOUT
         _JACKPOT_GAMES = {"Powerball", "Mega Millions", "MegaMillions", "Millionaire For Life"}
         for p in all_predictions:
             game = p.get("game", "Unknown")
@@ -777,6 +777,18 @@ def generate_predictions(subscriber_id: str):
                 "confidence_tier":  _ui["tier"],
                 "confidence_description": _ui["description"],
             }
+
+            # Inject box type details for BOX and STRAIGHT_BOX picks
+            if _rp in ("BOX", "STRAIGHT_BOX") and game not in _JACKPOT_GAMES:
+                _num = p.get("number", "")
+                _bt = _box_type(_num)
+                pick_entry["box_type"] = _bt
+                if game in ("Cash4", "Quads"):
+                    pick_entry["box_payout"] = _C4_BOX_PAYOUT.get(_bt)
+                    if _rp == "STRAIGHT_BOX":
+                        pick_entry["straight_box_straight_payout"] = _C4_STRAIGHT_BOX_STRAIGHT_PAYOUT.get(_bt)
+                elif game in ("Cash3", "Triples"):
+                    pick_entry["box_payout"] = _C3_BOX_PAYOUT.get(_bt)
 
             # Option 1 — inject suggested_1off + full straight_rankings for STRAIGHT+1OFF Cash4 picks
             if _rp == "STRAIGHT+1OFF" and game in ("Cash4", "Quads"):
