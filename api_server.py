@@ -759,7 +759,7 @@ def generate_predictions(subscriber_id: str):
             conf = p.get("confidence_score") or 0.0
             _lane = p.get("lane", "")
             if game in _JACKPOT_GAMES:
-                _rp = game
+                _rp = "STRAIGHT"
                 _ui = _jackpot_confidence_ui(game)
             else:
                 hist = _c3_hist if game in ("Cash3", "Triples") else (_c4_hist if game in ("Cash4", "Quads") else None)
