@@ -1008,6 +1008,12 @@ _JACKPOT_CONFIDENCE_UI_MAP = {
         "tier":        3,
         "description": "Validated 4.66% prize win rate in 91-day simulation",
     },
+    "MegaMillions": {
+        "label":       "JACKPOT PICK",
+        "color":       "blue",
+        "tier":        3,
+        "description": "Validated 4.66% prize win rate in 91-day simulation",
+    },
     "Powerball": {
         "label":       "JACKPOT PICK",
         "color":       "blue",

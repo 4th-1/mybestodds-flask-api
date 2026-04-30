@@ -753,7 +753,7 @@ def generate_predictions(subscriber_id: str):
         # Group by game, preserving per-pick metadata
         grouped: Dict[str, List] = {}
         from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui, _jackpot_confidence_ui
-        _JACKPOT_GAMES = {"Powerball", "Mega Millions", "Millionaire For Life"}
+        _JACKPOT_GAMES = {"Powerball", "Mega Millions", "MegaMillions", "Millionaire For Life"}
         for p in all_predictions:
             game = p.get("game", "Unknown")
             conf = p.get("confidence_score") or 0.0
