@@ -319,7 +319,8 @@ def init_db(conn: sqlite3.Connection):
             night_straight INTEGER DEFAULT 0,
             night_box      INTEGER DEFAULT 0,
             any_win       INTEGER DEFAULT 0,
-            play_type     TEXT    DEFAULT 'STRAIGHT/BOX'
+            play_type     TEXT    DEFAULT 'STRAIGHT/BOX',
+            confidence_score REAL   DEFAULT 0.0
         )
     """)
     conn.execute("""
@@ -470,7 +471,7 @@ def run_simulation(start_date: datetime, num_days: int, num_subs: int):
         "date", "subscriber", "kit", "game", "lane", "pick",
         "actual_mid", "actual_eve", "actual_night",
         "mid_straight", "mid_box", "eve_straight", "eve_box",
-        "night_straight", "night_box", "any_win", "play_type"
+        "night_straight", "night_box", "any_win", "play_type", "confidence_score"
     ])
 
     # Counters for summary
@@ -500,73 +501,101 @@ def run_simulation(start_date: datetime, num_days: int, num_subs: int):
         jp_day_batch = []
 
         for sub in subscribers:
+            # EXP-11: session-specific cash picks — train and score per session.
+            # Each session call trains only on that session's draw history so
+            # the model reflects patterns unique to MIDDAY, EVENING, or NIGHT.
+            for _sim_sess in SESSIONS:
+                sess_picks = generate_picks_v3(sub, None, ga_data, JACKPOT_ROOT, session=_sim_sess)
+
+                # Confidence normalisation for this session's stat pool
+                _raw_stats = sess_picks.get("_stats", {})
+                _conf_map: dict[str, dict[str, float]] = {}
+                for _g, _gkey in (("Cash3", "cash3"), ("Cash4", "cash4")):
+                    _gs = _raw_stats.get(_gkey, {})
+                    if _gs:
+                        _max = max(v["score"] for v in _gs.values())
+                        _conf_map[_g] = {
+                            combo: v["score"] / _max if _max else 0.0
+                            for combo, v in _gs.items()
+                        }
+                    else:
+                        _conf_map[_g] = {}
+
+                # Only score this pick against its own session's actual
+                for game in ["Cash3", "Cash4"]:
+                    game_picks = sess_picks.get(game, {})
+                    for lane, numbers in game_picks.items():
+                        for pick in (numbers or []):
+                            if not pick:
+                                continue
+                            pick = str(pick).strip()
+
+                            actual_this = actuals_today[game][_sim_sess]
+
+                            _is_s = int(bool(actual_this) and is_straight_win(pick, actual_this))
+                            _is_b = int(bool(actual_this) and is_box_win(pick, actual_this))
+
+                            # Fill only the column for this session; others zero
+                            if _sim_sess == "MIDDAY":
+                                mid_s, mid_b = _is_s, _is_b
+                                eve_s = eve_b = ngt_s = ngt_b = 0
+                                actual_m, actual_e, actual_n = actual_this, "", ""
+                            elif _sim_sess == "EVENING":
+                                eve_s, eve_b = _is_s, _is_b
+                                mid_s = mid_b = ngt_s = ngt_b = 0
+                                actual_m, actual_e, actual_n = "", actual_this, ""
+                            else:  # NIGHT
+                                ngt_s, ngt_b = _is_s, _is_b
+                                mid_s = mid_b = eve_s = eve_b = 0
+                                actual_m, actual_e, actual_n = "", "", actual_this
+
+                            conf_score = round(_conf_map.get(game, {}).get(pick, 0.0), 6)
+
+                            kit = sub.get("kit", "BOOK")
+                            play_type = resolve_play_type(
+                                game,
+                                build_ctx_for_sub(kit, lane)
+                            )
+
+                            mid_1off = int(bool(actual_m) and is_one_off_win(pick, actual_m)) \
+                                if play_type == "1-OFF" else 0
+                            eve_1off = int(bool(actual_e) and is_one_off_win(pick, actual_e)) \
+                                if play_type == "1-OFF" else 0
+                            ngt_1off = int(bool(actual_n) and is_one_off_win(pick, actual_n)) \
+                                if play_type == "1-OFF" else 0
+
+                            if play_type == "STRAIGHT":
+                                any_w = int(any([mid_s, eve_s, ngt_s]))
+                            elif play_type == "BOX":
+                                any_w = int(any([mid_b, eve_b, ngt_b]))
+                            elif play_type == "1-OFF":
+                                any_w = int(any([mid_1off, eve_1off, ngt_1off]))
+                            else:
+                                any_w = int(any([mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b]))
+
+                            db_batch.append((
+                                date_str, sub["subscriber_id"], kit, game, lane, pick,
+                                actual_m, actual_e, actual_n,
+                                mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b, any_w,
+                                play_type, conf_score
+                            ))
+
+                            writer.writerow([
+                                date_str, sub["subscriber_id"], kit, game, lane, pick,
+                                actual_m, actual_e, actual_n,
+                                mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b, any_w,
+                                play_type, conf_score
+                            ])
+
+                            stats[game]["picks"]    += 1
+                            stats[game]["straight"] += _is_s
+                            stats[game]["box"]      += _is_b
+                            stats[game]["one_off"]  += (mid_1off + eve_1off + ngt_1off)
+                            if any_w:
+                                pt_stats[f"{game}:{play_type}"] += 1
+
+            # ── Jackpot games — single pooled call ────────────────────────────
             picks_raw = generate_picks_v3(sub, None, ga_data, JACKPOT_ROOT)
-
-            for game in ["Cash3", "Cash4"]:
-                game_picks = picks_raw.get(game, {})
-                for lane, numbers in game_picks.items():
-                    for pick in (numbers or []):
-                        if not pick:
-                            continue
-                        pick = str(pick).strip()
-
-                        actual_m = actuals_today[game]["MIDDAY"]
-                        actual_e = actuals_today[game]["EVENING"]
-                        actual_n = actuals_today[game]["NIGHT"]
-
-                        mid_s = int(bool(actual_m) and is_straight_win(pick, actual_m))
-                        mid_b = int(bool(actual_m) and is_box_win(pick, actual_m))
-                        eve_s = int(bool(actual_e) and is_straight_win(pick, actual_e))
-                        eve_b = int(bool(actual_e) and is_box_win(pick, actual_e))
-                        ngt_s = int(bool(actual_n) and is_straight_win(pick, actual_n))
-                        ngt_b = int(bool(actual_n) and is_box_win(pick, actual_n))
-
-                        # ── Play-type assignment via resolver ────────────────
-                        kit = sub.get("kit", "BOOK")
-                        play_type = resolve_play_type(
-                            game,
-                            build_ctx_for_sub(kit, lane)
-                        )
-
-                        # 1-OFF wins (only computed when play type is 1-OFF)
-                        mid_1off = int(bool(actual_m) and is_one_off_win(pick, actual_m)) \
-                            if play_type == "1-OFF" else 0
-                        eve_1off = int(bool(actual_e) and is_one_off_win(pick, actual_e)) \
-                            if play_type == "1-OFF" else 0
-                        ngt_1off = int(bool(actual_n) and is_one_off_win(pick, actual_n)) \
-                            if play_type == "1-OFF" else 0
-
-                        # any_win respects the subscriber's play type
-                        if play_type == "STRAIGHT":
-                            any_w = int(any([mid_s, eve_s, ngt_s]))
-                        elif play_type == "BOX":
-                            any_w = int(any([mid_b, eve_b, ngt_b]))
-                        elif play_type == "1-OFF":
-                            any_w = int(any([mid_1off, eve_1off, ngt_1off]))
-                        else:  # STRAIGHT/BOX, COMBO, PAIR, STANDARD
-                            any_w = int(any([mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b]))
-
-                        db_batch.append((
-                            date_str, sub["subscriber_id"], kit, game, lane, pick,
-                            actual_m, actual_e, actual_n,
-                            mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b, any_w,
-                            play_type
-                        ))
-
-                        writer.writerow([
-                            date_str, sub["subscriber_id"], kit, game, lane, pick,
-                            actual_m, actual_e, actual_n,
-                            mid_s, mid_b, eve_s, eve_b, ngt_s, ngt_b, any_w,
-                            play_type
-                        ])
-
-                        # running stats
-                        stats[game]["picks"]    += 1
-                        stats[game]["straight"] += (mid_s + eve_s + ngt_s)
-                        stats[game]["box"]      += (mid_b + eve_b + ngt_b)
-                        stats[game]["one_off"]  += (mid_1off + eve_1off + ngt_1off)
-                        if any_w:
-                            pt_stats[f"{game}:{play_type}"] += 1
 
             # ── Jackpot games ─────────────────────────────────────────────────
             kit = sub.get("kit", "BOOK")
@@ -604,8 +633,8 @@ def run_simulation(start_date: datetime, num_days: int, num_subs: int):
                (sim_date, subscriber, kit, game, lane, pick,
                 actual_mid, actual_eve, actual_night,
                 mid_straight, mid_box, eve_straight, eve_box,
-                night_straight, night_box, any_win, play_type)
-               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                night_straight, night_box, any_win, play_type, confidence_score)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             db_batch
         )
         if jp_day_batch:

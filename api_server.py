@@ -176,7 +176,12 @@ def _load_ga_data_from_json() -> Dict:
 
 
 def get_predictions_for_date(date_str: str, kit: str, subscriber: dict = None) -> List[Dict]:
-    """Get predictions by calling pick_engine_v3 directly (no subprocess)."""
+    """Get predictions by calling pick_engine_v3 directly (no subprocess).
+
+    EXP-11: Cash3/Cash4 picks are generated independently for each session
+    (MIDDAY, EVENING, NIGHT) using only that session's historical draws.
+    Jackpot picks come from a single pooled call so they are not tripled.
+    """
     try:
         from core.pick_engine_v3 import generate_picks_v3
         from pathlib import Path
@@ -188,40 +193,55 @@ def get_predictions_for_date(date_str: str, kit: str, subscriber: dict = None) -
         if not subscriber:
             subscriber = {"initials": "MBO", "games": ["Cash3", "Cash4"]}
 
-        picks = generate_picks_v3(subscriber, None, ga_data, root)
-
-        # Extract per-game stats for confidence scoring, then remove the
-        # internal key so it doesn't leak into the predictions loop below.
-        raw_stats = picks.pop("_stats", {})
-        c3_stats  = raw_stats.get("cash3", {})
-        c4_stats  = raw_stats.get("cash4", {})
-        c3_max    = max((v["score"] for v in c3_stats.values()), default=1.0) or 1.0
-        c4_max    = max((v["score"] for v in c4_stats.values()), default=1.0) or 1.0
-
         predictions = []
-        for game, lane_data in picks.items():
+
+        # ── Session-specific Cash3 / Cash4 picks (EXP-11) ──────────────────
+        for sess in ("MIDDAY", "EVENING", "NIGHT"):
+            sess_picks = generate_picks_v3(subscriber, None, ga_data, root, session=sess)
+
+            raw_stats = sess_picks.get("_stats", {})
+            c3_stats  = raw_stats.get("cash3", {})
+            c4_stats  = raw_stats.get("cash4", {})
+            c3_max    = max((v["score"] for v in c3_stats.values()), default=1.0) or 1.0
+            c4_max    = max((v["score"] for v in c4_stats.values()), default=1.0) or 1.0
+
+            for game in ("Cash3", "Cash4"):
+                game_stats_max = c3_max if game == "Cash3" else c4_max
+                game_stats     = c3_stats if game == "Cash3" else c4_stats
+                lane_data = sess_picks.get(game, {})
+                for lane, numbers in lane_data.items():
+                    for number in (numbers or []):
+                        if number:
+                            raw_score = game_stats.get(str(number), {}).get("score", 1.0)
+                            conf = round(min(raw_score / game_stats_max, 1.0), 4)
+                            predictions.append({
+                                "game":             game,
+                                "number":           str(number),
+                                "date":             date_str,
+                                "lane":             lane,
+                                "kit":              kit,
+                                "session":          sess,
+                                "confidence_score": conf,
+                            })
+
+        # ── Jackpot picks — single pooled call ─────────────────────────────
+        jp_picks = generate_picks_v3(subscriber, None, ga_data, root)
+        jp_picks.pop("_stats", None)
+        for game, lane_data in jp_picks.items():
+            if game in ("Cash3", "Cash4"):
+                continue  # already handled above
             for lane, numbers in lane_data.items():
                 for number in (numbers or []):
                     if number:
-                        # Normalized confidence from engine stats (0.0–1.0).
-                        # Picks not found in stats (e.g. pure permutations from
-                        # the signal family) receive a conservative default.
-                        if game == "Cash3" and c3_stats:
-                            raw_score = c3_stats.get(str(number), {}).get("score", 1.0)
-                            conf = round(min(raw_score / c3_max, 1.0), 4)
-                        elif game == "Cash4" and c4_stats:
-                            raw_score = c4_stats.get(str(number), {}).get("score", 1.0)
-                            conf = round(min(raw_score / c4_max, 1.0), 4)
-                        else:
-                            conf = None
                         predictions.append({
                             "game":             game,
                             "number":           str(number),
                             "date":             date_str,
                             "lane":             lane,
                             "kit":              kit,
-                            "confidence_score": conf,
+                            "confidence_score": None,
                         })
+
         return predictions
 
     except Exception as e:

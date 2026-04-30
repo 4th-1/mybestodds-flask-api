@@ -1326,7 +1326,18 @@ def generate_millionaire_for_life_picks(lines=2, root: Path = None):
 # ================================================================
 #  MAIN PICK ENGINE V3 (DUAL-LANE)
 # ================================================================
-def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Dict[str, Any], root: Path) -> Dict[str, Any]:
+def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Dict[str, Any], root: Path, session: str = None) -> Dict[str, Any]:
+    """Generate picks for a subscriber.
+
+    Args:
+        session: When set to "MIDDAY", "EVENING", or "NIGHT", builds the Cash3
+                 and Cash4 frequency models exclusively from that session's draw
+                 history so each session gets picks truly tailored to its own
+                 historical patterns.  Jackpot generation is skipped (returns
+                 empty lanes) so callers can invoke this three times for cash
+                 sessions without tripling jackpot output.
+                 When None (default), pools all sessions — existing behaviour.
+    """
 
     initials = subscriber.get("initials", "").upper()
 
@@ -1388,14 +1399,22 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     # Map 0–40 → pool 25–50
     _family_pool_size = 25 + int(min(max(alignment_score, 0.0), 40.0) / 40.0 * 25)
 
-    # ------------------ CASH 3 SYSTEM LANE (All Sessions) ------------------
-    # CASH3_EVENING_WEIGHT controls session emphasis in the frequency pool.
-    # 3 = 60% Evening / 20% Midday / 20% Night (exp-01)
-    cash3_history = (
-        ga_data.get("cash3_mid", [])
-        + ga_data.get("cash3_eve", []) * CASH3_EVENING_WEIGHT
-        + ga_data.get("cash3_night", [])
-    )
+    # ------------------ CASH 3 SYSTEM LANE ------------------
+    # EXP-11: when a session is specified, train on that session's draws only.
+    # Without a session (default / pooled), CASH3_EVENING_WEIGHT still applies.
+    _sess = (session or "").upper()
+    if _sess == "MIDDAY":
+        cash3_history = ga_data.get("cash3_mid", [])
+    elif _sess == "EVENING":
+        cash3_history = ga_data.get("cash3_eve", [])
+    elif _sess == "NIGHT":
+        cash3_history = ga_data.get("cash3_night", [])
+    else:
+        cash3_history = (
+            ga_data.get("cash3_mid", [])
+            + ga_data.get("cash3_eve", []) * CASH3_EVENING_WEIGHT
+            + ga_data.get("cash3_night", [])
+        )
 
     c3_combos = _extract_combo_history(cash3_history, 3)
     c3_dated  = _extract_combo_history_dated(cash3_history, 3)
@@ -1440,12 +1459,20 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
         # Shuffle the fallback list so different subs get different orderings
         rng3.shuffle(system_cash3)
 
-    # ------------------ CASH 4 SYSTEM LANE (All Sessions) ------------------
-    cash4_history = (
-        ga_data.get("cash4_mid", [])
-        + ga_data.get("cash4_eve", [])
-        + ga_data.get("cash4_night", [])
-    )
+    # ------------------ CASH 4 SYSTEM LANE ------------------
+    # EXP-11: session-specific training same as Cash3.
+    if _sess == "MIDDAY":
+        cash4_history = ga_data.get("cash4_mid", [])
+    elif _sess == "EVENING":
+        cash4_history = ga_data.get("cash4_eve", [])
+    elif _sess == "NIGHT":
+        cash4_history = ga_data.get("cash4_night", [])
+    else:
+        cash4_history = (
+            ga_data.get("cash4_mid", [])
+            + ga_data.get("cash4_eve", [])
+            + ga_data.get("cash4_night", [])
+        )
 
     c4_combos = _extract_combo_history(cash4_history, 4)
     c4_dated  = _extract_combo_history_dated(cash4_history, 4)
@@ -1546,6 +1573,38 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
             if p.isdigit() and CASH4_DIGIT_SUM_MIN <= sum(int(d) for d in p) <= CASH4_DIGIT_SUM_MAX
         ] or system_cash4  # fallback: keep originals if filter wipes everything
 
+    # ── MMFSN Frequency Gate ─────────────────────────────────────────────────
+    # Only surface a personal number today if it appears in the current
+    # frequency pool with a meaningful score.  Numbers below the threshold
+    # are "not aligned" — the engine has no statistical evidence they are
+    # due today, so suppressing them keeps the UI promise accurate.
+    def _mmfsn_gate_local(numbers: list, stats: dict, min_score: float) -> list:
+        if not stats:
+            return numbers  # no history → surface all (graceful fallback)
+        return [n for n in numbers if stats.get(str(n), {}).get("score", 0.0) >= min_score]
+
+    # EXP-11: when called with a specific session, return cash picks only.
+    # Jackpot generation is skipped so the caller can invoke this 3× for cash
+    # sessions without generating (and discarding) jackpot lines each time.
+    mmfsn_cash3 = _mmfsn_gate_local(mmfsn_cash3, stats3, MMFSN_MIN_FREQUENCY_SCORE)
+    mmfsn_cash4 = _mmfsn_gate_local(mmfsn_cash4, stats4, MMFSN_MIN_FREQUENCY_SCORE)
+
+    if _sess:
+        return {
+            "Cash3": {
+                "lane_mmfsn": mmfsn_cash3,
+                "lane_system": system_cash3,
+            },
+            "Cash4": {
+                "lane_mmfsn": mmfsn_cash4,
+                "lane_system": system_cash4,
+            },
+            "MegaMillions": {"lane_system": []},
+            "Powerball": {"lane_system": []},
+            "Millionaire For Life": {"lane_system": []},
+            "_stats": {"cash3": stats3 if stats3 else {}, "cash4": stats4 if stats4 else {}},
+        }
+
     # ------------------ JACKPOT ------------------
     mm_k = MEGAMILLIONS_VARIANT_DEPTH + _alignment_extra_variants(
         alignment_score,
@@ -1563,19 +1622,6 @@ def generate_picks_v3(subscriber: Dict[str, Any], score_result: Any, ga_data: Di
     mm_lines = generate_megamillions_picks(mm_k, root=root)
     pb_lines = generate_powerball_picks(pb_k, root=root)
     c4l_lines = generate_millionaire_for_life_picks(mfl_k, root=root)
-
-    # ── MMFSN Frequency Gate ─────────────────────────────────────────────────
-    # Only surface a personal number today if it appears in the current
-    # frequency pool with a meaningful score.  Numbers below the threshold
-    # are "not aligned" — the engine has no statistical evidence they are
-    # due today, so suppressing them keeps the UI promise accurate.
-    def _mmfsn_gate(numbers: list, stats: dict, min_score: float) -> list:
-        if not stats:
-            return numbers  # no history → surface all (graceful fallback)
-        return [n for n in numbers if stats.get(str(n), {}).get("score", 0.0) >= min_score]
-
-    mmfsn_cash3 = _mmfsn_gate(mmfsn_cash3, stats3, MMFSN_MIN_FREQUENCY_SCORE)
-    mmfsn_cash4 = _mmfsn_gate(mmfsn_cash4, stats4, MMFSN_MIN_FREQUENCY_SCORE)
 
     return {
         "Cash3": {
