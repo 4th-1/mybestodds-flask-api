@@ -143,7 +143,7 @@ CASH4_SESSION_SPLIT_POS: bool = False  # exp-08 reverted
 #  True  = recency-weighted positional freq (exp-09)
 #  False = flat positional freq (baseline)
 # ================================================================
-CASH4_RECENCY_POS_WEIGHT: bool = True  # exp-09
+CASH4_RECENCY_POS_WEIGHT: bool = False  # exp-09 REJECTED (day 50: Cash4 straight=0, baseline=41)
 
 CASH4_DIGIT_SUM_MIN: int = 13         # inclusive lower bound
 CASH4_DIGIT_SUM_MAX: int = 22         # inclusive upper bound
