@@ -870,13 +870,34 @@ _C3_BOX_PAYOUT = {
     "6-WAY BOX": 80,
     "3-WAY BOX": 160,
 }
-# Straight/Box combo payout (straight portion, $1 play)
+# Cash4 Straight/Box combo payout (straight portion, $1 play)
 _C4_STRAIGHT_BOX_STRAIGHT_PAYOUT = {
     "24-WAY BOX": 2600,
     "12-WAY BOX": 2700,
     "6-WAY BOX":  2900,
     "4-WAY BOX":  3100,
 }
+# Cash4 Straight/Box combo payout (box portion, $1 play)
+_C4_STRAIGHT_BOX_BOX_PAYOUT = {
+    "24-WAY BOX": 100,
+    "12-WAY BOX": 200,
+    "6-WAY BOX":  400,
+    "4-WAY BOX":  600,
+}
+# Cash3 Straight/Box combo payouts ($1 play)
+_C3_STRAIGHT_BOX_STRAIGHT_PAYOUT = {
+    "6-WAY BOX": 290,
+    "3-WAY BOX": 330,
+}
+_C3_STRAIGHT_BOX_BOX_PAYOUT = {
+    "6-WAY BOX": 40,
+    "3-WAY BOX": 80,
+}
+# Straight payouts ($1 play)
+_C3_STRAIGHT_PAYOUT = 500
+_C4_STRAIGHT_PAYOUT = 5000
+# Pair payouts ($1 play) — Cash3 only
+_C3_PAIR_PAYOUT = 50  # both FRONT_PAIR and BACK_PAIR
 
 
 def _recommended_play(confidence_score: float, number: str = "", history: "List[str] | None" = None) -> str:
