@@ -346,7 +346,7 @@ def cash4_straight_rank():
     - aligned_positions : how many of the 4 input digit positions match session-top digits
     """
     try:
-        if not _verify_secret():
+        if not _check_prediction_secret():
             return jsonify({'success': False, 'error': 'Unauthorized'}), 403
         from jackpot_system_v3.core.pick_engine_v3 import rank_cash4_straight_orderings
         digits = request.args.get('digits', '').strip()
