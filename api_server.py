@@ -760,6 +760,9 @@ def generate_predictions(subscriber_id: str):
             _C3_STRAIGHT_BOX_STRAIGHT_PAYOUT, _C3_STRAIGHT_BOX_BOX_PAYOUT,
             _C3_STRAIGHT_PAYOUT, _C4_STRAIGHT_PAYOUT,
             _C3_PAIR_PAYOUT,
+            _C3_COMBO_PAYOUT, _C3_COMBO_TICKET_COST,
+            _C3_1OFF_STRAIGHT_MATCH_PAYOUT, _C3_1OFF_ONE_DIGIT_PAYOUT,
+            _C3_1OFF_TWO_DIGIT_PAYOUT, _C3_1OFF_THREE_DIGIT_PAYOUT,
         )
         _JACKPOT_GAMES = {"Powerball", "Mega Millions", "MegaMillions", "Millionaire For Life"}
         for p in all_predictions:
@@ -803,8 +806,19 @@ def generate_predictions(subscriber_id: str):
                     if _rp == "STRAIGHT_BOX":
                         pick_entry["straight_box_straight_payout"] = _C3_STRAIGHT_BOX_STRAIGHT_PAYOUT.get(_bt)
                         pick_entry["straight_box_box_payout"] = _C3_STRAIGHT_BOX_BOX_PAYOUT.get(_bt)
+                    # Combo is the "all permutations" upgrade from BOX — always available for Cash3 box plays
+                    if _bt in _C3_COMBO_TICKET_COST:
+                        pick_entry["combo_payout"] = _C3_COMBO_PAYOUT
+                        pick_entry["combo_ticket_cost"] = _C3_COMBO_TICKET_COST[_bt]
             elif _rp == "STRAIGHT" and (_is_c3 or _is_c4):
                 pick_entry["straight_payout"] = _C3_STRAIGHT_PAYOUT if _is_c3 else _C4_STRAIGHT_PAYOUT
+            elif _rp == "STRAIGHT+1OFF" and _is_c3:
+                # 1-Off is a GA Cash3 product; include its payout tiers for all STRAIGHT+1OFF Cash3 picks
+                pick_entry["straight_payout"] = _C3_STRAIGHT_PAYOUT
+                pick_entry["one_off_straight_match_payout"] = _C3_1OFF_STRAIGHT_MATCH_PAYOUT
+                pick_entry["one_off_one_digit_payout"]      = _C3_1OFF_ONE_DIGIT_PAYOUT
+                pick_entry["one_off_two_digit_payout"]      = _C3_1OFF_TWO_DIGIT_PAYOUT
+                pick_entry["one_off_three_digit_payout"]    = _C3_1OFF_THREE_DIGIT_PAYOUT
             elif _rp in ("FRONT_PAIR", "BACK_PAIR") and _is_c3:
                 pick_entry["pair_payout"] = _C3_PAIR_PAYOUT
 

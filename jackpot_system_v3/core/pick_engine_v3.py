@@ -898,6 +898,17 @@ _C3_STRAIGHT_PAYOUT = 500
 _C4_STRAIGHT_PAYOUT = 5000
 # Pair payouts ($1 play) — Cash3 only
 _C3_PAIR_PAYOUT = 50  # both FRONT_PAIR and BACK_PAIR
+# Cash3 Combo play type (covers all permutations; prize always $500)
+_C3_COMBO_PAYOUT = 500
+_C3_COMBO_TICKET_COST = {
+    "3-WAY BOX": 3,   # pays for all 3 orderings ($3 ticket)
+    "6-WAY BOX": 6,   # pays for all 6 orderings ($6 ticket)
+}
+# Cash3 1-Off play type payouts ($1 play)
+_C3_1OFF_STRAIGHT_MATCH_PAYOUT = 250   # exact order match
+_C3_1OFF_ONE_DIGIT_PAYOUT      = 24    # exactly 1 digit is ±1 off, exact order on other 2
+_C3_1OFF_TWO_DIGIT_PAYOUT      = 4     # exactly 2 digits are ±1 off
+_C3_1OFF_THREE_DIGIT_PAYOUT    = 8     # all 3 digits are ±1 off
 
 
 def _recommended_play(confidence_score: float, number: str = "", history: "List[str] | None" = None) -> str:
