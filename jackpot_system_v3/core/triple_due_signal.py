@@ -59,6 +59,41 @@ def _parse_date(s: str):
     return None
 
 
+def _build_data_freshness(draws: list, today_dt: datetime = None) -> dict:
+    """Compute draw-data freshness metadata for subscriber-facing transparency."""
+    if today_dt is None:
+        today_dt = datetime.now()
+
+    if not draws:
+        return {
+            'as_of_date': None,
+            'days_since_latest_draw': None,
+            'is_stale': True,
+            'stale_after_days': 2,
+            'status': 'STALE',
+            'message': 'No historical draw data available for freshness validation.',
+        }
+
+    as_of_dt = draws[-1]['date']
+    as_of_str = draws[-1]['date_str']
+    days_old = (today_dt.date() - as_of_dt.date()).days
+    stale_after_days = 2
+    is_stale = days_old > stale_after_days
+
+    return {
+        'as_of_date': as_of_str,
+        'days_since_latest_draw': days_old,
+        'is_stale': is_stale,
+        'stale_after_days': stale_after_days,
+        'status': 'STALE' if is_stale else 'FRESH',
+        'message': (
+            f"Draw history is {days_old} day(s) behind live calendar; interpret Triples & Quads Signal output with caution."
+            if is_stale else
+            'Draw history is within freshness window.'
+        ),
+    }
+
+
 def _load_draws(game: str) -> list:
     """Load all sessions for a game, dedup by date+session, sort chronologically."""
     if game == 'Cash3':
@@ -186,7 +221,7 @@ def _build_narrative(num: str, game: str, current_gap: int, avg_gap: float,
 
 def compute_due_signal(game: str) -> dict:
     """
-    Full due-signal analysis for Cash3 (triples) or Cash4 (quads).
+    Full Triples & Quads Signal analysis for Cash3 (triples) or Cash4 (quads).
 
     Returns
     -------
@@ -199,6 +234,8 @@ def compute_due_signal(game: str) -> dict:
     draws = _load_draws(game)
     if not draws:
         return {'game': game, 'error': 'No draw data found', 'ranked': []}
+
+    data_freshness = _build_data_freshness(draws)
 
     n_digits = 3 if game == 'Cash3' else 4
     total = len(draws)
@@ -329,6 +366,7 @@ def compute_due_signal(game: str) -> dict:
         'game': game,
         'total_draws_analyzed': total,
         'as_of_date': draws[-1]['date_str'] if draws else None,
+        'data_freshness': data_freshness,
         'ranked': results,
         'top_pick': results[0] if results else None,
         'extreme_signals': [r for r in results if r['signal'] == 'EXTREME'],
@@ -819,6 +857,8 @@ def check_number(number_str: str, today: datetime = None) -> dict:
     if not draws:
         return {'valid': False, 'error': f'No draw data available for {game}.'}
 
+    data_freshness = _build_data_freshness(draws, today_dt=today)
+
     total = len(draws)
     hit_indices_map: dict = defaultdict(list)
     for idx, d in enumerate(draws):
@@ -900,6 +940,11 @@ def check_number(number_str: str, today: datetime = None) -> dict:
     # Gap is primary (70%), condition alignment secondary (30%)
     cm_score = condition_match['score']
     blended = (gap_likelihood * 0.70) + (cm_score * 0.30)
+
+    # If the underlying draw history is stale, reduce confidence so output remains honest.
+    if data_freshness.get('is_stale'):
+        blended *= 0.75
+
     confidence_score = round(min(blended, 1.0), 3)
 
     # Confidence label
@@ -907,7 +952,7 @@ def check_number(number_str: str, today: datetime = None) -> dict:
         conf_label = 'OVERDUE ALERT'
         conf_color = 'red'
     elif confidence_score >= 0.55:
-        conf_label = 'DUE SIGNAL'
+        conf_label = 'TRIPLES & QUADS SIGNAL'
         conf_color = 'orange'
     elif confidence_score >= 0.35:
         conf_label = 'BUILDING'
@@ -918,6 +963,9 @@ def check_number(number_str: str, today: datetime = None) -> dict:
     else:
         conf_label = 'COLD'
         conf_color = 'gray'
+
+    if data_freshness.get('is_stale'):
+        conf_label = f"{conf_label} (STALE DATA)"
 
     # ── Play verdict ──────────────────────────────────────────────────
     if gap_likelihood >= 0.55 and cm_score >= 0.50:
@@ -964,6 +1012,14 @@ def check_number(number_str: str, today: datetime = None) -> dict:
         confidence_label=conf_label,
     )
 
+    if data_freshness.get('is_stale'):
+        narrative = (
+            f"Data freshness alert: analysis is based on draws through {data_freshness.get('as_of_date')} "
+            f"({data_freshness.get('days_since_latest_draw')} day(s) old). "
+            "Confidence is automatically reduced until fresh draws are ingested. "
+            + narrative
+        )
+
     return {
         'valid': True,
         'number': num,
@@ -981,4 +1037,5 @@ def check_number(number_str: str, today: datetime = None) -> dict:
         'play_advice': play_advice,
         'narrative': narrative,
         'as_of_date': draws[-1]['date_str'] if draws else None,
+        'data_freshness': data_freshness,
     }

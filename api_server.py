@@ -386,9 +386,10 @@ def cash4_straight_rank():
 
 
 @app.route('/api/triples/due-signal', methods=['GET'])
+@app.route('/api/triples/signal', methods=['GET'])
 def triples_due_signal():
     """
-    Cash3 triple due-signal — predicts which same-digit numbers (000–999)
+    Cash3 Triples & Quads Signal — predicts which same-digit numbers (000–999)
     are statistically overdue based on historical gap analysis.
     Five-factor model: overdue ratio, gap percentile, digit heat,
     frequency trend, max-gap breach.
@@ -398,14 +399,15 @@ def triples_due_signal():
         result = compute_due_signal('Cash3')
         return jsonify({"success": True, **result}), 200
     except Exception as e:
-        logger.error(f"Triples due-signal error: {e}")
+        logger.error(f"Triples signal error: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
 
 
 @app.route('/api/quads/due-signal', methods=['GET'])
+@app.route('/api/quads/signal', methods=['GET'])
 def quads_due_signal():
     """
-    Cash4 quad due-signal — predicts which same-digit numbers (0000–9999)
+    Cash4 Triples & Quads Signal — predicts which same-digit numbers (0000–9999)
     are statistically overdue based on historical gap analysis.
     Five-factor model: overdue ratio, gap percentile, digit heat,
     frequency trend, max-gap breach.
@@ -415,14 +417,16 @@ def quads_due_signal():
         result = compute_due_signal('Cash4')
         return jsonify({"success": True, **result}), 200
     except Exception as e:
-        logger.error(f"Quads due-signal error: {e}")
+        logger.error(f"Quads signal error: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
 
 
 @app.route('/api/due-signal/check', methods=['GET'])
+@app.route('/api/triples-quads-signal/check', methods=['GET'])
 def due_signal_check():
     """
-    Subscriber query: check whether a specific triple or quad is due to fall.
+    Subscriber query: Triples & Quads Signal check.
+    Evaluates whether a specific triple or quad is statistically due to fall.
 
     Query parameters
     ----------------
@@ -450,7 +454,7 @@ def due_signal_check():
             return jsonify({"success": False, **result}), 400
         return jsonify({"success": True, **result}), 200
     except Exception as e:
-        logger.error(f"Due-signal check error: {e}")
+        logger.error(f"Triples & Quads signal check error: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
 
 
