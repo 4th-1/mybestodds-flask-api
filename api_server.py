@@ -255,6 +255,7 @@ def health():
     return jsonify({
         "status": "healthy",
         "api_version": "v3.0-CLEAN",
+        "prediction_payload_shape": "session_keyed_v1",
         "frontend": "Lovable",
         "engine": "jackpot_system_v3",
         "randomization": "enabled",
@@ -558,14 +559,21 @@ def _inject_mmfsn_picks(
             continue
         # Rotate: deterministic daily selection without repeating consecutively
         rotated = [numbers[(seed_int + i) % len(numbers)] for i in range(min(_MAX_PER_GAME, len(numbers)))]
-        grouped.setdefault(game_key, [])
+        # Cash3/Cash4 are now session-keyed; inject MMFSN picks into all three sessions
+        _cash_sessions = ("MIDDAY", "EVENING", "NIGHT")
         for num in rotated:
-            grouped[game_key].append({
+            pick = {
                 "number": str(num),
                 "kit":    "BOOK3",
                 "lane":   "lane_mmfsn",
                 "source": "mmfsn",
-            })
+            }
+            if game_key in ("Cash3", "Cash4"):
+                game_dict = grouped.setdefault(game_key, {})
+                for _s in _cash_sessions:
+                    game_dict.setdefault(_s, []).append({**pick, "session": _s})
+            else:
+                grouped.setdefault(game_key, []).append(pick)
 
 
 @app.route('/api/subscription/gate/<subscriber_id>', methods=['GET'])
@@ -770,8 +778,11 @@ def generate_predictions(subscriber_id: str):
         _c3_hist = [d["winning_numbers"] for d in _gad.get("cash3_mid", []) + _gad.get("cash3_eve", []) + _gad.get("cash3_night", [])]
         _c4_hist = [d["winning_numbers"] for d in _gad.get("cash4_mid", []) + _gad.get("cash4_eve", []) + _gad.get("cash4_night", [])]
 
-        # Group by game, preserving per-pick metadata
-        grouped: Dict[str, List] = {}
+        # Group by game (and session for Cash3/Cash4), preserving per-pick metadata.
+        # Cash3/Cash4 shape: { "Cash3": { "MIDDAY": [...], "EVENING": [...], "NIGHT": [...] } }
+        # Jackpot shape (unchanged): { "Powerball": [...] }
+        _SESSION_GAMES = {"Cash3", "Cash4", "Triples", "Quads"}
+        grouped: Dict[str, Any] = {}
         from jackpot_system_v3.core.pick_engine_v3 import (
             _recommended_play, _confidence_ui, _jackpot_confidence_ui,
             _box_type,
@@ -801,6 +812,7 @@ def generate_predictions(subscriber_id: str):
                 "number":           p.get("number"),
                 "kit":              p.get("kit"),
                 "lane":             _lane,
+                "session":          p.get("session"),
                 "confidence_score": conf,
                 "recommended_play": _rp,
                 "confidence_label": _ui["label"],
@@ -869,11 +881,24 @@ def generate_predictions(subscriber_id: str):
                 except Exception as _e1off:
                     logger.warning(f"1off ranking failed for {p.get('number')}: {_e1off}")
 
-            grouped.setdefault(game, []).append(pick_entry)
+            # Route into session-keyed dict for cash games, flat list for jackpots
+            if game in _SESSION_GAMES:
+                sess_key = (p.get("session") or "UNKNOWN").upper()
+                grouped.setdefault(game, {}).setdefault(sess_key, []).append(pick_entry)
+            else:
+                grouped.setdefault(game, []).append(pick_entry)
 
         # Inject MMFSN picks sent by the edge function (BOOK3 personal-number lane)
         if mmfsn and kit == "BOOK3":
             _inject_mmfsn_picks(grouped, mmfsn, subscriber_id, date_str)
+
+        # Sort each session's picks by confidence descending so index [0] is always top pick
+        for _game, _val in grouped.items():
+            if isinstance(_val, dict):
+                for _sess in _val:
+                    _val[_sess].sort(key=lambda x: x.get("confidence_score") or 0.0, reverse=True)
+            else:
+                _val.sort(key=lambda x: x.get("confidence_score") or 0.0, reverse=True)
 
         # BOSK tier — Cash3 and Cash4 only, no jackpot games
         _BOSK_GAMES = {"Cash3", "Cash4", "Triples", "Quads"}
@@ -885,18 +910,30 @@ def generate_predictions(subscriber_id: str):
             grouped = {g: v for g, v in grouped.items() if g in requested_games}
 
         # Near-miss advice — compare current picks against recent actual draws
+        _c3_all_picks = [p["number"] for sess_picks in (grouped.get("Cash3", {}).values() if isinstance(grouped.get("Cash3"), dict) else [grouped.get("Cash3", [])]) for p in sess_picks]
+        _c4_all_picks = [p["number"] for sess_picks in (grouped.get("Cash4", {}).values() if isinstance(grouped.get("Cash4"), dict) else [grouped.get("Cash4", [])]) for p in sess_picks]
         near_miss_advice = _compute_near_miss_advice(
-            cash3_picks=[p["number"] for p in grouped.get("Cash3", [])],
-            cash4_picks=[p["number"] for p in grouped.get("Cash4", [])],
+            cash3_picks=_c3_all_picks,
+            cash4_picks=_c4_all_picks,
         )
+
+        def _count_picks(g: dict) -> int:
+            total = 0
+            for v in g.values():
+                if isinstance(v, dict):
+                    total += sum(len(s) for s in v.values())
+                else:
+                    total += len(v)
+            return total
 
         return jsonify({
             "success": True,
             "subscriber_id": subscriber_id,
             "date": date_str,
             "kit": kit,
+            "payload_shape": "session_keyed_v1",
             "predictions": grouped,
-            "total_picks": sum(len(v) for v in grouped.values()),
+            "total_picks": _count_picks(grouped),
             "near_miss_advice": near_miss_advice,
         }), 200
 
@@ -964,7 +1001,7 @@ def _compute_near_miss_advice(
     Falls back to an empty report on import or data errors.
     """
     try:
-        from core.near_miss_advisor import build_near_miss_report
+        from jackpot_system_v3.core.near_miss_advisor import build_near_miss_report
         ga_data = _load_ga_data_from_json()
         return build_near_miss_report(
             cash3_picks=cash3_picks,
