@@ -48,6 +48,10 @@ data/subscribers/**/
 *.csv
 *.xlsx
 *.json
+
+# Exceptions: EV observation system data (non-sensitive, needed on Railway)
+!simulation_report.csv
+!condition_summary.csv
 !requirements.json
 !package.json
 # Allow GA historical data needed for Railway predictions

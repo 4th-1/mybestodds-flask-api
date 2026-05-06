@@ -20,8 +20,9 @@ from dotenv import load_dotenv
 import platform
 
 # ---------------------------------------------------------------------------
-# Cash3 EV system — optional; only present in local/dev environments.
-# On Railway these modules are not deployed (observation-only window).
+# Cash3 EV system — deployed to Railway for the 14-day observation window.
+# Requires Railway Volume mounted at /app/data/ev_observe for log persistence.
+# Set EV_OBSERVE_LOG_DIR env var if volume is mounted at a different path.
 # ---------------------------------------------------------------------------
 try:
     from production_strategy import (
@@ -36,6 +37,16 @@ try:
         make_grain_id,
         log_ev_request,
     )
+    # Allow Railway persistent volume path override for observation log.
+    # Set EV_OBSERVE_LOG_DIR env var to the Railway volume mount path
+    # (e.g. /app/data/ev_observe) so the log survives redeploys.
+    import reranker_config as _rc_module
+    _ev_log_dir_env = os.getenv("EV_OBSERVE_LOG_DIR")
+    if _ev_log_dir_env:
+        from pathlib import Path as _PPath
+        _rc_module._LOG_DIR  = _PPath(_ev_log_dir_env)
+        _rc_module._LOG_PATH = _rc_module._LOG_DIR / "ev_observe_log.jsonl"
+        _rc_module._LOG_DIR.mkdir(parents=True, exist_ok=True)
     _CASH3_EV_AVAILABLE = True
 except ModuleNotFoundError:
     _CASH3_EV_AVAILABLE = False
@@ -1817,6 +1828,45 @@ def admin_prune_mmfsn():
 
     logger.info(f"MMFSN prune: deleted={deleted} kept={kept}")
     return jsonify({"success": True, "deleted": deleted, "kept": kept}), 200
+
+
+
+# ---------------------------------------------------------------------------
+# Admin: Cash3 EV observation log download
+# ---------------------------------------------------------------------------
+@app.route("/admin/cash3/ev-observe-log", methods=["GET"])
+def cash3_ev_observe_log_download():
+    """
+    Download the raw EV observation log as a JSONL file for local settlement.
+
+    Daily workflow:
+      1. GET this endpoint → save as data/ev_observe/ev_observe_log.jsonl locally
+      2. python settle_ev_log.py
+      3. python ev_observe_status.py
+
+    Auth: X-Prediction-Secret header (same secret as other protected endpoints).
+    """
+    if not _check_prediction_secret():
+        return jsonify({"error": "Unauthorized"}), 403
+    if not _CASH3_EV_AVAILABLE:
+        return jsonify({"error": "Cash3 EV modules not deployed on this instance"}), 503
+    try:
+        from reranker_config import _LOG_PATH
+        if not _LOG_PATH.exists():
+            return jsonify({
+                "error":    "Observation log is empty — no picks logged yet",
+                "log_path": str(_LOG_PATH),
+            }), 404
+        from flask import send_file
+        return send_file(
+            str(_LOG_PATH),
+            mimetype="application/x-ndjson",
+            as_attachment=True,
+            download_name="ev_observe_log.jsonl",
+        )
+    except Exception as e:
+        logger.error(f"[cash3/ev-observe-log] {e}", exc_info=True)
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":
