@@ -64,6 +64,7 @@ class GameConfig:
     bonus_min: int
     bonus_max: int
     bonus_count: int
+    ticket_price: float        # cost per play in dollars
     # (main_matches, bonus_matches) -> (label, prize_dollars); jackpot prize = 0
     prizes: Dict[Tuple[int, int], Tuple[str, int]]
     data_file: str  # filename in data/results/jackpot_results/
@@ -74,6 +75,7 @@ GAME_CONFIGS: Dict[str, GameConfig] = {
         name="MegaMillions",
         main_min=1, main_max=70, main_count=5,
         bonus_min=1, bonus_max=25, bonus_count=1,
+        ticket_price=5.00,
         prizes={
             (5, 1): ("JACKPOT",        0),
             (5, 0): ("5+0",    1_000_000),
@@ -91,6 +93,7 @@ GAME_CONFIGS: Dict[str, GameConfig] = {
         name="Powerball",
         main_min=1, main_max=69, main_count=5,
         bonus_min=1, bonus_max=26, bonus_count=1,
+        ticket_price=2.00,
         prizes={
             (5, 1): ("JACKPOT",        0),
             (5, 0): ("5+0",    1_000_000),
@@ -108,6 +111,7 @@ GAME_CONFIGS: Dict[str, GameConfig] = {
         name="Millionaire For Life",
         main_min=1, main_max=60, main_count=5,
         bonus_min=1, bonus_max=4, bonus_count=1,
+        ticket_price=5.00,
         prizes={
             (5, 1): ("JACKPOT",        0),
             (5, 0): ("5+0",       25_000),
@@ -291,6 +295,7 @@ class ComboScore:
     bonus_avoidance: float
     composite_score: float
     secondary_ev: float          # game constant
+    ticket_price: float          # cost per play in dollars
     zones_covered: int
     popular_count: int           # how many main numbers are in popular cluster
     popular_numbers: List[int]   # which ones
@@ -345,6 +350,7 @@ def score_combination(
         bonus_avoidance=ba,
         composite_score=composite,
         secondary_ev=ev,
+        ticket_price=cfg.ticket_price,
         zones_covered=len(zones),
         popular_count=len(popular_in_combo),
         popular_numbers=popular_in_combo,

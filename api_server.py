@@ -743,6 +743,7 @@ def jackpot_score_combination():
             "popular_count":     cs.popular_count,
             "popular_numbers":   cs.popular_numbers,
             "secondary_ev":      cs.secondary_ev,
+            "ticket_price":      cs.ticket_price,
         }), 200
 
     except Exception as e:
