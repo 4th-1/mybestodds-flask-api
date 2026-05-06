@@ -545,6 +545,17 @@ def due_signal_check():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+def _parse_jackpot_number(number_str: str):
+    """Parse '06 13 29 48 58 + 11' into ([6,13,29,48,58], 11). Returns (None, None) on failure."""
+    try:
+        parts = str(number_str).split("+")
+        mains = [int(x) for x in parts[0].split()]
+        bonus = int(parts[1].strip())
+        return mains, bonus
+    except Exception:
+        return None, None
+
+
 @app.route('/api/powerball/predict', methods=['GET'])
 def predict_powerball():
     """Get Powerball predictions"""
@@ -559,7 +570,9 @@ def predict_powerball():
             p.update(_ui)
             mains = p.get("main_numbers") or []
             bonus = p.get("bonus_ball")
-            if len(mains) == 5 and bonus is not None:
+            if not (len(mains) == 5 and bonus is not None):
+                mains, bonus = _parse_jackpot_number(p.get("number", ""))
+            if mains and len(mains) == 5 and bonus is not None:
                 cs = score_combination("Powerball", mains, bonus)
                 p["optimizer_score"] = cs.composite_score
                 p["optimizer_grade"] = cs.grade()
@@ -596,7 +609,9 @@ def predict_megamillions():
             p.update(_ui)
             mains = p.get("main_numbers") or []
             bonus = p.get("bonus_ball")
-            if len(mains) == 5 and bonus is not None:
+            if not (len(mains) == 5 and bonus is not None):
+                mains, bonus = _parse_jackpot_number(p.get("number", ""))
+            if mains and len(mains) == 5 and bonus is not None:
                 cs = score_combination("MegaMillions", mains, bonus)
                 p["optimizer_score"] = cs.composite_score
                 p["optimizer_grade"] = cs.grade()
@@ -633,7 +648,9 @@ def predict_millionaire():
             p.update(_ui)
             mains = p.get("main_numbers") or []
             bonus = p.get("bonus_ball")
-            if len(mains) == 5 and bonus is not None:
+            if not (len(mains) == 5 and bonus is not None):
+                mains, bonus = _parse_jackpot_number(p.get("number", ""))
+            if mains and len(mains) == 5 and bonus is not None:
                 cs = score_combination("Millionaire For Life", mains, bonus)
                 p["optimizer_score"] = cs.composite_score
                 p["optimizer_grade"] = cs.grade()
