@@ -9204,6 +9204,12 @@
     "draw_date": "2026-03-31"
   },
   {
+    "draw_date": "2026-04-01",
+    "date": "2026-04-01",
+    "winning_number": "2915",
+    "session": "Midday"
+  },
+  {
     "date": "4/2/2026",
     "winning_number": "8904",
     "session": "Midday",
@@ -9322,5 +9328,95 @@
     "winning_number": "2250",
     "session": "Midday",
     "draw_date": "2026-04-21"
+  },
+  {
+    "draw_date": "2026-04-22",
+    "date": "2026-04-22",
+    "winning_number": "9185",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-04-23",
+    "date": "2026-04-23",
+    "winning_number": "9453",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-04-24",
+    "date": "2026-04-24",
+    "winning_number": "3261",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-04-25",
+    "date": "2026-04-25",
+    "winning_number": "8680",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-04-26",
+    "date": "2026-04-26",
+    "winning_number": "0672",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-04-27",
+    "date": "2026-04-27",
+    "winning_number": "4368",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-04-28",
+    "date": "2026-04-28",
+    "winning_number": "4093",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-04-29",
+    "date": "2026-04-29",
+    "winning_number": "3410",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-04-30",
+    "date": "2026-04-30",
+    "winning_number": "5025",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-05-01",
+    "date": "2026-05-01",
+    "winning_number": "4982",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-05-02",
+    "date": "2026-05-02",
+    "winning_number": "5687",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-05-03",
+    "date": "2026-05-03",
+    "winning_number": "5661",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-05-04",
+    "date": "2026-05-04",
+    "winning_number": "4573",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-05-05",
+    "date": "2026-05-05",
+    "winning_number": "4455",
+    "session": "Midday"
+  },
+  {
+    "draw_date": "2026-05-06",
+    "date": "2026-05-06",
+    "winning_number": "3654",
+    "session": "Midday"
   }
 ]

@@ -139,7 +139,7 @@ def _parse_lotterypost(html: str) -> List[Dict]:
             "date":           draw_date,
             "winning_number": "".join(digits),
         })
-        print(f"[parse] {draw['game']} {draw['session']} {draw_date} → {''.join(digits)}")
+        print(f"[parse] {draw['game']} {draw['session']} {draw_date} -> {''.join(digits)}")
 
     return results
 
@@ -198,7 +198,7 @@ def ingest_results(
                 data["_payload"] = payload
                 responses.append(data)
                 status = "DRY-RUN" if dry_run else ("OK" if resp.status_code == 200 else "FAIL")
-                print(f"[ingest] {status} {game_name} {row.get('session')} {row.get('date')} → {row.get('winning_number')}")
+                print(f"[ingest] {status} {game_name} {row.get('session')} {row.get('date')} -> {row.get('winning_number')}")
             except requests.RequestException as e:
                 err = {"error": str(e), "_payload": payload}
                 responses.append(err)
