@@ -185,6 +185,15 @@ def _check_prediction_secret() -> bool:
     if _PREDICTION_GATE_DISABLED:
         # Explicit maintenance/open-mode override.
         return True
+    if not _PREDICTION_SECRET:
+        # Secret not configured — allow through (dev/local mode)
+        return True
+    provided = request.headers.get("X-Prediction-Secret", "")
+    # Constant-time comparison to prevent timing attacks
+    return hmac.compare_digest(
+        provided.encode("utf-8"),
+        _PREDICTION_SECRET.encode("utf-8"),
+    )
 
 
 def _apply_live_strategy_filter(predictions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -201,15 +210,6 @@ def _apply_live_strategy_filter(predictions: List[Dict[str, Any]]) -> List[Dict[
             pick["strategy_status"] = "allowed"
             allowed.append(pick)
     return allowed
-    if not _PREDICTION_SECRET:
-        # Secret not configured — allow through (dev/local mode)
-        return True
-    provided = request.headers.get("X-Prediction-Secret", "")
-    # Constant-time comparison to prevent timing attacks
-    return hmac.compare_digest(
-        provided.encode("utf-8"),
-        _PREDICTION_SECRET.encode("utf-8"),
-    )
 
 
 def _load_ga_data_from_json() -> Dict:
