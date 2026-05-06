@@ -543,7 +543,8 @@ def triples_due_signal():
     """
     try:
         from jackpot_system_v3.core.triple_due_signal import compute_due_signal
-        result = compute_due_signal('Cash3')
+        _extra = _ga_extra_entries.get('cash3_mid', []) + _ga_extra_entries.get('cash3_eve', []) + _ga_extra_entries.get('cash3_night', [])
+        result = compute_due_signal('Cash3', extra_draws=_extra or None)
         return jsonify({"success": True, **result}), 200
     except Exception as e:
         logger.error(f"Triples signal error: {e}")
@@ -561,7 +562,8 @@ def quads_due_signal():
     """
     try:
         from jackpot_system_v3.core.triple_due_signal import compute_due_signal
-        result = compute_due_signal('Cash4')
+        _extra = _ga_extra_entries.get('cash4_mid', []) + _ga_extra_entries.get('cash4_eve', []) + _ga_extra_entries.get('cash4_night', [])
+        result = compute_due_signal('Cash4', extra_draws=_extra or None)
         return jsonify({"success": True, **result}), 200
     except Exception as e:
         logger.error(f"Quads signal error: {e}")
@@ -596,7 +598,12 @@ def due_signal_check():
                 "success": False,
                 "error": "Missing required parameter: ?number=555 (Cash3 triple) or ?number=3333 (Cash4 quad)"
             }), 400
-        result = check_number(number)
+        _game = 'Cash3' if len(number) == 3 else 'Cash4'
+        if _game == 'Cash3':
+            _extra = _ga_extra_entries.get('cash3_mid', []) + _ga_extra_entries.get('cash3_eve', []) + _ga_extra_entries.get('cash3_night', [])
+        else:
+            _extra = _ga_extra_entries.get('cash4_mid', []) + _ga_extra_entries.get('cash4_eve', []) + _ga_extra_entries.get('cash4_night', [])
+        result = check_number(number, extra_draws=_extra or None)
         if not result.get('valid', True):
             return jsonify({"success": False, **result}), 400
         return jsonify({"success": True, **result}), 200

@@ -94,8 +94,13 @@ def _build_data_freshness(draws: list, today_dt: datetime = None) -> dict:
     }
 
 
-def _load_draws(game: str) -> list:
-    """Load all sessions for a game, dedup by date+session, sort chronologically."""
+def _load_draws(game: str, extra_draws: list = None) -> list:
+    """Load all sessions for a game, dedup by date+session, sort chronologically.
+
+    extra_draws: optional list of dicts with keys draw_date, winning_numbers, session
+    (same shape as _ga_extra_entries values) to merge with disk data.
+    Used on Railway where disk JSON files are reset on each redeploy.
+    """
     if game == 'Cash3':
         files = ['cash3_midday.json', 'cash3_evening.json', 'cash3_night.json']
         n_digits = 3
@@ -137,6 +142,32 @@ def _load_draws(game: str) -> list:
                 'session': session_key,
                 'session_order': SESSION_ORDER.get(session_key, 9),
             })
+
+    # Merge in-memory entries (e.g. Railway runtime ingests not yet on disk)
+    for d in (extra_draws or []):
+        raw_num = str(d.get('winning_numbers') or d.get('winning_number') or '')
+        num = raw_num[:n_digits]
+        if len(num) < n_digits:
+            continue
+        raw_date = d.get('draw_date') or d.get('date', '')
+        parsed = _parse_date(raw_date)
+        if parsed is None:
+            continue
+        sess_raw = str(d.get('session') or 'night').lower()
+        session_key = {'mid': 'midday', 'midday': 'midday',
+                       'eve': 'evening', 'evening': 'evening',
+                       'night': 'night'}.get(sess_raw, sess_raw)
+        key = (parsed.strftime('%Y-%m-%d'), session_key)
+        if key in seen:
+            continue
+        seen.add(key)
+        all_draws.append({
+            'date_str': parsed.strftime('%Y-%m-%d'),
+            'date': parsed,
+            'number': num,
+            'session': session_key,
+            'session_order': SESSION_ORDER.get(session_key, 9),
+        })
 
     all_draws.sort(key=lambda x: (x['date'], x['session_order']))
     return all_draws
@@ -219,7 +250,7 @@ def _build_narrative(num: str, game: str, current_gap: int, avg_gap: float,
     return ' '.join(lines)
 
 
-def compute_due_signal(game: str) -> dict:
+def compute_due_signal(game: str, extra_draws: list = None) -> dict:
     """
     Full Triples & Quads Signal analysis for Cash3 (triples) or Cash4 (quads).
 
@@ -231,7 +262,7 @@ def compute_due_signal(game: str) -> dict:
       top_pick (highest likelihood),
       strong_signals, extreme_signals
     """
-    draws = _load_draws(game)
+    draws = _load_draws(game, extra_draws=extra_draws)
     if not draws:
         return {'game': game, 'error': 'No draw data found', 'ranked': []}
 
@@ -796,7 +827,7 @@ def _build_check_narrative(number: str, game: str, gap_data: dict,
     return ' '.join(parts)
 
 
-def check_number(number_str: str, today: datetime = None) -> dict:
+def check_number(number_str: str, today: datetime = None, extra_draws: list = None) -> dict:
     """
     Subscriber-query entry point.
 
@@ -853,7 +884,7 @@ def check_number(number_str: str, today: datetime = None) -> dict:
     digit = num[0]
 
     # ── Load draws + locate hits ──────────────────────────────────────
-    draws = _load_draws(game)
+    draws = _load_draws(game, extra_draws=extra_draws)
     if not draws:
         return {'valid': False, 'error': f'No draw data available for {game}.'}
 
