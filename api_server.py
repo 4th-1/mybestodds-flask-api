@@ -318,23 +318,72 @@ def get_predictions_for_date(date_str: str, kit: str, subscriber: dict = None) -
                                 "confidence_score": conf,
                             })
 
-        # ── Jackpot picks — single pooled call ─────────────────────────────
-        jp_picks = generate_picks_v3(subscriber, None, ga_data, root)
-        jp_picks.pop("_stats", None)
-        for game, lane_data in jp_picks.items():
-            if game in ("Cash3", "Cash4"):
-                continue  # already handled above
-            for lane, numbers in lane_data.items():
-                for number in (numbers or []):
-                    if number:
-                        predictions.append({
-                            "game":             game,
-                            "number":           str(number),
-                            "date":             date_str,
-                            "lane":             lane,
-                            "kit":              kit,
-                            "confidence_score": None,
-                        })
+        # ── Jackpot picks — optimizer-filtered candidate pool ──────────────
+        # Generate a large candidate pool (20 picks per game), score each with
+        # the secondary optimizer, keep the top JACKPOT_DELIVER_COUNT by grade
+        # (A first, then B, then best available if none pass).
+        _JACKPOT_POOL_SIZE    = 50   # candidates generated per game (need ~50 for MM ~10% A/B yield)
+        _JACKPOT_DELIVER_COUNT = 2   # picks delivered to subscriber
+        _JACKPOT_PASS_GRADES  = {"A", "B"}
+
+        try:
+            from jackpot_secondary_optimizer import score_combination, resolve_game
+            from jackpot_system_v3.core.pick_engine_v3 import (
+                generate_megamillions_picks,
+                generate_powerball_picks,
+                generate_millionaire_for_life_picks,
+            )
+            _jp_game_fns = {
+                "MegaMillions":         (generate_megamillions_picks,           "MegaMillions"),
+                "Powerball":            (generate_powerball_picks,              "Powerball"),
+                "Millionaire For Life": (generate_millionaire_for_life_picks,   "Millionaire For Life"),
+            }
+            for jp_game, (jp_fn, jp_alias) in _jp_game_fns.items():
+                _candidates = jp_fn(_JACKPOT_POOL_SIZE, root=root)
+                _scored = []
+                for _line in _candidates:
+                    try:
+                        _parts = _line.split("+")
+                        _mains = [int(x) for x in _parts[0].split()]
+                        _bonus = int(_parts[1].strip())
+                        _cs = score_combination(jp_alias, _mains, _bonus)
+                        _scored.append((_cs.grade(), _cs.composite_score, _line))
+                    except Exception:
+                        continue
+                # Sort: A before B before C/D, then by score descending within grade
+                _grade_order = {"A": 0, "B": 1, "C": 2, "D": 3}
+                _scored.sort(key=lambda x: (_grade_order.get(x[0], 9), -x[1]))
+                _top = _scored[:_JACKPOT_DELIVER_COUNT]
+                _pass_count = sum(1 for g, _, _ in _top if g in _JACKPOT_PASS_GRADES)
+                logger.info(f"[jackpot_pool] {jp_game}: {_pass_count}/{_JACKPOT_DELIVER_COUNT} Grade A/B from {_JACKPOT_POOL_SIZE} candidates (best grades: {[g for g,_,_ in _top]})")
+                for _, _, _number in _top:
+                    predictions.append({
+                        "game":             jp_game,
+                        "number":           str(_number),
+                        "date":             date_str,
+                        "lane":             "lane_system",
+                        "kit":              kit,
+                        "confidence_score": None,
+                    })
+        except Exception as _jp_err:
+            logger.warning(f"[jackpot_pool] optimizer filtering failed, falling back to standard picks: {_jp_err}")
+            # Fallback: use standard 2-pick generation
+            jp_picks = generate_picks_v3(subscriber, None, ga_data, root)
+            jp_picks.pop("_stats", None)
+            for game, lane_data in jp_picks.items():
+                if game in ("Cash3", "Cash4"):
+                    continue
+                for lane, numbers in lane_data.items():
+                    for number in (numbers or []):
+                        if number:
+                            predictions.append({
+                                "game":             game,
+                                "number":           str(number),
+                                "date":             date_str,
+                                "lane":             lane,
+                                "kit":              kit,
+                                "confidence_score": None,
+                            })
 
         return predictions
 
@@ -1099,7 +1148,7 @@ def generate_predictions(subscriber_id: str):
                 "confidence_experimental": True,
                 "confidence_label": _ui["label"],
                 "confidence_color": _ui["color"],
-                "confidence_tier":  _ui["tier"],
+                "confidence_tier":  str(_ui["tier"]),
                 "confidence_description": _ui["description"],
             }
 
