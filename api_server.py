@@ -1206,6 +1206,25 @@ def generate_predictions(subscriber_id: str):
                 except Exception as _e1off:
                     logger.warning(f"1off ranking failed for {p.get('number')}: {_e1off}")
 
+            # ── Secondary optimizer enrichment for jackpot picks ───────────
+            if game in _JACKPOT_GAMES:
+                try:
+                    from jackpot_secondary_optimizer import score_combination, resolve_game
+                    _game_key = resolve_game(game)
+                    _mains, _bonus = _parse_jackpot_number(p.get("number", ""))
+                    if _mains and len(_mains) == 5 and _bonus is not None:
+                        _cs = score_combination(_game_key, _mains, _bonus)
+                        pick_entry["optimizer_score"]    = _cs.composite_score
+                        pick_entry["optimizer_grade"]    = _cs.grade()
+                        pick_entry["field_coverage"]     = _cs.field_coverage
+                        pick_entry["popular_avoidance"]  = _cs.popular_avoidance
+                        pick_entry["bonus_avoidance"]    = _cs.bonus_avoidance
+                        pick_entry["zones_covered"]      = _cs.zones_covered
+                        pick_entry["popular_count"]      = _cs.popular_count
+                        pick_entry["secondary_ev"]       = _cs.secondary_ev
+                except Exception as _opt_err:
+                    logger.warning(f"[optimizer] enrichment failed for {p.get('number')}: {_opt_err}")
+
             # Route into session-keyed dict for cash games, flat list for jackpots
             if game in _SESSION_GAMES:
                 sess_key = (p.get("session") or "UNKNOWN").upper()
