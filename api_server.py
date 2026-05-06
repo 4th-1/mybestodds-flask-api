@@ -19,26 +19,54 @@ import logging
 from dotenv import load_dotenv
 import platform
 
-from production_strategy import (
-    STRATEGY_VERSION,
-    is_live_recommendation_allowed,
-    strategy_reason,
-)
-from ev_reranker import EVReranker, build_history as _build_ev_history
-from reranker_config import (
-    EV_RERANKER_MODE,
-    ALLOW_PRODUCTION_CHANGE,
-    make_grain_id,
-    log_ev_request,
-)
+# ---------------------------------------------------------------------------
+# Cash3 EV system — optional; only present in local/dev environments.
+# On Railway these modules are not deployed (observation-only window).
+# ---------------------------------------------------------------------------
+try:
+    from production_strategy import (
+        STRATEGY_VERSION,
+        is_live_recommendation_allowed,
+        strategy_reason,
+    )
+    from ev_reranker import EVReranker, build_history as _build_ev_history
+    from reranker_config import (
+        EV_RERANKER_MODE,
+        ALLOW_PRODUCTION_CHANGE,
+        make_grain_id,
+        log_ev_request,
+    )
+    _CASH3_EV_AVAILABLE = True
+except ModuleNotFoundError:
+    _CASH3_EV_AVAILABLE = False
+    STRATEGY_VERSION = "N/A"
+    ALLOW_PRODUCTION_CHANGE = False
+    EV_RERANKER_MODE = "UNAVAILABLE"
+    EVReranker = None  # type: ignore[assignment,misc]
+
+    def is_live_recommendation_allowed(*_a, **_kw):
+        return False
+
+    def strategy_reason(*_a, **_kw):
+        return "ev_system_unavailable"
+
+    def make_grain_id(*_a, **_kw):
+        return ""
+
+    def log_ev_request(*_a, **_kw):
+        pass
+
+    def _build_ev_history():
+        return []
 
 # ---------------------------------------------------------------------------
 # EV Reranker — initialised once at startup; runs in OBSERVE_ONLY mode
 # ---------------------------------------------------------------------------
-def _init_ev_reranker() -> EVReranker | None:
+def _init_ev_reranker():
     """Build the EV reranker from on-disk history.  Returns None on failure."""
+    if not _CASH3_EV_AVAILABLE:
+        return None
     try:
-        from pathlib import Path
         from reranker_config import ROOT as _RC_ROOT
         from ev_reranker import _load_lane_stability, CONDITION_SUMMARY_CSV
         _hist      = _build_ev_history()
@@ -47,8 +75,6 @@ def _init_ev_reranker() -> EVReranker | None:
     except Exception as _e:
         logger.warning(f"[ev_reranker] init failed — reranker will be skipped: {_e}")
         return None
-
-_EV_RERANKER: EVReranker | None = _init_ev_reranker()
 
 # Tier helper for EV reranker (mirrors payout_model / ev_reranker)
 def _score_to_confidence_tier(score: float) -> str:
@@ -63,6 +89,9 @@ load_dotenv()
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Init EV reranker after logger is ready
+_EV_RERANKER = _init_ev_reranker()
 
 # Initialize Flask app
 app = Flask(__name__)
