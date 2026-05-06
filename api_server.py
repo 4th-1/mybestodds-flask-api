@@ -45,7 +45,7 @@ except ModuleNotFoundError:
     EVReranker = None  # type: ignore[assignment,misc]
 
     def is_live_recommendation_allowed(*_a, **_kw):
-        return False
+        return True
 
     def strategy_reason(*_a, **_kw):
         return "ev_system_unavailable"
