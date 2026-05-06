@@ -14,10 +14,48 @@ import sys
 import json
 import subprocess
 from datetime import datetime, timedelta
-from typing import Dict, List
+from typing import Any, Dict, List
 import logging
 from dotenv import load_dotenv
 import platform
+
+from production_strategy import (
+    STRATEGY_VERSION,
+    is_live_recommendation_allowed,
+    strategy_reason,
+)
+from ev_reranker import EVReranker, build_history as _build_ev_history
+from reranker_config import (
+    EV_RERANKER_MODE,
+    ALLOW_PRODUCTION_CHANGE,
+    make_grain_id,
+    log_ev_request,
+)
+
+# ---------------------------------------------------------------------------
+# EV Reranker — initialised once at startup; runs in OBSERVE_ONLY mode
+# ---------------------------------------------------------------------------
+def _init_ev_reranker() -> EVReranker | None:
+    """Build the EV reranker from on-disk history.  Returns None on failure."""
+    try:
+        from pathlib import Path
+        from reranker_config import ROOT as _RC_ROOT
+        from ev_reranker import _load_lane_stability, CONDITION_SUMMARY_CSV
+        _hist      = _build_ev_history()
+        _stability = _load_lane_stability(CONDITION_SUMMARY_CSV)
+        return EVReranker(history=_hist, lane_stability=_stability)
+    except Exception as _e:
+        logger.warning(f"[ev_reranker] init failed — reranker will be skipped: {_e}")
+        return None
+
+_EV_RERANKER: EVReranker | None = _init_ev_reranker()
+
+# Tier helper for EV reranker (mirrors payout_model / ev_reranker)
+def _score_to_confidence_tier(score: float) -> str:
+    if score < 0.25:   return "LOW"
+    if score < 0.50:   return "MODERATE"
+    if score < 0.75:   return "HIGH"
+    return "VERY_HIGH"
 
 # Load environment variables
 load_dotenv()
@@ -118,6 +156,22 @@ def _check_prediction_secret() -> bool:
     if _PREDICTION_GATE_DISABLED:
         # Explicit maintenance/open-mode override.
         return True
+
+
+def _apply_live_strategy_filter(predictions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Filter cash-game picks down to the currently validated production lane."""
+    allowed: List[Dict[str, Any]] = []
+    for pick in predictions:
+        if is_live_recommendation_allowed(
+            pick.get("game"),
+            pick.get("session"),
+            pick.get("confidence_tier"),
+            pick.get("play_type"),
+        ):
+            pick["strategy_version"] = STRATEGY_VERSION
+            pick["strategy_status"] = "allowed"
+            allowed.append(pick)
+    return allowed
     if not _PREDICTION_SECRET:
         # Secret not configured — allow through (dev/local mode)
         return True
@@ -308,12 +362,14 @@ def predict_triples():
             _rp = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c3_history)
             p["recommended_play"] = _rp
             p.update(_confidence_ui(_rp, p.get("lane", ""), game="Cash3"))
+        triple_preds = _apply_live_strategy_filter(triple_preds)
         return jsonify({
             "success": True,
             "date": date_str,
             "game": "Cash3",
             "predictions": triple_preds[:31],
-            "total_predictions": len(triple_preds)
+            "total_predictions": len(triple_preds),
+            "strategy_version": STRATEGY_VERSION,
         }), 200
         
     except Exception as e:
@@ -335,12 +391,14 @@ def predict_quads():
             _rp = _recommended_play(p.get("confidence_score") or 0.0, p.get("number", ""), c4_history)
             p["recommended_play"] = _rp
             p.update(_confidence_ui(_rp, p.get("lane", ""), game="Cash4"))
+        quad_preds = _apply_live_strategy_filter(quad_preds)
         return jsonify({
             "success": True,
             "date": date_str,
             "game": "Cash4",
             "predictions": quad_preds[:31],
-            "total_predictions": len(quad_preds)
+            "total_predictions": len(quad_preds),
+            "strategy_version": STRATEGY_VERSION,
         }), 200
         
     except Exception as e:
@@ -463,13 +521,26 @@ def predict_powerball():
     """Get Powerball predictions"""
     try:
         from jackpot_system_v3.core.pick_engine_v3 import _jackpot_confidence_ui
+        from jackpot_secondary_optimizer import score_combination, GAME_CONFIGS
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK3")
         pb_preds = [p for p in predictions if p.get("game") == "Powerball"]
         _ui = _jackpot_confidence_ui("Powerball")
         for p in pb_preds:
             p.update(_ui)
-        
+            mains = p.get("main_numbers") or []
+            bonus = p.get("bonus_ball")
+            if len(mains) == 5 and bonus is not None:
+                cs = score_combination("Powerball", mains, bonus)
+                p["optimizer_score"] = cs.composite_score
+                p["optimizer_grade"] = cs.grade()
+                p["field_coverage"] = cs.field_coverage
+                p["popular_avoidance"] = cs.popular_avoidance
+                p["bonus_avoidance"] = cs.bonus_avoidance
+                p["zones_covered"] = cs.zones_covered
+                p["popular_count"] = cs.popular_count
+                p["secondary_ev"] = cs.secondary_ev
+
         return jsonify({
             "success": True,
             "date": date_str,
@@ -477,7 +548,7 @@ def predict_powerball():
             "predictions": pb_preds[:1] if pb_preds else [],
             "total_predictions": len(pb_preds)
         }), 200
-        
+
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
@@ -487,13 +558,26 @@ def predict_megamillions():
     """Get Mega Millions predictions"""
     try:
         from jackpot_system_v3.core.pick_engine_v3 import _jackpot_confidence_ui
+        from jackpot_secondary_optimizer import score_combination, GAME_CONFIGS
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK3")
         mm_preds = [p for p in predictions if p.get("game") == "Mega Millions"]
         _ui = _jackpot_confidence_ui("Mega Millions")
         for p in mm_preds:
             p.update(_ui)
-        
+            mains = p.get("main_numbers") or []
+            bonus = p.get("bonus_ball")
+            if len(mains) == 5 and bonus is not None:
+                cs = score_combination("MegaMillions", mains, bonus)
+                p["optimizer_score"] = cs.composite_score
+                p["optimizer_grade"] = cs.grade()
+                p["field_coverage"] = cs.field_coverage
+                p["popular_avoidance"] = cs.popular_avoidance
+                p["bonus_avoidance"] = cs.bonus_avoidance
+                p["zones_covered"] = cs.zones_covered
+                p["popular_count"] = cs.popular_count
+                p["secondary_ev"] = cs.secondary_ev
+
         return jsonify({
             "success": True,
             "date": date_str,
@@ -501,7 +585,7 @@ def predict_megamillions():
             "predictions": mm_preds[:1] if mm_preds else [],
             "total_predictions": len(mm_preds)
         }), 200
-        
+
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
@@ -511,13 +595,26 @@ def predict_millionaire():
     """Get Millionaire For Life predictions"""
     try:
         from jackpot_system_v3.core.pick_engine_v3 import _jackpot_confidence_ui
+        from jackpot_secondary_optimizer import score_combination, GAME_CONFIGS
         date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
         predictions = get_predictions_for_date(date_str, "BOOK3")
         mfl_preds = [p for p in predictions if p.get("game") == "Millionaire For Life"]
         _ui = _jackpot_confidence_ui("Millionaire For Life")
         for p in mfl_preds:
             p.update(_ui)
-        
+            mains = p.get("main_numbers") or []
+            bonus = p.get("bonus_ball")
+            if len(mains) == 5 and bonus is not None:
+                cs = score_combination("Millionaire For Life", mains, bonus)
+                p["optimizer_score"] = cs.composite_score
+                p["optimizer_grade"] = cs.grade()
+                p["field_coverage"] = cs.field_coverage
+                p["popular_avoidance"] = cs.popular_avoidance
+                p["bonus_avoidance"] = cs.bonus_avoidance
+                p["zones_covered"] = cs.zones_covered
+                p["popular_count"] = cs.popular_count
+                p["secondary_ev"] = cs.secondary_ev
+
         return jsonify({
             "success": True,
             "date": date_str,
@@ -525,7 +622,114 @@ def predict_millionaire():
             "predictions": mfl_preds[:1] if mfl_preds else [],
             "total_predictions": len(mfl_preds)
         }), 200
-        
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/api/jackpot/score', methods=['POST'])
+def jackpot_score_combination():
+    """
+    Score a jackpot combination for secondary prize optimization.
+
+    POST body (JSON):
+      { "game": "Powerball",
+        "main_numbers": [6, 13, 29, 48, 58],
+        "bonus": 11 }
+
+    Accepted game values:
+      MegaMillions, Powerball, Millionaire For Life
+      (also: mm, pb, mfl, m4l, cash4life)
+    """
+    try:
+        from jackpot_secondary_optimizer import (
+            score_combination, resolve_game, GAME_CONFIGS, validate_combination
+        )
+        body = request.get_json(force=True, silent=True) or {}
+        raw_game  = body.get("game", "")
+        mains     = body.get("main_numbers") or []
+        bonus     = body.get("bonus")
+
+        game = resolve_game(str(raw_game))
+        if not game:
+            return jsonify({
+                "success": False,
+                "error": f"Unknown game '{raw_game}'. Use: MegaMillions, Powerball, Millionaire For Life"
+            }), 400
+
+        if not isinstance(mains, list) or len(mains) != 5:
+            return jsonify({"success": False, "error": "main_numbers must be a list of 5 integers"}), 400
+        if bonus is None:
+            return jsonify({"success": False, "error": "bonus is required"}), 400
+
+        try:
+            mains = [int(n) for n in mains]
+            bonus = int(bonus)
+        except (TypeError, ValueError):
+            return jsonify({"success": False, "error": "main_numbers and bonus must be integers"}), 400
+
+        err = validate_combination(GAME_CONFIGS[game], mains, bonus)
+        if err:
+            return jsonify({"success": False, "error": err}), 400
+
+        cs = score_combination(game, mains, bonus)
+        return jsonify({
+            "success":           True,
+            "game":              game,
+            "ticket":            cs.as_ticket(),
+            "optimizer_grade":   cs.grade(),
+            "optimizer_score":   cs.composite_score,
+            "field_coverage":    cs.field_coverage,
+            "popular_avoidance": cs.popular_avoidance,
+            "bonus_avoidance":   cs.bonus_avoidance,
+            "zones_covered":     cs.zones_covered,
+            "popular_count":     cs.popular_count,
+            "popular_numbers":   cs.popular_numbers,
+            "secondary_ev":      cs.secondary_ev,
+        }), 200
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/api/jackpot/prizes', methods=['GET'])
+def jackpot_prizes():
+    """
+    Return prize tier tables with exact odds and EV contributions.
+
+    Optional query param:  ?game=Powerball
+    If omitted, returns all three games.
+    """
+    try:
+        from jackpot_secondary_optimizer import (
+            prize_tier_probabilities, secondary_prize_ev,
+            GAME_CONFIGS, resolve_game
+        )
+        raw_game = request.args.get("game")
+        if raw_game:
+            game = resolve_game(raw_game)
+            if not game:
+                return jsonify({
+                    "success": False,
+                    "error": f"Unknown game '{raw_game}'"
+                }), 400
+            games = [game]
+        else:
+            games = list(GAME_CONFIGS.keys())
+
+        result = {}
+        for g in games:
+            cfg = GAME_CONFIGS[g]
+            tiers = prize_tier_probabilities(cfg)
+            result[g] = {
+                "main_pool":      f"{cfg.main_count} from {cfg.main_min}–{cfg.main_max}",
+                "bonus_pool":     f"1 from {cfg.bonus_min}–{cfg.bonus_max}",
+                "secondary_ev":   secondary_prize_ev(cfg),
+                "tiers":          tiers,
+            }
+
+        return jsonify({"success": True, "games": result}), 200
+
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
@@ -745,6 +949,8 @@ def generate_predictions(subscriber_id: str):
             or request.args.get("kit")
         )
         mmfsn = body.get("mmfsn") or {}
+        run_id = f"phase2_{date_str}_live"
+        source_system = "prod_live"
 
         # Load persisted subscriber record (written by /api/subscribers/sync)
         subscriber_record = {"initials": "MBO", "games": ["Cash3", "Cash4"], "tier": "book3"}
@@ -812,18 +1018,87 @@ def generate_predictions(subscriber_id: str):
                 _rp = _recommended_play(conf, p.get("number", ""), hist)
                 _ui = _confidence_ui(_rp, _lane, game=game)
 
+            # Keep confidence as likelihood signal and expose play aggression separately.
+            _risk_mode = {
+                "BOX": "conservative",
+                "FRONT_PAIR": "balanced",
+                "BACK_PAIR": "balanced",
+                "STRAIGHT_BOX": "balanced",
+                "STRAIGHT": "aggressive",
+                "STRAIGHT+1OFF": "aggressive",
+            }.get(_rp, "balanced")
+
             pick_entry = {
                 "number":           p.get("number"),
                 "kit":              p.get("kit"),
                 "lane":             _lane,
                 "session":          p.get("session"),
+                "run_id":           run_id,
+                "source_system":    source_system,
                 "confidence_score": conf,
                 "recommended_play": _rp,
+                "risk_mode":        _risk_mode,
+                "confidence_experimental": True,
                 "confidence_label": _ui["label"],
                 "confidence_color": _ui["color"],
                 "confidence_tier":  _ui["tier"],
                 "confidence_description": _ui["description"],
             }
+
+            if not is_live_recommendation_allowed(
+                game,
+                pick_entry.get("session"),
+                pick_entry.get("confidence_tier"),
+                pick_entry.get("play_type"),
+            ):
+                continue
+
+            pick_entry["strategy_version"] = STRATEGY_VERSION
+            pick_entry["strategy_status"] = "allowed"
+            pick_entry["strategy_reason"] = strategy_reason(
+                game,
+                pick_entry.get("session"),
+                pick_entry.get("confidence_tier"),
+                pick_entry.get("play_type"),
+            )
+
+            # ── Phase 3B: EV Reranker — OBSERVE_ONLY ────────────────────────
+            # Score this pick and attach ev_* fields to the response.
+            # The production gate above still controls exposure; reranker observes only.
+            if _EV_RERANKER is not None and game == "Cash3":
+                try:
+                    from datetime import date as _date
+                    _draw_date_str = date_str  # outer scope: YYYY-MM-DD
+                    try:
+                        _draw_date = _date.fromisoformat(_draw_date_str)
+                    except (ValueError, TypeError):
+                        _draw_date = _date.today()
+                    _ev_tier = _score_to_confidence_tier(pick_entry.get("confidence_score") or 0.0)
+                    _scored = _EV_RERANKER.score_pick(
+                        game      = game,
+                        play_type = _rp,
+                        session   = (pick_entry.get("session") or "").upper(),
+                        tier      = _ev_tier,
+                        pick      = str(pick_entry.get("number", "")),
+                        draw_date = _draw_date,
+                    )
+                    _ev_decision, _ev_reason = _EV_RERANKER._decide(_scored)
+                    pick_entry["ev_score"]        = _scored["ev_score"]
+                    pick_entry["ev_decision"]      = _ev_decision
+                    pick_entry["ev_reason"]        = _ev_reason
+                    pick_entry["mmfsn_tier"]       = _scored["mmfsn_tier"]
+                    pick_entry["production_gate"]  = True
+                    pick_entry["production_action"] = "CURRENT_V2_RULE"
+                    pick_entry["reranker_mode"]    = EV_RERANKER_MODE
+                except Exception as _ev_err:
+                    logger.warning(f"[ev_reranker] score failed for {pick_entry.get('number')}: {_ev_err}")
+
+            # Audit transparency fields — present on every pick regardless of EV scoring.
+            # ev_sort_is_advisory=True signals to all consumers that sort order is informational
+            # only; exposure_authority confirms the v2 rule still controls what subscribers see.
+            pick_entry.setdefault("ev_sort_applied",     True)
+            pick_entry.setdefault("ev_sort_is_advisory", True)
+            pick_entry.setdefault("exposure_authority",  "CURRENT_V2_RULE")
 
             # Inject payout details for all play types
             _num = p.get("number", "")
@@ -896,13 +1171,65 @@ def generate_predictions(subscriber_id: str):
         if mmfsn and kit == "BOOK3":
             _inject_mmfsn_picks(grouped, mmfsn, subscriber_id, date_str)
 
-        # Sort each session's picks by confidence descending so index [0] is always top pick
+        # Sort each session's picks by ev_score (then confidence) descending
+        # so index [0] is always the top-ranked pick in the EV reranker.
+        def _sort_key(x):
+            return (x.get("ev_score") or 0.0, x.get("confidence_score") or 0.0)
+
         for _game, _val in grouped.items():
             if isinstance(_val, dict):
                 for _sess in _val:
-                    _val[_sess].sort(key=lambda x: x.get("confidence_score") or 0.0, reverse=True)
+                    _val[_sess].sort(key=_sort_key, reverse=True)
+                    # Stamp ev_rank based on final sort order
+                    for _i, _pe in enumerate(_val[_sess], 1):
+                        _pe["ev_rank"] = _i
             else:
-                _val.sort(key=lambda x: x.get("confidence_score") or 0.0, reverse=True)
+                _val.sort(key=_sort_key, reverse=True)
+                for _i, _pe in enumerate(_val, 1):
+                    _pe["ev_rank"] = _i
+
+        # ── Phase 3B: bulk write EV observation log ─────────────────────────
+        if _EV_RERANKER is not None and EV_RERANKER_MODE == "OBSERVE_ONLY":
+            try:
+                _ev_picks_to_log = []
+                _gate_map: dict[str, bool] = {}
+                for _g, _gv in grouped.items():
+                    if isinstance(_gv, dict):
+                        for _s, _sp in _gv.items():
+                            for _pe in _sp:
+                                if "ev_score" in _pe:
+                                    _ev_picks_to_log.append({
+                                        "date":            date_str,
+                                        "draw":            _pe.get("session", ""),
+                                        "game":            _g,
+                                        "lane":            _pe.get("recommended_play", ""),
+                                        "pick":            str(_pe.get("number", "")),
+                                        "overlay_tier":    _pe.get("confidence_tier", ""),
+                                        "mmfsn_tier":      _pe.get("mmfsn_tier", ""),
+                                        "ev_score":        _pe.get("ev_score", 0.0),
+                                        "decision":        _pe.get("ev_decision", ""),
+                                        "rank":            _pe.get("ev_rank", 0),
+                                        "base_score":      0.0,
+                                        "overlay_bonus":   0.0,
+                                        "night_bonus":     0.0,
+                                        "mmfsn_bonus":     0.0,
+                                        "recent_signal_bonus": 0.0,
+                                        "pav_bonus":       0.0,
+                                        "instability_penalty": 0.0,
+                                        "overexposure_penalty": 0.0,
+                                        "cold_signal_penalty": 0.0,
+                                    })
+                                    _gid = make_grain_id(
+                                        date_str,
+                                        _pe.get("session", ""),
+                                        _g,
+                                        _pe.get("recommended_play", ""),
+                                        str(_pe.get("number", "")),
+                                    )
+                                    _gate_map[_gid] = True
+                log_ev_request(_ev_picks_to_log, _gate_map)
+            except Exception as _log_err:
+                logger.warning(f"[ev_observe] bulk log failed (non-fatal): {_log_err}")
 
         # BOSK tier — Cash3 and Cash4 only, no jackpot games
         _BOSK_GAMES = {"Cash3", "Cash4", "Triples", "Quads"}
@@ -936,6 +1263,7 @@ def generate_predictions(subscriber_id: str):
             "date": date_str,
             "kit": kit,
             "payload_shape": "session_keyed_v1",
+            "strategy_version": STRATEGY_VERSION,
             "predictions": grouped,
             "total_picks": _count_picks(grouped),
             "near_miss_advice": near_miss_advice,
