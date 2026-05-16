@@ -2283,7 +2283,6 @@ def triple_environment_today():
 # GET /api/quad-environment/today
 # ---------------------------------------------------------------------------
 @app.route("/api/quad-environment/today", methods=["GET"])
-@require_prediction_secret
 def quad_environment_today():
     """
     Check whether today's date-level conditions activate the Cash4 quad
@@ -2299,6 +2298,9 @@ def quad_environment_today():
       SUN_HOUR_ENV        — Sun Hour + score >= 0.72 (same as triple threshold)
       POST_MASTER_TRAILING — yesterday was master + score not dropping today
     """
+    if not _check_prediction_secret():
+        return jsonify({"success": False, "error": "Unauthorized"}), 403
+
     try:
         session = request.args.get("session", "Midday")
         if session not in ("Midday", "Evening", "Night"):
