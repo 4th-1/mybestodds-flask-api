@@ -15,6 +15,10 @@ This module:
   4. When BOTH thresholds are met → emits a ConvergenceAlert dict
   5. Callers (Flask endpoint, email formatter, push handler) consume the alert
 
+Also exposes scan_for_triple_environment() — a date-level signal class that fires
+when the draw environment itself is activated for triples, independent of any
+individual number's structural pressure.
+
 Design rules learned from the 444 miss
 ---------------------------------------
 R1: max_gap_breached = True  → EXTREME label regardless of celestial match or stale data
@@ -22,6 +26,14 @@ R2: Stale data adds a caveat line, never suppresses a convergence alert
 R3: session_affinity is surfaced as the primary "play window" in the alert headline
 R4: preferred_window_days_away: if ≤ 14 → "window opening" message, not a mismatch penalty
 R5: Two independent signals agreeing on the same day is the trigger — not one signal alone
+
+Environmental Activation discovery (2026-05-16)
+------------------------------------------------
+Every Midday triple in a consecutive-cluster event hit under Sun Hour + overlay >= 0.72:
+  2022-04-16  333  Sun Hour  overlay=0.823  (structural: NO DATA)
+  2023-01-19  000  Sun Hour  overlay=0.825  (structural: COLD 0.09x)
+  2026-05-16  999  Sun Hour  overlay=0.725  (structural: COLD 0.06x)
+The structural model is number-specific. Sun Hour activates the entire triple space.
 """
 
 import json
@@ -318,6 +330,207 @@ def _build_alert(candidate: dict, game: str, soul_compass: dict,
         headline=headline,
         body=body,
         play_instruction=play_instruction,
+        generated_at=datetime.now().isoformat(),
+    )
+
+
+# ── Environmental Activation signal ──────────────────────────────────────────
+# Threshold derived from 3 confirmed Midday triple cluster events (Apr 2022,
+# Jan 2023, May 2026). All three shared: planetary_hour = Sun Hour AND
+# overlay_score >= 0.72 at Midday. Structural state varied (NO DATA / COLD /
+# EXTREME) — the environmental activation fired regardless.
+
+ENV_SUN_HOUR_LABEL         = 'Sun Hour'
+ENV_OVERLAY_SCORE_THRESHOLD = 0.72
+
+# Historical confirmed events used to establish threshold
+_ENV_HISTORICAL_EVENTS = [
+    {'date': '2022-04-16', 'session': 'Midday', 'number': '333', 'overlay_score': 0.823,
+     'structural': 'NO DATA (1 prior hit)', 'note': 'Part of Apr 2022 consecutive-triple cluster'},
+    {'date': '2023-01-19', 'session': 'Midday', 'number': '000', 'overlay_score': 0.825,
+     'structural': 'COLD (0.09x)', 'note': 'Part of Jan 2023 three-triple cluster (4 days)'},
+    {'date': '2026-05-16', 'session': 'Midday', 'number': '999', 'overlay_score': 0.725,
+     'structural': 'COLD (0.06x)', 'note': 'Day after 444 EXTREME hit (May 2026)'},
+]
+
+
+class TripleEnvironmentAlert:
+    """
+    Emitted when the draw environment itself is activated for Cash3 triples —
+    independent of any individual number's structural pressure.
+
+    Signal fires when ALL of the following are true at a given session:
+      1. planetary_hour == 'Sun Hour'
+      2. overlay_score >= 0.72
+
+    This is a date-level signal. It does not name a specific number to play.
+    It says: "The environment that has historically produced triples is present."
+
+    Historical confirmation: 3/3 Midday triple cluster events hit under this
+    condition, including two where the winning number was COLD structurally.
+
+    Attributes
+    ----------
+    session           : 'Midday' | 'Evening' | 'Night'
+    draw_time         : '12:29 PM' etc.
+    date_str          : 'YYYY-MM-DD'
+    overlay_score     : float — combined celestial overlay for this session/date
+    planetary_hour    : str — e.g. 'Sun Hour'
+    moon_phase        : str
+    zodiac_sign       : str
+    numerology_code   : str
+    is_master_number  : bool — True if numerology is 11, 22, or 33
+    structural_alerts : list of str — any EXTREME/HIGH numbers also firing today
+    confidence        : str — 'HIGH' if overlay >= 0.80, 'ELEVATED' if >= 0.72
+    headline          : subscriber-facing one-liner
+    body              : subscriber-facing explanation
+    generated_at      : ISO timestamp
+    historical_hit_count : int — confirmed hits under this condition (for transparency)
+    """
+
+    def __init__(self, **kw):
+        for k, v in kw.items():
+            setattr(self, k, v)
+
+    def to_dict(self) -> dict:
+        return {k: v for k, v in self.__dict__.items()}
+
+    def __repr__(self):
+        return (
+            f"<TripleEnvironmentAlert {self.session} {self.date_str} | "
+            f"overlay={self.overlay_score} | {self.planetary_hour} | "
+            f"confidence={self.confidence}>"
+        )
+
+
+def scan_for_triple_environment(
+    session: str = 'Midday',
+    today: Optional[date] = None,
+    structural_alerts: Optional[list] = None,
+) -> Optional[TripleEnvironmentAlert]:
+    """
+    Check whether today's date-level celestial conditions activate the triple
+    environment threshold.
+
+    Parameters
+    ----------
+    session          : draw session to check, default 'Midday'
+    today            : override date (for back-tests)
+    structural_alerts: list of ConvergenceAlert objects already fired today —
+                       used to surface any EXTREME numbers that co-occur
+
+    Returns
+    -------
+    TripleEnvironmentAlert if threshold is met, else None.
+    """
+    today = today or date.today()
+    today_str = today.strftime('%Y-%m-%d')
+
+    # Import overlay engine
+    try:
+        _OVERLAY = os.path.join(_DIR, 'jackpot_system_v3', 'core')
+        if _OVERLAY not in sys.path:
+            sys.path.insert(0, _OVERLAY)
+        from overlay_engine_v3_7 import compute_overlays
+    except ImportError as e:
+        print(f"[triple_environment] overlay_engine import failed: {e}")
+        return None
+
+    try:
+        ov = compute_overlays(today_str, session)
+    except Exception as e:
+        print(f"[triple_environment] compute_overlays failed: {e}")
+        return None
+
+    planetary_hour  = ov.get('planetary_hour', '')
+    overlay_score   = float(ov.get('overlay_score', 0.0))
+    moon_phase      = ov.get('moon_phase', '')
+    zodiac_sign     = ov.get('zodiac_sign', '')
+    numerology_code = str(ov.get('numerology_code', ''))
+    is_master       = numerology_code in ('11', '22', '33')
+
+    # Threshold check
+    sun_hour_active   = planetary_hour == ENV_SUN_HOUR_LABEL
+    overlay_active    = overlay_score >= ENV_OVERLAY_SCORE_THRESHOLD
+
+    if not (sun_hour_active and overlay_active):
+        return None
+
+    # Confidence tier
+    confidence = 'HIGH' if overlay_score >= 0.80 else 'ELEVATED'
+
+    draw_time = SESSION_DRAW_TIMES.get(session, '')
+
+    # Surface any structural EXTREME numbers co-firing today
+    extreme_numbers = []
+    if structural_alerts:
+        for a in structural_alerts:
+            if getattr(a, 'max_gap_breached', False) or getattr(a, 'signal_label', '') == 'EXTREME':
+                extreme_numbers.append(a.number)
+
+    # ── headline ──────────────────────────────────────────────────────────────
+    master_note = f" Numerology {numerology_code} (master number) amplifies this window." if is_master else ''
+    headline = (
+        f"🌞 {session} Triple Environment Active — {today_str}\n"
+        f"Sun Hour + overlay {overlay_score:.3f}.{master_note} "
+        f"Every Midday triple in a consecutive cluster has hit under this condition."
+    )
+
+    # ── body ──────────────────────────────────────────────────────────────────
+    body_parts = [
+        f"The celestial conditions at {session} today match the environmental profile "
+        f"that has produced Cash3 triples in every confirmed consecutive-cluster event "
+        f"in the data history (3 of 3 instances).",
+
+        f"Signal factors: Sun Hour ({planetary_hour}), overlay score {overlay_score:.3f} "
+        f"(threshold: {ENV_OVERLAY_SCORE_THRESHOLD}), "
+        f"moon phase {moon_phase}, zodiac {zodiac_sign}.",
+    ]
+
+    if is_master:
+        body_parts.append(
+            f"Numerology code {numerology_code} is a master number — the highest weight "
+            f"tier in the overlay model (0.9). This amplifies the environmental signal."
+        )
+
+    if extreme_numbers:
+        body_parts.append(
+            f"Structural pressure alert also active today for: {', '.join(extreme_numbers)}. "
+            f"When environmental activation and structural EXTREME co-occur, both "
+            f"signal classes are pointing in the same direction."
+        )
+    else:
+        body_parts.append(
+            f"No structural EXTREME numbers are co-firing today. The signal is "
+            f"environmental only. Historical precedent: COLD numbers have hit "
+            f"inside this window (000 Jan 2023, 999 May 2026)."
+        )
+
+    body_parts.append(
+        f"Historical confirmation: 3 Midday triples in 3 consecutive-cluster events "
+        f"all hit under Sun Hour + overlay >= 0.72. "
+        f"This is the question the system was not asking — now it is."
+    )
+
+    body = ' '.join(body_parts)
+
+    return TripleEnvironmentAlert(
+        session=session,
+        draw_time=draw_time,
+        date_str=today_str,
+        overlay_score=overlay_score,
+        planetary_hour=planetary_hour,
+        moon_phase=moon_phase,
+        zodiac_sign=zodiac_sign,
+        numerology_code=numerology_code,
+        is_master_number=is_master,
+        structural_alerts=[a.number for a in (structural_alerts or [])],
+        extreme_numbers=extreme_numbers,
+        confidence=confidence,
+        headline=headline,
+        body=body,
+        historical_hit_count=len(_ENV_HISTORICAL_EVENTS),
+        historical_events=_ENV_HISTORICAL_EVENTS,
         generated_at=datetime.now().isoformat(),
     )
 

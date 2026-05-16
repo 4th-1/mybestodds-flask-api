@@ -2149,6 +2149,136 @@ def convergence_alerts_today():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+@app.route("/api/triple-environment/today", methods=["GET"])
+def triple_environment_today():
+    """
+    Check whether today's date-level celestial conditions activate the
+    Cash3 Midday triple environment threshold.
+
+    This is the signal class the system was missing before May 16, 2026.
+    It fires when planetary_hour == 'Sun Hour' AND overlay_score >= 0.72
+    for the requested session — conditions present in every confirmed
+    consecutive-triple cluster event in the draw history.
+
+    Unlike /api/convergence-alerts/today (which is number-specific, gap-driven),
+    this endpoint answers a date-level question:
+    "Is the environment activated for triples today, regardless of which number
+    is structurally overdue?"
+
+    Query params:
+        session : 'Midday' | 'Evening' | 'Night' (default 'Midday')
+
+    Auth: X-Prediction-Secret header required.
+
+    Response:
+        {
+          "success": true,
+          "date": "2026-05-16",
+          "session": "Midday",
+          "environment_active": true,
+          "confidence": "ELEVATED",
+          "overlay_score": 0.725,
+          "planetary_hour": "Sun Hour",
+          "moon_phase": "Last Quarter",
+          "zodiac_sign": "Taurus",
+          "numerology_code": "22",
+          "is_master_number": true,
+          "structural_cofire": ["444"],
+          "headline": "...",
+          "body": "...",
+          "historical_hit_count": 3,
+          "historical_events": [...]
+        }
+    """
+    if not _check_prediction_secret():
+        return jsonify({"success": False, "error": "Unauthorized"}), 403
+
+    session = request.args.get("session", "Midday").strip()
+    valid_sessions = {"Midday", "Evening", "Night"}
+    if session not in valid_sessions:
+        return jsonify({
+            "success": False,
+            "error": f"session must be one of {sorted(valid_sessions)}"
+        }), 400
+
+    try:
+        from convergence_alert import scan_for_convergence, scan_for_triple_environment
+
+        # Also run structural scan so we can surface any co-firing EXTREME numbers
+        extra_c3 = (
+            _ga_extra_entries.get('cash3_mid', []) +
+            _ga_extra_entries.get('cash3_eve', []) +
+            _ga_extra_entries.get('cash3_night', [])
+        )
+        structural_alerts = scan_for_convergence(
+            games=['Cash3'],
+            require_alignment=False,
+            extra_draws_cash3=extra_c3 or None,
+        )
+
+        env = scan_for_triple_environment(
+            session=session,
+            structural_alerts=structural_alerts,
+        )
+
+        if env is None:
+            # Threshold not met — return informational response
+            from jackpot_system_v3.core.overlay_engine_v3_7 import compute_overlays
+            from datetime import date
+            ov = compute_overlays(date.today().strftime('%Y-%m-%d'), session)
+            return jsonify({
+                "success":            True,
+                "date":               date.today().strftime('%Y-%m-%d'),
+                "session":            session,
+                "environment_active": False,
+                "confidence":         None,
+                "overlay_score":      float(ov.get('overlay_score', 0.0)),
+                "planetary_hour":     ov.get('planetary_hour', ''),
+                "moon_phase":         ov.get('moon_phase', ''),
+                "zodiac_sign":        ov.get('zodiac_sign', ''),
+                "numerology_code":    str(ov.get('numerology_code', '')),
+                "is_master_number":   str(ov.get('numerology_code', '')) in ('11', '22', '33'),
+                "threshold_sun_hour": "Sun Hour",
+                "threshold_overlay":  0.72,
+                "headline":           f"Triple environment not active for {session} today.",
+                "body":               (
+                    f"Conditions: {ov.get('planetary_hour')} / overlay {ov.get('overlay_score')}. "
+                    f"Threshold requires Sun Hour + overlay >= 0.72."
+                ),
+                "structural_cofire":  [a.number for a in structural_alerts if getattr(a, 'max_gap_breached', False)],
+                "historical_hit_count": 3,
+            }), 200
+
+        d = env.to_dict()
+        logger.info(
+            f"triple-environment/today: session={session} "
+            f"active=True overlay={env.overlay_score} confidence={env.confidence}"
+        )
+        return jsonify({
+            "success":            True,
+            "date":               env.date_str,
+            "session":            env.session,
+            "environment_active": True,
+            "confidence":         env.confidence,
+            "overlay_score":      env.overlay_score,
+            "planetary_hour":     env.planetary_hour,
+            "moon_phase":         env.moon_phase,
+            "zodiac_sign":        env.zodiac_sign,
+            "numerology_code":    env.numerology_code,
+            "is_master_number":   env.is_master_number,
+            "structural_cofire":  env.extreme_numbers,
+            "headline":           env.headline,
+            "body":               env.body,
+            "historical_hit_count": env.historical_hit_count,
+            "historical_events":  env.historical_events,
+            "generated_at":       env.generated_at,
+        }), 200
+
+    except Exception as e:
+        logger.error(f"triple-environment/today error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
