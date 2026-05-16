@@ -2279,6 +2279,90 @@ def triple_environment_today():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+# ---------------------------------------------------------------------------
+# GET /api/quad-environment/today
+# ---------------------------------------------------------------------------
+@app.route("/api/quad-environment/today", methods=["GET"])
+@require_prediction_secret
+def quad_environment_today():
+    """
+    Check whether today's date-level conditions activate the Cash4 quad
+    environment signal.
+
+    Query params
+    ------------
+    session : Midday | Evening | Night  (default: Midday)
+
+    Returns 200 always (environment_active: false when not firing).
+    Trigger paths:
+      MASTER_NUMBER       — numerology 11/22/33 day + score >= 0.70
+      SUN_HOUR_ENV        — Sun Hour + score >= 0.72 (same as triple threshold)
+      POST_MASTER_TRAILING — yesterday was master + score not dropping today
+    """
+    try:
+        session = request.args.get("session", "Midday")
+        if session not in ("Midday", "Evening", "Night"):
+            return jsonify({"success": False, "error": "session must be Midday, Evening, or Night"}), 400
+
+        from convergence_alert import scan_for_quad_environment, scan_for_convergence
+
+        # Run structural scan to surface co-firing EXTREME quads
+        structural = scan_for_convergence(games=["Cash4"])
+        structural_alerts = structural.alerts if structural else []
+
+        env = scan_for_quad_environment(
+            session=session,
+            structural_alerts=structural_alerts,
+        )
+
+        today_str = date.today().strftime("%Y-%m-%d")
+
+        if not env:
+            # Environment not active — still informational
+            logger.info(f"quad-environment/today: session={session} environment_active=False")
+            return jsonify({
+                "success":            True,
+                "date":               today_str,
+                "session":            session,
+                "environment_active": False,
+                "message":            "Quad environment threshold not met today.",
+            }), 200
+
+        logger.info(
+            f"quad-environment/today: session={session} "
+            f"path={env.trigger_path} confidence={env.confidence} "
+            f"overlay={env.overlay_score} master={env.is_master_number}"
+        )
+
+        return jsonify({
+            "success":               True,
+            "date":                  env.date_str,
+            "session":               session,
+            "environment_active":    True,
+            "trigger_path":          env.trigger_path,
+            "confidence":            env.confidence,
+            "overlay_score":         env.overlay_score,
+            "planetary_hour":        env.planetary_hour,
+            "moon_phase":            env.moon_phase,
+            "zodiac_sign":           env.zodiac_sign,
+            "numerology_code":       env.numerology_code,
+            "is_master_number":      env.is_master_number,
+            "yesterday_was_master":  env.yesterday_was_master,
+            "yesterday_numerology":  env.yesterday_numerology,
+            "all_session_risk":      env.all_session_risk,
+            "extreme_quads":         env.extreme_quads,
+            "headline":              env.headline,
+            "body":                  env.body,
+            "historical_hit_count":  env.historical_hit_count,
+            "historical_events":     env.historical_events,
+            "generated_at":          env.generated_at,
+        }), 200
+
+    except Exception as e:
+        logger.error(f"quad-environment/today error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
