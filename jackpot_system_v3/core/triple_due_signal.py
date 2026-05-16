@@ -211,7 +211,8 @@ def _frequency_trend(hits: list, total: int) -> float:
 
 def _build_narrative(num: str, game: str, current_gap: int, avg_gap: float,
                      overdue_ratio: float, gap_pct: float, last_hit_date: str,
-                     days_since: int, signal: str, session_affinity: str) -> str:
+                     days_since: int, signal: str, session_affinity: str,
+                     max_gap_breached: bool = False) -> str:
     """Human-readable explanation optimized for subscriber display."""
     lines = []
 
@@ -232,12 +233,19 @@ def _build_narrative(num: str, game: str, current_gap: int, avg_gap: float,
         lines.append(
             f"Historically, only {100 - pct_label}% of {game} gaps have been this long."
         )
-    
+
     if session_affinity:
         lines.append(f"When it does fall, it favors the {session_affinity} draw.")
 
     if signal == 'EXTREME':
-        lines.append("EXTREME: This combination has exceeded its longest-ever recorded gap — it is statistically overdue at the highest level.")
+        if max_gap_breached:
+            lines.append(
+                "EXTREME — RECORD GAP: This is the longest this number has gone without hitting in our entire history. "
+                "Structural pressure at this level overrides celestial timing mismatches. "
+                "If data is stale, that adds uncertainty on timing — it does not reduce the pressure reading."
+            )
+        else:
+            lines.append("EXTREME: This combination has exceeded its longest-ever recorded gap — it is statistically overdue at the highest level.")
     elif signal == 'STRONG':
         lines.append("STRONG signal: Gap analysis and digit frequency both indicate elevated likelihood.")
     elif signal == 'MODERATE':
@@ -350,7 +358,11 @@ def compute_due_signal(game: str, extra_draws: list = None) -> dict:
         p_next_10 = (1.0 - (1.0 - base_p) ** 10) * 100  # percent
 
         # Signal label
-        if f5 == 1.0 or overdue_ratio >= 2.5:
+        # RULE: max_gap_breached is a hard override — structural pressure at
+        # all-time record levels cannot be downgraded by celestial mismatch or
+        # stale data. Stale data adds a caveat line only.
+        max_gap_breached = bool(f5)
+        if max_gap_breached or overdue_ratio >= 2.5:
             signal = 'EXTREME'
         elif likelihood >= 0.65 or overdue_ratio >= 1.5:
             signal = 'STRONG'
@@ -368,6 +380,7 @@ def compute_due_signal(game: str, extra_draws: list = None) -> dict:
             last_hit_date=last_hit_date_str,
             days_since=days_since if days_since is not None else 0,
             signal=signal, session_affinity=session_affinity,
+            max_gap_breached=max_gap_breached,
         )
 
         results.append({

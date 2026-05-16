@@ -1926,6 +1926,229 @@ def cash3_ev_observe_log_download():
         return jsonify({"error": str(e)}), 500
 
 
+# ---------------------------------------------------------------------------
+# Soul Compass — read / write endpoints
+# ---------------------------------------------------------------------------
+
+@app.route("/api/soul-compass/today", methods=["GET"])
+def soul_compass_today():
+    """
+    Return today's Soul Compass alignment values.
+
+    If data/soul_compass_today.json exists and is dated today, return it.
+    Otherwise fall back to generating from the overlay engine (so the
+    endpoint is always live even if Lovable hasn't pushed today's values yet).
+
+    Query params:
+      ?generate=true   Force regeneration from overlay engine (updates files).
+    No auth required — callers include convergence_alert.py running locally.
+    """
+    try:
+        from soul_compass_writer import (
+            generate_and_write, write_soul_compass_files, _TODAY_FILE
+        )
+        import datetime as _dt
+
+        force = request.args.get("generate", "false").lower() == "true"
+        today_str = _dt.date.today().strftime("%Y-%m-%d")
+
+        entry = None
+        if not force and os.path.exists(_TODAY_FILE):
+            try:
+                with open(_TODAY_FILE, encoding="utf-8") as f:
+                    cached = json.load(f)
+                if cached.get("date") == today_str:
+                    entry = cached
+            except (OSError, json.JSONDecodeError):
+                pass
+
+        if entry is None:
+            entry = generate_and_write(today_str)
+
+        return jsonify({"success": True, **entry}), 200
+    except Exception as e:
+        logger.error(f"soul-compass/today error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/soul-compass/write", methods=["POST"])
+def soul_compass_write():
+    """
+    Accept Soul Compass values from Lovable's edge function after each
+    daily email send, and persist them so convergence_alert.py can read them.
+
+    Auth: X-Prediction-Secret header required.
+
+    Request body (JSON):
+      {
+        "alignment_strength": "Peak",
+        "timing_posture":     "Lean In",
+        "focus_area":         "Purposeful Action",
+        "date":               "YYYY-MM-DD"   // optional, defaults to today
+      }
+
+    Response:
+      { "success": true, "date": "YYYY-MM-DD" }
+    """
+    if not _check_prediction_secret():
+        return jsonify({"success": False, "error": "Unauthorized"}), 403
+
+    body = request.get_json(silent=True) or {}
+    alignment_strength = body.get("alignment_strength", "").strip()
+    timing_posture     = body.get("timing_posture", "").strip()
+    focus_area         = body.get("focus_area", "").strip()
+
+    import datetime as _dt
+    date_str = body.get("date") or _dt.date.today().strftime("%Y-%m-%d")
+
+    valid_strengths = {"Peak", "Strong", "Elevated", "Moderate", "Low"}
+    valid_postures  = {"Lean In", "Engage", "Steady", "Hold", "Wait"}
+
+    if alignment_strength not in valid_strengths:
+        return jsonify({
+            "success": False,
+            "error": f"alignment_strength must be one of {sorted(valid_strengths)}"
+        }), 400
+    if timing_posture not in valid_postures:
+        return jsonify({
+            "success": False,
+            "error": f"timing_posture must be one of {sorted(valid_postures)}"
+        }), 400
+
+    try:
+        from soul_compass_writer import write_soul_compass_files
+        entry = {
+            "date":               date_str,
+            "alignment_strength": alignment_strength,
+            "timing_posture":     timing_posture,
+            "focus_area":         focus_area,
+            "source":             "lovable",
+        }
+        write_soul_compass_files(entry)
+        logger.info(f"Soul Compass written: {date_str} | {alignment_strength} / {timing_posture}")
+        return jsonify({"success": True, "date": date_str}), 200
+    except Exception as e:
+        logger.error(f"soul-compass/write error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+# ---------------------------------------------------------------------------
+# Convergence Alerts — pre-draw scanner endpoint
+# ---------------------------------------------------------------------------
+
+@app.route("/api/convergence-alerts/today", methods=["GET"])
+def convergence_alerts_today():
+    """
+    Run the pre-draw convergence scanner and return all active alerts.
+
+    Called by Lovable's convergence-alert-check edge function via pg_cron:
+        15:00 UTC  → ?session=Midday   (11:00 AM ET)
+        21:30 UTC  → ?session=Evening  (5:30 PM ET)
+        02:30 UTC  → ?session=Night    (10:30 PM ET)
+    Note: times assume EDT. Add 1h in November when ET → EST.
+
+    Query params:
+        session   : optional — 'Midday' | 'Evening' | 'Night'
+                    If supplied, only alerts for that session are returned.
+        game      : optional — 'Cash3' | 'Cash4'
+                    If supplied, only that game is scanned.
+        require_alignment : 'true' | 'false' (default 'true')
+                    Pass 'false' to return structural-pressure-only alerts.
+
+    Auth: X-Prediction-Secret header required.
+
+    Response:
+        {
+          "success": true,
+          "session_filter": "Midday",
+          "alert_count": 2,
+          "alerts": [
+            {
+              "game": "Cash3",
+              "number": "444",
+              "signal_label": "EXTREME",
+              "overdue_ratio": 1.36,
+              "current_gap": 529,
+              "avg_gap": 389.0,
+              "max_gap_breached": true,
+              "session": "Midday",
+              "draw_time": "12:29 PM",
+              "celestial_match_score": 0.5,
+              "celestial_match_tier": "Moderate Match",
+              "headline": "...",
+              "body": "...",
+              "play_instruction": "...",
+              "generated_at": "2026-05-16T11:00:01"
+            }
+          ]
+        }
+    """
+    if not _check_prediction_secret():
+        return jsonify({"success": False, "error": "Unauthorized"}), 403
+
+    session_filter = request.args.get("session", "").strip() or None
+    game_filter    = request.args.get("game", "").strip() or None
+    require_align  = request.args.get("require_alignment", "true").lower() != "false"
+
+    valid_sessions = {"Midday", "Evening", "Night"}
+    if session_filter and session_filter not in valid_sessions:
+        return jsonify({
+            "success": False,
+            "error": f"session must be one of {sorted(valid_sessions)}"
+        }), 400
+
+    valid_games = {"Cash3", "Cash4"}
+    if game_filter and game_filter not in valid_games:
+        return jsonify({
+            "success": False,
+            "error": f"game must be one of {sorted(valid_games)}"
+        }), 400
+
+    try:
+        from convergence_alert import scan_for_convergence
+
+        extra_c3 = (
+            _ga_extra_entries.get('cash3_mid', []) +
+            _ga_extra_entries.get('cash3_eve', []) +
+            _ga_extra_entries.get('cash3_night', [])
+        )
+        extra_c4 = (
+            _ga_extra_entries.get('cash4_mid', []) +
+            _ga_extra_entries.get('cash4_eve', []) +
+            _ga_extra_entries.get('cash4_night', [])
+        )
+
+        games = [game_filter] if game_filter else None
+        alerts = scan_for_convergence(
+            games=games,
+            require_alignment=require_align,
+            extra_draws_cash3=extra_c3 or None,
+            extra_draws_cash4=extra_c4 or None,
+        )
+
+        # Apply session filter after scanning (session comes from affinity, not input)
+        if session_filter:
+            alerts = [a for a in alerts if a.session == session_filter]
+
+        payload = [a.to_dict() for a in alerts]
+
+        logger.info(
+            f"convergence-alerts/today: session={session_filter} "
+            f"game={game_filter} count={len(payload)}"
+        )
+        return jsonify({
+            "success":        True,
+            "session_filter": session_filter,
+            "game_filter":    game_filter,
+            "alert_count":    len(payload),
+            "alerts":         payload,
+        }), 200
+
+    except Exception as e:
+        logger.error(f"convergence-alerts/today error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
