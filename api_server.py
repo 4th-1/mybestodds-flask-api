@@ -2307,8 +2307,7 @@ def quad_environment_today():
         from convergence_alert import scan_for_quad_environment, scan_for_convergence
 
         # Run structural scan to surface co-firing EXTREME quads
-        structural = scan_for_convergence(games=["Cash4"])
-        structural_alerts = structural.alerts if structural else []
+        structural_alerts = scan_for_convergence(games=["Cash4"])
 
         env = scan_for_quad_environment(
             session=session,
