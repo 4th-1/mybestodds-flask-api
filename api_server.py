@@ -1155,7 +1155,7 @@ def generate_predictions(subscriber_id: str):
                 "confidence_experimental": True,
                 "confidence_label": _ui["label"],
                 "confidence_color": _ui["color"],
-                "confidence_tier":  str(_ui["tier"]),
+                "confidence_tier":  _ui["label"],
                 "confidence_description": _ui["description"],
             }
 
