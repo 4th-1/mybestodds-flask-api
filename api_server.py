@@ -2316,7 +2316,7 @@ def quad_environment_today():
             structural_alerts=structural_alerts,
         )
 
-        today_str = date.today().strftime("%Y-%m-%d")
+        today_str = datetime.now().strftime("%Y-%m-%d")
 
         if not env:
             # Environment not active — still informational
