@@ -319,12 +319,42 @@ def get_predictions_for_date(date_str: str, kit: str, subscriber: dict = None) -
                             })
 
         # ── Jackpot picks — optimizer-filtered candidate pool ──────────────
-        # Generate a large candidate pool (20 picks per game), score each with
-        # the secondary optimizer, keep the top JACKPOT_DELIVER_COUNT by grade
-        # (A first, then B, then best available if none pass).
-        _JACKPOT_POOL_SIZE    = 50   # candidates generated per game (need ~50 for MM ~10% A/B yield)
-        _JACKPOT_DELIVER_COUNT = 2   # picks delivered to subscriber
-        _JACKPOT_PASS_GRADES  = {"A", "B"}
+        # Delivery count and grade filter scale with the celestial overlay score.
+        # Draw-day gate: only generate picks on the game's actual draw schedule.
+        _JACKPOT_POOL_SIZE = 50
+
+        # Draw-day schedules (weekday: Mon=0 … Sun=6)
+        _JP_DRAW_DAYS = {
+            "Powerball":            {0, 2, 5},            # Mon, Wed, Sat
+            "MegaMillions":         {1, 4},               # Tue, Fri
+            "Millionaire For Life": {0, 1, 2, 3, 4, 5, 6},  # daily
+        }
+
+        # Compute overlay score for this date (Night session = jackpot draw time)
+        try:
+            import datetime as _dt_jp
+            from jackpot_system_v3.core.overlay_engine_v3_7 import compute_overlays as _jp_ov_fn
+            _jp_date_obj = _dt_jp.datetime.strptime(date_str, "%Y-%m-%d")
+            _jp_dow      = _jp_date_obj.weekday()
+            _jp_ov       = _jp_ov_fn(date_str, "Night")
+            _jp_overlay  = float(_jp_ov.get("overlay_score", 0) or 0)
+        except Exception as _jp_ov_err:
+            logger.warning(f"[jackpot_pool] overlay compute failed: {_jp_ov_err}")
+            _jp_dow     = -1
+            _jp_overlay = 0.60  # neutral fallback — allows picks but no bonus
+
+        # Signal-tier thresholds
+        if _jp_overlay >= 0.75:
+            _JACKPOT_DELIVER_COUNT = 3
+            _JACKPOT_PASS_GRADES   = {"A"}
+        elif _jp_overlay >= 0.70:
+            _JACKPOT_DELIVER_COUNT = 2
+            _JACKPOT_PASS_GRADES   = {"A", "B"}
+        else:
+            _JACKPOT_DELIVER_COUNT = 0   # below signal threshold — skip jackpots
+            _JACKPOT_PASS_GRADES   = {"A", "B"}
+
+        logger.info(f"[jackpot_pool] overlay={_jp_overlay:.3f} deliver={_JACKPOT_DELIVER_COUNT} grades={_JACKPOT_PASS_GRADES}")
 
         try:
             from jackpot_secondary_optimizer import score_combination, resolve_game
@@ -339,6 +369,14 @@ def get_predictions_for_date(date_str: str, kit: str, subscriber: dict = None) -
                 "Millionaire For Life": (generate_millionaire_for_life_picks,   "Millionaire For Life"),
             }
             for jp_game, (jp_fn, jp_alias) in _jp_game_fns.items():
+                # Gate 1: draw-day check
+                if _jp_dow >= 0 and _jp_dow not in _JP_DRAW_DAYS.get(jp_game, set()):
+                    logger.info(f"[jackpot_pool] {jp_game}: skipped — not a draw day ({date_str})")
+                    continue
+                # Gate 2: signal threshold
+                if _JACKPOT_DELIVER_COUNT == 0:
+                    logger.info(f"[jackpot_pool] {jp_game}: skipped — overlay {_jp_overlay:.3f} below 0.70 threshold")
+                    continue
                 _candidates = jp_fn(_JACKPOT_POOL_SIZE, root=root)
                 _scored = []
                 for _line in _candidates:
@@ -356,14 +394,14 @@ def get_predictions_for_date(date_str: str, kit: str, subscriber: dict = None) -
                 _top = _scored[:_JACKPOT_DELIVER_COUNT]
                 _pass_count = sum(1 for g, _, _ in _top if g in _JACKPOT_PASS_GRADES)
                 logger.info(f"[jackpot_pool] {jp_game}: {_pass_count}/{_JACKPOT_DELIVER_COUNT} Grade A/B from {_JACKPOT_POOL_SIZE} candidates (best grades: {[g for g,_,_ in _top]})")
-                for _, _, _number in _top:
+                for _grade, _cscore, _number in _top:
                     predictions.append({
                         "game":             jp_game,
                         "number":           str(_number),
                         "date":             date_str,
                         "lane":             "lane_system",
                         "kit":              kit,
-                        "confidence_score": None,
+                        "confidence_score": round(_cscore * _jp_overlay, 4),
                     })
         except Exception as _jp_err:
             logger.warning(f"[jackpot_pool] optimizer filtering failed, falling back to standard picks: {_jp_err}")
