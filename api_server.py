@@ -1946,16 +1946,54 @@ def predictions_probe():
     try:
         raw = get_predictions_for_date(date_str, kit)
         from collections import Counter
+
+        # Trace the gate logic for each Cash3 pick (same as generate_predictions)
+        _gad = _load_ga_data_from_json()
+        _c3_hist = [d["winning_numbers"] for d in _gad.get("cash3_mid", []) + _gad.get("cash3_eve", []) + _gad.get("cash3_night", [])]
+
+        try:
+            from jackpot_system_v3.core.pick_engine_v3 import _recommended_play as _rp_fn, _confidence_ui as _cui_fn
+            _import_ok = True
+        except Exception as _ie:
+            _import_ok = False
+            _import_err = str(_ie)
+
+        gate_trace = []
+        for p in raw:
+            if p.get("game") != "Cash3":
+                continue
+            conf = p.get("confidence_score") or 0.0
+            lane = p.get("lane", "")
+            sess = p.get("session", "")
+            num  = p.get("number", "")
+            if _import_ok:
+                _rp = _rp_fn(conf, num, _c3_hist)
+                _ui = _cui_fn(_rp, lane, game="Cash3")
+                _tier = _ui["label"]
+                _allowed = is_live_recommendation_allowed("Cash3", sess, _tier, None)
+            else:
+                _rp = "IMPORT_FAILED"
+                _tier = "IMPORT_FAILED"
+                _allowed = False
+            gate_trace.append({
+                "number": num, "session": sess, "conf": conf, "lane": lane,
+                "recommended_play": _rp, "tier": _tier, "allowed": _allowed,
+            })
+
         game_counts = Counter(p.get("game") for p in raw)
         session_counts = Counter(f"{p.get('game')}/{p.get('session')}" for p in raw if p.get("game") in ("Cash3","Cash4"))
+        ev_available = _EV_RERANKER is not None
         return jsonify({
-            "success":       True,
-            "date":          date_str,
-            "kit":           kit,
-            "total_raw":     len(raw),
-            "game_counts":   dict(game_counts),
+            "success":        True,
+            "date":           date_str,
+            "kit":            kit,
+            "total_raw":      len(raw),
+            "game_counts":    dict(game_counts),
             "session_counts": dict(session_counts),
-            "sample":        raw[:5],
+            "c3_hist_len":    len(_c3_hist),
+            "import_ok":      _import_ok,
+            "ev_available":   ev_available,
+            "cash3_gate_trace": gate_trace,
         }), 200
     except Exception as e:
         logger.error(f"predictions_probe error: {e}", exc_info=True)
