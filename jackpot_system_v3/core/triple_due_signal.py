@@ -985,9 +985,25 @@ def check_number(number_str: str, today: datetime = None, extra_draws: list = No
     cm_score = condition_match['score']
     blended = (gap_likelihood * 0.70) + (cm_score * 0.30)
 
-    # If the underlying draw history is stale, reduce confidence so output remains honest.
-    if data_freshness.get('is_stale'):
-        blended *= 0.75
+    # Alignment gate: when the system's own celestial/condition engine says
+    # "not there yet", cap the maximum confidence so a high overdue ratio alone
+    # cannot fire OVERDUE ALERT.  The gap signal stays visible — the cap just
+    # prevents the system from overclaiming when alignment is absent.
+    _data_quality_caps = []
+    if cm_score < 0.25:
+        blended = min(blended, 0.60)
+        _data_quality_caps.append('alignment_gate')
+    elif cm_score < 0.50:
+        blended = min(blended, 0.75)
+        _data_quality_caps.append('alignment_soft_cap')
+
+    # Sparse data guard: avg_gap computed from fewer than 2 inter-hit intervals
+    # is a single data point dressed as a pattern.  Cap confidence until the
+    # number accumulates enough history to trust the overdue calculation.
+    _n_gaps = max(0, n_hits - 1)
+    if _n_gaps < 2:
+        blended = min(blended, 0.55)
+        _data_quality_caps.append('sparse_data_guard')
 
     confidence_score = round(min(blended, 1.0), 3)
 
@@ -1007,9 +1023,6 @@ def check_number(number_str: str, today: datetime = None, extra_draws: list = No
     else:
         conf_label = 'COLD'
         conf_color = 'gray'
-
-    if data_freshness.get('is_stale'):
-        conf_label = f"{conf_label} (STALE DATA)"
 
     # ── Play verdict ──────────────────────────────────────────────────
     if gap_likelihood >= 0.55 and cm_score >= 0.50:
@@ -1056,14 +1069,6 @@ def check_number(number_str: str, today: datetime = None, extra_draws: list = No
         confidence_label=conf_label,
     )
 
-    if data_freshness.get('is_stale'):
-        narrative = (
-            f"Data freshness alert: analysis is based on draws through {data_freshness.get('as_of_date')} "
-            f"({data_freshness.get('days_since_latest_draw')} day(s) old). "
-            "Confidence is automatically reduced until fresh draws are ingested. "
-            + narrative
-        )
-
     return {
         'valid': True,
         'number': num,
@@ -1082,4 +1087,6 @@ def check_number(number_str: str, today: datetime = None, extra_draws: list = No
         'narrative': narrative,
         'as_of_date': draws[-1]['date_str'] if draws else None,
         'data_freshness': data_freshness,
+        'data_quality_caps': _data_quality_caps,
+        'n_gap_intervals': _n_gaps,
     }
