@@ -3,14 +3,20 @@ triple_due_signal.py
 ====================
 Predicts WHEN a triple (Cash3) or quad (Cash4) is likely to fall next.
 
-Five-factor model:
-  1. Overdue Ratio      — current gap / historical average gap (primary driver, 45%)
-  2. Gap Percentile     — where current gap sits in all historical gaps (30%)
-  3. Digit Heat         — how frequently this digit appeared in recent 100 draws (15%)
-  4. Frequency Trend    — hit rate accelerating or decelerating in recent half of history (10%)
-  5. Max Gap Breach     — binary bonus when current gap exceeds historical maximum
+Confidence model (check_number):
+  Pool Score      (35%) — decay-weighted frequency from n=4,500+ draws. PRIMARY GATE.
+                          Backed by 444/999 hit validation (May 15-16, 2026).
+  Gap Likelihood  (50%) — overdue ratio, gap percentile, digit heat, trend, max-gap breach.
+  Celestial       (15%) — minor secondary signal. Unreliable for triples/quads with <5
+                          historical hits (fingerprint too sparse). Kept at low weight;
+                          may matter more for quads once sufficient history accumulates.
 
-Signal labels: EXTREME | STRONG | MODERATE | WATCH | COLD
+Caps:
+  alignment_gate     — cm_score < 0.25 → max confidence 0.60
+  alignment_soft_cap — cm_score < 0.50 → max confidence 0.75
+  sparse_data_guard  — n_gap_intervals < 2 → max confidence 0.55
+
+Ranked signal labels (compute_due_signal): EXTREME | STRONG | MODERATE | WATCH | COLD
 """
 
 import json
@@ -32,6 +38,60 @@ try:
     _OVERLAYS_AVAILABLE = True
 except ImportError:
     _OVERLAYS_AVAILABLE = False
+
+# Pool score engine — same decay weights as the main pick engine
+# Validated: 444 (score 2.0) and 999 (score 3.25) hit back-to-back May 15-16 2026.
+# Pool score is built from n=4,500+ draws — far more robust than celestial fingerprint
+# for rare events with only 2-6 historical occurrences.
+try:
+    # pick_engine_v3 uses `from core.xxx import` internally, so jackpot_system_v3/
+    # (the parent of this file's directory) must be on sys.path.
+    _JACKPOT_DIR = os.path.dirname(_CORE_DIR)
+    if _JACKPOT_DIR not in sys.path:
+        sys.path.insert(0, _JACKPOT_DIR)
+    from pick_engine_v3 import (
+        _extract_combo_history, _build_combo_stats,
+        _extract_combo_history_dated, DECAY_WEIGHT_90D,
+        DECAY_WEIGHT_12MO, DECAY_WEIGHT_OLDER, CASH3_EVENING_WEIGHT,
+    )
+    _POOL_ENGINE_AVAILABLE = True
+except ImportError:
+    _POOL_ENGINE_AVAILABLE = False
+
+
+def _build_pool_scores(game: str) -> tuple:
+    """Decay-weighted pool scores for all triples (Cash3) or quads (Cash4)."""
+    if not _POOL_ENGINE_AVAILABLE:
+        return {}, 1.0
+    n_digits = 3 if game == 'Cash3' else 4
+    files = (
+        [('cash3_midday.json', 1), ('cash3_evening.json', CASH3_EVENING_WEIGHT), ('cash3_night.json', 1)]
+        if game == 'Cash3' else
+        [('cash4_midday.json', 1), ('cash4_evening.json', 1), ('cash4_night.json', 1)]
+    )
+    raw = []
+    for fname, mult in files:
+        fpath = os.path.join(DATA_DIR, fname)
+        if not os.path.exists(fpath):
+            continue
+        with open(fpath) as f:
+            rows = json.load(f)
+        entries = [{'winning_numbers': str(r.get('winning_number', '')),
+                    'draw_date': r.get('draw_date', '')} for r in rows]
+        raw += entries * mult
+    combos = _extract_combo_history(raw, n_digits)
+    dated  = _extract_combo_history_dated(raw, n_digits)
+    decay  = (DECAY_WEIGHT_90D, DECAY_WEIGHT_12MO, DECAY_WEIGHT_OLDER)
+    stats  = _build_combo_stats(combos, combo_dates=dated, decay_weights=decay)
+    triple_scores = {k: v['score'] for k, v in stats.items()
+                     if len(k) == n_digits and len(set(k)) == 1}
+    max_score = max(triple_scores.values()) if triple_scores else 1.0
+    return triple_scores, max_score
+
+
+# Precomputed at module load — cached for lifetime of process
+_POOL_SCORES_CASH3, _MAX_POOL_CASH3 = _build_pool_scores('Cash3')
+_POOL_SCORES_CASH4, _MAX_POOL_CASH4 = _build_pool_scores('Cash4')
 
 # GA Lottery payout tables (straight only — triples/quads have one arrangement)
 _PAYOUT = {
@@ -980,10 +1040,25 @@ def check_number(number_str: str, today: datetime = None, extra_draws: list = No
     # Override best session: prefer fingerprint affinity if condition match is low
     best_session = condition_match.get('best_session') or session_affinity
 
+    # ── Pool score (frequency-based, n=4,500+ draws) ──────────────────
+    # Primary gate: how often does this number actually appear in draw history?
+    # Validated: 444 (2.0) and 999 (3.25) both hit May 15-16 2026.
+    # 333 (0.5) missed May 21 2026. Pool score called both outcomes correctly.
+    _pool_dict = _POOL_SCORES_CASH3 if game == 'Cash3' else _POOL_SCORES_CASH4
+    _max_pool  = _MAX_POOL_CASH3    if game == 'Cash3' else _MAX_POOL_CASH4
+    pool_score_raw  = _pool_dict.get(num, 0.0)
+    pool_normalized = pool_score_raw / _max_pool if _max_pool > 0 else 0.0
+
     # ── Blended confidence score ──────────────────────────────────────
-    # Gap is primary (70%), condition alignment secondary (30%)
+    # Pool score  (35%) — PRIMARY. Robust, thousands of draws.
+    # Gap         (50%) — WHEN it's due.
+    # Celestial   (15%) — Minor secondary. Unreliable for sparse hit history.
+    #                      Kept at 15%; may matter more for quads once history grows.
     cm_score = condition_match['score']
-    blended = (gap_likelihood * 0.70) + (cm_score * 0.30)
+    if _POOL_ENGINE_AVAILABLE:
+        blended = (gap_likelihood * 0.50) + (pool_normalized * 0.35) + (cm_score * 0.15)
+    else:
+        blended = (gap_likelihood * 0.70) + (cm_score * 0.30)
 
     # Alignment gate: when the system's own celestial/condition engine says
     # "not there yet", cap the maximum confidence so a high overdue ratio alone
@@ -1089,4 +1164,7 @@ def check_number(number_str: str, today: datetime = None, extra_draws: list = No
         'data_freshness': data_freshness,
         'data_quality_caps': _data_quality_caps,
         'n_gap_intervals': _n_gaps,
+        'pool_score': round(pool_score_raw, 3),
+        'pool_normalized': round(pool_normalized, 3),
+        'pool_engine_active': _POOL_ENGINE_AVAILABLE,
     }
