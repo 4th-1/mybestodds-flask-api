@@ -2121,18 +2121,82 @@ def ev_observe_cron():
                     "cold_signal_penalty": 0.0,
                 })
 
+        # ----------------------------------------------------------------
+        # Cash4 observation — DISABLED until Cash3 June 4 verdict.
+        # Flip CASH4_OBSERVE_ENABLED = True to begin the Cash4 window.
+        # Play types: STRAIGHT, BOX, STRAIGHT_BOX, COMBO, STRAIGHT+1OFF
+        # (no PAIRS for Cash4 — subscriber experience is digit-order focused)
+        # ----------------------------------------------------------------
+        CASH4_OBSERVE_ENABLED = False
+        ALL_CASH4_PLAY_TYPES = [
+            "STRAIGHT", "BOX", "STRAIGHT_BOX", "COMBO", "STRAIGHT+1OFF",
+        ]
+
+        if CASH4_OBSERVE_ENABLED:
+            for p in all_predictions:
+                game = p.get("game", "")
+                if game != "Cash4":
+                    continue
+                sess = (p.get("session") or "").upper()
+                if session_filter and sess != session_filter:
+                    continue
+                if _EV_RERANKER is None:
+                    continue
+                conf    = p.get("confidence_score") or 0.0
+                _lane   = p.get("lane", "")
+                _rp_rec = _recommended_play(conf, p.get("number", ""), _c3_hist)
+                _ui_rec = _confidence_ui(_rp_rec, _lane, game=game)
+                try:
+                    _draw_date = _date_cls.fromisoformat(date_str)
+                except (ValueError, TypeError):
+                    _draw_date = _date_cls.today()
+                _ev_tier = _score_to_confidence_tier(conf)
+                _num     = str(p.get("number", ""))
+                for _play_type in ALL_CASH4_PLAY_TYPES:
+                    _gid = make_grain_id(date_str, sess, game, _play_type, _num)
+                    if _gid in gate_map:
+                        continue
+                    _scored = _EV_RERANKER.score_pick(
+                        game=game, play_type=_play_type,
+                        session=sess,
+                        tier=_ev_tier, pick=_num, draw_date=_draw_date,
+                    )
+                    _ev_decision, _ = _EV_RERANKER._decide(_scored)
+                    gate_map[_gid] = True
+                    ev_picks_to_log.append({
+                        "date":                date_str,
+                        "draw":                sess,
+                        "game":                game,
+                        "lane":                _play_type,
+                        "pick":                _num,
+                        "overlay_tier":        _ui_rec["label"],
+                        "mmfsn_tier":          _scored["mmfsn_tier"],
+                        "ev_score":            _scored["ev_score"],
+                        "decision":            _ev_decision,
+                        "rank":                0,
+                        "base_score":          0.0, "overlay_bonus":       0.0,
+                        "night_bonus":         0.0, "mmfsn_bonus":         0.0,
+                        "recent_signal_bonus": 0.0, "pav_bonus":           0.0,
+                        "instability_penalty": 0.0, "overexposure_penalty": 0.0,
+                        "cold_signal_penalty": 0.0,
+                    })
+
         if ev_picks_to_log:
             log_ev_request(ev_picks_to_log, gate_map)
 
-        logged = len(ev_picks_to_log)
-        logger.info(f"[ev_observe_cron] {date_str}: logged {logged} Cash3 picks")
+        logged    = len(ev_picks_to_log)
+        c3_logged = sum(1 for e in ev_picks_to_log if e["game"] == "Cash3")
+        c4_logged = sum(1 for e in ev_picks_to_log if e["game"] == "Cash4")
+        logger.info(f"[ev_observe_cron] {date_str}: logged {logged} picks (Cash3={c3_logged} Cash4={c4_logged})")
         return jsonify({
-            "success": True,
-            "date":    date_str,
-            "logged":  logged,
-            "picks":   [
-                {"pick": e["pick"], "session": e["draw"],
-                 "ev_score": e["ev_score"], "decision": e["decision"]}
+            "success":    True,
+            "date":       date_str,
+            "logged":     logged,
+            "cash3":      c3_logged,
+            "cash4":      c4_logged,
+            "picks":      [
+                {"game": e["game"], "pick": e["pick"], "session": e["draw"],
+                 "lane": e["lane"], "ev_score": e["ev_score"], "decision": e["decision"]}
                 for e in ev_picks_to_log
             ],
         }), 200

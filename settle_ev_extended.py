@@ -34,7 +34,7 @@ import argparse
 import csv
 import json
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import date, datetime, timezone
 from itertools import permutations
 from pathlib import Path
@@ -84,6 +84,23 @@ PRIZE: dict[tuple[str, str, str], float] = {
     ("cash3", "FRONT_PAIR",   "MISS"):           0.00,
     ("cash3", "BACK_PAIR",    "PAIR_HIT"):      50.00,
     ("cash3", "BACK_PAIR",    "MISS"):           0.00,
+    # -----------------------------------------------------------------------
+    # Cash4 prizes per $1 stake (GA Lottery approximate values)
+    # BOX / STRAIGHT_BOX amounts use 24-way as table default;
+    # _payout() overrides dynamically based on _cash4_box_way().
+    # -----------------------------------------------------------------------
+    ("cash4", "STRAIGHT",     "EXACT_HIT"): 5000.00,
+    ("cash4", "STRAIGHT",     "MISS"):          0.00,
+    ("cash4", "BOX",          "BOX_HIT"):      200.00,  # 24-way default; _payout() adjusts
+    ("cash4", "BOX",          "MISS"):           0.00,
+    ("cash4", "STRAIGHT_BOX", "EXACT_HIT"):   2700.00,  # 24-way approx: $2600 str + $100 box
+    ("cash4", "STRAIGHT_BOX", "BOX_HIT"):      100.00,  # 24-way box portion; _payout() adjusts
+    ("cash4", "STRAIGHT_BOX", "MISS"):           0.00,
+    ("cash4", "COMBO",        "EXACT_HIT"):   5000.00,  # raw win; ROI adjusted by perm count
+    ("cash4", "COMBO",        "MISS"):           0.00,
+    # STRAIGHT+1OFF: not an official GA Cash4 product — logged as signal only
+    ("cash4", "STRAIGHT+1OFF","ONE_OFF_HIT"):    0.00,
+    ("cash4", "STRAIGHT+1OFF","MISS"):           0.00,
 }
 
 STAKE = 1.00  # $1 normalised stake for ROI calculation
@@ -104,8 +121,29 @@ def _combo_cost(number: str) -> float:
 
 
 def _is_3way(number: str) -> bool:
-    """True if number has a repeated digit (3 unique permutations)."""
+    """True if Cash3 number has a repeated digit (3 unique permutations)."""
     return len(set(number)) < len(number)
+
+
+# Cash4 BOX prize depends on how many unique permutations the number has.
+# GA prizes per $1 stake (approximate; source: GA Lottery official prize chart):
+_CASH4_BOX_PRIZES: dict[int, float] = {
+    24: 200.0,   # all 4 digits unique            (e.g. 1234)
+    12: 400.0,   # one pair + 2 unique            (e.g. 1123)
+     6: 800.0,   # two pairs                      (e.g. 1122)
+     4: 1200.0,  # one triple + 1 unique          (e.g. 1112)
+     1: 0.0,     # quad (1111) — no box bet valid
+}
+
+
+def _cash4_box_way(number: str) -> int:
+    """Return the box-way count for a 4-digit number (24/12/6/4/1)."""
+    counts = sorted(Counter(number).values(), reverse=True)
+    if counts[0] == 4:                               return 1   # quad
+    if counts[0] == 3:                               return 4   # triple
+    if counts[0] == 2 and len(counts) == 2:          return 6   # two pairs
+    if counts[0] == 2:                               return 12  # one pair
+    return 24                                                    # all unique
 
 
 # ---------------------------------------------------------------------------
@@ -114,8 +152,11 @@ def _is_3way(number: str) -> bool:
 
 def _hit_type(pick: str, result: str, lane: str) -> str:
     """Classify match between pick and result for the given lane."""
-    p = str(pick).strip().zfill(3)
-    r = str(result).strip().zfill(3)
+    _p = str(pick).strip()
+    _r = str(result).strip()
+    _width = max(len(_p), len(_r), 3)  # 3 for Cash3, 4 for Cash4
+    p = _p.zfill(_width)
+    r = _r.zfill(_width)
     if not p or not r:
         return "MISS"
     lane_up = lane.upper()
@@ -140,7 +181,7 @@ def _hit_type(pick: str, result: str, lane: str) -> str:
         return "MISS"
 
     if lane_up in ("STRAIGHT+1OFF", "ONE_OFF"):
-        if len(p) == len(r) == 3:
+        if len(p) == len(r) and len(p) in (3, 4):
             if p == r:
                 return "ONE_OFF_HIT"  # exact match also wins
             diffs = sum(1 for a, b in zip(p, r) if a != b)
@@ -160,21 +201,41 @@ def _hit_type(pick: str, result: str, lane: str) -> str:
 def _payout(game: str, lane: str, hit: str, pick: str = "") -> float:
     """
     Return gross payout per $1.00 stake.
-    BOX 3-way and COMBO cost scaling are handled here.
+    Way-adjusted (BOX/STRAIGHT_BOX) and COMBO ROI scaling are handled here.
     """
     g = game.lower().replace(" ", "")
     l = lane.upper()
 
-    # BOX 3-way pays $160 instead of $80
-    if l == "BOX" and hit == "BOX_HIT" and _is_3way(pick):
-        return 160.00
+    # ----- Cash3 overrides -----------------------------------------------
+    # BOX 3-way pays $160 instead of the 6-way default $80
+    if g == "cash3" and l == "BOX" and hit == "BOX_HIT" and pick:
+        return 160.00 if _is_3way(pick) else 80.00
 
-    # COMBO: normalise to $1 stake by scaling by combo cost
-    # e.g. 3-way COMBO: cost=$1.50, payout=$500 → per-$1-stake = 500/1.50 = $333
-    if l == "COMBO" and hit == "EXACT_HIT" and pick:
+    # COMBO Cash3: $500 win, normalised by actual ticket cost
+    # 3-way: cost $1.50 → per-$1-stake $333; 6-way: cost $3.00 → per-$1-stake $167
+    if g == "cash3" and l == "COMBO" and hit == "EXACT_HIT" and pick:
         cost = _combo_cost(pick)
         return round(500.00 / cost, 2) if cost > 0 else 0.0
 
+    # ----- Cash4 overrides -----------------------------------------------
+    if g == "cash4" and l == "BOX" and hit == "BOX_HIT" and pick:
+        way = _cash4_box_way(pick)
+        return _CASH4_BOX_PRIZES.get(way, 200.0)
+
+    if g == "cash4" and l == "STRAIGHT_BOX" and pick:
+        way   = _cash4_box_way(pick)
+        box_p = _CASH4_BOX_PRIZES.get(way, 200.0)
+        if hit == "EXACT_HIT":
+            return round(2600.0 + box_p / 2, 2)  # straight + box portions
+        if hit == "BOX_HIT":
+            return round(box_p / 2, 2)            # box portion only
+
+    # COMBO Cash4: $5000 win, normalised by actual ticket cost
+    if g == "cash4" and l == "COMBO" and hit == "EXACT_HIT" and pick:
+        cost = _combo_cost(pick)
+        return round(5000.00 / cost, 2) if cost > 0 else 0.0
+
+    # ----- Default table lookup -------------------------------------------
     key = (g, l, hit)
     return PRIZE.get(key, 0.0)
 
