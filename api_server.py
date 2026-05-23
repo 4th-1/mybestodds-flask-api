@@ -1927,6 +1927,42 @@ def admin_prune_mmfsn():
 
 
 # ---------------------------------------------------------------------------
+# Admin: raw predictions probe — returns get_predictions_for_date() unfiltered
+# ---------------------------------------------------------------------------
+@app.route("/api/admin/predictions-probe", methods=["GET", "POST"])
+def predictions_probe():
+    """Diagnostic: return raw get_predictions_for_date output (no gate filtering).
+    Auth: X-Prediction-Secret required.
+    Optional: ?date=YYYY-MM-DD, ?kit=BOOK3
+    """
+    if not _check_prediction_secret():
+        return jsonify({"success": False, "error": "Unauthorized"}), 403
+    date_str = (
+        request.args.get("date")
+        or (request.get_json(silent=True) or {}).get("date")
+        or datetime.now().strftime("%Y-%m-%d")
+    )
+    kit = request.args.get("kit", "BOOK3")
+    try:
+        raw = get_predictions_for_date(date_str, kit)
+        from collections import Counter
+        game_counts = Counter(p.get("game") for p in raw)
+        session_counts = Counter(f"{p.get('game')}/{p.get('session')}" for p in raw if p.get("game") in ("Cash3","Cash4"))
+        return jsonify({
+            "success":       True,
+            "date":          date_str,
+            "kit":           kit,
+            "total_raw":     len(raw),
+            "game_counts":   dict(game_counts),
+            "session_counts": dict(session_counts),
+            "sample":        raw[:5],
+        }), 200
+    except Exception as e:
+        logger.error(f"predictions_probe error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+# ---------------------------------------------------------------------------
 # Admin: EV observe cron — auto-log picks 3× daily without subscriber
 # ---------------------------------------------------------------------------
 @app.route("/api/admin/ev-observe-cron", methods=["GET", "POST"])
