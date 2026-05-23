@@ -328,7 +328,13 @@ def compute_due_signal(game: str, extra_draws: list = None) -> dict:
       game, total_draws_analyzed, as_of_date,
       ranked (all 10 candidates sorted by likelihood desc),
       top_pick (highest likelihood),
-      strong_signals, extreme_signals
+      strong_signals, extreme_signals,
+      smart_plays (numbers with pool_tier == 'HIGH', i.e. pool_score >= 2.0),
+      pool_gate_active (bool — whether pool engine loaded successfully)
+
+    Each ranked item includes:
+      pool_score   — raw decay-weighted frequency score
+      pool_tier    — 'HIGH' if pool_score >= 2.0, otherwise omitted (None)
     """
     draws = _load_draws(game, extra_draws=extra_draws)
     if not draws:
@@ -413,6 +419,11 @@ def compute_due_signal(game: str, extra_draws: list = None) -> dict:
             session_counts[draws[h_idx]['session']] += 1
         session_affinity = max(session_counts, key=session_counts.get).capitalize() if session_counts else ''
 
+        # Pool score — decay-weighted frequency, precomputed at module load
+        _pool_dict = _POOL_SCORES_CASH3 if game == 'Cash3' else _POOL_SCORES_CASH4
+        pool_score_raw = _pool_dict.get(candidate, 0.0)
+        pool_tier = 'HIGH' if pool_score_raw >= 2.0 else None
+
         # Statistical hit probability in next 10 draws
         base_p = n_hits / total if n_hits > 0 else 1.0 / (10 ** n_digits)
         p_next_10 = (1.0 - (1.0 - base_p) ** 10) * 100  # percent
@@ -461,6 +472,8 @@ def compute_due_signal(game: str, extra_draws: list = None) -> dict:
             'session_affinity': session_affinity,
             'last_hit_date': last_hit_date_str,
             'days_since_last_hit': days_since,
+            'pool_score': round(pool_score_raw, 2),
+            'pool_tier': pool_tier,
             'narrative': narrative,
         })
 
@@ -477,6 +490,8 @@ def compute_due_signal(game: str, extra_draws: list = None) -> dict:
         'strong_signals': [r for r in results if r['signal'] == 'STRONG'],
         'moderate_signals': [r for r in results if r['signal'] == 'MODERATE'],
         'active_signals': [r for r in results if r['signal'] in ('EXTREME', 'STRONG', 'MODERATE')],
+        'smart_plays': [r['number'] for r in results if r.get('pool_tier') == 'HIGH'],
+        'pool_gate_active': _POOL_ENGINE_AVAILABLE,
     }
 
 
