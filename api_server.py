@@ -4,6 +4,13 @@ Connects Python prediction engine (v3.7) to Lovable frontend
 Fixed entry point with proper prediction routing
 """
 
+# ---------------------------------------------------------------------------
+# EV Observation window flags
+# Cash3: active May 21–June 4, 2026 (14-day window)
+# Cash4: DISABLED — flip to True after June 4 Cash3 verdict
+# ---------------------------------------------------------------------------
+CASH4_OBSERVE_ENABLED: bool = False  # TODO(June 4): flip to True
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import hashlib
@@ -2122,12 +2129,11 @@ def ev_observe_cron():
                 })
 
         # ----------------------------------------------------------------
-        # Cash4 observation — DISABLED until Cash3 June 4 verdict.
-        # Flip CASH4_OBSERVE_ENABLED = True to begin the Cash4 window.
+        # Cash4 observation — controlled by module-level CASH4_OBSERVE_ENABLED.
+        # Set to True at top of this file after June 4 Cash3 verdict.
         # Play types: STRAIGHT, BOX, STRAIGHT_BOX, COMBO, STRAIGHT+1OFF
         # (no PAIRS for Cash4 — subscriber experience is digit-order focused)
         # ----------------------------------------------------------------
-        CASH4_OBSERVE_ENABLED = False
         ALL_CASH4_PLAY_TYPES = [
             "STRAIGHT", "BOX", "STRAIGHT_BOX", "COMBO", "STRAIGHT+1OFF",
         ]
