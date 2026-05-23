@@ -1,0 +1,22 @@
+[
+  {"draw_date": "1997-08-06", "winning_number": "2222", "session": "Evening"},
+  {"draw_date": "1998-03-20", "winning_number": "2222", "session": "Evening"},
+  {"draw_date": "2002-02-19", "winning_number": "5555", "session": "Evening"},
+  {"draw_date": "2003-01-19", "winning_number": "6666", "session": "Evening"},
+  {"draw_date": "2003-05-02", "winning_number": "0000", "session": "Midday"},
+  {"draw_date": "2003-07-01", "winning_number": "2222", "session": "Midday"},
+  {"draw_date": "2003-10-13", "winning_number": "8888", "session": "Evening"},
+  {"draw_date": "2005-06-27", "winning_number": "2222", "session": "Evening"},
+  {"draw_date": "2005-11-11", "winning_number": "7777", "session": "Evening"},
+  {"draw_date": "2006-07-31", "winning_number": "3333", "session": "Midday"},
+  {"draw_date": "2009-10-30", "winning_number": "2222", "session": "Midday"},
+  {"draw_date": "2012-10-24", "winning_number": "7777", "session": "Evening"},
+  {"draw_date": "2013-04-16", "winning_number": "5555", "session": "Midday"},
+  {"draw_date": "2018-01-25", "winning_number": "5555", "session": "Evening"},
+  {"draw_date": "2018-06-08", "winning_number": "4444", "session": "Midday"},
+  {"draw_date": "2018-06-09", "winning_number": "7777", "session": "Evening"},
+  {"draw_date": "2019-10-13", "winning_number": "6666", "session": "Midday"},
+  {"draw_date": "2020-02-08", "winning_number": "8888", "session": "Evening"},
+  {"draw_date": "2020-08-31", "winning_number": "0000", "session": "Night"},
+  {"draw_date": "2021-03-13", "winning_number": "3333", "session": "Midday"}
+]

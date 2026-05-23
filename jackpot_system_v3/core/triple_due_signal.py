@@ -79,6 +79,20 @@ def _build_pool_scores(game: str) -> tuple:
         entries = [{'winning_numbers': str(r.get('winning_number', '')),
                     'draw_date': r.get('draw_date', '')} for r in rows]
         raw += entries * mult
+
+    # For Cash4 quads: supplement with all pre-2022 historical quad hits
+    # sourced directly from GA Lottery website (all-time verified hits).
+    # These are not in our 2022-present JSON files but are real GA Cash4 events.
+    # Only used for pool score frequency calculation — not gap analysis.
+    if game == 'Cash4':
+        hist_path = os.path.join(DATA_DIR, 'cash4_quads_historical.json')
+        if os.path.exists(hist_path):
+            with open(hist_path) as f:
+                hist_rows = json.load(f)
+            hist_entries = [{'winning_numbers': str(r.get('winning_number', '')),
+                             'draw_date': r.get('draw_date', '')} for r in hist_rows]
+            raw += hist_entries
+
     combos = _extract_combo_history(raw, n_digits)
     dated  = _extract_combo_history_dated(raw, n_digits)
     decay  = (DECAY_WEIGHT_90D, DECAY_WEIGHT_12MO, DECAY_WEIGHT_OLDER)
@@ -421,8 +435,14 @@ def compute_due_signal(game: str, extra_draws: list = None) -> dict:
 
         # Pool score — decay-weighted frequency, precomputed at module load
         _pool_dict = _POOL_SCORES_CASH3 if game == 'Cash3' else _POOL_SCORES_CASH4
+        _max_pool  = _MAX_POOL_CASH3    if game == 'Cash3' else _MAX_POOL_CASH4
         pool_score_raw = _pool_dict.get(candidate, 0.0)
-        pool_tier = 'HIGH' if pool_score_raw >= 2.0 else None
+        # HIGH threshold: relative to game max so quads (max ~1.65) and triples (max ~3.25)
+        # use the same proportional bar.  0.60 × max captures the clear top tier:
+        #   Cash3 triples: ≥ 1.95 → 999/000/777/444/666 (validated May 15-16 hits)
+        #   Cash4 quads:   ≥ 0.99 → 2222/5555 (highest-frequency quads in GA history)
+        _high_threshold = (_max_pool * 0.60) if _max_pool > 0 else 2.0
+        pool_tier = 'HIGH' if pool_score_raw >= _high_threshold else None
 
         # Statistical hit probability in next 10 draws
         base_p = n_hits / total if n_hits > 0 else 1.0 / (10 ** n_digits)
