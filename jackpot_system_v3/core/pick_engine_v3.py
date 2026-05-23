@@ -985,6 +985,13 @@ def _recommended_play(confidence_score: float, number: str = "", history: "List[
         if back_rate >= PAIR_SIGNAL_THRESHOLD:
             return "BACK_PAIR"
 
+    # COMBO: number has repeated digits → fewer permutations → better ROI than BOX.
+    # A 3-way number (one repeated digit) has only 3 orderings vs 6 for a 6-way.
+    # COMBO buys every STRAIGHT permutation as a separate ticket, pays $500 on any
+    # matching order — slightly better ROI than BOX when permutations are fewer.
+    if number and len(number) >= 3 and len(set(number)) < len(number):
+        return "COMBO"
+
     return "BOX"
 
 
@@ -1032,6 +1039,12 @@ _CONFIDENCE_UI_MAP = {
         "color":       "orange",
         "tier":        2,
         "description": "Last two digits showing strong repeat pattern",
+    },
+    "COMBO": {
+        "label":       "COMBO PLAY",
+        "color":       "teal",
+        "tier":        1,
+        "description": "All permutations as straight tickets — best for repeated-digit numbers",
     },
     "BOX": {
         "label":       "QUALIFIED",

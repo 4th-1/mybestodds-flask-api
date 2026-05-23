@@ -2006,15 +2006,22 @@ def predictions_probe():
 @app.route("/api/admin/ev-observe-cron", methods=["GET", "POST"])
 def ev_observe_cron():
     """
-    Auto-generate Cash3 picks for BOOK3 kit and write to the EV observation log.
+    Auto-generate Cash3 picks and write ALL lanes to the EV observation log.
+
+    OBSERVE_ALL mode: logs every Cash3 pick across all 3 sessions and all play
+    types (STRAIGHT_BOX, BOX, STRAIGHT, STRAIGHT+1OFF, FRONT_PAIR, BACK_PAIR).
+    The production gate is intentionally bypassed here — this is observation only,
+    nothing is delivered to subscribers.  June 4 settle run gives a per-lane
+    verdict (hit rate + ROI) for every session × play-type combination.
 
     Call this 3× daily via cron-job.org (no subscriber login required):
-      11:00 AM ET — before Midday draw  (12:29 PM)
+      11:30 AM ET — before Midday draw  (12:29 PM)
        6:30 PM ET — before Evening draw (6:59 PM)
       11:00 PM ET — before Night draw   (11:34 PM)
 
     Auth: X-Prediction-Secret header required.
     Optional query param: ?date=YYYY-MM-DD  (defaults to today)
+    Optional query param: ?session=MIDDAY|EVENING|NIGHT  (logs only that session)
     """
     if not _check_prediction_secret():
         return jsonify({"success": False, "error": "Unauthorized"}), 403
@@ -2026,6 +2033,12 @@ def ev_observe_cron():
         or (request.get_json(silent=True) or {}).get("date")
         or datetime.now().strftime("%Y-%m-%d")
     )
+    # Optional session filter — when called from per-draw cron, pass ?session=MIDDAY etc.
+    session_filter = (
+        request.args.get("session")
+        or (request.get_json(silent=True) or {}).get("session")
+        or ""
+    ).upper()
 
     try:
         from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui
@@ -2041,19 +2054,29 @@ def ev_observe_cron():
         ev_picks_to_log: list = []
         gate_map: dict = {}
 
+        # Fan-out: for every Cash3 pick, log ALL 7 play types independently.
+        # This lets the June 4 settle run produce a full 7-lane verdict for
+        # every session:  which play type hits most consistently at what ROI?
+        # The engine's recommended_play is stored in overlay_tier for reference.
+        ALL_CASH3_PLAY_TYPES = [
+            "STRAIGHT", "BOX", "STRAIGHT_BOX",
+            "COMBO", "STRAIGHT+1OFF", "FRONT_PAIR", "BACK_PAIR",
+        ]
+
         for p in all_predictions:
             game = p.get("game", "")
             if game != "Cash3":
                 continue
-            conf  = p.get("confidence_score") or 0.0
-            _lane = p.get("lane", "")
-            _rp   = _recommended_play(conf, p.get("number", ""), _c3_hist)
-            _ui   = _confidence_ui(_rp, _lane, game=game)
-
-            if not is_live_recommendation_allowed(game, p.get("session"), _ui["label"], None):
+            sess = (p.get("session") or "").upper()
+            # If caller scoped to a specific session, skip others
+            if session_filter and sess != session_filter:
                 continue
             if _EV_RERANKER is None:
                 continue
+            conf    = p.get("confidence_score") or 0.0
+            _lane   = p.get("lane", "")
+            _rp_rec = _recommended_play(conf, p.get("number", ""), _c3_hist)
+            _ui_rec = _confidence_ui(_rp_rec, _lane, game=game)
 
             try:
                 _draw_date = _date_cls.fromisoformat(date_str)
@@ -2061,32 +2084,42 @@ def ev_observe_cron():
                 _draw_date = _date_cls.today()
 
             _ev_tier = _score_to_confidence_tier(conf)
-            _scored  = _EV_RERANKER.score_pick(
-                game=game, play_type=_rp,
-                session=(p.get("session") or "").upper(),
-                tier=_ev_tier, pick=str(p.get("number", "")), draw_date=_draw_date,
-            )
-            _ev_decision, _ev_reason = _EV_RERANKER._decide(_scored)
+            _num     = str(p.get("number", ""))
 
-            _gid = make_grain_id(date_str, p.get("session", ""), game, _rp, str(p.get("number", "")))
-            gate_map[_gid] = True
-            ev_picks_to_log.append({
-                "date":               date_str,
-                "draw":               p.get("session", ""),
-                "game":               game,
-                "lane":               _rp,
-                "pick":               str(p.get("number", "")),
-                "overlay_tier":       _ui["label"],
-                "mmfsn_tier":         _scored["mmfsn_tier"],
-                "ev_score":           _scored["ev_score"],
-                "decision":           _ev_decision,
-                "rank":               0,
-                "base_score":         0.0, "overlay_bonus":       0.0,
-                "night_bonus":        0.0, "mmfsn_bonus":         0.0,
-                "recent_signal_bonus": 0.0, "pav_bonus":          0.0,
-                "instability_penalty": 0.0, "overexposure_penalty": 0.0,
-                "cold_signal_penalty": 0.0,
-            })
+            # NOTE: production gate intentionally NOT applied here.
+            # We observe ALL play types so the June 4 settle can give a
+            # full verdict matrix (7 play types × 3 sessions × 2 picks).
+            for _play_type in ALL_CASH3_PLAY_TYPES:
+                _gid = make_grain_id(date_str, sess, game, _play_type, _num)
+                if _gid in gate_map:
+                    continue  # skip duplicates within this run
+
+                _scored = _EV_RERANKER.score_pick(
+                    game=game, play_type=_play_type,
+                    session=sess,
+                    tier=_ev_tier, pick=_num, draw_date=_draw_date,
+                )
+                _ev_decision, _ = _EV_RERANKER._decide(_scored)
+
+                gate_map[_gid] = True
+                ev_picks_to_log.append({
+                    "date":                date_str,
+                    "draw":                sess,
+                    "game":                game,
+                    "lane":                _play_type,
+                    "pick":                _num,
+                    # recommended_play stored so we know what the engine suggested
+                    "overlay_tier":        _ui_rec["label"],
+                    "mmfsn_tier":          _scored["mmfsn_tier"],
+                    "ev_score":            _scored["ev_score"],
+                    "decision":            _ev_decision,
+                    "rank":                0,
+                    "base_score":          0.0, "overlay_bonus":       0.0,
+                    "night_bonus":         0.0, "mmfsn_bonus":         0.0,
+                    "recent_signal_bonus": 0.0, "pav_bonus":           0.0,
+                    "instability_penalty": 0.0, "overexposure_penalty": 0.0,
+                    "cold_signal_penalty": 0.0,
+                })
 
         if ev_picks_to_log:
             log_ev_request(ev_picks_to_log, gate_map)
