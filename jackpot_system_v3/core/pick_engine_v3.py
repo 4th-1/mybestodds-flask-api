@@ -54,22 +54,27 @@ ALIGNMENT_UNLOCK_MFL_EXTRA_MAX: int = 2
 #  Determines recommended_play field returned in API responses.
 #  Confidence is 0.0–1.0 (normalised from stats score).
 #
-#  CALIBRATION — validated against 91-day simulation (220K picks at checkpoint):
-#    0.60–0.75 range: 1.23% Cash3 win rate = SWEET SPOT (validated signal)
-#    ≥ 0.75 range:    0.00% Cash3 win rate in 11,548 picks = OVER-FITTED to history
-#    0.40–0.60 range: 1.26% Cash3 win rate = solid moderate signal
-#    < 0.40 range:    0.00% = noise
+#  CALIBRATION SAFETY MODE — confidence-driven aggression reduced:
+#    High confidence tiers recently underperformed on paid outcomes.
+#    To preserve monetized hit-rate stability, confidence no longer auto-
+#    escalates to STRAIGHT+1OFF. That play type is now reserved for explicit
+#    near-miss proximity logic only (see _recommended_play).
 #
-#  As a result, STRAIGHT+1OFF threshold is set to 0.65 (not 0.75) so the
-#  "HOT SIGNAL" label covers the validated 0.65–0.75 sweet spot.
-#  The near-miss proximity check below independently issues STRAIGHT+1OFF
-#  for picks that are 1 digit off recent draws — that remains the primary
-#  trigger and is validated at 16x Cash3 / 35x Cash4 above random.
+#  Mapping intent:
+#    < BOX_MAX                 → BOX / pair signal fallback
+#    BOX_MAX..STRAIGHT_BOX_MAX → STRAIGHT_BOX
+#    >= STRAIGHT_MAX           → STRAIGHT (strictest, sparse)
+#  Note: STRAIGHT+1OFF is emitted only when near-miss evidence is present.
 # ================================================================
-PLAY_TYPE_BOX_MAX: float = 0.40          # < 40%       → BOX only
-PLAY_TYPE_STRAIGHT_BOX_MAX: float = 0.55 # 40–55%      → STRAIGHT_BOX
-PLAY_TYPE_STRAIGHT_MAX: float = 0.65     # 55–65%      → STRAIGHT
-                                         # ≥ 65%        → STRAIGHT+1OFF (validated sweet spot)
+PLAY_TYPE_BOX_MAX: float = 0.45          # < 45%       → BOX only
+PLAY_TYPE_STRAIGHT_BOX_MAX: float = 0.75 # 45–75%      → STRAIGHT_BOX
+PLAY_TYPE_STRAIGHT_MAX: float = 0.90     # >= 90%      → STRAIGHT (very selective)
+
+# Trust-safe calibration guardrail:
+# Until monotonicity is restored in forward validation windows, confidence
+# cannot drive aggressive play escalation. This caps score-based play routing.
+CONFIDENCE_PLAY_CAP_ENABLED: bool = True
+CONFIDENCE_PLAY_CAP_MAX: float = 0.74
 
 # ----------------------------------------------------------------
 # Option B — Near-Miss Score Boost
@@ -927,22 +932,26 @@ _C3_1OFF_THREE_DIGIT_PAYOUT    = 8     # all 3 digits are ±1 off
 def _recommended_play(confidence_score: float, number: str = "", history: "List[str] | None" = None) -> str:
     """Map a normalised confidence score (0.0–1.0) to a play type recommendation.
 
-    Tiers align with the PLAY_TYPE_* thresholds defined in constants above:
-      < 0.40  → "BOX"             (low confidence — cover permutations)
+        Tiers align with the PLAY_TYPE_* thresholds defined in constants above:
+            < 0.45  → "BOX"             (low confidence — cover permutations)
                 or "FRONT_PAIR"/"BACK_PAIR" when pair digit signal is strong
-      0.40–0.60 → "STRAIGHT_BOX" (moderate — hedge with box insurance)
-      0.60–0.75 → "STRAIGHT"     (high — engine is convicted on order)
-      ≥ 0.75  → "STRAIGHT+1OFF"  (very high — also cover adjacent digits)
+            0.45–0.90 → "STRAIGHT_BOX" (moderate/high — hedge with box insurance)
+            ≥ 0.90  → "STRAIGHT"       (very high — strict order conviction)
 
-    When confidence is below BOX threshold and history is provided, digit-position
-    frequency is used to detect front/back pair dominance and surface FRONT_PAIR
-    or BACK_PAIR instead of plain BOX.
+        STRAIGHT+1OFF is not confidence-triggered; it is emitted only by near-miss
+        proximity logic when the number is exactly 1 digit off a recent draw.
+
+        When confidence is below BOX threshold and history is provided, digit-position
+        frequency is used to detect front/back pair dominance and surface FRONT_PAIR
+        or BACK_PAIR instead of plain BOX.
     """
-    if confidence_score >= PLAY_TYPE_STRAIGHT_MAX:
-        return "STRAIGHT+1OFF"
-    if confidence_score >= PLAY_TYPE_STRAIGHT_BOX_MAX:
-        return "STRAIGHT"
-    if confidence_score >= PLAY_TYPE_BOX_MAX:
+    _score_for_play = min(confidence_score, CONFIDENCE_PLAY_CAP_MAX) if CONFIDENCE_PLAY_CAP_ENABLED else confidence_score
+
+    if _score_for_play >= PLAY_TYPE_STRAIGHT_MAX:
+                return "STRAIGHT"
+    if _score_for_play >= PLAY_TYPE_STRAIGHT_BOX_MAX:
+                return "STRAIGHT_BOX"
+    if _score_for_play >= PLAY_TYPE_BOX_MAX:
         return "STRAIGHT_BOX"
 
     # Near-miss proximity check — if this pick is exactly 1 digit off from any
@@ -992,30 +1001,25 @@ def _recommended_play(confidence_score: float, number: str = "", history: "List[
 # Colors are CSS-compatible names for the Lovable frontend.
 # Tier 1–4 allows the UI to drive progress bars or heat maps.
 
-# Tier validation summary (91-day sim, 970K picks):
-#   Tier 4 HOT SIGNAL   → STRAIGHT+1OFF: near-miss proximity = 16x Cash3 / 35x Cash4 vs random
-#                          score-based ≥0.65 = validated 0.65–0.75 sweet spot (1.23% Cash3)
-#   Tier 3 HIGH         → STRAIGHT: score 0.55–0.65, solid directional signal
-#   Tier 2 GOOD PICK    → STRAIGHT_BOX / PAIR: moderate frequency signal + coverage
-#   Tier 1 COVER PLAY   → BOX: base coverage, below signal threshold
+# Confidence labels are intentionally neutral while calibration is being restored.
 _CONFIDENCE_UI_MAP = {
     "STRAIGHT+1OFF": {
-        "label":       "HOT SIGNAL",
+        "label":       "VALIDATION CANDIDATE",
         "color":       "green",
         "tier":        4,
-        "description": "Strongest signal — validated 35x above random for Cash4, 16x for Cash3",
+        "description": "Experimental candidate — requires ongoing validation before trust-weighted use",
     },
     "STRAIGHT": {
-        "label":       "HIGH CONFIDENCE",
+        "label":       "OVERLAY SUPPORTED",
         "color":       "blue",
         "tier":        3,
-        "description": "Strong frequency signal — engine convicted on digit order",
+        "description": "Order-focused candidate with overlay support; not a trust-ranked guarantee",
     },
     "STRAIGHT_BOX": {
-        "label":       "GOOD PICK",
+        "label":       "PRIORITY WATCH",
         "color":       "yellow",
         "tier":        2,
-        "description": "Solid signal — covers exact order and any order",
+        "description": "Balanced coverage candidate for controlled execution",
     },
     "FRONT_PAIR": {
         "label":       "FRONT PAIR SIGNAL",
@@ -1030,10 +1034,10 @@ _CONFIDENCE_UI_MAP = {
         "description": "Last two digits showing strong repeat pattern",
     },
     "BOX": {
-        "label":       "COVER PLAY",
+        "label":       "QUALIFIED",
         "color":       "gray",
         "tier":        1,
-        "description": "Coverage pick — wins in any digit order",
+        "description": "Qualified coverage play pending confidence recalibration",
     },
     # Special entry for lane_mmfsn personal-number picks.
     # These always score conf=0.0 (not in frequency pool) but win at 3.5x
@@ -1046,10 +1050,10 @@ _CONFIDENCE_UI_MAP = {
     },
 }
 _CONFIDENCE_UI_DEFAULT = {
-    "label":       "COVER PLAY",
+    "label":       "QUALIFIED",
     "color":       "gray",
     "tier":        1,
-    "description": "Coverage pick — wins in any digit order",
+    "description": "Qualified coverage play pending confidence recalibration",
 }
 
 
