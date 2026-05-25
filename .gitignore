@@ -56,6 +56,8 @@ data/subscribers/**/
 !package.json
 # Allow GA historical data needed for Railway predictions
 !jackpot_system_v3/data/ga_results/*.json
+!jackpot_system_v3/data/ga_results/Cash3_Midday_Evening_Night.csv
+!jackpot_system_v3/data/ga_results/Cash4_Midday_Evening_Night.csv
 # Allow subscriber kit files needed for Railway predictions
 !jackpot_system_v3/kits/*.json
 

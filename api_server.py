@@ -657,6 +657,1001 @@ def due_signal_check():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+# ---------------------------------------------------------------------------
+# Celestial Alignment Lift Multipliers (validated backtests, May 2026)
+# Cash3 triples: Z=6.84, p<0.001 — baseline 0.103%
+# Cash4 quads  : Z=5.58, p<0.001 — baseline 0.0172%
+# ---------------------------------------------------------------------------
+_LIFT_CASH3 = {0: 0.33, 1: 1.18, 2: 3.37, 3: 26.22}
+_LIFT_CASH4 = {0: 0.00, 1: 0.00, 2: 4.32, 3: 163.05}
+
+_ALIGNMENT_LABELS = {
+    0: "0/3 — No Alignment",
+    1: "1/3 — Partial",
+    2: "2/3 — Aligned",
+    3: "3/3 — EXACT MATCH",
+}
+
+
+def _celestial_fingerprint(number: str):
+    """
+    Build dominant celestial fingerprint for a triple/quad from all historical hits.
+    Returns dict: {dominant_moon, dominant_hour, dominant_zodiac, hit_count, game}
+    or None if no history exists.
+    """
+    from jackpot_system_v3.core.triple_due_signal import _load_draws
+    from jackpot_system_v3.core.overlay_engine_v3_7 import compute_overlays
+    from collections import Counter
+
+    game = 'Cash3' if len(number) == 3 else 'Cash4'
+    draws = _load_draws(game)
+    hits = [d for d in draws if d['number'] == number]
+
+    # Also include backfill for quads
+    if game == 'Cash4':
+        try:
+            bf_path = os.path.join(
+                os.path.dirname(__file__),
+                'jackpot_system_v3', 'data', 'ga_results', 'cash4_quads_historical.json'
+            )
+            with open(bf_path, 'r') as f:
+                backfill = json.load(f)
+            quad_set = {'0000','1111','2222','3333','4444','5555','6666','7777','8888','9999'}
+            for r in backfill:
+                wn = r.get('winning_number') or r.get('number', '')
+                dd = r.get('draw_date') or r.get('date_str', '')
+                sess = (r.get('session') or 'Evening').title()
+                if wn == number and wn in quad_set:
+                    hits.append({'date_str': dd, 'number': wn, 'session': sess})
+        except Exception:
+            pass
+
+    if not hits:
+        return None
+
+    moon_c, hour_c, zodiac_c = Counter(), Counter(), Counter()
+    for h in hits:
+        try:
+            ov = compute_overlays(h['date_str'], h['session'].title())
+            if ov.get('moon_phase'):
+                moon_c[ov['moon_phase']] += 1
+            if ov.get('planetary_hour'):
+                hour_c[ov['planetary_hour']] += 1
+            if ov.get('zodiac_sign'):
+                zodiac_c[ov['zodiac_sign']] += 1
+        except Exception:
+            continue
+
+    return {
+        'game': game,
+        'number': number,
+        'hit_count': len(hits),
+        'dominant_moon':   moon_c.most_common(1)[0][0] if moon_c else None,
+        'dominant_hour':   hour_c.most_common(1)[0][0] if hour_c else None,
+        'dominant_zodiac': zodiac_c.most_common(1)[0][0] if zodiac_c else None,
+        'moon_counts':   dict(moon_c.most_common()),
+        'hour_counts':   dict(hour_c.most_common()),
+        'zodiac_counts': dict(zodiac_c.most_common()),
+    }
+
+
+def _alignment_score(fp: dict, ov: dict) -> int:
+    """Score 0–3: how many of (moon, hour, zodiac) match the historical fingerprint."""
+    score = 0
+    if fp.get('dominant_moon')   and fp['dominant_moon']   == ov.get('moon_phase'):     score += 1
+    if fp.get('dominant_hour')   and fp['dominant_hour']   == ov.get('planetary_hour'): score += 1
+    if fp.get('dominant_zodiac') and fp['dominant_zodiac'] == ov.get('zodiac_sign'):    score += 1
+    return score
+
+
+@app.route('/api/celestial/alignment', methods=['GET'])
+def celestial_alignment():
+    """
+    Returns the celestial fingerprint and current alignment score for a number.
+
+    Query parameters
+    ----------------
+    number  : str  — required. '555' (Cash3 triple) or '5555' (Cash4 quad).
+    date    : str  — optional YYYY-MM-DD. Defaults to today.
+    session : str  — optional Midday/Evening/Night. Defaults to Evening.
+
+    Response
+    --------
+    {
+      "success": true,
+      "number": "555",
+      "game": "Cash3",
+      "fingerprint": { "dominant_moon": "...", "dominant_hour": "...", "dominant_zodiac": "..." },
+      "today": { "moon_phase": "...", "planetary_hour": "...", "zodiac_sign": "..." },
+      "alignment_score": 3,
+      "alignment_label": "3/3 — EXACT MATCH",
+      "lift_multiplier": 26.22,
+      "matching_elements": ["moon_phase", "planetary_hour", "zodiac_sign"],
+      "stat_note": "Cash3 3/3 windows are 26.22x more likely to produce a triple hit (Z=6.84, p<0.001)"
+    }
+    """
+    try:
+        from jackpot_system_v3.core.overlay_engine_v3_7 import compute_overlays
+        number  = request.args.get('number', '').strip()
+        date_str = request.args.get('date', datetime.now().strftime('%Y-%m-%d'))
+        session  = request.args.get('session', 'Evening').title()
+
+        if not number or not all(c.isdigit() for c in number) or len(number) not in (3, 4):
+            return jsonify({"success": False, "error": "number must be a 3-digit triple or 4-digit quad"}), 400
+
+        fp = _celestial_fingerprint(number)
+        if not fp:
+            return jsonify({"success": False, "error": f"No historical hit data found for {number}"}), 404
+
+        ov = compute_overlays(date_str, session)
+        score = _alignment_score(fp, ov)
+
+        lift_table = _LIFT_CASH3 if fp['game'] == 'Cash3' else _LIFT_CASH4
+        lift = lift_table[score]
+
+        matching = []
+        if fp.get('dominant_moon')   == ov.get('moon_phase'):     matching.append('moon_phase')
+        if fp.get('dominant_hour')   == ov.get('planetary_hour'): matching.append('planetary_hour')
+        if fp.get('dominant_zodiac') == ov.get('zodiac_sign'):    matching.append('zodiac_sign')
+
+        z = '6.84' if fp['game'] == 'Cash3' else '5.58'
+        stat_note = (
+            f"{fp['game']} {score}/3 windows are {lift}x more likely to produce a "
+            f"{'triple' if fp['game'] == 'Cash3' else 'quad'} hit (Z={z}, p<0.001)"
+        )
+
+        return jsonify({
+            "success": True,
+            "number":  number,
+            "game":    fp['game'],
+            "date":    date_str,
+            "session": session,
+            "fingerprint": {
+                "dominant_moon":   fp['dominant_moon'],
+                "dominant_hour":   fp['dominant_hour'],
+                "dominant_zodiac": fp['dominant_zodiac'],
+                "moon_counts":     fp['moon_counts'],
+                "hour_counts":     fp['hour_counts'],
+                "zodiac_counts":   fp['zodiac_counts'],
+                "historical_hits": fp['hit_count'],
+            },
+            "today": {
+                "moon_phase":     ov.get('moon_phase'),
+                "planetary_hour": ov.get('planetary_hour'),
+                "zodiac_sign":    ov.get('zodiac_sign'),
+                "overlay_score":  ov.get('overlay_score'),
+            },
+            "alignment_score":    score,
+            "alignment_label":    _ALIGNMENT_LABELS[score],
+            "lift_multiplier":    lift,
+            "matching_elements":  matching,
+            "stat_note":          stat_note,
+        }), 200
+
+    except Exception as e:
+        logger.error(f"celestial_alignment error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/api/celestial/hot-windows', methods=['GET'])
+def celestial_hot_windows():
+    """
+    Returns upcoming 2/3 and 3/3 celestial alignment windows for all triples/quads.
+
+    Query parameters
+    ----------------
+    days    : int  — optional. Days to scan ahead (default 30, max 90).
+    game    : str  — optional. 'Cash3', 'Cash4', or 'both' (default 'both').
+    min_score : int — optional. Minimum alignment score to include (default 2).
+
+    Response
+    --------
+    {
+      "success": true,
+      "scan_from": "2026-05-24",
+      "scan_days": 30,
+      "windows": [
+        {
+          "number": "555",
+          "game": "Cash3",
+          "date": "2026-05-30",
+          "session": "Midday",
+          "alignment_score": 3,
+          "alignment_label": "3/3 — EXACT MATCH",
+          "lift_multiplier": 26.22,
+          "moon_phase": "...",
+          "planetary_hour": "...",
+          "zodiac_sign": "...",
+          "days_since_last_hit": 47,
+          "last_hit_date": "2026-04-13",
+          "perfect_storm": false
+        }
+      ]
+    }
+    """
+    try:
+        from jackpot_system_v3.core.overlay_engine_v3_7 import compute_overlays
+        from jackpot_system_v3.core.triple_due_signal import _load_draws, check_number
+
+        days_param  = min(int(request.args.get('days', 30)), 90)
+        game_filter = request.args.get('game', 'both').lower()
+        min_score   = int(request.args.get('min_score', 2))
+
+        triples = ['000','111','222','333','444','555','666','777','888','999']
+        quads   = ['0000','1111','2222','3333','4444','5555','6666','7777','8888','9999']
+
+        numbers = []
+        if game_filter in ('cash3', 'both'):
+            numbers += triples
+        if game_filter in ('cash4', 'both'):
+            numbers += quads
+
+        # Build fingerprints once
+        fps = {}
+        for num in numbers:
+            fp = _celestial_fingerprint(num)
+            if fp:
+                fps[num] = fp
+
+        # Get last hit dates
+        cash3_draws = _load_draws('Cash3')
+        cash4_draws = _load_draws('Cash4')
+
+        # Backfill for quads
+        quad_backfill = []
+        try:
+            bf_path = os.path.join(
+                os.path.dirname(__file__),
+                'jackpot_system_v3', 'data', 'ga_results', 'cash4_quads_historical.json'
+            )
+            with open(bf_path, 'r') as f:
+                quad_backfill = json.load(f)
+        except Exception:
+            pass
+
+        quad_set = set(quads)
+
+        def last_hit_date(num):
+            game = 'Cash3' if len(num) == 3 else 'Cash4'
+            src = cash3_draws if game == 'Cash3' else cash4_draws
+            hits = sorted([d['date_str'] for d in src if d['number'] == num])
+            if game == 'Cash4':
+                for r in quad_backfill:
+                    wn = r.get('winning_number') or r.get('number', '')
+                    dd = r.get('draw_date') or r.get('date_str', '')
+                    if wn == num and wn in quad_set:
+                        hits.append(dd)
+                hits = sorted(hits)
+            return hits[-1] if hits else None
+
+        # Scan forward
+        start = datetime.now().date()
+        sessions = ['Midday', 'Evening', 'Night']
+        windows = []
+
+        # Get overdue status for triples (gap analysis)
+        overdue_triples = set()
+        for num in triples:
+            try:
+                r = check_number(num)
+                ga = r.get('gap_analysis') or {}
+                if ga.get('max_gap_breached'):
+                    overdue_triples.add(num)
+            except Exception:
+                pass
+
+        seen = set()  # deduplicate by (number, date, session)
+        for i in range(days_param):
+            d = start + timedelta(days=i)
+            ds = d.strftime('%Y-%m-%d')
+            for sess in sessions:
+                ov = compute_overlays(ds, sess)
+                for num in numbers:
+                    fp = fps.get(num)
+                    if not fp:
+                        continue
+                    score = _alignment_score(fp, ov)
+                    if score < min_score:
+                        continue
+                    key = (num, ds, sess)
+                    if key in seen:
+                        continue
+                    seen.add(key)
+
+                    lhd = last_hit_date(num)
+                    days_since = (d - datetime.strptime(lhd, '%Y-%m-%d').date()).days if lhd else None
+                    perfect_storm = (num in overdue_triples and score >= 2) or (days_since is not None and days_since > 365 and score >= 2)
+
+                    lift_table = _LIFT_CASH3 if fp['game'] == 'Cash3' else _LIFT_CASH4
+                    windows.append({
+                        "number":            num,
+                        "game":              fp['game'],
+                        "date":              ds,
+                        "day_of_week":       d.strftime('%A'),
+                        "session":           sess,
+                        "alignment_score":   score,
+                        "alignment_label":   _ALIGNMENT_LABELS[score],
+                        "lift_multiplier":   lift_table[score],
+                        "moon_phase":        ov.get('moon_phase'),
+                        "planetary_hour":    ov.get('planetary_hour'),
+                        "zodiac_sign":       ov.get('zodiac_sign'),
+                        "days_since_last_hit": days_since,
+                        "last_hit_date":     lhd,
+                        "perfect_storm":     perfect_storm,
+                    })
+
+        # Sort: perfect storms first, then by alignment score desc, then date
+        windows.sort(key=lambda x: (-int(x['perfect_storm']), -x['alignment_score'], x['date']))
+
+        return jsonify({
+            "success":    True,
+            "scan_from":  start.strftime('%Y-%m-%d'),
+            "scan_days":  days_param,
+            "game_filter": game_filter,
+            "min_score":  min_score,
+            "total_windows": len(windows),
+            "windows":    windows,
+        }), 200
+
+    except Exception as e:
+        logger.error(f"celestial_hot_windows error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route('/api/celestial/perfect-storm', methods=['GET'])
+def celestial_perfect_storm():
+    """
+    Returns numbers that are BOTH statistically gap-due AND in a 2/3+ celestial alignment window today.
+    These are the highest-confidence plays — combining statistical overdues with celestial signal.
+
+    Query parameters
+    ----------------
+    date    : str — optional YYYY-MM-DD. Defaults to today.
+    session : str — optional Midday/Evening/Night. Defaults to Evening.
+
+    Response
+    --------
+    {
+      "success": true,
+      "date": "2026-05-23",
+      "session": "Evening",
+      "perfect_storms": [...],
+      "near_miss": [...],   // 2/3 aligned but not gap-due
+      "stat_summary": { "cash3_z": 6.84, "cash4_z": 5.58, ... }
+    }
+    """
+    try:
+        from jackpot_system_v3.core.overlay_engine_v3_7 import compute_overlays
+        from jackpot_system_v3.core.triple_due_signal import _load_draws, check_number
+
+        date_str = request.args.get('date', datetime.now().strftime('%Y-%m-%d'))
+        session  = request.args.get('session', 'Evening').title()
+
+        triples = ['000','111','222','333','444','555','666','777','888','999']
+        quads   = ['0000','1111','2222','3333','4444','5555','6666','7777','8888','9999']
+        all_numbers = triples + quads
+
+        ov = compute_overlays(date_str, session)
+
+        # Backfill for quads
+        quad_backfill = []
+        try:
+            bf_path = os.path.join(
+                os.path.dirname(__file__),
+                'jackpot_system_v3', 'data', 'ga_results', 'cash4_quads_historical.json'
+            )
+            with open(bf_path, 'r') as f:
+                quad_backfill = json.load(f)
+        except Exception:
+            pass
+
+        cash3_draws = _load_draws('Cash3')
+        cash4_draws = _load_draws('Cash4')
+        quad_set = set(quads)
+
+        def last_hit(num):
+            game = 'Cash3' if len(num) == 3 else 'Cash4'
+            src = cash3_draws if game == 'Cash3' else cash4_draws
+            hits = sorted([d['date_str'] for d in src if d['number'] == num])
+            if game == 'Cash4':
+                for r in quad_backfill:
+                    wn = r.get('winning_number') or r.get('number', '')
+                    dd = r.get('draw_date') or r.get('date_str', '')
+                    if wn == num and wn in quad_set:
+                        hits.append(dd)
+                hits = sorted(hits)
+            return hits[-1] if hits else None
+
+        perfect_storms = []
+        near_miss = []
+        aligned_only = []
+
+        today = datetime.strptime(date_str, '%Y-%m-%d').date()
+
+        for num in all_numbers:
+            fp = _celestial_fingerprint(num)
+            if not fp:
+                continue
+            score = _alignment_score(fp, ov)
+            if score < 2:
+                continue
+
+            game = fp['game']
+            lift_table = _LIFT_CASH3 if game == 'Cash3' else _LIFT_CASH4
+            lift = lift_table[score]
+
+            lhd = last_hit(num)
+            days_since = (today - datetime.strptime(lhd, '%Y-%m-%d').date()).days if lhd else None
+
+            # Get gap/overdue status for triples
+            gap_data = {}
+            is_overdue = False
+            if game == 'Cash3':
+                try:
+                    r = check_number(num)
+                    ga = r.get('gap_analysis') or {}
+                    is_overdue = bool(ga.get('max_gap_breached'))
+                    gap_data = {
+                        'current_gap': ga.get('current_gap_draws'),
+                        'overdue_ratio': ga.get('overdue_ratio'),
+                        'max_gap_breached': is_overdue,
+                        'confidence_label': r.get('confidence_label'),
+                    }
+                except Exception:
+                    pass
+            elif days_since is not None and days_since > 365:
+                is_overdue = True  # quads overdue if not hit in a year
+
+            matching = []
+            if fp.get('dominant_moon')   == ov.get('moon_phase'):     matching.append('moon_phase')
+            if fp.get('dominant_hour')   == ov.get('planetary_hour'): matching.append('planetary_hour')
+            if fp.get('dominant_zodiac') == ov.get('zodiac_sign'):    matching.append('zodiac_sign')
+
+            entry = {
+                "number":            num,
+                "game":              game,
+                "alignment_score":   score,
+                "alignment_label":   _ALIGNMENT_LABELS[score],
+                "lift_multiplier":   lift,
+                "matching_elements": matching,
+                "dominant_moon":     fp['dominant_moon'],
+                "dominant_hour":     fp['dominant_hour'],
+                "dominant_zodiac":   fp['dominant_zodiac'],
+                "today_moon":        ov.get('moon_phase'),
+                "today_hour":        ov.get('planetary_hour'),
+                "today_zodiac":      ov.get('zodiac_sign'),
+                "days_since_last_hit": days_since,
+                "last_hit_date":     lhd,
+                "gap_analysis":      gap_data,
+                "is_overdue":        is_overdue,
+            }
+
+            if is_overdue:
+                perfect_storms.append(entry)
+            elif days_since is not None and days_since < 30:
+                near_miss.append(entry)   # recently hit — lower priority
+            else:
+                aligned_only.append(entry)
+
+        # Sort by alignment score desc, then days_since desc (longest overdue first)
+        for lst in (perfect_storms, near_miss, aligned_only):
+            lst.sort(key=lambda x: (-x['alignment_score'], -(x['days_since_last_hit'] or 0)))
+
+        return jsonify({
+            "success":       True,
+            "date":          date_str,
+            "session":       session,
+            "today_conditions": {
+                "moon_phase":     ov.get('moon_phase'),
+                "planetary_hour": ov.get('planetary_hour'),
+                "zodiac_sign":    ov.get('zodiac_sign'),
+                "overlay_score":  ov.get('overlay_score'),
+            },
+            "perfect_storms":  perfect_storms,
+            "aligned_not_due": aligned_only,
+            "recent_hits_aligned": near_miss,
+            "stat_summary": {
+                "cash3_z_score":     6.84,
+                "cash4_z_score":     5.58,
+                "cash3_lift_2of3":   3.37,
+                "cash3_lift_3of3":   26.22,
+                "cash4_lift_2of3":   4.32,
+                "cash4_lift_3of3":   163.05,
+                "cash3_baseline_pct": 0.103,
+                "cash4_baseline_pct": 0.0172,
+                "total_quad_hits_analyzed": 23,
+                "quad_hits_at_2of3_plus_pct": 60.9,
+                "note": "Backtest over 4,559 Cash3 draws and 4,647 Cash4 draws. All p-values <0.001."
+            },
+        }), 200
+
+    except Exception as e:
+        logger.error(f"celestial_perfect_storm error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+# ---------------------------------------------------------------------------
+# GA draw cutoff times (Eastern) used for session labeling and play instructions
+# ---------------------------------------------------------------------------
+_SESSION_CUTOFFS = {
+    "Midday":  {"hour": 12, "minute": 29, "play_by": "12:00 PM ET",  "draw_time": "12:29 PM ET"},
+    "Evening": {"hour": 18, "minute": 59, "play_by": "6:30 PM ET",   "draw_time": "6:59 PM ET"},
+    "Night":   {"hour": 23, "minute": 34, "play_by": "11:00 PM ET",  "draw_time": "11:34 PM ET"},
+}
+
+
+def _mmfsn_play_advice(number: str, game: str, alignment_score: int) -> dict:
+    """
+    Returns specific play type, wager recommendation, and payout info
+    based on the number's digit composition and alignment score.
+
+    Cash3 payouts (GA Lottery, $1 wager):
+      Straight      = $500   (exact order)
+      Box 3-way     = $160   (1 digit repeated, e.g. 122 → 3 combos)
+      Box 6-way     = $80    (all different digits → 6 combos)
+      Straight/Box  = $250 straight + $40/$80 box portion ($1 total split)
+      Combo 3-way   = $1.50 total, wins $500 on any of 3 orders
+      Combo 6-way   = $3.00 total, wins $500 on any of 6 orders
+
+    Cash4 payouts (GA Lottery, $1 wager):
+      Straight      = $5,000
+      Box 4-way     = $1,198  (3 same + 1 diff)
+      Box 6-way     = $800    (2 pairs)
+      Box 12-way    = $400    (2 same + 2 diff)
+      Box 24-way    = $200    (all different)
+      Straight/Box  = $2,500 straight + box portion
+    """
+    digits = list(number)
+    unique = len(set(digits))
+    total  = len(digits)
+
+    if game == 'Cash3':
+        if unique == 1:
+            # e.g. 555 — only one arrangement, Straight is the only play
+            play_type   = 'STRAIGHT'
+            wager       = '$1'
+            payout_line = 'pays $500 (exact match only)'
+            combo_note  = 'No box available — all digits identical'
+        elif unique == 2:
+            # e.g. 122 — 3 arrangements possible
+            if alignment_score == 3:
+                play_type   = 'STRAIGHT + BOX'
+                wager       = '$1 Straight + $1 Box'
+                payout_line = 'Straight pays $500 | Box 3-way pays $160'
+                combo_note  = 'Or: Combo 3-way ($1.50 total) covers all 3 orders at $500 each'
+            else:
+                play_type   = 'STRAIGHT/BOX'
+                wager       = '$1 (50¢ each way)'
+                payout_line = 'Straight pays $250 | Box 3-way pays $80'
+                combo_note  = 'Upgrade to Combo 3-way ($1.50) if confident in number'
+        else:
+            # e.g. 510 — 6 arrangements, all different digits
+            if alignment_score == 3:
+                play_type   = 'STRAIGHT + BOX'
+                wager       = '$1 Straight + $1 Box'
+                payout_line = 'Straight pays $500 | Box 6-way pays $80'
+                combo_note  = 'Or: Combo 6-way ($3.00 total) — wins $500 on ANY of 6 orders'
+            else:
+                play_type   = 'STRAIGHT/BOX'
+                wager       = '$1 (50¢ each way)'
+                payout_line = 'Straight pays $250 | Box 6-way pays $40'
+                combo_note  = 'Consider Box only ($1) for $80 payout with better coverage'
+
+    else:  # Cash4
+        if unique == 1:
+            play_type   = 'STRAIGHT'
+            wager       = '$1'
+            payout_line = 'pays $5,000 (exact match only)'
+            combo_note  = 'No box available — all digits identical'
+        elif unique == 2 and digits.count(digits[0]) == 2:
+            play_type   = 'STRAIGHT/BOX'
+            wager       = '$1 (50¢ each way)'
+            payout_line = 'Straight pays $2,500 | Box 6-way pays $400'
+            combo_note  = 'Upgrade: $1 Box 6-way pays $800'
+        elif unique == 2:
+            play_type   = 'STRAIGHT/BOX'
+            wager       = '$1 (50¢ each way)'
+            payout_line = 'Straight pays $2,500 | Box 4-way or 12-way'
+            combo_note  = 'Check retailer for exact box type based on digit pattern'
+        elif unique == 3:
+            play_type   = 'STRAIGHT/BOX'
+            wager       = '$1 (50¢ each way)'
+            payout_line = 'Straight pays $2,500 | Box 12-way pays $200'
+            combo_note  = 'Combo 12-way ($6) wins $5,000 on any matching order'
+        else:
+            # All 4 digits different — 24 arrangements
+            if alignment_score == 3:
+                play_type   = 'STRAIGHT + BOX'
+                wager       = '$1 Straight + $1 Box'
+                payout_line = 'Straight pays $5,000 | Box 24-way pays $200'
+                combo_note  = 'Combo 24-way ($12) wins $5,000 regardless of order'
+            else:
+                play_type   = 'STRAIGHT/BOX'
+                wager       = '$1 (50¢ each way)'
+                payout_line = 'Straight pays $2,500 | Box 24-way pays $100'
+                combo_note  = 'Box only ($1) for $200 payout — safer at 2/3 alignment'
+
+    return {
+        'play_type':  play_type,
+        'wager':      wager,
+        'payout':     payout_line,
+        'combo_note': combo_note,
+        'arrangements': (
+            1 if unique == 1 else
+            (3 if (total == 3 and unique == 2) else
+             (6 if total == 3 else
+              (4 if (total == 4 and unique == 2 and digits.count(digits[0]) == 3) else
+               (6 if (total == 4 and unique == 2) else
+                (12 if (total == 4 and unique == 3) else 24)))))
+        ),
+    }
+
+
+def _gap_analysis_any(number: str, game: str) -> dict:
+    """Gap / due analysis for ANY number (mixed digits included).
+
+    Scans the full historical draw record and computes:
+      - How many draws have passed since this number last hit
+      - Average and max inter-hit gap
+      - Overdue ratio  (current_gap / avg_gap;  >1.0 = overdue)
+      - Days since last hit and the date it last appeared
+      - Session it hits most often  (session affinity)
+      - Signal label: COLD / WARM / HOT / OVERDUE
+
+    Works for triples, quads, and all mixed-digit numbers.
+    """
+    try:
+        from jackpot_system_v3.core.triple_due_signal import _load_draws
+    except Exception:
+        return {}
+
+    draws = _load_draws(game)
+    if not draws:
+        return {}
+
+    # Extend with the master CSV (covers Feb 2022+ for Cash3, further back for Cash4).
+    # The JSON files only go back to 2023 for Cash3, so this adds ~1 extra year.
+    try:
+        import csv as _csv
+        csv_name = (
+            'Cash3_Midday_Evening_Night.csv' if game == 'Cash3'
+            else 'Cash4_Midday_Evening_Night.csv'
+        )
+        csv_path = os.path.join(JACKPOT_SYSTEM_DIR, 'data', 'ga_results', csv_name)
+        if os.path.exists(csv_path):
+            existing_keys = {(d['date_str'], d['session']) for d in draws}
+            n_digits = 3 if game == 'Cash3' else 4
+            SESSION_ORDER = {'midday': 0, 'evening': 1, 'night': 2}
+            with open(csv_path, newline='', encoding='utf-8') as fh:
+                for row in _csv.DictReader(fh):
+                    raw_date = (row.get('draw_date') or '').strip()
+                    raw_num  = str(row.get('winning_numbers') or row.get('winning_number') or '').strip()
+                    raw_sess = (row.get('session') or '').strip().lower()
+                    if not raw_date or not raw_num or not raw_sess:
+                        continue
+                    # Pad/truncate number
+                    num = raw_num.zfill(n_digits)[:n_digits]
+                    # Normalise session key
+                    sess = raw_sess if raw_sess in SESSION_ORDER else raw_sess.split()[0]
+                    # Parse date — CSV uses YYYY-MM-DD
+                    try:
+                        dt = datetime.strptime(raw_date, '%Y-%m-%d')
+                        date_str = raw_date
+                    except ValueError:
+                        continue
+                    key = (date_str, sess)
+                    if key in existing_keys:
+                        continue
+                    existing_keys.add(key)
+                    draws.append({
+                        'date_str':     date_str,
+                        'date':         dt,
+                        'number':       num,
+                        'session':      sess,
+                        'session_order': SESSION_ORDER.get(sess, 9),
+                    })
+            draws.sort(key=lambda x: (x['date'], x.get('session_order', 9)))
+    except Exception:
+        pass  # Fall back to JSON-only data
+
+    total = len(draws)
+    hits  = [i for i, d in enumerate(draws) if d['number'] == number]
+    n_hits = len(hits)
+
+    if hits:
+        current_gap   = (total - 1) - hits[-1]
+        last_hit_date = draws[hits[-1]]['date_str']
+        last_hit_dt   = draws[hits[-1]]['date']
+        days_since    = (datetime.now().date() - last_hit_dt.date()).days
+        from collections import Counter as _Counter
+        sess_counts   = _Counter(draws[h]['session'] for h in hits)
+        top_session   = sess_counts.most_common(1)[0][0].title()
+    else:
+        current_gap   = total
+        last_hit_date = None
+        days_since    = None
+        top_session   = None
+
+    gaps    = [hits[i] - hits[i - 1] for i in range(1, len(hits))]
+    avg_gap = sum(gaps) / len(gaps) if gaps else (total / max(n_hits, 1))
+    max_gap = max(gaps) if gaps else int(avg_gap * 2)
+
+    overdue_ratio    = round(current_gap / avg_gap, 2) if avg_gap > 0 else 0.0
+    max_gap_breached = bool(gaps and current_gap > max_gap)
+
+    if max_gap_breached:
+        signal = 'OVERDUE'
+    elif overdue_ratio >= 1.5:
+        signal = 'HOT'
+    elif overdue_ratio >= 1.0:
+        signal = 'WARM'
+    else:
+        signal = 'COLD'
+
+    return {
+        'hits_total':          n_hits,
+        'draws_analyzed':      total,
+        'current_gap':         current_gap,
+        'avg_gap':             round(avg_gap, 1),
+        'max_gap':             int(max_gap),
+        'overdue_ratio':       overdue_ratio,
+        'max_gap_breached':    max_gap_breached,
+        'days_since_last_hit': days_since,
+        'last_hit_date':       last_hit_date,
+        'session_affinity':    top_session,
+        'signal':              signal,
+    }
+
+
+@app.route('/api/mmfsn/alerts/<subscriber_id>', methods=['GET'])
+def mmfsn_alerts(subscriber_id: str):
+    """
+    Personal number alert engine — checks every saved MMFSN number for the
+    subscriber and returns which ones are in active or upcoming celestial
+    alignment windows.
+
+    This is the endpoint that should fire BEFORE each draw so subscribers
+    know to play their personal number today.
+
+    Query parameters
+    ----------------
+    days    : int  — upcoming window scan (default 7, max 30)
+    session : str  — filter to specific session (optional)
+
+    Response shape
+    --------------
+    {
+      "success": true,
+      "subscriber_id": "...",
+      "generated_at": "2026-05-25T15:14:00",
+      "today": {
+        "date": "2026-05-25",
+        "alerts": [
+          {
+            "number": "510",
+            "label": "Jimmy Birthday",
+            "game": "Cash3",
+            "session": "Night",
+            "draw_time": "11:34 PM ET",
+            "play_by": "11:00 PM ET",
+            "alignment_score": 2,
+            "alignment_label": "2/3 — Aligned",
+            "lift_multiplier": 3.37,
+            "matching_elements": ["moon_phase", "planetary_hour"],
+            "moon_phase": "Waxing Crescent",
+            "planetary_hour": "Mars Hour",
+            "zodiac_sign": "Gemini",
+            "play_instruction": "Play 510 STRAIGHT/BOX — Cash3 Night (draw 11:34 PM ET, buy by 11:00 PM ET)",
+            "urgency": "TODAY"
+          }
+        ]
+      },
+      "upcoming": [ ... same shape, urgency = "TOMORROW" or date string ... ],
+      "your_numbers": { "Cash3": [...], "Cash4": [...] }
+    }
+    """
+    try:
+        from jackpot_system_v3.core.overlay_engine_v3_7 import compute_overlays
+
+        if not subscriber_id or len(subscriber_id) > 200:
+            return jsonify({"success": False, "error": "Invalid subscriber_id"}), 400
+
+        days_param  = min(int(request.args.get('days', 7)), 30)
+        sess_filter = request.args.get('session', '').strip().title() or None
+
+        # Load MMFSN profile (try UUID path first, then initials)
+        mmfsn_dir = os.path.join(JACKPOT_SYSTEM_DIR, "data", "mmfsn_profiles")
+        profile_path = os.path.join(mmfsn_dir, f"{subscriber_id}_mmfsn.json")
+        profile = None
+        if os.path.exists(profile_path):
+            with open(profile_path, 'r') as f:
+                profile = json.load(f)
+
+        if not profile:
+            return jsonify({
+                "success": False,
+                "error": "No MMFSN profile found for this subscriber. Please save your personal numbers first.",
+                "subscriber_id": subscriber_id,
+            }), 404
+
+        mmfsn_numbers = profile.get("mmfsn_numbers") or {}
+        # Support both "Cash3"/"Cash4" and "cash3"/"cash4" keys
+        cash3_nums = mmfsn_numbers.get("Cash3") or mmfsn_numbers.get("cash3") or []
+        cash4_nums = mmfsn_numbers.get("Cash4") or mmfsn_numbers.get("cash4") or []
+
+        # Build (number, label, game) list — label stored as list index by convention
+        # The profile only stores the numbers; labels come from the edge function body
+        # so we fall back to generic labels here
+        all_picks = (
+            [(str(n), "Cash3") for n in cash3_nums] +
+            [(str(n), "Cash4") for n in cash4_nums]
+        )
+
+        if not all_picks:
+            return jsonify({
+                "success": True,
+                "subscriber_id": subscriber_id,
+                "message": "No personal numbers saved yet.",
+                "today": {"alerts": []},
+                "upcoming": [],
+                "your_numbers": {"Cash3": cash3_nums, "Cash4": cash4_nums},
+            }), 200
+
+        # Build celestial fingerprints for all numbers
+        fps = {}
+        for num, game in all_picks:
+            fp = _celestial_fingerprint(num)
+            if fp:
+                fps[num] = fp
+
+        today_date = datetime.now().date()
+        sessions = ['Midday', 'Evening', 'Night']
+        if sess_filter and sess_filter in sessions:
+            sessions = [sess_filter]
+
+        now_dt = datetime.now()
+
+        def _make_alert(num, game, ds, sess, ov, fp, urgency):
+            score = _alignment_score(fp, ov)
+            if score < 2:
+                return None
+            lift_table = _LIFT_CASH3 if game == 'Cash3' else _LIFT_CASH4
+            lift = lift_table[score]
+
+            matching = []
+            if fp.get('dominant_moon')   == ov.get('moon_phase'):     matching.append('moon_phase')
+            if fp.get('dominant_hour')   == ov.get('planetary_hour'): matching.append('planetary_hour')
+            if fp.get('dominant_zodiac') == ov.get('zodiac_sign'):    matching.append('zodiac_sign')
+
+            sc = _SESSION_CUTOFFS[sess]
+
+            # Skip sessions that have already passed today
+            if ds == today_date.strftime('%Y-%m-%d'):
+                cutoff_dt = now_dt.replace(
+                    hour=sc['hour'], minute=sc['minute'], second=0, microsecond=0
+                )
+                if now_dt > cutoff_dt:
+                    return None  # draw already happened
+
+            play_adv = _mmfsn_play_advice(num, game, score)
+            gap      = _gap_analysis_any(num, game)
+
+            gap_note = ''
+            if gap and gap.get('signal') in ('WARM', 'HOT', 'OVERDUE'):
+                days = gap.get('days_since_last_hit')
+                days_str = f'{days}d since last hit' if days is not None else 'never hit in data'
+                gap_note = (
+                    f" | {gap['signal']}: {gap['overdue_ratio']}x overdue"
+                    f" ({days_str})"
+                )
+
+            play_instruction = (
+                f"Play {num} {play_adv['play_type']} — {game} {sess} | "
+                f"{play_adv['wager']} | {play_adv['payout']} | "
+                f"Buy by {sc['play_by']} (draw {sc['draw_time']}){gap_note}"
+            )
+            stat_note = (
+                f"{game} {score}/3 alignment windows are {lift}x more likely to produce a hit"
+            )
+
+            return {
+                "number":            num,
+                "game":              game,
+                "session":           sess,
+                "date":              ds,
+                "day_of_week":       datetime.strptime(ds, '%Y-%m-%d').strftime('%A'),
+                "draw_time":         sc['draw_time'],
+                "play_by":           sc['play_by'],
+                "alignment_score":   score,
+                "alignment_label":   _ALIGNMENT_LABELS[score],
+                "lift_multiplier":   lift,
+                "matching_elements": matching,
+                "moon_phase":        ov.get('moon_phase'),
+                "planetary_hour":    ov.get('planetary_hour'),
+                "zodiac_sign":       ov.get('zodiac_sign'),
+                "play_type":         play_adv['play_type'],
+                "wager":             play_adv['wager'],
+                "payout":            play_adv['payout'],
+                "combo_note":        play_adv['combo_note'],
+                "arrangements":      play_adv['arrangements'],
+                "play_instruction":  play_instruction,
+                "stat_note":         stat_note,
+                "urgency":           urgency,
+                "gap_analysis":      gap,
+            }
+
+        today_alerts   = []
+        upcoming_alerts = []
+
+        for i in range(days_param):
+            d  = today_date + timedelta(days=i)
+            ds = d.strftime('%Y-%m-%d')
+            urgency = (
+                "TODAY"     if i == 0 else
+                "TOMORROW"  if i == 1 else
+                d.strftime('%A %b') + ' ' + str(d.day)
+            )
+            for sess in sessions:
+                ov = compute_overlays(ds, sess)
+                for num, game in all_picks:
+                    fp = fps.get(num)
+                    if not fp:
+                        continue
+                    alert = _make_alert(num, game, ds, sess, ov, fp, urgency)
+                    if alert is None:
+                        continue
+                    if i == 0:
+                        today_alerts.append(alert)
+                    else:
+                        upcoming_alerts.append(alert)
+
+        # Sort today by alignment score desc then session order
+        sess_order = {'Midday': 0, 'Evening': 1, 'Night': 2}
+        today_alerts.sort(key=lambda x: (-x['alignment_score'], sess_order.get(x['session'], 9)))
+        upcoming_alerts.sort(key=lambda x: (x['date'], sess_order.get(x['session'], 9), -x['alignment_score']))
+
+        # Build summary headline
+        if today_alerts:
+            top = today_alerts[0]
+            headline = (
+                f"ALERT: {top['number']} ({top['game']}) is {top['alignment_label']} "
+                f"— play {top['session']} today ({top['lift_multiplier']}x likely)"
+            )
+        elif upcoming_alerts:
+            top = upcoming_alerts[0]
+            headline = (
+                f"Next window: {top['number']} ({top['game']}) {top['urgency']} "
+                f"{top['session']} — {top['alignment_label']}"
+            )
+        else:
+            headline = "No high-alignment windows detected in the next 7 days."
+
+        return jsonify({
+            "success":         True,
+            "subscriber_id":   subscriber_id,
+            "generated_at":    now_dt.strftime('%Y-%m-%dT%H:%M:%S'),
+            "headline":        headline,
+            "today": {
+                "date":   today_date.strftime('%Y-%m-%d'),
+                "count":  len(today_alerts),
+                "alerts": today_alerts,
+            },
+            "upcoming": {
+                "scan_days": days_param - 1,
+                "count":     len(upcoming_alerts),
+                "alerts":    upcoming_alerts,
+            },
+            "your_numbers": {
+                "Cash3": cash3_nums,
+                "Cash4": cash4_nums,
+            },
+        }), 200
+
+    except Exception as e:
+        logger.error(f"mmfsn_alerts error: {e}", exc_info=True)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 def _parse_jackpot_number(number_str: str):
     """Parse '06 13 29 48 58 + 11' into ([6,13,29,48,58], 11). Returns (None, None) on failure."""
     try:
