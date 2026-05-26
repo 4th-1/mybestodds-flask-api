@@ -16,7 +16,7 @@ Standalone layer that reads Cash3 candidate picks and scores each with:
 Decision ladder:
     ALLOW        — production lane + ev_score >= EV_THRESHOLD
     SHADOW_TRACK — below threshold, or BOX lane, or VERY_HIGH research
-    BLOCK        — STRAIGHT+1OFF, Cash4, negative ev_score
+    BLOCK        — STRAIGHT+1OFF, negative ev_score
 
 The production gate (production_strategy.py) remains frozen at v2.
 This reranker adds ordering and exposure priority INSIDE the gate.
@@ -356,9 +356,9 @@ class EVReranker:
         # Normalize display names for tier comparison
         tier_raw = tier.replace("PRIORITY WATCH", "MODERATE").replace("OVERLAY SUPPORTED", "HIGH")
 
-        # Cash4 is fully isolated
+        # Cash4: shadow-track only until June 9 verdict defines production lane
         if game.upper() == "CASH4":
-            return "BLOCK", "Cash4 isolated — not in production track"
+            return "SHADOW_TRACK", f"Cash4 observation window — shadow tracking (ev={ev:.2f})"
 
         # STRAIGHT+1OFF: always blocked (confirmed -100% ROI)
         if lane in ("STRAIGHT+1OFF", "ONE_OFF"):
