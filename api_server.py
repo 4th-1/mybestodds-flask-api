@@ -7,9 +7,9 @@ Fixed entry point with proper prediction routing
 # ---------------------------------------------------------------------------
 # EV Observation window flags
 # Cash3: active May 21–June 4, 2026 (14-day window)
-# Cash4: DISABLED — flip to True after June 4 Cash3 verdict
+# Cash4: DISABLED — flip to True after June 9 Cash3 verdict
 # ---------------------------------------------------------------------------
-CASH4_OBSERVE_ENABLED: bool = False  # TODO(June 4): flip to True
+CASH4_OBSERVE_ENABLED: bool = False  # TODO(June 9): flip to True
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS

@@ -1,5 +1,5 @@
 """
-june4_settle.py — June 4 EV Observation verdict runner.
+june4_settle.py — June 9 EV Observation verdict runner.
 
 Runs the full 14-day Cash3 settlement, prints a per-lane verdict table,
 and outputs the exact one-line change needed to enable Cash4 observation.
@@ -8,7 +8,7 @@ Usage:
     python june4_settle.py            # settle + verdict + show Cash4 flip
     python june4_settle.py --dry-run  # verdict only, no file writes
 
-Run this on or after June 4, 2026 once the final Night draw completes.
+Run this on or after June 9, 2026 once the final Night draw completes.
 """
 
 from __future__ import annotations
@@ -82,7 +82,7 @@ def print_verdict(rows: list[dict]) -> None:
             pass
 
     print("\n" + "=" * 72)
-    print("  EV OBSERVATION WINDOW — 14-DAY VERDICT   (June 4, 2026)")
+    print("  EV OBSERVATION WINDOW — 14-DAY VERDICT   (June 9, 2026)")
     print("=" * 72)
     fmt = "  {:<8} {:<12} {:<16} {:>7} {:>7} {:>8}  {}"
     print(fmt.format("GAME", "SESSION", "LANE", "TRIALS", "HIT%", "ROI%", "VERDICT"))
@@ -130,7 +130,7 @@ def show_cash4_flip_instructions() -> None:
     print("  File:  api_server.py  (line ~12)")
     print()
     print("  Change:")
-    print("    CASH4_OBSERVE_ENABLED: bool = False  # TODO(June 4): flip to True")
+    print("    CASH4_OBSERVE_ENABLED: bool = False  # TODO(June 9): flip to True")
     print()
     print("  To:")
     print("    CASH4_OBSERVE_ENABLED: bool = True   # Cash4 window active")
@@ -150,7 +150,7 @@ def show_cash4_flip_instructions() -> None:
 
 def flip_cash4_flag(dry_run: bool) -> None:
     """Optionally apply the CASH4_OBSERVE_ENABLED flip automatically."""
-    old = "CASH4_OBSERVE_ENABLED: bool = False  # TODO(June 4): flip to True"
+    old = "CASH4_OBSERVE_ENABLED: bool = False  # TODO(June 9): flip to True"
     new = "CASH4_OBSERVE_ENABLED: bool = True   # Cash4 window active"
 
     content = API_SERVER.read_text(encoding="utf-8")
@@ -173,7 +173,7 @@ def flip_cash4_flag(dry_run: bool) -> None:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="June 4 EV verdict runner")
+    parser = argparse.ArgumentParser(description="June 9 EV verdict runner")
     parser.add_argument(
         "--dry-run",
         action="store_true",

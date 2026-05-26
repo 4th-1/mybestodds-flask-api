@@ -72,11 +72,14 @@ EV_THRESHOLD: float = 2.25
 
 # Payout-adjusted value per play type (normalized; max useful range ≈ 0.0–0.75)
 _PAV_TABLE: dict[str, float] = {
-    "STRAIGHT_BOX":   0.50,   # max $330
+    "STRAIGHT_BOX":   0.50,   # max $330 (exact $290 + box $40)
     "BOX":            0.12,   # max  $80
     "STRAIGHT":       0.75,   # max $500
-    "STRAIGHT+1OFF":  0.04,   # max  $24
-    "ONE_OFF":        0.04,
+    "STRAIGHT+1OFF":  0.08,   # expected ~$50 ($25 per 50¢ ticket × 2); was 0.04 (undervalued)
+    "ONE_OFF":        0.08,   # same as STRAIGHT+1OFF
+    "COMBO":          0.20,   # $500 across all permutations; per-$1 equiv $83–$167
+    "FRONT_PAIR":     0.08,   # $50 payout, pair-signal pre-filtered
+    "BACK_PAIR":      0.08,   # $50 payout, pair-signal pre-filtered
 }
 
 # ---------------------------------------------------------------------------
