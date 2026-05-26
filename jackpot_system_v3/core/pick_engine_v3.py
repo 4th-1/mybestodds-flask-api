@@ -1120,28 +1120,28 @@ def _confidence_ui(recommended_play: str, lane: str = "", game: str = "") -> dic
 #   Powerball:             4.32% prize win rate
 _JACKPOT_CONFIDENCE_UI_MAP = {
     "Millionaire For Life": {
-        "label":       "JACKPOT SIGNAL",
+        "label":       "JACKPOT PICK",
         "color":       "green",
         "tier":        4,
-        "description": "Validated 22.87% prize win rate in 91-day simulation — strongest jackpot signal",
+        "description": "Quality-filtered pick from 50 candidates — Grade A/B field coverage & popular-number avoidance. Jackpot odds: 1 in 21,846,048.",
     },
     "Mega Millions": {
         "label":       "JACKPOT PICK",
         "color":       "blue",
         "tier":        3,
-        "description": "Validated 4.66% prize win rate in 91-day simulation",
+        "description": "Quality-filtered pick from 50 candidates — Grade A/B field coverage & popular-number avoidance. Jackpot odds: 1 in 302,575,350.",
     },
     "MegaMillions": {
         "label":       "JACKPOT PICK",
         "color":       "blue",
         "tier":        3,
-        "description": "Validated 4.66% prize win rate in 91-day simulation",
+        "description": "Quality-filtered pick from 50 candidates — Grade A/B field coverage & popular-number avoidance. Jackpot odds: 1 in 302,575,350.",
     },
     "Powerball": {
         "label":       "JACKPOT PICK",
         "color":       "blue",
         "tier":        3,
-        "description": "Validated 4.32% prize win rate in 91-day simulation",
+        "description": "Quality-filtered pick from 50 candidates — Grade A/B field coverage & popular-number avoidance. Jackpot odds: 1 in 292,201,338.",
     },
 }
 _JACKPOT_CONFIDENCE_UI_DEFAULT = {

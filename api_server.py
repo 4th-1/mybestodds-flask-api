@@ -1663,39 +1663,53 @@ def _parse_jackpot_number(number_str: str):
         return None, None
 
 
+def _enrich_jackpot_prediction(p: dict, game_key: str) -> None:
+    """Score a single jackpot prediction dict in-place using the secondary optimizer."""
+    from jackpot_secondary_optimizer import score_combination
+    mains = p.get("main_numbers") or []
+    bonus = p.get("bonus_ball")
+    if not (len(mains) == 5 and bonus is not None):
+        mains, bonus = _parse_jackpot_number(p.get("number", ""))
+    if mains and len(mains) == 5 and bonus is not None:
+        cs = score_combination(game_key, mains, bonus)
+        p["optimizer_score"]   = cs.composite_score
+        p["optimizer_grade"]   = cs.grade()
+        p["field_coverage"]    = cs.field_coverage
+        p["popular_avoidance"] = cs.popular_avoidance
+        p["bonus_avoidance"]   = cs.bonus_avoidance
+        p["zones_covered"]     = cs.zones_covered
+        p["popular_count"]     = cs.popular_count
+        p["secondary_ev"]      = cs.secondary_ev
+
+
 @app.route('/api/powerball/predict', methods=['GET'])
 def predict_powerball():
-    """Get Powerball predictions"""
+    """Get Powerball predictions with EV gate and ball-gap analysis."""
     try:
         from jackpot_system_v3.core.pick_engine_v3 import _jackpot_confidence_ui
-        from jackpot_secondary_optimizer import score_combination, GAME_CONFIGS
-        date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
+        from jackpot_secondary_optimizer import jackpot_ev_gate, ball_gap_analysis
+        date_str       = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
+        jackpot_amount = request.args.get('jackpot_amount', None, type=float)
+
         predictions = get_predictions_for_date(date_str, "BOOK3")
         pb_preds = [p for p in predictions if p.get("game") == "Powerball"]
         _ui = _jackpot_confidence_ui("Powerball")
         for p in pb_preds:
             p.update(_ui)
-            mains = p.get("main_numbers") or []
-            bonus = p.get("bonus_ball")
-            if not (len(mains) == 5 and bonus is not None):
-                mains, bonus = _parse_jackpot_number(p.get("number", ""))
-            if mains and len(mains) == 5 and bonus is not None:
-                cs = score_combination("Powerball", mains, bonus)
-                p["optimizer_score"] = cs.composite_score
-                p["optimizer_grade"] = cs.grade()
-                p["field_coverage"] = cs.field_coverage
-                p["popular_avoidance"] = cs.popular_avoidance
-                p["bonus_avoidance"] = cs.bonus_avoidance
-                p["zones_covered"] = cs.zones_covered
-                p["popular_count"] = cs.popular_count
-                p["secondary_ev"] = cs.secondary_ev
+            _enrich_jackpot_prediction(p, "Powerball")
+
+        ev_gate  = jackpot_ev_gate("Powerball", jackpot_amount)
+        gap_data = ball_gap_analysis("Powerball", top_n=8)
 
         return jsonify({
-            "success": True,
-            "date": date_str,
-            "game": "Powerball",
-            "predictions": pb_preds[:1] if pb_preds else [],
-            "total_predictions": len(pb_preds)
+            "success":           True,
+            "date":              date_str,
+            "game":              "Powerball",
+            "predictions":       pb_preds[:1] if pb_preds else [],
+            "total_predictions": len(pb_preds),
+            "ev_gate":           ev_gate,
+            "play_recommendation": ev_gate["play_recommendation"],
+            "ball_gap_analysis": gap_data,
         }), 200
 
     except Exception as e:
@@ -1704,37 +1718,32 @@ def predict_powerball():
 
 @app.route('/api/megamillions/predict', methods=['GET'])
 def predict_megamillions():
-    """Get Mega Millions predictions"""
+    """Get Mega Millions predictions with EV gate and ball-gap analysis."""
     try:
         from jackpot_system_v3.core.pick_engine_v3 import _jackpot_confidence_ui
-        from jackpot_secondary_optimizer import score_combination, GAME_CONFIGS
-        date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
+        from jackpot_secondary_optimizer import jackpot_ev_gate, ball_gap_analysis
+        date_str       = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
+        jackpot_amount = request.args.get('jackpot_amount', None, type=float)
+
         predictions = get_predictions_for_date(date_str, "BOOK3")
         mm_preds = [p for p in predictions if p.get("game") == "Mega Millions"]
         _ui = _jackpot_confidence_ui("Mega Millions")
         for p in mm_preds:
             p.update(_ui)
-            mains = p.get("main_numbers") or []
-            bonus = p.get("bonus_ball")
-            if not (len(mains) == 5 and bonus is not None):
-                mains, bonus = _parse_jackpot_number(p.get("number", ""))
-            if mains and len(mains) == 5 and bonus is not None:
-                cs = score_combination("MegaMillions", mains, bonus)
-                p["optimizer_score"] = cs.composite_score
-                p["optimizer_grade"] = cs.grade()
-                p["field_coverage"] = cs.field_coverage
-                p["popular_avoidance"] = cs.popular_avoidance
-                p["bonus_avoidance"] = cs.bonus_avoidance
-                p["zones_covered"] = cs.zones_covered
-                p["popular_count"] = cs.popular_count
-                p["secondary_ev"] = cs.secondary_ev
+            _enrich_jackpot_prediction(p, "MegaMillions")
+
+        ev_gate  = jackpot_ev_gate("MegaMillions", jackpot_amount)
+        gap_data = ball_gap_analysis("MegaMillions", top_n=8)
 
         return jsonify({
-            "success": True,
-            "date": date_str,
-            "game": "Mega Millions",
-            "predictions": mm_preds[:1] if mm_preds else [],
-            "total_predictions": len(mm_preds)
+            "success":           True,
+            "date":              date_str,
+            "game":              "Mega Millions",
+            "predictions":       mm_preds[:1] if mm_preds else [],
+            "total_predictions": len(mm_preds),
+            "ev_gate":           ev_gate,
+            "play_recommendation": ev_gate["play_recommendation"],
+            "ball_gap_analysis": gap_data,
         }), 200
 
     except Exception as e:
@@ -1743,37 +1752,32 @@ def predict_megamillions():
 
 @app.route('/api/millionaire-for-life/predict', methods=['GET'])
 def predict_millionaire():
-    """Get Millionaire For Life predictions"""
+    """Get Millionaire For Life predictions with EV gate and ball-gap analysis."""
     try:
         from jackpot_system_v3.core.pick_engine_v3 import _jackpot_confidence_ui
-        from jackpot_secondary_optimizer import score_combination, GAME_CONFIGS
-        date_str = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
+        from jackpot_secondary_optimizer import jackpot_ev_gate, ball_gap_analysis
+        date_str       = request.args.get('date', datetime.now().strftime("%Y-%m-%d"))
+        jackpot_amount = request.args.get('jackpot_amount', None, type=float)
+
         predictions = get_predictions_for_date(date_str, "BOOK3")
         mfl_preds = [p for p in predictions if p.get("game") == "Millionaire For Life"]
         _ui = _jackpot_confidence_ui("Millionaire For Life")
         for p in mfl_preds:
             p.update(_ui)
-            mains = p.get("main_numbers") or []
-            bonus = p.get("bonus_ball")
-            if not (len(mains) == 5 and bonus is not None):
-                mains, bonus = _parse_jackpot_number(p.get("number", ""))
-            if mains and len(mains) == 5 and bonus is not None:
-                cs = score_combination("Millionaire For Life", mains, bonus)
-                p["optimizer_score"] = cs.composite_score
-                p["optimizer_grade"] = cs.grade()
-                p["field_coverage"] = cs.field_coverage
-                p["popular_avoidance"] = cs.popular_avoidance
-                p["bonus_avoidance"] = cs.bonus_avoidance
-                p["zones_covered"] = cs.zones_covered
-                p["popular_count"] = cs.popular_count
-                p["secondary_ev"] = cs.secondary_ev
+            _enrich_jackpot_prediction(p, "Millionaire For Life")
+
+        ev_gate  = jackpot_ev_gate("Millionaire For Life", jackpot_amount)
+        gap_data = ball_gap_analysis("Millionaire For Life", top_n=8)
 
         return jsonify({
-            "success": True,
-            "date": date_str,
-            "game": "Millionaire For Life",
-            "predictions": mfl_preds[:1] if mfl_preds else [],
-            "total_predictions": len(mfl_preds)
+            "success":           True,
+            "date":              date_str,
+            "game":              "Millionaire For Life",
+            "predictions":       mfl_preds[:1] if mfl_preds else [],
+            "total_predictions": len(mfl_preds),
+            "ev_gate":           ev_gate,
+            "play_recommendation": ev_gate["play_recommendation"],
+            "ball_gap_analysis": gap_data,
         }), 200
 
     except Exception as e:

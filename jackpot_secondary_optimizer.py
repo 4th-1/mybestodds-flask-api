@@ -48,7 +48,7 @@ import csv
 import math
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 
 # ---------------------------------------------------------------------------
@@ -426,6 +426,233 @@ def audit_historical(game: str) -> GameAudit:
         )[:5],
         bonus_distribution=bonus_freq,
     )
+
+
+# ---------------------------------------------------------------------------
+# EV Gate — jackpot-size-based play recommendation
+# ---------------------------------------------------------------------------
+
+# Powerball/MM: Lump sum ≈ 60% of advertised, net after ~42% combined tax ≈ 34.8%.
+# Break-even requires advertised jackpot / odds ≈ ticket_price / net_pct.
+# Powerball break-even (no splits): ~$1.7B advertised.  At $400M, still negative
+# but meaningfully closer to fair value than at $50M.
+# Framing: "elevated EV tier" (better-than-baseline relative value), not absolute +EV.
+
+_EV_THRESHOLDS: Dict[str, Optional[Dict[str, int]]] = {
+    "Powerball":            {"play_now": 400_000_000, "elevated": 200_000_000},
+    "MegaMillions":         {"play_now": 400_000_000, "elevated": 200_000_000},
+    "Millionaire For Life": None,   # annuity prize — different structure
+}
+
+
+def jackpot_ev_gate(game: str, jackpot_amount: Optional[float]) -> Dict[str, Any]:
+    """
+    Return a play recommendation dict based on current jackpot size.
+
+    All jackpot combinations carry identical win odds — this gate only assesses
+    whether the prize size makes playing more worthwhile relative to baseline.
+    Returns keys: ev_gate_passed, play_recommendation, jackpot_amount,
+                  jackpot_threshold, ev_note.
+    """
+    thresholds = _EV_THRESHOLDS.get(game)
+
+    if thresholds is None:
+        return {
+            "ev_gate_passed": True,
+            "play_recommendation": "ALWAYS PLAY",
+            "jackpot_amount": jackpot_amount,
+            "jackpot_threshold": None,
+            "ev_note": (
+                "Millionaire For Life is a $1,000/week-for-life annuity prize. "
+                "Plays are recommended whenever active — odds are 1 in 21,846,048."
+            ),
+        }
+
+    if jackpot_amount is None:
+        return {
+            "ev_gate_passed": None,
+            "play_recommendation": "UNKNOWN",
+            "jackpot_amount": None,
+            "jackpot_threshold": thresholds["play_now"],
+            "ev_note": (
+                f"Add ?jackpot_amount=<dollars> to receive a PLAY NOW / MONITOR "
+                f"recommendation. PLAY NOW threshold: ${thresholds['play_now'] / 1e6:.0f}M."
+            ),
+        }
+
+    amount = float(jackpot_amount)
+    threshold = thresholds["play_now"]
+    elevated  = thresholds["elevated"]
+
+    if amount >= threshold:
+        return {
+            "ev_gate_passed": True,
+            "play_recommendation": "PLAY NOW",
+            "jackpot_amount": amount,
+            "jackpot_threshold": threshold,
+            "ev_note": (
+                f"Jackpot ${amount / 1e6:.0f}M exceeds ${threshold / 1e6:.0f}M threshold — "
+                f"elevated relative-value tier. "
+                f"Note: after lump-sum discount and taxes, expected value per ticket "
+                f"remains negative. Combination quality filtering applied."
+            ),
+        }
+    elif amount >= elevated:
+        return {
+            "ev_gate_passed": False,
+            "play_recommendation": "BUILDING — MONITOR",
+            "jackpot_amount": amount,
+            "jackpot_threshold": threshold,
+            "ev_note": (
+                f"Jackpot ${amount / 1e6:.0f}M building toward "
+                f"${threshold / 1e6:.0f}M PLAY NOW threshold. Check back when it rolls."
+            ),
+        }
+    else:
+        return {
+            "ev_gate_passed": False,
+            "play_recommendation": "MONITOR",
+            "jackpot_amount": amount,
+            "jackpot_threshold": threshold,
+            "ev_note": (
+                f"Jackpot ${amount / 1e6:.0f}M below recommended ${threshold / 1e6:.0f}M "
+                f"threshold. Combination quality scoring still applied if you choose to play."
+            ),
+        }
+
+
+# ---------------------------------------------------------------------------
+# Ball gap analysis — "overdue" ball identification
+# ---------------------------------------------------------------------------
+
+# Complete history files (thousands of draws)
+_COMPLETE_DATA_ROOT = Path(__file__).parent / "historical_data" / "jackpot_results"
+_COMPLETE_FILE_MAP: Dict[str, str] = {
+    "Powerball":            "Powerball_Complete_2005_2025.csv",
+    "MegaMillions":         "MegaMillions_Complete_2005_2025.csv",
+    "Millionaire For Life": "Cash4Life_Master.csv",
+}
+
+
+def ball_gap_analysis(game: str, top_n: int = 8) -> Dict[str, Any]:
+    """
+    Identify main-pool and bonus balls that have not appeared recently
+    relative to their historical average frequency.
+
+    gap_ratio = draws_since_last_appearance / avg_draws_between_appearances
+    A ratio > 1.5 means the ball has been absent 50% longer than usual.
+
+    HONEST FRAMING: Lottery draws are statistically independent events.
+    Past gaps do not predict future draws.  This analysis is for
+    informational interest only.
+    """
+    cfg = GAME_CONFIGS.get(game)
+    if not cfg:
+        return {"error": f"Unknown game: {game}"}
+
+    # Try complete history first (more data = better gap estimates)
+    complete_fn = _COMPLETE_FILE_MAP.get(game)
+    complete_path = _COMPLETE_DATA_ROOT / complete_fn if complete_fn else None
+    small_path = _DATA_ROOT / cfg.data_file
+
+    def _load_draws(path: Optional[Path]) -> List[Tuple[List[int], Optional[int]]]:
+        if not path or not path.exists():
+            return []
+        result: List[Tuple[List[int], Optional[int]]] = []
+        with open(path, newline="", encoding="utf-8") as f:
+            rows = list(csv.DictReader(f))
+        if not rows:
+            return []
+        fields = set(rows[0].keys())
+        for row in rows:
+            try:
+                if "winning_numbers" in fields:
+                    ws = [
+                        int(x) for x in
+                        row["winning_numbers"].replace("-", " ").split()
+                        if x.replace(".", "").lstrip("-").isdigit()
+                    ][:5]
+                    bonus: Optional[int] = None
+                    for bc in ("bonus_ball", "powerball", "megaball"):
+                        bv = row.get(bc, "").strip()
+                        if bv:
+                            try:
+                                b = int(float(bv))
+                                if b > 0:
+                                    bonus = b
+                                    break
+                            except ValueError:
+                                pass
+                    if ws:
+                        result.append((ws, bonus))
+                elif "n1" in fields:
+                    ws = [
+                        int(row[f"n{i}"])
+                        for i in range(1, 6)
+                        if row.get(f"n{i}", "").strip().lstrip("-").isdigit()
+                    ]
+                    bv = row.get("bonus", "").strip()
+                    bonus = int(bv) if bv.lstrip("-").isdigit() else None
+                    if ws:
+                        result.append((ws, bonus))
+            except (ValueError, KeyError):
+                continue
+        return result
+
+    draws = _load_draws(complete_path)
+    if len(draws) < 50:
+        draws = _load_draws(small_path) or draws
+
+    if not draws:
+        return {"error": "No historical data available", "game": game}
+
+    total = len(draws)
+    main_freq: Dict[int, int] = {}
+    main_last: Dict[int, int] = {}
+    bonus_freq: Dict[int, int] = {}
+    bonus_last: Dict[int, int] = {}
+
+    for idx, (mains, bonus) in enumerate(draws):
+        for m in mains:
+            main_freq[m] = main_freq.get(m, 0) + 1
+            main_last[m] = idx
+        if bonus is not None:
+            bonus_freq[bonus] = bonus_freq.get(bonus, 0) + 1
+            bonus_last[bonus] = idx
+
+    def _gap(ball: int, freq_d: Dict, last_d: Dict) -> Dict[str, Any]:
+        freq = freq_d.get(ball, 0)
+        avg_gap = total / freq if freq else float("inf")
+        since = (total - 1 - last_d[ball]) if ball in last_d else total
+        ratio = round(since / avg_gap, 2) if avg_gap != float("inf") else 99.0
+        return {
+            "ball": ball,
+            "gap_ratio": ratio,
+            "draws_since_last": since,
+            "total_appearances": freq,
+            "status": "OVERDUE" if ratio >= 1.5 else ("NORMAL" if ratio >= 0.7 else "RECENT"),
+        }
+
+    main_gaps = sorted(
+        [_gap(b, main_freq, main_last) for b in range(cfg.main_min, cfg.main_max + 1)],
+        key=lambda x: -x["gap_ratio"],
+    )
+    bonus_gaps = sorted(
+        [_gap(b, bonus_freq, bonus_last) for b in range(cfg.bonus_min, cfg.bonus_max + 1)],
+        key=lambda x: -x["gap_ratio"],
+    )
+
+    return {
+        "game": game,
+        "total_draws_analyzed": total,
+        "overdue_mains": main_gaps[:top_n],
+        "overdue_bonus": bonus_gaps[:3],
+        "honest_framing": (
+            "Gap analysis identifies balls absent longer than their historical average. "
+            "Lottery draws are independent events — past gaps do not predict future draws. "
+            "This is informational context only."
+        ),
+    }
 
 
 # ---------------------------------------------------------------------------
