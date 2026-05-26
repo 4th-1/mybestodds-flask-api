@@ -361,11 +361,11 @@ class EVReranker:
         if lane in ("STRAIGHT+1OFF", "ONE_OFF"):
             return "BLOCK", "Unstable negative shadow lane (STRAIGHT+1OFF confirmed -100% ROI)"
 
-        # Production lane: Cash3 | MODERATE | NIGHT | STRAIGHT_BOX
+        # Production lane: Cash3 | MODERATE or HIGH | ALL sessions | STRAIGHT_BOX
         in_prod_lane = (
             game == "Cash3"
-            and session == "NIGHT"
-            and tier_raw in ("MODERATE",)
+            and session in ("NIGHT", "EVENING", "MIDDAY")
+            and tier_raw in ("MODERATE", "HIGH")
             and lane == "STRAIGHT_BOX"
         )
 
