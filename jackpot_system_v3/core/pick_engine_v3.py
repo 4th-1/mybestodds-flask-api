@@ -1301,6 +1301,68 @@ def _frequency_pick_line(white_counts, white_range, white_n,
     return f"{' '.join(f'{m:02d}' for m in pool)} + {sp:02d}"
 
 
+def _zone_stratified_pick_line(white_counts, white_range, white_n,
+                                special_counts, special_range,
+                                popular_set=None) -> str:
+    """
+    Zone-stratified jackpot pick — guarantees exactly one ball per field zone.
+
+    Divides the white ball range into white_n equal zones and selects one ball
+    per zone using frequency-weighted sampling, with a 2× weight bonus for
+    non-popular numbers within each zone.
+
+    This guarantees field_coverage = 1.0 (all zones covered), which makes
+    Grade A achievable for games where the popular cluster spans early zones
+    (e.g. MegaMillions zones 0–1 are 100% popular; random sampling can never
+    reliably reach Grade A without this stratified approach).
+    """
+    lo, hi = white_range
+    field_size = hi - lo + 1
+    zone_size = field_size / white_n
+
+    pool = []
+    seen: set = set()
+
+    for z in range(white_n):
+        z_lo = int(lo + z * zone_size)
+        z_hi = int(lo + (z + 1) * zone_size) - 1
+        if z == white_n - 1:
+            z_hi = hi  # last zone includes the maximum
+
+        zone_balls = [b for b in range(z_lo, z_hi + 1) if b not in seen]
+        if not zone_balls:
+            continue
+
+        # Frequency weight with +1 floor; 2× bonus for non-popular numbers
+        weights = []
+        for b in zone_balls:
+            freq_w = (white_counts.get(b, 0) + 1) if white_counts else 1
+            pop_mult = 1.0 if (popular_set is None or b not in popular_set) else 0.5
+            weights.append(freq_w * pop_mult)
+
+        pick = random.choices(zone_balls, weights=weights, k=1)[0]
+        pool.append(pick)
+        seen.add(pick)
+
+    # Safety pad (should not trigger under normal conditions)
+    remaining = [b for b in range(lo, hi + 1) if b not in seen]
+    while len(pool) < white_n and remaining:
+        extra = remaining.pop(random.randrange(len(remaining)))
+        pool.append(extra)
+
+    pool.sort()
+
+    # Special ball — frequency-weighted
+    all_specials = list(range(special_range[0], special_range[1] + 1))
+    if special_counts:
+        sp_weights = [special_counts.get(n, 0) + 1 for n in all_specials]
+        sp = random.choices(all_specials, weights=sp_weights, k=1)[0]
+    else:
+        sp = random.choice(all_specials)
+
+    return f"{' '.join(f'{m:02d}' for m in pool)} + {sp:02d}"
+
+
 # Cache loaded history so we don't re-read CSVs on every call
 _jackpot_history_cache: Dict[str, Any] = {}
 
@@ -1311,12 +1373,27 @@ def _get_jackpot_history(root: Path, game: str):
 
 
 def generate_megamillions_picks(lines=2, root: Path = None):
+    """Generate Mega Millions picks using zone-stratified sampling.
+
+    MegaMillions zones 0–1 (numbers 1–28) are 100% popular numbers, so pure
+    frequency-weighted random sampling can never reliably produce Grade A
+    combinations.  Zone-stratified sampling guarantees one ball per zone and
+    applies a 2× weight bonus for non-popular numbers within each zone,
+    consistently producing Grade A / high-B composite scores.
+    """
     if root:
         wc, sc = _get_jackpot_history(root, "MegaMillions")
     else:
         from collections import Counter
         wc, sc = Counter(), Counter()
-    return [_frequency_pick_line(wc, (1, 70), 5, sc, (1, 25)) for _ in range(lines)]
+    # Popular cluster for MM: birthdays (1–31) + round multiples of 5 up to 70
+    _mm_popular = frozenset(
+        list(range(1, 32)) + list(range(5, 71, 5))
+    )
+    return [
+        _zone_stratified_pick_line(wc, (1, 70), 5, sc, (1, 25), _mm_popular)
+        for _ in range(lines)
+    ]
 
 
 def generate_powerball_picks(lines=2, root: Path = None):

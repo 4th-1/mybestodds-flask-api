@@ -328,7 +328,13 @@ def get_predictions_for_date(date_str: str, kit: str, subscriber: dict = None) -
         # ── Jackpot picks — optimizer-filtered candidate pool ──────────────
         # Delivery count and grade filter scale with the celestial overlay score.
         # Draw-day gate: only generate picks on the game's actual draw schedule.
-        _JACKPOT_POOL_SIZE = 50
+        # Pool size is per-game: MM needs 200 because its popular-number cluster
+        # covers 39/70 numbers, making Grade A rare from random sampling.
+        _JACKPOT_POOL_SIZES = {
+            "Powerball":            50,
+            "MegaMillions":         200,   # larger pool — Grade A rare otherwise
+            "Millionaire For Life": 100,
+        }
 
         # Draw-day schedules (weekday: Mon=0 … Sun=6)
         _JP_DRAW_DAYS = {
@@ -384,7 +390,8 @@ def get_predictions_for_date(date_str: str, kit: str, subscriber: dict = None) -
                 if _JACKPOT_DELIVER_COUNT == 0:
                     logger.info(f"[jackpot_pool] {jp_game}: skipped — overlay {_jp_overlay:.3f} below 0.70 threshold")
                     continue
-                _candidates = jp_fn(_JACKPOT_POOL_SIZE, root=root)
+                _pool_size = _JACKPOT_POOL_SIZES.get(jp_game, 50)
+                _candidates = jp_fn(_pool_size, root=root)
                 _scored = []
                 for _line in _candidates:
                     try:
@@ -400,7 +407,7 @@ def get_predictions_for_date(date_str: str, kit: str, subscriber: dict = None) -
                 _scored.sort(key=lambda x: (_grade_order.get(x[0], 9), -x[1]))
                 _top = _scored[:_JACKPOT_DELIVER_COUNT]
                 _pass_count = sum(1 for g, _, _ in _top if g in _JACKPOT_PASS_GRADES)
-                logger.info(f"[jackpot_pool] {jp_game}: {_pass_count}/{_JACKPOT_DELIVER_COUNT} Grade A/B from {_JACKPOT_POOL_SIZE} candidates (best grades: {[g for g,_,_ in _top]})")
+                logger.info(f"[jackpot_pool] {jp_game}: {_pass_count}/{_JACKPOT_DELIVER_COUNT} Grade A/B from {_pool_size} candidates (best grades: {[g for g,_,_ in _top]})")
                 for _grade, _cscore, _number in _top:
                     predictions.append({
                         "game":             jp_game,
