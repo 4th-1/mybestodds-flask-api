@@ -43,6 +43,7 @@ try:
         ALLOW_PRODUCTION_CHANGE,
         make_grain_id,
         log_ev_request,
+        read_ev_log,
     )
     # Allow Railway persistent volume path override for observation log.
     # Set EV_OBSERVE_LOG_DIR env var to the Railway volume mount path
@@ -73,6 +74,9 @@ except ModuleNotFoundError:
 
     def log_ev_request(*_a, **_kw):
         pass
+
+    def read_ev_log(*_a, **_kw):
+        return []
 
     def _build_ev_history():
         return []
@@ -3066,6 +3070,16 @@ def ev_observe_cron():
 
         ev_picks_to_log: list = []
         gate_map: dict = {}
+
+        # Pre-populate gate_map with already-logged grain IDs so repeated cron
+        # calls for the same date/session don't double-write the log.
+        try:
+            for _existing in read_ev_log():
+                _egid = _existing.get("grain_id", "")
+                if _egid:
+                    gate_map[_egid] = True
+        except Exception:
+            pass  # non-fatal — worst case we get a duplicate, settler deduplicates
 
         # Fan-out: for every Cash3 pick, log ALL 7 play types independently.
         # This lets the June 4 settle run produce a full 7-lane verdict for
