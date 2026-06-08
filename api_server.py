@@ -3141,11 +3141,15 @@ def ev_observe_cron():
                     "ev_score":            _scored["ev_score"],
                     "decision":            _ev_decision,
                     "rank":                0,
-                    "base_score":          0.0, "overlay_bonus":       0.0,
-                    "night_bonus":         0.0, "mmfsn_bonus":         0.0,
-                    "recent_signal_bonus": 0.0, "pav_bonus":           0.0,
-                    "instability_penalty": 0.0, "overexposure_penalty": 0.0,
-                    "cold_signal_penalty": 0.0,
+                    "base_score":          _scored["base_score"],
+                    "overlay_bonus":       _scored["overlay_bonus"],
+                    "night_bonus":         _scored["night_bonus"],
+                    "mmfsn_bonus":         _scored["mmfsn_bonus"],
+                    "recent_signal_bonus": _scored["recent_signal_bonus"],
+                    "pav_bonus":           _scored["pav_bonus"],
+                    "instability_penalty": _scored["instability_penalty"],
+                    "overexposure_penalty":_scored["overexposure_penalty"],
+                    "cold_signal_penalty": _scored["cold_signal_penalty"],
                 })
 
         # ----------------------------------------------------------------
@@ -3200,11 +3204,15 @@ def ev_observe_cron():
                         "ev_score":            _scored["ev_score"],
                         "decision":            _ev_decision,
                         "rank":                0,
-                        "base_score":          0.0, "overlay_bonus":       0.0,
-                        "night_bonus":         0.0, "mmfsn_bonus":         0.0,
-                        "recent_signal_bonus": 0.0, "pav_bonus":           0.0,
-                        "instability_penalty": 0.0, "overexposure_penalty": 0.0,
-                        "cold_signal_penalty": 0.0,
+                        "base_score":          _scored["base_score"],
+                        "overlay_bonus":       _scored["overlay_bonus"],
+                        "night_bonus":         _scored["night_bonus"],
+                        "mmfsn_bonus":         _scored["mmfsn_bonus"],
+                        "recent_signal_bonus": _scored["recent_signal_bonus"],
+                        "pav_bonus":           _scored["pav_bonus"],
+                        "instability_penalty": _scored["instability_penalty"],
+                        "overexposure_penalty":_scored["overexposure_penalty"],
+                        "cold_signal_penalty": _scored["cold_signal_penalty"],
                     })
 
         if ev_picks_to_log:

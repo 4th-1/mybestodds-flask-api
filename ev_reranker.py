@@ -53,10 +53,10 @@ WEIGHTS: dict[str, float] = {
     "MODERATE_OVERLAY":      0.60,
     "HIGH_OVERLAY":          0.85,
     "VERY_HIGH_OVERLAY":     1.10,
-    # Session window
-    "NIGHT_WINDOW":          0.75,
-    # VERY_HIGH + NIGHT combo (additive on top of VERY_HIGH_OVERLAY)
-    "VERY_HIGH_NIGHT":       1.25,
+    # Session window — removed: was turning EV into a session gate
+    "NIGHT_WINDOW":          0.00,
+    # VERY_HIGH + NIGHT combo — removed: same reason
+    "VERY_HIGH_NIGHT":       0.00,
     # MMFSN frequency tiers
     "MMFSN_VERY_HIGH":       1.15,
     "MMFSN_HIGH":            0.75,
@@ -68,7 +68,7 @@ WEIGHTS: dict[str, float] = {
     "COLD_SIGNAL_PENALTY":   0.40,
 }
 
-EV_THRESHOLD: float = 2.25
+EV_THRESHOLD: float = 1.50  # lowered from 2.25 — night bonus removal reduced all scores
 
 # Payout-adjusted value per play type (normalized; max useful range ≈ 0.0–0.75)
 _PAV_TABLE: dict[str, float] = {
