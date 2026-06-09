@@ -146,6 +146,13 @@ def log_ev_observation(
         }
 
         with _LOCK:
+            # Dedup check: skip if grain_id already exists in the log
+            gid = entry["grain_id"]
+            if _LOG_PATH.exists():
+                with open(_LOG_PATH, "r", encoding="utf-8") as f:
+                    for line in f:
+                        if line.strip() and f'"{gid}"' in line:
+                            return  # already logged, skip
             with open(_LOG_PATH, "a", encoding="utf-8") as f:
                 f.write(json.dumps(entry) + "\n")
 
