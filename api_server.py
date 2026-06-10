@@ -2259,6 +2259,16 @@ def generate_predictions(subscriber_id: str):
                     pick_entry["production_gate"]  = True
                     pick_entry["production_action"] = "CURRENT_V2_RULE"
                     pick_entry["reranker_mode"]    = EV_RERANKER_MODE
+                    # Store component scores so the bulk log section can use real values
+                    pick_entry["ev_base_score"]            = _scored.get("base_score", 0.0)
+                    pick_entry["ev_overlay_bonus"]         = _scored.get("overlay_bonus", 0.0)
+                    pick_entry["ev_night_bonus"]           = _scored.get("night_bonus", 0.0)
+                    pick_entry["ev_mmfsn_bonus"]           = _scored.get("mmfsn_bonus", 0.0)
+                    pick_entry["ev_recent_signal_bonus"]   = _scored.get("recent_signal_bonus", 0.0)
+                    pick_entry["ev_pav_bonus"]             = _scored.get("pav_bonus", 0.0)
+                    pick_entry["ev_instability_penalty"]   = _scored.get("instability_penalty", 0.0)
+                    pick_entry["ev_overexposure_penalty"]  = _scored.get("overexposure_penalty", 0.0)
+                    pick_entry["ev_cold_signal_penalty"]   = _scored.get("cold_signal_penalty", 0.0)
                 except Exception as _ev_err:
                     logger.warning(f"[ev_reranker] score failed for {pick_entry.get('number')}: {_ev_err}")
 
@@ -2397,15 +2407,15 @@ def generate_predictions(subscriber_id: str):
                                         "ev_score":        _pe.get("ev_score", 0.0),
                                         "decision":        _pe.get("ev_decision", ""),
                                         "rank":            _pe.get("ev_rank", 0),
-                                        "base_score":      0.0,
-                                        "overlay_bonus":   0.0,
-                                        "night_bonus":     0.0,
-                                        "mmfsn_bonus":     0.0,
-                                        "recent_signal_bonus": 0.0,
-                                        "pav_bonus":       0.0,
-                                        "instability_penalty": 0.0,
-                                        "overexposure_penalty": 0.0,
-                                        "cold_signal_penalty": 0.0,
+                                        "base_score":          _pe.get("ev_base_score", 0.0),
+                                        "overlay_bonus":        _pe.get("ev_overlay_bonus", 0.0),
+                                        "night_bonus":          _pe.get("ev_night_bonus", 0.0),
+                                        "mmfsn_bonus":          _pe.get("ev_mmfsn_bonus", 0.0),
+                                        "recent_signal_bonus":  _pe.get("ev_recent_signal_bonus", 0.0),
+                                        "pav_bonus":            _pe.get("ev_pav_bonus", 0.0),
+                                        "instability_penalty":  _pe.get("ev_instability_penalty", 0.0),
+                                        "overexposure_penalty": _pe.get("ev_overexposure_penalty", 0.0),
+                                        "cold_signal_penalty":  _pe.get("ev_cold_signal_penalty", 0.0),
                                     })
                                     _gid = make_grain_id(
                                         date_str,
