@@ -1407,13 +1407,13 @@ def generate_powerball_picks(lines=2, root: Path = None):
 
 def generate_millionaire_for_life_picks(lines=2, root: Path = None):
     """Generate Millionaire For Life picks with frequency-weighted selection.
-    White balls: 1-60, pick 5 | Millionaire Ball: 1-5"""
+    White balls: 1-58, pick 5 | Millionaire Ball: 1-5"""
     if root:
         wc, sc = _get_jackpot_history(root, "Millionaire For Life")
     else:
         from collections import Counter
         wc, sc = Counter(), Counter()
-    return [_frequency_pick_line(wc, (1, 60), 5, sc, (1, 5)) for _ in range(lines)]
+    return [_frequency_pick_line(wc, (1, 58), 5, sc, (1, 5)) for _ in range(lines)]
 
 
 

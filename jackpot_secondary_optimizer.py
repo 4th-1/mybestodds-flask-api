@@ -109,8 +109,8 @@ GAME_CONFIGS: Dict[str, GameConfig] = {
     ),
     "Millionaire For Life": GameConfig(
         name="Millionaire For Life",
-        main_min=1, main_max=60, main_count=5,
-        bonus_min=1, bonus_max=4, bonus_count=1,
+        main_min=1, main_max=58, main_count=5,
+        bonus_min=1, bonus_max=5, bonus_count=1,
         ticket_price=5.00,
         prizes={
             (5, 1): ("JACKPOT",        0),
