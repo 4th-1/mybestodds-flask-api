@@ -3070,13 +3070,54 @@ def ev_observe_cron():
     try:
         from jackpot_system_v3.core.pick_engine_v3 import _recommended_play, _confidence_ui
         from datetime import date as _date_cls
+        import glob as _glob
 
-        all_predictions = get_predictions_for_date(date_str, "BOOK3")
+        # Build subscriber list: load all obs-sub-*.json profiles for
+        # multi-subscriber observation; fall back to MBO default if none found.
+        _sub_dir   = SUBSCRIBERS_DIR
+        _sub_files = sorted(_glob.glob(os.path.join(_sub_dir, "obs-sub-*.json")))
+        _subscriber_profiles: list = []
+        for _sf in _sub_files:
+            try:
+                with open(_sf) as _fh:
+                    _sp = json.load(_fh)
+                _subscriber_profiles.append({
+                    "subscriber_id": _sp.get("subscriber_id", os.path.basename(_sf)),
+                    "initials":      _sp.get("birth_profile", {}).get("initials", "UNK"),
+                    "dob":           _sp.get("birth_profile", {}).get("dob", ""),
+                    "tob":           _sp.get("birth_profile", {}).get("tob", ""),
+                    "pob":           _sp.get("birth_profile", {}).get("pob", ""),
+                    "games":         _sp.get("games", ["Cash3", "Cash4"]),
+                })
+            except Exception:
+                pass
+        if not _subscriber_profiles:
+            _subscriber_profiles = [{"subscriber_id": "MBO", "initials": "MBO",
+                                     "dob": "", "tob": "", "pob": "", "games": ["Cash3", "Cash4"]}]
+
+        # Multi-subscriber log path (separate from single-profile log)
+        _multi_log_path = _rc_module._LOG_DIR / "ev_observe_multi.jsonl"
+        _multi_logged_grains: set = set()
+        if _multi_log_path.exists():
+            with open(_multi_log_path, encoding="utf-8") as _mlf:
+                for _ml in _mlf:
+                    _ml = _ml.strip()
+                    if _ml:
+                        try:
+                            _multi_logged_grains.add(json.loads(_ml).get("grain_id", ""))
+                        except Exception:
+                            pass
+
+        _multi_picks: list = []
+
         _gad    = _load_ga_data_from_json()
         _c3_hist = [
             d["winning_numbers"]
             for d in _gad.get("cash3_mid", []) + _gad.get("cash3_eve", []) + _gad.get("cash3_night", [])
         ]
+
+        # Single-profile picks (existing behaviour — MBO default)
+        all_predictions = get_predictions_for_date(date_str, "BOOK3")
 
         ev_picks_to_log: list = []
         gate_map: dict = {}
@@ -3228,16 +3269,86 @@ def ev_observe_cron():
         if ev_picks_to_log:
             log_ev_request(ev_picks_to_log, gate_map)
 
+        # ----------------------------------------------------------------
+        # Multi-subscriber observation — iterate all obs-sub-* profiles,
+        # generate picks for each, write to ev_observe_multi.jsonl.
+        # grain_id = date|subscriber_id|draw|game|lane|pick
+        # ----------------------------------------------------------------
+        ALL_CASH3_PLAY_TYPES_MULTI = ["STRAIGHT_BOX"]  # STRAIGHT_BOX only for signal test
+        for _sub in _subscriber_profiles:
+            _sub_id = _sub["subscriber_id"]
+            _sub_dict = {
+                "initials": _sub["initials"],
+                "dob":      _sub["dob"],
+                "tob":      _sub["tob"],
+                "pob":      _sub["pob"],
+                "games":    _sub["games"],
+            }
+            try:
+                _sub_preds = get_predictions_for_date(date_str, "BOOK3", subscriber=_sub_dict)
+            except Exception:
+                continue
+            for _sp in _sub_preds:
+                if _sp.get("game") != "Cash3":
+                    continue
+                _sess = (_sp.get("session") or "").upper()
+                if session_filter and _sess != session_filter:
+                    continue
+                if _EV_RERANKER is None:
+                    continue
+                _conf  = _sp.get("confidence_score") or 0.0
+                _num   = str(_sp.get("number", ""))
+                try:
+                    _draw_date = _date_cls.fromisoformat(date_str)
+                except (ValueError, TypeError):
+                    _draw_date = _date_cls.today()
+                _ev_tier = _score_to_confidence_tier(_conf)
+                for _pt in ALL_CASH3_PLAY_TYPES_MULTI:
+                    _mgid = f"{date_str}|{_sub_id}|{_sess}|cash3|{_pt.lower()}|{_num}"
+                    if _mgid in _multi_logged_grains:
+                        continue
+                    _mscored = _EV_RERANKER.score_pick(
+                        game="Cash3", play_type=_pt,
+                        session=_sess, tier=_ev_tier,
+                        pick=_num, draw_date=_draw_date,
+                    )
+                    _mev_decision, _ = _EV_RERANKER._decide(_mscored)
+                    _multi_logged_grains.add(_mgid)
+                    _multi_picks.append({
+                        "grain_id":      _mgid,
+                        "logged_at":     datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                        "subscriber_id": _sub_id,
+                        "initials":      _sub["initials"],
+                        "date":          date_str,
+                        "draw":          _sess,
+                        "game":          "Cash3",
+                        "lane":          _pt,
+                        "pick":          _num,
+                        "overlay_tier":  _ev_tier,
+                        "ev_score":      _mscored["ev_score"],
+                        "ev_decision":   _mev_decision,
+                        "result":        "",
+                        "hit_flag":      "",
+                        "payout":        "",
+                        "stake":         1.0,
+                    })
+
+        if _multi_picks:
+            with open(_multi_log_path, "a", encoding="utf-8") as _mlfw:
+                for _mp in _multi_picks:
+                    _mlfw.write(json.dumps(_mp) + "\n")
+
         logged    = len(ev_picks_to_log)
         c3_logged = sum(1 for e in ev_picks_to_log if e["game"] == "Cash3")
         c4_logged = sum(1 for e in ev_picks_to_log if e["game"] == "Cash4")
-        logger.info(f"[ev_observe_cron] {date_str}: logged {logged} picks (Cash3={c3_logged} Cash4={c4_logged})")
+        logger.info(f"[ev_observe_cron] {date_str}: logged {logged} picks (Cash3={c3_logged} Cash4={c4_logged}) multi={len(_multi_picks)}")
         return jsonify({
             "success":    True,
             "date":       date_str,
             "logged":     logged,
             "cash3":      c3_logged,
             "cash4":      c4_logged,
+            "multi_subscriber_picks": len(_multi_picks),
             "picks":      [
                 {"game": e["game"], "pick": e["pick"], "session": e["draw"],
                  "lane": e["lane"], "ev_score": e["ev_score"], "decision": e["decision"]}
